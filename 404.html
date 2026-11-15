@@ -532,17 +532,89 @@ div.tz-c .tz-f{color:var(--mut);font-weight:600}
 .gal .g0{grid-column:span 2;grid-row:span 2}
 .gal .g3{grid-column:span 2}
 .soc-c{display:grid;gap:10px}
-.sc{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;color:#fff;box-shadow:0 10px 24px rgba(60,20,40,.12)}
-.sc>svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:2;flex-shrink:0}
-.sc div{flex:1}
-.sc b{display:block;font-size:16px}
-.sc span{font-size:13px;opacity:.9}
-.sc .i{margin:0;width:18px;height:18px}
-.sc.ig{background:linear-gradient(120deg,#f58529,#dd2a7b 50%,#8134af)}
-.sc.tk{background:linear-gradient(120deg,#2b2230,#3a2d40)}
-.sc.wa{background:linear-gradient(120deg,#25d366,#128c7e)}
+.sco{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;color:#fff;box-shadow:0 10px 24px rgba(60,20,40,.12)}
+.sco>svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:2;flex-shrink:0}
+.sco div{flex:1}
+.sco b{display:block;font-size:16px}
+.sco span{font-size:13px;opacity:.9}
+.sco .i{margin:0;width:18px;height:18px}
+.sco.ig{background:linear-gradient(120deg,#f58529,#dd2a7b 50%,#8134af)}
+.sco.tk{background:linear-gradient(120deg,#2b2230,#3a2d40)}
+.sco.wa{background:linear-gradient(120deg,#25d366,#128c7e)}
 @media (min-width:700px){.hx h1{font-size:96px}.hx-in{padding:0 40px 110px}.tz{grid-template-columns:repeat(2,1fr)}.nums{grid-template-columns:repeat(4,1fr)}.hist{grid-template-columns:1fr 1.1fr;align-items:center}.hist-ph img{height:440px}.gal{grid-template-columns:repeat(4,1fr);grid-auto-rows:170px}.gal .g3{grid-column:span 2}.soc-c{grid-template-columns:repeat(3,1fr)}.hs-h h2{font-size:38px}}
 @media (min-width:960px){.hx{margin:-24px calc(50% - 50vw) 0;min-height:calc(100vh - 70px)}.hx-in{padding-left:var(--side);padding-right:var(--side);max-width:none}.hx p{font-size:18px}.hx h1{font-size:120px}.nums{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:44px var(--side)}.nums b{font-size:56px}.tz{grid-template-columns:repeat(3,1fr)}.hs{padding-top:70px}}
+/* ── v6: diseño propio para computadora ── */
+.tbar,.fx-tools{display:contents}
+.mt .sc .vs{font-size:12px;padding:5px 9px;background:#fff1f2;box-shadow:none}
+@media (min-width:960px){
+ :root{--side:max(32px,calc(50vw - 640px))}
+ .wrap{max-width:1280px}
+ main{padding:24px 32px 10px}
+ /* Barra del torneo: categorías a la izquierda, secciones a la derecha */
+ .tbar{position:sticky;top:70px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;margin:14px 0 20px;padding:10px 0;background:rgba(236,238,244,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+ .tbar .cats{margin:0;padding:0;flex-wrap:wrap;overflow:visible}
+ .tbar .cats a{padding:10px 18px;font-size:14px}
+ .tbar .stabs{position:static;margin:0;padding:0;background:none;backdrop-filter:none}
+ .tbar .stabs nav{display:flex;max-width:none;gap:2px;padding:5px}
+ .tbar .stabs a{flex-direction:row;gap:8px;padding:10px 16px;font-size:14px;white-space:nowrap}
+ .tbar .stabs a svg{width:18px;height:18px}
+ /* Herramientas del fixture en una sola fila */
+ .fx-tools{display:grid;grid-template-columns:250px minmax(300px,1fr) minmax(420px,1.4fr);gap:12px;align-items:stretch;margin-bottom:20px}
+ .fx-tools>.seg,.fx-tools>.daynav,.fx-tools>.flts{margin:0;max-width:none}
+ .fx-tools>.seg{height:100%;align-items:center}
+ .fx-tools>.daynav{height:auto;min-height:56px}
+ .fx-tools>.flts{grid-template-columns:1.3fr 1fr 1fr}
+ .fx-tools>.clr{grid-column:1/-1;margin:-4px 0 0 auto}
+ .seg,.daynav,.search,.flts{max-width:none}
+ /* Grillas que llenan el ancho */
+ .cols{grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:18px}
+ .cols3{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+ .teams{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))!important;gap:14px}
+ .tm{padding:18px 12px}
+ .tm .cr.big{width:76px;height:76px}
+ .box{border-radius:18px}
+ .box-h{padding:14px 18px;font-size:14px}
+ .mt{padding:14px 18px 16px}
+ .mt-row{grid-template-columns:minmax(0,1fr) 110px minmax(0,1fr)}
+ .mt .side .cr{width:58px;height:58px}
+ .mt .side .tn{font-size:14.5px}
+ .mt .sc{font-size:24px}
+ .mt-meta{font-size:12.5px}
+ table td{font-size:14.5px;padding:11px 6px}
+ td.tn .cr{width:30px;height:30px}
+ td.tn span{font-size:14px}
+ .kpis{grid-template-columns:repeat(4,1fr);gap:16px}
+ .kpi{padding:20px}
+ .kpi b{font-size:34px}
+ .rg-dl{padding:22px 26px}
+ .rg-dl b{font-size:19px}
+ .rg-sys p{font-size:14.5px}
+ .rg-pt{padding:16px 18px}
+ .rg-pt b{font-size:15px}
+ .rg-pt p{font-size:14px}
+ .det-wrap{max-width:820px}
+ .det .vs{padding:34px 20px}
+ .det .big{font-size:44px}
+ .det .side .cr.big{width:96px;height:96px}
+ /* Inicio: torneo destacado en tarjeta horizontal */
+ .tz.one{grid-template-columns:1fr}
+ .tz.one .tz-c{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr auto;min-height:380px}
+ .tz.one .tz-ph{grid-row:1/3;height:auto}
+ .tz.one .tz-b{flex-direction:column;padding:34px 34px 10px;gap:18px}
+ .tz.one .tz-d{margin-top:0;width:76px;padding:10px 0}
+ .tz.one .tz-d b{font-size:34px}
+ .tz.one .tz-b h3{font-size:30px}
+ .tz.one .tz-b small{font-size:13px}
+ .tz.one .tz-b p{font-size:15px}
+ .tz.one .tz-f{margin:0 34px 30px;font-size:15px}
+ .hs-h h2{font-size:44px}
+ .hist-tx p{font-size:16.5px}
+ .tl span{font-size:15px}
+ .gal{grid-auto-rows:200px;gap:12px}
+ .sco{padding:22px 24px}
+ .sco b{font-size:18px}
+}
+@media (min-width:1280px){.cols.wide3{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -551,7 +623,7 @@ div.tz-c .tz-f{color:var(--mut);font-weight:600}
 <footer><img src="/logo.webp" alt="">Organización Mundialito · Club Atlético Alianza · Arteaga, Santa Fe</footer>
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js"></script>
+<script src="/config.js?v=20261116c"></script>
 <script>
 // ── Web pública del Mundialito: solo lectura, se actualiza en vivo desde el SGI ──
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
@@ -583,7 +655,7 @@ function cutName(n){let w=String(n||'').split(/\s+/).filter(Boolean),i=0;while(i
 function dName(f,id){let n=tName(f,id),s=cutName(n);if(s===n)return n;let c=f._short||(f._short=Object.values(f.teams||{}).reduce((a,x)=>{let k=cutName(x.n).toLowerCase();a[k]=(a[k]||0)+1;return a},{}));return c[s.toLowerCase()]>1?n:s}
 function initials(n){let w=String(n||'').replace(/[^\p{L}\p{N}\s]/gu,' ').split(/\s+/).filter(Boolean),k=w.filter(x=>!STOP.test(x));if(!k.length)k=w;return (k.length>1?k[0][0]+k[1][0]:(k[0]||'?').slice(0,2)).toUpperCase()}
 const hue=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))>>>0;return h%360};
-function crest(f,id,big){if(!id)return `<span class="cr ghost ${big?'big':''}">?</span>`;let t=f.teams?.[id]||{},k=t.k||[];if(t.l)return `<span class="cr lg ${big?'big':''}"><img src="${esc(t.l)}" alt="" loading="lazy"></span>`;k=t.k||[],c1=k[0]||`hsl(${hue(t.n)} 55% 38%)`,c2=k[1]&&k[1].toLowerCase()!==String(c1).toLowerCase()?k[1]:'#ffffff';return `<span class="cr ${big?'big':''}" style="--c1:${esc(c1)};--c2:${esc(c2)}">${esc(initials(t.n))}</span>`}
+function crest(f,id,big){if(!id)return `<span class="cr ghost ${big?'big':''}">?</span>`;let t=f.teams?.[id]||{},k=t.k||[];if(t.l)return `<span class="cr lg ${big?'big':''}"><img src="${esc(t.l)}" alt="" decoding="async"></span>`;k=t.k||[],c1=k[0]||`hsl(${hue(t.n)} 55% 38%)`,c2=k[1]&&k[1].toLowerCase()!==String(c1).toLowerCase()?k[1]:'#ffffff';return `<span class="cr ${big?'big':''}" style="--c1:${esc(c1)};--c2:${esc(c2)}">${esc(initials(t.n))}</span>`}
 // ── Datos y tiempo real ──
 async function loadAll(){let {data,error}=await sb.from('torneos_publicos').select('*').order('inicio',{ascending:true});if(error)throw error;T=data||[]}
 async function loadFixture(id){let {data,error}=await sb.from('fixture_publico').select('*').eq('torneo_id',id);if(error)throw error;FX[id]={};(data||[]).forEach(r=>FX[id][r.categoria]=r.datos);lastUpd=(data||[]).map(r=>r.actualizado).sort().pop()||null}
@@ -615,7 +687,7 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  let html=`<section class="hx"><div class="hx-bg"></div><div class="hx-in"><img class="hx-logo" src="/logo.webp" alt=""><span class="hx-kick">Arteaga · Santa Fe · Desde 1987</span><h1>Mundialito<br><em>Alianza</em></h1><p>El torneo de fútbol infantil y juvenil del Club Atlético Alianza. Una fiesta que cada año reúne a clubes, chicos y familias de todo el país.</p><div class="hx-cta"><a class="hx-btn" href="#torneos" onclick="event.preventDefault();document.getElementById('torneos').scrollIntoView({behavior:'smooth'})">Ver torneos</a><a class="hx-btn ghost" href="#historia" onclick="event.preventDefault();document.getElementById('historia').scrollIntoView({behavior:'smooth'})">Nuestra historia</a></div></div><a class="hx-down" href="#torneos" onclick="event.preventDefault();document.getElementById('torneos').scrollIntoView({behavior:'smooth'})" aria-label="Bajar">${SV.r}</a></section>`;
  // Torneos en juego y próximos
  html+=`<section class="hs" id="torneos"><div class="hs-h"><span>Torneos</span><h2>${live.length?'Se está jugando':'Lo que viene'}</h2></div>`;
- html+=next.length?`<div class="tz">${next.slice(0,6).map((t,k)=>{let d=daysTo(t.inicio),s=dISO(t.inicio),st_=tState(t),go=t.publicado?`/${esc(t.id)}`:null;return `<${go?'a href="'+go+'" data-l':'div'} class="tz-c ${st_}"><div class="tz-ph" style="background-image:url(${photo(t,k)})"><span class="tz-tag">${st_==='live'?'<i></i>En juego':d===1?'Mañana':'Faltan '+d+' días'}</span></div><div class="tz-b"><div class="tz-d"><b>${s.getDate()}</b><span>${MON[s.getMonth()]}</span></div><div><small>${tTypeName(t)}</small><h3>${esc(t.nombre)}</h3><p>${IC.pin}${esc(city(t))}</p></div></div><div class="tz-f">${go?`<span>Fixture, posiciones y reglamento</span>${IC.arrow}`:'<span>El fixture se publica cerca de la fecha</span>'}</div></${go?'a':'div'}>`}).join('')}</div>`:'<p class="hs-empty">Pronto vamos a anunciar los próximos torneos.</p>';
+ html+=next.length?`<div class="tz ${next.length===1?'one':''}">${next.slice(0,6).map((t,k)=>{let d=daysTo(t.inicio),s=dISO(t.inicio),st_=tState(t),go=t.publicado?`/${esc(t.id)}`:null;return `<${go?'a href="'+go+'" data-l':'div'} class="tz-c ${st_}"><div class="tz-ph" style="background-image:url(${photo(t,k)})"><span class="tz-tag">${st_==='live'?'<i></i>En juego':d===1?'Mañana':'Faltan '+d+' días'}</span></div><div class="tz-b"><div class="tz-d"><b>${s.getDate()}</b><span>${MON[s.getMonth()]}</span></div><div><small>${tTypeName(t)}</small><h3>${esc(t.nombre)}</h3><p>${IC.pin}${esc(city(t))}</p></div></div><div class="tz-f">${go?`<span>Fixture, posiciones y reglamento</span>${IC.arrow}`:'<span>El fixture se publica cerca de la fecha</span>'}</div></${go?'a':'div'}>`}).join('')}</div>`:'<p class="hs-empty">Pronto vamos a anunciar los próximos torneos.</p>';
  html+=`</section>`;
  // Números
  html+=`<section class="nums"><div><b>${ed-1}</b><span>ediciones del Mundialito de enero</span></div><div><b>1987</b><span>año de la primera edición</span></div><div><b>${ed}.ª</b><span>edición en enero ${ma?dISO(ma.inicio).getFullYear():2027}</span></div><div><b>${next.length}</b><span>${next.length===1?'torneo por jugar':'torneos por jugar'}</span></div></section>`;
@@ -624,7 +696,7 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  // Galería
  html+=`<section class="hs"><div class="hs-h"><span>Galería</span><h2>Momentos del Mundialito</h2></div><div class="gal">${[['inauguracion','Inauguración'],['campeones','Campeones'],['juego','En la cancha'],['aerea','El predio desde arriba'],['damfield','Mundialito Funes'],['historia','Nuestra historia']].map(([p,l],k)=>`<figure class="g${k}"><img src="/img/${p}.jpg" alt="${l}" loading="lazy"><figcaption>${l}</figcaption></figure>`).join('')}</div></section>`;
  // Redes
- html+=`<section class="hs"><div class="hs-h"><span>Seguinos</span><h2>Viví el Mundialito en redes</h2></div><div class="soc-c"><a class="sc ig" href="${ig}" target="_blank" rel="noopener">${SV.ig}<div><b>Instagram</b><span>@${esc(CFG.instagram||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sc tk" href="${tk}" target="_blank" rel="noopener">${IC.tt}<div><b>TikTok</b><span>@${esc(CFG.tiktok||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sc wa" href="${wa}" target="_blank" rel="noopener">${SV.wa}<div><b>WhatsApp</b><span>Consultas e inscripciones</span></div>${IC.arrow}</a></div></section>`;
+ html+=`<section class="hs"><div class="hs-h"><span>Seguinos</span><h2>Viví el Mundialito en redes</h2></div><div class="soc-c"><a class="sco ig" href="${ig}" target="_blank" rel="noopener">${SV.ig}<div><b>Instagram</b><span>@${esc(CFG.instagram||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sco tk" href="${tk}" target="_blank" rel="noopener">${IC.tt}<div><b>TikTok</b><span>@${esc(CFG.tiktok||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sco wa" href="${wa}" target="_blank" rel="noopener">${SV.wa}<div><b>WhatsApp</b><span>Consultas e inscripciones</span></div>${IC.arrow}</a></div></section>`;
  // Ya se jugaron
  if(fin.length)html+=`<section class="hs"><div class="hs-h"><span>Resultados</span><h2>Ya se jugaron</h2></div><div class="past">${fin.slice(0,6).map((t,k)=>{let c=Object.entries(t.campeones||{});return `<article class="pc"><div class="ph" style="background-image:url(${photo(t,k+2)})"><span class="pill ${tType(t)}">${tTypeName(t)}</span><span class="fin">Finalizado</span></div><div class="pc-b"><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))} · ${fmtD(t.inicio)} al ${fmtD(t.fin)}</small>${c.length?`<div class="champs"><span class="ch-t">${IC.trophy} Campeones</span>${c.map(([cat,nm])=>`<div><span>${esc(cat)}</span><b>${esc(cutName(nm))}</b></div>`).join('')}</div>`:''}</div></article>`}).join('')}</div></section>`;
  return html+`<div class="mascots"><img src="/img/pateando.webp" alt=""><img src="/img/cabeceando.webp" alt=""><img src="/img/pisando.webp" alt=""></div>`}
@@ -633,7 +705,7 @@ function tournament(t,flash){let cats=(t.categorias||[]).filter(c=>FX[t.id]?.[c]
  if(!t.publicado||!cats.length)return head+`<div class="empty" style="margin-top:20px"><img src="/img/pateando.webp" alt="">El fixture de este torneo todavía no está publicado.<br>Volvé a entrar más cerca de la fecha.</div>`;
  let byslug=Object.fromEntries(cats.map(c=>[slug(c),c]));if(!st.cat||!byslug[st.cat]){let c=ls.get('cat-'+t.id);st.cat=byslug[c]?c:slug(cats[0]);history.replaceState(null,'',U(st.view,st.x))}ls.set('cat-'+t.id,st.cat);let cat=byslug[st.cat],f=FX[t.id][cat];
  let tv=st.view==='partido'?'fixture':st.view;
- head+=`<div class="cats">${cats.map(c=>`<a href="${U(tv==='fixture'?'fixture':tv,null,slug(c))}" data-l class="${c===cat?'on':''}">${esc(c)}</a>`).join('')}</div><div class="stabs"><nav>${[['fixture','Fixture',SV.ball],['equipos','Equipos',SV.shirt],['posiciones','Posiciones',SV.table],['estadisticas','Estadísticas',SV.chart],['reglamento','Reglamento',SV.doc]].map(([k,n,i])=>`<a href="${U(k)}" data-l class="${tv===k?'on':''}">${i}${n}</a>`).join('')}</nav></div>`;
+ head+=`<div class="tbar"><div class="cats">${cats.map(c=>`<a href="${U(tv==='fixture'?'fixture':tv,null,slug(c))}" data-l class="${c===cat?'on':''}">${esc(c)}</a>`).join('')}</div><div class="stabs"><nav>${[['fixture','Fixture',SV.ball],['equipos','Equipos',SV.shirt],['posiciones','Posiciones',SV.table],['estadisticas','Estadísticas',SV.chart],['reglamento','Reglamento',SV.doc]].map(([k,n,i])=>`<a href="${U(k)}" data-l class="${tv===k?'on':''}">${i}${n}</a>`).join('')}</nav></div></div>`;
  let body=st.view==='posiciones'?vPos(f):st.view==='equipos'?vTeams(f):st.view==='estadisticas'?vStats(f):st.view==='reglamento'?vRegl(t):st.view==='partido'?vMatch(f,st.x):vFixture(f,flash);
  return head+body+(lastUpd?`<p class="upd">Actualizado: ${new Date(lastUpd).toLocaleString('es-AR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',hour12:false})} hs</p>`:'')}
 const zoneName=(f,m)=>m.ph==='Zona'?(f.zones.find(z=>z.id===m.z)?.name||'Zona'):m.ph;
@@ -657,7 +729,7 @@ function vFixture(f,flash){if(st._fcat!==st.cat){st._fcat=st.cat;st.field='';st.
  const teams=Object.entries(f.teams||{}).sort((a,b)=>dName(f,a[0]).localeCompare(dName(f,b[0])));
  const sel=(key,label,list,cur)=>`<label class="flt ${cur?'on':''}"><span>${label}</span><select onchange="st.${key}=this.value;render()"><option value="">${key==='team'?'Todos':'Todas'}</option>${list.map(([v,n])=>`<option value="${esc(v)}" ${v===cur?'selected':''}>${esc(n)}</option>`).join('')}</select></label>`;
  let filters=`<div class="flts">${sel('team','Equipo',teams.map(([id])=>[id,dName(f,id)]),st.team)}${sel('field','Cancha',fields.map(x=>[x,x]),st.field)}${sel('time','Horario',times.map(x=>[x,x+' hs']),st.time)}</div>${st.team||st.field||st.time?`<button class="clr" onclick="st.team='';st.field='';st.time='';render()">Quitar filtros</button>`:''}`;
- let top=`<div class="seg"><button class="${st.mode==='horario'?'on':''}" onclick="st.mode='horario';render()">Por horario</button><button class="${st.mode==='grupo'?'on':''}" onclick="st.mode='grupo';render()">Por grupo</button></div>${nav}${filters}`;
+ let top=`<div class="fx-tools"><div class="seg"><button class="${st.mode==='horario'?'on':''}" onclick="st.mode='horario';render()">Por horario</button><button class="${st.mode==='grupo'?'on':''}" onclick="st.mode='grupo';render()">Por grupo</button></div>${nav}${filters}</div>`;
  if(st.team)top+=`<div class="tm-h">${crest(f,st.team,true)}<div><b>${esc(tName(f,st.team))}</b><small>Todos sus partidos del torneo</small></div></div>`;
  if(!ms.length)return top+`<div class="empty"><img src="/img/cabeceando.webp" alt="">No hay partidos con esos filtros.</div>`;
  if(st.team){let ds=[...new Set(ms.map(m=>m.d||''))];return top+'<div class="cols">'+ds.map(x=>{let list=ms.filter(m=>(m.d||'')===x);return `<div class="box"><div class="box-h"><span class="zt"><i></i>${x?DAYL[dISO(x).getDay()]+' '+fmtD(x):'Sin fecha'}</span><small>${list.length} partido${list.length>1?'s':''}</small></div>${list.map(m=>row(f,m,flash,true)).join('')}</div>`}).join('')+'</div>'}
