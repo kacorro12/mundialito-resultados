@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#c3121f">
-<title>Mundialito · Fixture y resultados</title>
+<title>Mundialito Alianza</title>
 <meta name="description" content="Fixture, resultados y tablas de posiciones del Mundialito en vivo.">
 <link rel="icon" href="/logo.webp">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -436,6 +436,113 @@ a.cal-i:hover{background:#faf8fb}
 .tm-h b{display:block;font-size:15px}
 .tm-h small{color:var(--mut);font-size:12px}
 @media (min-width:960px){.flts{max-width:640px}.mt .side .cr{width:54px;height:54px}.mt .side .tn{font-size:14px}.mt-row{grid-template-columns:minmax(0,1fr) 96px minmax(0,1fr)}}
+/* v4: reglamento, copas y pestañas de 5 */
+.stabs nav{grid-template-columns:repeat(5,1fr)!important}
+.stabs a{font-size:10.5px}
+@media (min-width:960px){.stabs nav{max-width:760px}.stabs a{font-size:13.5px}}
+.seg.four{grid-template-columns:repeat(4,1fr)}
+.seg.four button{font-size:12px}
+.rg-dl{display:flex;align-items:center;gap:12px;background:linear-gradient(120deg,var(--red),var(--red2));color:#fff;border-radius:16px;padding:16px;box-shadow:0 10px 24px rgba(215,25,43,.25)}
+.rg-dl .rg-ic{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.18);display:grid;place-items:center;flex-shrink:0}
+.rg-dl .rg-ic svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rg-dl>div{flex:1;min-width:0}
+.rg-dl b{display:block;font-size:16px}
+.rg-dl small{opacity:.85;font-size:12.5px}
+.rg-dl .btn{background:#fff;color:var(--red2)}
+.rg-dl .btn svg{stroke:var(--red2)}
+.rg-sys p{margin:0;padding:12px 14px 4px;font-size:13.5px;color:#4a4350;line-height:1.45}
+.rg-cups{display:grid;gap:8px;padding:10px 14px 14px}
+.rg-cup{border-radius:10px;padding:9px 11px;border-left:4px solid}
+.rg-cup b{display:block;font-size:13px}
+.rg-cup span{font-size:12.5px;color:#4a4350}
+.rg-cup.oro{background:#fdf6e3;border-color:#c9a227}.rg-cup.plata{background:#f1f3f6;border-color:#8a94a6}.rg-cup.bronce{background:#fbefe7;border-color:#b8693d}
+.rg-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.rg-pt{background:#fff;border:1px solid #e3e0e8;border-radius:14px;padding:12px 14px}
+.rg-pt b{font-size:14px}
+.rg-pt p{margin:4px 0 0;font-size:13px;color:#5d5262;line-height:1.45}
+.rg-steps{counter-reset:s;list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.rg-steps li{counter-increment:s;background:#fff;border:1px solid #e3e0e8;border-radius:12px;padding:8px 12px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px}
+.rg-steps li:before{content:counter(s);width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:12px}
+.cup .box-h .zt i{background:var(--cc)}
+.cup.oro{--cc:#c9a227}.cup.plata{--cc:#8a94a6}.cup.bronce{--cc:#b8693d}
+.cup-ph{padding:8px 14px 0;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--cc)}
+@media (min-width:640px){.rg-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:960px){.rg-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ── v5: portada del Mundialito Alianza ── */
+html{scroll-behavior:smooth}
+.hx{position:relative;margin:-14px -14px 0;min-height:calc(100svh - 62px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#5a0712}
+.hx-bg{position:absolute;inset:0;background:url(/img/inauguracion.jpg) center/cover;transform:scale(1.04);animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.12) translateY(-2%)}}
+.hx:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(90,7,18,.25) 0%,rgba(120,8,22,.55) 45%,rgba(70,5,14,.96) 100%)}
+.hx-in{position:relative;z-index:1;padding:0 22px 92px;max-width:720px}
+.hx-logo{width:52px;height:62px;object-fit:contain;filter:brightness(0) invert(1) drop-shadow(0 4px 12px rgba(0,0,0,.4));margin-bottom:18px}
+.hx-kick{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:6px 10px;border:1px solid rgba(255,255,255,.4);border-radius:99px;margin-bottom:14px}
+.hx h1{margin:0;font-size:56px;line-height:.92;font-weight:900;letter-spacing:-.03em;text-transform:uppercase}
+.hx h1 em{font-style:normal;font-weight:400;letter-spacing:.02em;color:rgba(255,255,255,.92)}
+.hx p{margin:16px 0 0;font-size:15.5px;line-height:1.5;opacity:.92;max-width:520px}
+.hx-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.hx-btn{display:inline-flex;align-items:center;font-weight:800;font-size:14px;padding:13px 20px;border-radius:12px;background:#fff;color:var(--red2)}
+.hx-btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.45)}
+.hx-down{position:absolute;z-index:1;left:50%;bottom:22px;transform:translateX(-50%) rotate(90deg);width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;animation:bob 1.8s ease-in-out infinite}
+.hx-down svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2.5}
+@keyframes bob{50%{transform:translateX(-50%) rotate(90deg) translateX(6px)}}
+.hs{padding:44px 0 4px;scroll-margin-top:70px}
+.hs-h{margin-bottom:18px}
+.hs-h span{display:block;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.hs-h h2{margin:6px 0 0;font-size:28px;line-height:1.08;font-weight:900;letter-spacing:-.02em}
+.hs-empty{color:var(--mut)}
+.tz{display:grid;gap:14px}
+.tz-c{display:flex;flex-direction:column;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 12px 30px rgba(60,20,40,.1);transition:transform .2s}
+a.tz-c:active{transform:scale(.99)}
+.tz-ph{height:150px;background-size:cover;background-position:center;position:relative}
+.tz-ph:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.35))}
+.tz-tag{position:absolute;z-index:1;left:12px;top:12px;display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--ink);font-size:12px;font-weight:800;padding:5px 10px;border-radius:99px}
+.tz-c.live .tz-tag{background:var(--red);color:#fff}
+.tz-tag i{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.2s infinite}
+.tz-b{display:flex;gap:14px;padding:16px 16px 10px;align-items:flex-start}
+.tz-d{width:56px;flex-shrink:0;text-align:center;border-radius:14px;background:linear-gradient(160deg,var(--red),var(--red2));color:#fff;padding:7px 0 6px;margin-top:-40px;position:relative;z-index:1;box-shadow:0 8px 18px rgba(215,25,43,.35)}
+.tz-d b{display:block;font-size:24px;font-weight:900;line-height:1}
+.tz-d span{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.tz-b small{font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.tz-b h3{margin:3px 0 4px;font-size:18px;line-height:1.15;font-weight:900}
+.tz-b p{margin:0;display:flex;align-items:center;color:var(--mut);font-size:13px}
+.tz-f{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:4px 16px 16px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;font-weight:800;color:var(--red2)}
+.tz-f .i{margin:0}
+div.tz-c .tz-f{color:var(--mut);font-weight:600}
+.nums{margin:44px -14px 0;padding:30px 20px;display:grid;grid-template-columns:1fr 1fr;gap:22px 16px;color:#fff;background:linear-gradient(120deg,#6f0a16,#a3101f 60%,#c3121f);position:relative;overflow:hidden}
+.nums:before{content:'';position:absolute;right:-60px;top:-60px;width:220px;height:220px;background:url(/logo.webp) center/contain no-repeat;filter:brightness(0) invert(1);opacity:.07}
+.nums b{display:block;font-size:40px;font-weight:900;line-height:1;letter-spacing:-.02em}
+.nums span{display:block;font-size:12.5px;opacity:.85;margin-top:6px;line-height:1.3}
+.hist{display:grid;gap:22px}
+.hist-ph{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px rgba(60,20,40,.18)}
+.hist-ph img{width:100%;height:260px;object-fit:cover;filter:sepia(.25) saturate(.9)}
+.hist-ph span{position:absolute;left:14px;bottom:14px;background:var(--red);color:#fff;font-weight:900;font-size:13px;padding:6px 12px;border-radius:8px}
+.hist-tx p{margin:0 0 12px;font-size:15px;line-height:1.6;color:#3d3542}
+.tl{list-style:none;margin:18px 0 0;padding:0;border-left:2px solid #e4c9cd}
+.tl li{position:relative;padding:0 0 16px 18px}
+.tl li:before{content:'';position:absolute;left:-7px;top:3px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--red)}
+.tl b{display:block;font-size:15px;font-weight:900;color:var(--red2)}
+.tl span{font-size:14px;color:#4a4350;line-height:1.45}
+.gal{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:130px;gap:8px}
+.gal figure{margin:0;position:relative;border-radius:14px;overflow:hidden}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;font-size:12px;font-weight:800;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.6))}
+.gal .g0{grid-column:span 2;grid-row:span 2}
+.gal .g3{grid-column:span 2}
+.soc-c{display:grid;gap:10px}
+.sc{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;color:#fff;box-shadow:0 10px 24px rgba(60,20,40,.12)}
+.sc>svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:2;flex-shrink:0}
+.sc div{flex:1}
+.sc b{display:block;font-size:16px}
+.sc span{font-size:13px;opacity:.9}
+.sc .i{margin:0;width:18px;height:18px}
+.sc.ig{background:linear-gradient(120deg,#f58529,#dd2a7b 50%,#8134af)}
+.sc.tk{background:linear-gradient(120deg,#2b2230,#3a2d40)}
+.sc.wa{background:linear-gradient(120deg,#25d366,#128c7e)}
+@media (min-width:700px){.hx h1{font-size:96px}.hx-in{padding:0 40px 110px}.tz{grid-template-columns:repeat(2,1fr)}.nums{grid-template-columns:repeat(4,1fr)}.hist{grid-template-columns:1fr 1.1fr;align-items:center}.hist-ph img{height:440px}.gal{grid-template-columns:repeat(4,1fr);grid-auto-rows:170px}.gal .g3{grid-column:span 2}.soc-c{grid-template-columns:repeat(3,1fr)}.hs-h h2{font-size:38px}}
+@media (min-width:960px){.hx{margin:-24px calc(50% - 50vw) 0;min-height:calc(100vh - 70px)}.hx-in{padding-left:var(--side);padding-right:var(--side);max-width:none}.hx p{font-size:18px}.hx h1{font-size:120px}.nums{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:44px var(--side)}.nums b{font-size:56px}.tz{grid-template-columns:repeat(3,1fr)}.hs{padding-top:70px}}
 </style>
 </head>
 <body>
@@ -468,8 +575,8 @@ const slug=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').re
 const played=m=>m.hs!=null&&m.as!=null&&m.hs!==''&&m.as!=='';
 function winner(m){if(m.bye)return m.h||m.a;if(!played(m))return null;if(+m.hs>+m.as)return m.h;if(+m.as>+m.hs)return m.a;if(m.hp!=null&&m.ap!=null&&m.hp!==''&&m.ap!==''){if(+m.hp>+m.ap)return m.h;if(+m.ap>+m.hp)return m.a}return null}
 const tName=(f,id)=>f.teams?.[id]?.n||'A definir',tCity=(f,id)=>f.teams?.[id]?.c||'';
-const cmp=(f)=>(a,b)=>b.pts-a.pts||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf||tName(f,a.id).localeCompare(tName(f,b.id));
-function standings(f,z){let rows={};z.teams.forEach(id=>rows[id]={id,z:z.name,pj:0,pg:0,pe:0,pp:0,gf:0,gc:0,pts:0});f.matches.filter(m=>m.z===z.id&&played(m)&&rows[m.h]&&rows[m.a]).forEach(m=>{let a=rows[m.h],b=rows[m.a],hs=+m.hs,as=+m.as;a.pj++;b.pj++;a.gf+=hs;a.gc+=as;b.gf+=as;b.gc+=hs;if(hs>as){a.pg++;b.pp++;a.pts+=3}else if(as>hs){b.pg++;a.pp++;b.pts+=3}else{a.pe++;b.pe++;a.pts++;b.pts++}});return Object.values(rows).sort(cmp(f))}
+const cmp=(f)=>(a,b)=>b.pts-a.pts||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf||a.gc-b.gc||tName(f,a.id).localeCompare(tName(f,b.id));
+function standings(f,z){let rows={};z.teams.forEach(id=>rows[id]={id,z:z.name,pj:0,pg:0,pe:0,pp:0,gf:0,gc:0,pts:0});f.matches.filter(m=>played(m)&&(m.z===z.id||(m.ph==='Interzonal'&&(rows[m.h]||rows[m.a])))).forEach(m=>{let hs=+m.hs,as=+m.as;[[m.h,hs,as],[m.a,as,hs]].forEach(([id,g,c])=>{let r=rows[id];if(!r)return;r.pj++;r.gf+=g;r.gc+=c;if(g>c){r.pg++;r.pts+=3}else if(g<c)r.pp++;else{r.pe++;r.pts++}})});let list=Object.values(rows).sort((a,b)=>b.pts-a.pts),out=[],i=0;while(i<list.length){let j=i;while(j<list.length&&list[j].pts===list[i].pts)j++;let g=list.slice(i,j);if(g.length>1){let ids=g.map(r=>r.id),p={};ids.forEach(x=>p[x]=0);f.matches.filter(m=>m.z===z.id&&played(m)&&ids.includes(m.h)&&ids.includes(m.a)).forEach(m=>{if(+m.hs>+m.as)p[m.h]+=3;else if(+m.as>+m.hs)p[m.a]+=3;else{p[m.h]++;p[m.a]++}});g.sort((a,b)=>p[b.id]-p[a.id]||cmp(f)(a,b))}out.push(...g);i=j}return out}
 // Nombres cortos ("Estrella del Sur" en vez de "Centro Deportivo Estrella del Sur") salvo que dos coincidan
 const LEAD=/^(club|atl[eé]tico|asociaci[oó]n|deportiv[oa]|recreativo|social|y|centro|cultural|sociedad|biblioteca)$/i,STOP=/^(club|atl[eé]tico|asociaci[oó]n|deportiv[oa]|social|y|de|del|la|el|los|las|centro|sportivo|recreativo|cultural|biblioteca|sociedad)$/i;
 function cutName(n){let w=String(n||'').split(/\s+/).filter(Boolean),i=0;while(i<w.length-1&&LEAD.test(w[i]))i++;return w.slice(i).join(' ')||n}
@@ -483,7 +590,7 @@ async function loadFixture(id){let {data,error}=await sb.from('fixture_publico')
 function subscribe(id){if(channel)sb.removeChannel(channel);channel=sb.channel('fx-'+id).on('postgres_changes',{event:'*',schema:'public',table:'fixture_publico',filter:'torneo_id=eq.'+id},p=>{if(p.eventType==='DELETE'){let c=p.old?.categoria;if(c&&FX[id])delete FX[id][c];render();return}let r=p.new;if(!r?.categoria)return;let before=FX[id]?.[r.categoria];FX[id]=FX[id]||{};FX[id][r.categoria]=r.datos;lastUpd=r.actualizado;let ch=changed(before,r.datos);render(ch);if(ch.length)toast('Categoría '+r.categoria+': resultado actualizado')}).subscribe(s=>{online=s==='SUBSCRIBED';drawTop()})}
 function changed(a,b){if(!a||!b)return [];let o=Object.fromEntries((a.matches||[]).map(m=>[m.id,[m.hs,m.as,m.hp,m.ap].join()]));return (b.matches||[]).filter(m=>o[m.id]!==undefined&&o[m.id]!==[m.hs,m.as,m.hp,m.ap].join()).map(m=>m.id)}
 // ── Navegación con links cortos: /juvenil26 · /juvenil26/2010-masc/posiciones · /juvenil26/2010-masc/partido/12 ──
-const VIEWS=['fixture','equipos','posiciones','estadisticas','partido'];
+const VIEWS=['fixture','equipos','posiciones','estadisticas','reglamento','partido'];
 function readPath(){let p=location.pathname.replace(/^\/+|\/+$/g,'').split('/').filter(Boolean).map(decodeURIComponent);if(p[0]&&p[0]!=='index.html'){st.t=p[0];st.cat=p[1]||null;st.view=VIEWS.includes(p[2])?p[2]:'fixture';st.x=p[3]||null}else st.t=null}
 const U=(view,x,cat)=>'/'+[st.t,cat??st.cat,view==='fixture'&&!x?null:view,x].filter(v=>v!=null&&v!=='').join('/');
 function go(url,replace){if(replace)history.replaceState(null,'',url);else history.pushState(null,'',url);route()}
@@ -499,35 +606,35 @@ const prov=t=>{let p=city(t).split(',');return (p[1]||'').trim()};
 // ── Barra superior ──
 function drawTop(){let t=T.find(x=>x.id===st.t),wa=CFG.whatsapp?'https://wa.me/'+CFG.whatsapp:null,ig=CFG.instagram?'https://instagram.com/'+CFG.instagram:null,tk=CFG.tiktok?'https://www.tiktok.com/@'+CFG.tiktok:null;
  const soc=(u,lab,icon)=>`<a href="${u||'#'}" ${u?'target="_blank" rel="noopener"':`onclick="toast('${lab}: próximamente');return false"`} aria-label="${lab}" class="lbl">${icon}<span class="lw">${lab}</span></a>`;
- $('#top').innerHTML=`<a class="logo" href="/" data-l><img src="/logo.webp" alt=""><div><b>Mundialito</b><small>${t?`<i class="dot ${online?'':'off'}"></i>${online?'Resultados en vivo':'Conectando…'}`:'Fixture y resultados'}</small></div></a><nav class="soc">${soc(ig,'Instagram',SV.ig)}${soc(tk,'TikTok',IC.tt)}${soc(wa,'WhatsApp',SV.wa)}</nav>`}
+ $('#top').innerHTML=`<a class="logo" href="/" data-l><img src="/logo.webp" alt=""><div><b>Mundialito</b><small>Alianza${t?` <i class="dot ${online?'':'off'}"></i>${online?'En vivo':''}`:''}</small></div></a><nav class="soc">${soc(ig,'Instagram',SV.ig)}${soc(tk,'TikTok',IC.tt)}${soc(wa,'WhatsApp',SV.wa)}</nav>`}
 function render(flash=[]){drawTop();let app=$('#app');if(!st.t){app.innerHTML=hub();return}let t=T.find(x=>x.id===st.t);if(!t){app.innerHTML=`<div class="empty"><img src="/img/nenito.webp" alt="">No encontramos ese torneo.<br><br><a class="btn" href="/" data-l>Ver los torneos</a></div>`;return}app.innerHTML=tournament(t,flash);let q=$('#q');if(q&&st._focus){q.focus();q.setSelectionRange(q.value.length,q.value.length);st._focus=false}}
 const H2=(title,aside='')=>`<div class="h2"><h2>${title}</h2><span class="ln"></span>${aside?`<small>${aside}</small>`:''}</div>`;
-// ── Portada (hub) ──
-function hub(){let n=todayISO(),y=+n.slice(0,4),live=T.filter(t=>tState(t)==='live'),up=T.filter(t=>tState(t)==='prox'),fin=T.filter(t=>tState(t)==='fin'&&daysTo(t.fin)>-400).reverse(),ma=T.find(t=>tType(t)==='ma'&&t.inicio>=n),ed=ma?dISO(ma.inicio).getFullYear()-1986:null,yearT=T.filter(t=>t.inicio?.startsWith(String(y))),provs=new Set(T.map(prov).filter(Boolean));
- let html=`<section class="hero ${live.length?'':'nolive'}"><div class="hero-in"><img class="lg" src="/logo.webp" alt=""><div><span class="kick">Circuito de fútbol infantil y juvenil</span><h1>Mundialito</h1><p>Fixture, resultados y posiciones de cada torneo del circuito, actualizados en el momento desde la organización.</p></div></div><div class="facts"><div><b>${ed||'40'}${ed?'.ª':''}</b><span>${ed?'edición en enero '+dISO(ma.inicio).getFullYear():'ediciones'}</span></div><div><b>${yearT.length}</b><span>torneos en ${y}</span></div><div><b>${provs.size}</b><span>provincias en el circuito</span></div><div><b>1987</b><span>primera edición</span></div></div></section><div class="lift">`;
- if(live.length)html+=live.map((t,k)=>`<a class="live-card" href="/${esc(t.id)}" data-l><span class="bg" style="background-image:url(${photo(t,k)})"></span><div><span class="badge-live"><i></i>Jugándose ahora</span><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))} · ${fmtD(t.inicio)} al ${fmtD(t.fin)}</small><span class="go">${t.publicado?'Ver resultados':'Fixture próximamente'} ${IC.arrow}</span></div></a>`).join('');
- html+=`</div><div class="hub-grid"><div class="col-a">`;
- if(up.length)html+=H2('Próximos torneos',up.length+' en agenda')+`<div class="up-row">${up.slice(0,6).map((t,k)=>{let d=daysTo(t.inicio),s=dISO(t.inicio);return `<article class="up"><div class="ph" style="background-image:url(${photo(t,k+1)})"><span class="pill ${tType(t)}">${tTypeName(t)}</span></div><div class="bd"><div class="dt"><b>${s.getDate()}</b><small>${MON[s.getMonth()]}</small></div><div class="tx"><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))}</small><small>${IC.cal}${fmtD(t.inicio)} al ${fmtD(t.fin)} · faltan ${d} día${d===1?'':'s'}</small></div></div><div class="act">${t.publicado?`<a class="btn" href="/${esc(t.id)}" data-l>Ver fixture ${IC.arrow}</a>`:'<span class="soon">Fixture próximamente</span>'}<a class="btn line" href="${mapsFor(t)}" target="_blank" rel="noopener">${IC.route} Cómo llegar</a></div></article>`}).join('')}</div>`;
- if(up.length||live.length){let list=[...live,...up],months={};list.forEach(t=>{let d=dISO(t.inicio),k=d.getFullYear()+'-'+d.getMonth();(months[k]=months[k]||{y:d.getFullYear(),m:d.getMonth(),l:[]}).l.push(t)});
-  html+=H2('Calendario',`${list.length} torneo${list.length>1?'s':''} por jugar`)+`<div class="cal">${Object.values(months).map(g=>`<div class="cal-g"><div class="cal-m"><b>${MONL[g.m]}</b><span>${g.y}</span></div><div class="cal-l">${g.l.map(t=>{let d=dISO(t.inicio),inner=`<div class="cal-d"><small>${DAYS[d.getDay()]}</small><b>${d.getDate()}</b></div><div class="cal-x"><b class="n">${esc(t.nombre)}</b><small class="s">${esc(t.sede||'')}</small></div><span class="tag ${tType(t)}">${tTypeName(t)}</span>`;return t.publicado?`<a class="cal-i" href="/${esc(t.id)}" data-l>${inner}</a>`:`<div class="cal-i">${inner}</div>`}).join('')}</div></div>`).join('')}</div>`}
- html+=`</div><div class="col-b">`;
- // El circuito: dónde se juega
- let sedes={};T.forEach(t=>{let c=city(t);if(!c)return;(sedes[c]=sedes[c]||{c,n:0,next:null,last:null}).n++;if(tState(t)!=='fin'&&(!sedes[c].next||t.inicio<sedes[c].next.inicio))sedes[c].next=t});
- let sl=Object.values(sedes).sort((a,b)=>(a.next?0:1)-(b.next?0:1)||b.n-a.n);
- html+=H2('El circuito',sl.length+' sedes')+`<div class="circ">${sl.map(s=>`<div class="circ-i"><span class="cp">${IC.pin}</span><div><b>${esc(s.c.split(',')[0])}</b><small>${esc(s.c.split(',').slice(1).join(',').trim())} · ${s.n} torneo${s.n>1?'s':''}</small></div>${s.next?`<span class="nx">${fmtD(s.next.inicio)}</span>`:''}</div>`).join('')}</div>`;
- let ig=CFG.instagram,photos=['/img/inauguracion.jpg','/img/campeones.jpg','/img/juego.jpg','/img/aerea.jpg','/img/damfield.jpg','/img/historia.jpg'],igl=ig?`https://instagram.com/${esc(ig)}`:'#',tkl=CFG.tiktok?`https://www.tiktok.com/@${esc(CFG.tiktok)}`:'#';
- html+=H2('En redes')+`<div class="ig"><div class="ig-h"><span class="av"><img src="/logo.webp" alt=""></span><div><b>@${esc(ig||'mundialito')}</b><small>Fotos, videos y novedades</small></div></div><div class="ig-g">${photos.map(p=>`<a href="${igl}" target="_blank" rel="noopener" style="background-image:url(${p})" aria-label="Ver en Instagram"></a>`).join('')}</div><div class="ig-b"><a class="btn" href="${igl}" target="_blank" rel="noopener">${SV.ig} Instagram</a><a class="btn dark" href="${tkl}" target="_blank" rel="noopener">${IC.tt} TikTok</a></div></div>`;
- html+=`</div></div>`;
- // Ya se jugaron: tarjetas con foto y campeones por categoría
- if(fin.length)html+=H2('Ya se jugaron','Últimos 12 meses')+`<div class="past">${fin.slice(0,6).map((t,k)=>{let c=Object.entries(t.campeones||{});return `<article class="pc"><div class="ph" style="background-image:url(${photo(t,k+2)})"><span class="pill ${tType(t)}">${tTypeName(t)}</span><span class="fin">Finalizado</span></div><div class="pc-b"><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))} · ${fmtD(t.inicio)} al ${fmtD(t.fin)}</small>${c.length?`<div class="champs"><span class="ch-t">${IC.trophy} Campeones</span>${c.map(([cat,nm])=>`<div><span>${esc(cat)}</span><b>${esc(cutName(nm))}</b></div>`).join('')}</div>`:`<div class="cats-p"><span>Categorías</span>${(t.categorias||[]).map(c=>`<i>${esc(c)}</i>`).join('')}</div>`}</div></article>`}).join('')}</div>`;
+// ── Portada del Mundialito Alianza: torneos, historia, galería y redes ──
+function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter(t=>tState(t)==='prox'),fin=T.filter(t=>tState(t)==='fin'&&daysTo(t.fin)>-400).reverse(),next=[...live,...up],ma=T.find(t=>tType(t)==='ma'&&t.inicio>=n),ed=ma?dISO(ma.inicio).getFullYear()-1986:41;
+ const ig=CFG.instagram?'https://instagram.com/'+CFG.instagram:'#',tk=CFG.tiktok?'https://www.tiktok.com/@'+CFG.tiktok:'#',wa=CFG.whatsapp?'https://wa.me/'+CFG.whatsapp:'#';
+ let html=`<section class="hx"><div class="hx-bg"></div><div class="hx-in"><img class="hx-logo" src="/logo.webp" alt=""><span class="hx-kick">Arteaga · Santa Fe · Desde 1987</span><h1>Mundialito<br><em>Alianza</em></h1><p>El torneo de fútbol infantil y juvenil del Club Atlético Alianza. Una fiesta que cada año reúne a clubes, chicos y familias de todo el país.</p><div class="hx-cta"><a class="hx-btn" href="#torneos" onclick="event.preventDefault();document.getElementById('torneos').scrollIntoView({behavior:'smooth'})">Ver torneos</a><a class="hx-btn ghost" href="#historia" onclick="event.preventDefault();document.getElementById('historia').scrollIntoView({behavior:'smooth'})">Nuestra historia</a></div></div><a class="hx-down" href="#torneos" onclick="event.preventDefault();document.getElementById('torneos').scrollIntoView({behavior:'smooth'})" aria-label="Bajar">${SV.r}</a></section>`;
+ // Torneos en juego y próximos
+ html+=`<section class="hs" id="torneos"><div class="hs-h"><span>Torneos</span><h2>${live.length?'Se está jugando':'Lo que viene'}</h2></div>`;
+ html+=next.length?`<div class="tz">${next.slice(0,6).map((t,k)=>{let d=daysTo(t.inicio),s=dISO(t.inicio),st_=tState(t),go=t.publicado?`/${esc(t.id)}`:null;return `<${go?'a href="'+go+'" data-l':'div'} class="tz-c ${st_}"><div class="tz-ph" style="background-image:url(${photo(t,k)})"><span class="tz-tag">${st_==='live'?'<i></i>En juego':d===1?'Mañana':'Faltan '+d+' días'}</span></div><div class="tz-b"><div class="tz-d"><b>${s.getDate()}</b><span>${MON[s.getMonth()]}</span></div><div><small>${tTypeName(t)}</small><h3>${esc(t.nombre)}</h3><p>${IC.pin}${esc(city(t))}</p></div></div><div class="tz-f">${go?`<span>Fixture, posiciones y reglamento</span>${IC.arrow}`:'<span>El fixture se publica cerca de la fecha</span>'}</div></${go?'a':'div'}>`}).join('')}</div>`:'<p class="hs-empty">Pronto vamos a anunciar los próximos torneos.</p>';
+ html+=`</section>`;
+ // Números
+ html+=`<section class="nums"><div><b>${ed-1}</b><span>ediciones del Mundialito de enero</span></div><div><b>1987</b><span>año de la primera edición</span></div><div><b>${ed}.ª</b><span>edición en enero ${ma?dISO(ma.inicio).getFullYear():2027}</span></div><div><b>${next.length}</b><span>${next.length===1?'torneo por jugar':'torneos por jugar'}</span></div></section>`;
+ // Historia
+ html+=`<section class="hs" id="historia"><div class="hist"><div class="hist-ph"><img src="/img/historia.jpg" alt="Una de las primeras ediciones del Mundialito" loading="lazy"><span>Desde 1987</span></div><div class="hist-tx"><div class="hs-h"><span>Nuestra historia</span><h2>Una pasión que empezó en Arteaga</h2></div><p>En enero de 1987 el Club Atlético Alianza organizó el primer Mundialito. Lo que empezó como un torneo del pueblo se convirtió en una cita obligada del fútbol infantil, con delegaciones que viajan desde distintas provincias.</p><p>Con los años nació el circuito: los Premundialitos recorren otras ciudades y sus campeones ganan su lugar en el Mundialito de enero. También se suman torneos especiales, como el Juvenil de Clubes y el Mundialito Alianza Funes.</p><ol class="tl"><li><b>1987</b><span>Primera edición del Mundialito en el Club Atlético Alianza.</span></li><li><b>Circuito</b><span>Premundialitos en Victoria, San Nicolás y San Basilio: el camino a enero.</span></li><li><b>2026</b><span>Mundialito Alianza Funes y 4.º Torneo Juvenil de Clubes.</span></li><li><b>2027</b><span>${ed}.ª edición del Mundialito Alianza, en enero.</span></li></ol></div></div></section>`;
+ // Galería
+ html+=`<section class="hs"><div class="hs-h"><span>Galería</span><h2>Momentos del Mundialito</h2></div><div class="gal">${[['inauguracion','Inauguración'],['campeones','Campeones'],['juego','En la cancha'],['aerea','El predio desde arriba'],['damfield','Mundialito Funes'],['historia','Nuestra historia']].map(([p,l],k)=>`<figure class="g${k}"><img src="/img/${p}.jpg" alt="${l}" loading="lazy"><figcaption>${l}</figcaption></figure>`).join('')}</div></section>`;
+ // Redes
+ html+=`<section class="hs"><div class="hs-h"><span>Seguinos</span><h2>Viví el Mundialito en redes</h2></div><div class="soc-c"><a class="sc ig" href="${ig}" target="_blank" rel="noopener">${SV.ig}<div><b>Instagram</b><span>@${esc(CFG.instagram||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sc tk" href="${tk}" target="_blank" rel="noopener">${IC.tt}<div><b>TikTok</b><span>@${esc(CFG.tiktok||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sc wa" href="${wa}" target="_blank" rel="noopener">${SV.wa}<div><b>WhatsApp</b><span>Consultas e inscripciones</span></div>${IC.arrow}</a></div></section>`;
+ // Ya se jugaron
+ if(fin.length)html+=`<section class="hs"><div class="hs-h"><span>Resultados</span><h2>Ya se jugaron</h2></div><div class="past">${fin.slice(0,6).map((t,k)=>{let c=Object.entries(t.campeones||{});return `<article class="pc"><div class="ph" style="background-image:url(${photo(t,k+2)})"><span class="pill ${tType(t)}">${tTypeName(t)}</span><span class="fin">Finalizado</span></div><div class="pc-b"><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))} · ${fmtD(t.inicio)} al ${fmtD(t.fin)}</small>${c.length?`<div class="champs"><span class="ch-t">${IC.trophy} Campeones</span>${c.map(([cat,nm])=>`<div><span>${esc(cat)}</span><b>${esc(cutName(nm))}</b></div>`).join('')}</div>`:''}</div></article>`}).join('')}</div></section>`;
  return html+`<div class="mascots"><img src="/img/pateando.webp" alt=""><img src="/img/cabeceando.webp" alt=""><img src="/img/pisando.webp" alt=""></div>`}
 // ── Torneo ──
 function tournament(t,flash){let cats=(t.categorias||[]).filter(c=>FX[t.id]?.[c]),head=`<section class="thead" style="--img:url(${photo(t)})"><a class="bk" href="/" data-l>${SV.l.replace('<svg','<svg width="14" height="14" style="fill:none;stroke:#fff;stroke-width:3"')} Todos los torneos</a><span class="pill ${tType(t)}">${tTypeName(t)}</span><h1>${esc(t.nombre)}</h1><div class="tmeta"><span>${IC.cal}${fmtD(t.inicio)} al ${fmtD(t.fin)}</span><span>${IC.pin}${esc(t.sede||'')}</span><a href="${mapsFor(t)}" target="_blank" rel="noopener">${IC.route} Cómo llegar</a></div></section>`;
  if(!t.publicado||!cats.length)return head+`<div class="empty" style="margin-top:20px"><img src="/img/pateando.webp" alt="">El fixture de este torneo todavía no está publicado.<br>Volvé a entrar más cerca de la fecha.</div>`;
  let byslug=Object.fromEntries(cats.map(c=>[slug(c),c]));if(!st.cat||!byslug[st.cat]){let c=ls.get('cat-'+t.id);st.cat=byslug[c]?c:slug(cats[0]);history.replaceState(null,'',U(st.view,st.x))}ls.set('cat-'+t.id,st.cat);let cat=byslug[st.cat],f=FX[t.id][cat];
  let tv=st.view==='partido'?'fixture':st.view;
- head+=`<div class="cats">${cats.map(c=>`<a href="${U(tv==='fixture'?'fixture':tv,null,slug(c))}" data-l class="${c===cat?'on':''}">${esc(c)}</a>`).join('')}</div><div class="stabs"><nav>${[['fixture','Fixture',SV.ball],['equipos','Equipos',SV.shirt],['posiciones','Posiciones',SV.table],['estadisticas','Estadísticas',SV.chart]].map(([k,n,i])=>`<a href="${U(k)}" data-l class="${tv===k?'on':''}">${i}${n}</a>`).join('')}</nav></div>`;
- let body=st.view==='posiciones'?vPos(f):st.view==='equipos'?vTeams(f):st.view==='estadisticas'?vStats(f):st.view==='partido'?vMatch(f,st.x):vFixture(f,flash);
+ head+=`<div class="cats">${cats.map(c=>`<a href="${U(tv==='fixture'?'fixture':tv,null,slug(c))}" data-l class="${c===cat?'on':''}">${esc(c)}</a>`).join('')}</div><div class="stabs"><nav>${[['fixture','Fixture',SV.ball],['equipos','Equipos',SV.shirt],['posiciones','Posiciones',SV.table],['estadisticas','Estadísticas',SV.chart],['reglamento','Reglamento',SV.doc]].map(([k,n,i])=>`<a href="${U(k)}" data-l class="${tv===k?'on':''}">${i}${n}</a>`).join('')}</nav></div>`;
+ let body=st.view==='posiciones'?vPos(f):st.view==='equipos'?vTeams(f):st.view==='estadisticas'?vStats(f):st.view==='reglamento'?vRegl(t):st.view==='partido'?vMatch(f,st.x):vFixture(f,flash);
  return head+body+(lastUpd?`<p class="upd">Actualizado: ${new Date(lastUpd).toLocaleString('es-AR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',hour12:false})} hs</p>`:'')}
 const zoneName=(f,m)=>m.ph==='Zona'?(f.zones.find(z=>z.id===m.z)?.name||'Zona'):m.ph;
 const ZC=['#d7192b','#4f46e5','#0ea5e9','#10b981','#f59e0b','#8b5cf6','#ec4899','#14b8a6'];
@@ -556,11 +663,24 @@ function vFixture(f,flash){if(st._fcat!==st.cat){st._fcat=st.cat;st.field='';st.
  if(st.team){let ds=[...new Set(ms.map(m=>m.d||''))];return top+'<div class="cols">'+ds.map(x=>{let list=ms.filter(m=>(m.d||'')===x);return `<div class="box"><div class="box-h"><span class="zt"><i></i>${x?DAYL[dISO(x).getDay()]+' '+fmtD(x):'Sin fecha'}</span><small>${list.length} partido${list.length>1?'s':''}</small></div>${list.map(m=>row(f,m,flash,true)).join('')}</div>`}).join('')+'</div>'}
  if(st.mode==='grupo'){let keys=[...new Set(ms.map(m=>zoneName(f,m)))];return top+'<div class="cols">'+keys.map(k=>{let list=ms.filter(m=>zoneName(f,m)===k),z=f.zones.find(z=>z.name===k),free=z&&!st.field&&!st.time?z.teams.filter(id=>!list.some(m=>m.h===id||m.a===id)):[];return `<div class="box"><div class="box-h"><span class="zt" style="--zc:${zColor(f,k)}"><i></i>${esc(k)}</span><small>${list.filter(played).length}/${list.length} jugados</small></div>${list.map(m=>row(f,m,flash,false)).join('')}${free.length?`<div class="free">Sin partido este día: ${free.map(id=>`<b>${esc(dName(f,id))}</b>`).join(', ')}</div>`:''}</div>`}).join('')+'</div>'}
  let hs=[...new Set(ms.map(m=>m.t||'A definir'))];return top+'<div class="cols">'+hs.map(h=>{let list=ms.filter(m=>(m.t||'A definir')===h);return `<div class="box"><div class="box-h"><span class="zt"><i></i>${esc(h)}${h!=='A definir'?' hs':''}</span><small>${list.length} partido${list.length>1?'s':''}</small></div>${list.map(m=>row(f,m,flash,true)).join('')}</div>`}).join('')+'</div>'}
+// ── Reglamento del torneo: resumen y descarga del PDF ──
+SV.doc='<svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>';
+SV.dl='<svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>';
+function vRegl(t){let R=(CFG.reglamentos||{})[t.id]||{},pdf=t.reglamento||R.pdf;
+ let html=`<div class="rg-dl"><span class="rg-ic">${SV.doc}</span><div><b>Reglamento oficial</b><small>${esc(t.nombre)} · PDF</small></div>${pdf?`<a class="btn" href="${esc(pdf)}" download target="_blank" rel="noopener">${SV.dl} Descargar</a>`:'<span class="soon">Próximamente</span>'}</div>`;
+ if(R.sistema)html+=`<div class="h2"><h2>Sistema del torneo</h2><span class="ln"></span></div><div class="cols">${R.sistema.map(s=>`<div class="box rg-sys"><div class="box-h"><span class="zt"><i></i>${esc(s.cat)}</span><small>${esc(s.equipos)}</small></div><p>${esc(s.formato)}</p><div class="rg-cups">${s.copas.map(c=>`<div class="rg-cup ${c.c}"><b>Copa de ${esc(c.n)}</b><span>${esc(c.t)}</span></div>`).join('')}</div></div>`).join('')}</div>`;
+ if(R.puntos)html+=`<div class="h2"><h2>Lo más importante</h2><span class="ln"></span></div><div class="rg-grid">${R.puntos.map(p=>`<div class="rg-pt"><b>${esc(p.t)}</b><p>${esc(p.d)}</p></div>`).join('')}</div>`;
+ if(R.desempate)html+=`<div class="h2"><h2>Desempate en zonas</h2><span class="ln"></span></div><ol class="rg-steps">${R.desempate.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`;
+ return html+`<p class="upd">Este resumen no reemplaza al reglamento: ante cualquier duda vale el documento oficial.</p>`}
+// ── Copas: semifinales, finales y tercer puesto agrupados por copa ──
+function vCups(f){let cups=['Oro','Plata','Bronce'].filter(c=>f.matches.some(m=>(m.ph||'').includes('Copa de '+c)));if(!cups.length)return '<div class="empty">Esta categoría no tiene copas.</div>';
+ return '<div class="cols">'+cups.map(c=>{let ms=f.matches.filter(m=>(m.ph||'').includes('Copa de '+c)).sort((a,b)=>(a.d||'').localeCompare(b.d||'')||(a.t||'').localeCompare(b.t||''));return `<div class="box cup ${c.toLowerCase()}"><div class="box-h"><span class="zt"><i></i>Copa de ${c}</span><small>${ms.filter(played).length}/${ms.length} jugados</small></div>${ms.map(m=>`<div class="cup-ph">${esc(m.ph.replace(' Copa de '+c,''))}</div>`+row(f,m,[],false)).join('')}</div>`}).join('')+'</div>'}
+
 function vTeams(f){let q=st.q.trim().toLowerCase(),zoneOf=id=>f.zones?.find(z=>z.teams.includes(id))?.name||'',list=Object.entries(f.teams||{}).filter(([,x])=>!q||x.n.toLowerCase().includes(q)||String(x.c||'').toLowerCase().includes(q)).sort((a,b)=>a[1].n.localeCompare(b[1].n));
  return `<div class="search"><input id="q" type="search" placeholder="Buscar equipo o ciudad" value="${esc(st.q)}" oninput="st.q=this.value;st._focus=true;render()" autocomplete="off">${SV.lens}</div><div class="h2" style="margin-top:0"><h2><i></i>${list.length} equipos</h2></div><div class="teams">${list.map(([id,x])=>`<div class="tm">${crest(f,id,true)}<b>${esc(x.n)}</b><small>${esc(x.c||'')}</small>${zoneOf(id)?`<span class="z" style="color:${zColor(f,zoneOf(id))}">${esc(zoneOf(id))}</span>`:''}</div>`).join('')}</div>${list.length?'':'<div class="empty">No encontramos equipos con ese nombre.</div>'}`}
 const ORD=['Primeros','Segundos','Terceros','Cuartos','Quintos','Sextos','Séptimos','Octavos'];
 function table(f,rows,{zone=false,q=0}={}){return `<table><thead><tr><th>#</th><th class="tn">Equipo</th>${zone?'<th>Zona</th>':''}<th>Pts</th><th>PJ</th><th class="g">G</th><th class="wide">E</th><th class="p">P</th><th class="wide">GF</th><th class="wide">GC</th><th>DG</th></tr></thead><tbody>${rows.map((x,k)=>`<tr class="${q&&k<q?(k===0?'q1':'q2'):''}"><td class="pos">${k+1}</td><td class="tn"><div>${crest(f,x.id)}<span>${esc(dName(f,x.id))}</span></div></td>${zone?`<td class="zn" style="color:${zColor(f,x.z)}">${esc(String(x.z).replace(/^Zona\s*/i,''))}</td>`:''}<td class="pts">${x.pts}</td><td>${x.pj}</td><td>${x.pg}</td><td class="wide">${x.pe}</td><td>${x.pp}</td><td class="wide">${x.gf}</td><td class="wide">${x.gc}</td><td>${x.gf-x.gc>0?'+':''}${x.gf-x.gc}</td></tr>`).join('')}</tbody></table>`}
-function vPos(f){let seg=`<div class="seg three"><button class="${st.pos==='grupos'?'on':''}" onclick="st.pos='grupos';render()">Por grupo</button><button class="${st.pos==='general'?'on':''}" onclick="st.pos='general';render()">General</button><button class="${st.pos==='puesto'?'on':''}" onclick="st.pos='puesto';render()">Por puesto</button></div>`;
+function vPos(f){let seg=`<div class="seg three"><button class="${st.pos==='grupos'?'on':''}" onclick="st.pos='grupos';render()">Por grupo</button><button class="${st.pos==='general'?'on':''}" onclick="st.pos='general';render()">General</button><button class="${st.pos==='puesto'?'on':''}" onclick="st.pos='puesto';render()">Por puesto</button>${f.matches.some(m=>/Copa de/.test(m.ph||''))?`<button class="${st.pos==='copas'?'on':''}" onclick="st.pos='copas';render()">Copas</button>`:''}</div>`;if(st.pos==='copas')return seg.replace('seg three','seg four')+vCups(f);if(f.matches.some(m=>/Copa de/.test(m.ph||'')))seg=seg.replace('seg three','seg four');
  if(!f.zones?.length)return seg+`<div class="empty"><img src="/img/pisando.webp" alt="">Esta categoría se juega por eliminación directa: no tiene tabla de posiciones.</div>`;
  let tabs=f.zones.map(z=>({z,rows:standings(f,z)})),q=f.format==='zonas'?f.perZone:0;
  if(st.pos==='general'){let all=tabs.flatMap(x=>x.rows).sort(cmp(f));return seg+`<div class="box"><div class="box-h"><span class="zt"><i></i>Tabla general</span><small>${all.length} equipos</small></div>${table(f,all,{zone:true})}</div><p class="upd">Todos los equipos de todas las zonas, ordenados por puntos, diferencia de gol y goles a favor.</p>`}
