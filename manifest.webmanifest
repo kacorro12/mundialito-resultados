@@ -1,0 +1,10 @@
+{
+  "name": "Mundialito · Resultados",
+  "short_name": "Mundialito",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#eef0f6",
+  "theme_color": "#c3121f",
+  "lang": "es-AR",
+  "icons": [{ "src": "logo.webp", "sizes": "512x512", "type": "image/webp", "purpose": "any" }]
+}
