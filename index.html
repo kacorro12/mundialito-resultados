@@ -164,6 +164,8 @@ main{padding:14px 14px 10px}
 .cr{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:900;color:#fff;background:var(--c1);box-shadow:inset 0 0 0 3px var(--c2),0 1px 3px rgba(0,0,0,.2);text-shadow:0 1px 2px rgba(0,0,0,.45);flex-shrink:0}
 .cr.big{width:66px;height:66px;font-size:21px;box-shadow:inset 0 0 0 5px var(--c2),0 3px 8px rgba(0,0,0,.2)}
 .cr.ghost{background:#dcd6e0;box-shadow:none;text-shadow:none}
+.cr.lg{background:none!important;box-shadow:none!important;border-radius:0}
+.cr.lg img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.18))}
 .free{color:var(--mut);font-size:12.5px;padding:10px 14px;border-top:1px dashed var(--line)}
 .free b{color:var(--ink)}
 table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
@@ -446,7 +448,7 @@ function cutName(n){let w=String(n||'').split(/\s+/).filter(Boolean),i=0;while(i
 function dName(f,id){let n=tName(f,id),s=cutName(n);if(s===n)return n;let c=f._short||(f._short=Object.values(f.teams||{}).reduce((a,x)=>{let k=cutName(x.n).toLowerCase();a[k]=(a[k]||0)+1;return a},{}));return c[s.toLowerCase()]>1?n:s}
 function initials(n){let w=String(n||'').replace(/[^\p{L}\p{N}\s]/gu,' ').split(/\s+/).filter(Boolean),k=w.filter(x=>!STOP.test(x));if(!k.length)k=w;return (k.length>1?k[0][0]+k[1][0]:(k[0]||'?').slice(0,2)).toUpperCase()}
 const hue=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))>>>0;return h%360};
-function crest(f,id,big){if(!id)return `<span class="cr ghost ${big?'big':''}">?</span>`;let t=f.teams?.[id]||{},k=t.k||[],c1=k[0]||`hsl(${hue(t.n)} 55% 38%)`,c2=k[1]&&k[1].toLowerCase()!==String(c1).toLowerCase()?k[1]:'#ffffff';return `<span class="cr ${big?'big':''}" style="--c1:${esc(c1)};--c2:${esc(c2)}">${esc(initials(t.n))}</span>`}
+function crest(f,id,big){if(!id)return `<span class="cr ghost ${big?'big':''}">?</span>`;let t=f.teams?.[id]||{},k=t.k||[];if(t.l)return `<span class="cr lg ${big?'big':''}"><img src="${esc(t.l)}" alt="" loading="lazy"></span>`;k=t.k||[],c1=k[0]||`hsl(${hue(t.n)} 55% 38%)`,c2=k[1]&&k[1].toLowerCase()!==String(c1).toLowerCase()?k[1]:'#ffffff';return `<span class="cr ${big?'big':''}" style="--c1:${esc(c1)};--c2:${esc(c2)}">${esc(initials(t.n))}</span>`}
 // ── Datos y tiempo real ──
 async function loadAll(){let {data,error}=await sb.from('torneos_publicos').select('*').order('inicio',{ascending:true});if(error)throw error;T=data||[]}
 async function loadFixture(id){let {data,error}=await sb.from('fixture_publico').select('*').eq('torneo_id',id);if(error)throw error;FX[id]={};(data||[]).forEach(r=>FX[id][r.categoria]=r.datos);lastUpd=(data||[]).map(r=>r.actualizado).sort().pop()||null}
