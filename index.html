@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#c3121f">
+<title>Mundialito · Fixture y resultados</title>
+<meta name="description" content="Fixture, resultados y tablas de posiciones del Mundialito en vivo.">
+<link rel="icon" href="/logo.webp">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#d7192b;--red2:#9e0e1d;--red3:#6f0a16;--ink:#2b2230;--mut:#7a6f7e;--bg:#eceef4;--card:#fff;--line:#ece7ef;--fill:#f5f3f7;--win:#10b981;--lose:#ef4444;--indigo:#4f46e5;--sky:#0ea5e9;--green:#10b981;--amber:#f59e0b;--violet:#8b5cf6;--safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:15px;-webkit-font-smoothing:antialiased}
+button,select,input{font:inherit;color:inherit}
+button{border:0;background:none;cursor:pointer;padding:0}
+a{color:inherit;text-decoration:none}
+img{display:block}
+/* Barra superior */
+.top{position:sticky;top:0;z-index:30;padding:var(--safe-t) 14px 0;height:calc(62px + var(--safe-t));display:flex;align-items:center;gap:10px;color:#fff;background:linear-gradient(120deg,var(--red) 0%,#c3121f 55%,var(--red2) 100%);box-shadow:0 4px 18px rgba(158,14,29,.3)}
+.top .logo{display:flex;align-items:center;gap:9px;flex:1;min-width:0}
+.top .logo img{width:30px;height:36px;object-fit:contain;filter:brightness(0) invert(1);flex-shrink:0}
+.top .logo b{font-weight:900;font-size:18px;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.top .logo small{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;opacity:.88;margin-top:3px;white-space:nowrap}
+.top .soc{display:flex;gap:6px}
+.top .soc a{width:36px;height:36px;border-radius:11px;background:rgba(255,255,255,.15);display:grid;place-items:center;transition:background .2s}
+.top .soc a:active{background:rgba(255,255,255,.3)}
+.top .soc svg{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dot{width:7px;height:7px;border-radius:50%;background:#6ee7b7;box-shadow:0 0 0 0 rgba(110,231,183,.7);animation:pulse 2s infinite}
+.dot.off{background:#fecaca;animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 7px rgba(110,231,183,0)}100%{box-shadow:0 0 0 0 rgba(110,231,183,0)}}
+.wrap{max-width:760px;margin:0 auto}
+main{padding:14px 14px 10px}
+/* Portada */
+.hero{position:relative;margin:-14px -14px 0;padding:34px 20px 74px;color:#fff;overflow:hidden;background:var(--red3)}
+.hero:before{content:'';position:absolute;inset:0;background:url(/img/aerea.jpg) center/cover;opacity:.55}
+.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(111,10,22,.35) 0%,rgba(158,14,29,.75) 55%,rgba(111,10,22,.98) 100%)}
+.hero>*{position:relative;z-index:1}
+.hero .lg{width:58px;height:70px;object-fit:contain;filter:brightness(0) invert(1) drop-shadow(0 4px 14px rgba(0,0,0,.35));margin-bottom:12px}
+.hero h1{margin:0;font-size:34px;font-weight:900;letter-spacing:-.01em;line-height:1.02;text-transform:uppercase}
+.hero p{margin:10px 0 0;font-size:15px;line-height:1.45;opacity:.92;max-width:460px}
+.hero .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.hero .chips span{background:rgba(255,255,255,.16);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:6px 12px;font-size:12.5px;font-weight:700}
+.lift{margin-top:-52px;position:relative;z-index:2}
+.lift:empty{display:none}
+.hero.nolive{padding-bottom:30px}
+.h2{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 10px}
+.h2 h2{margin:0;font-size:17px;font-weight:800;display:flex;align-items:center;gap:8px}
+.h2 h2 i{width:8px;height:20px;border-radius:3px;background:var(--red)}
+.h2 small{color:var(--mut);font-size:12.5px;font-weight:600}
+.live-card{display:block;position:relative;border-radius:22px;overflow:hidden;color:#fff;min-height:170px;margin-bottom:12px;box-shadow:0 10px 30px rgba(111,10,22,.3);background:var(--red3)}
+.live-card .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.6}
+.live-card:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 10%,rgba(80,6,16,.92) 100%)}
+.live-card>div{position:relative;z-index:1;padding:16px 16px 18px;display:flex;flex-direction:column;justify-content:flex-end;min-height:170px}
+.badge-live{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--red);font-size:11.5px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:99px;margin-bottom:auto}
+.badge-live i{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.live-card b{font-size:21px;font-weight:900;line-height:1.15;margin-top:30px}
+.live-card small{opacity:.9;font-size:13px;margin-top:4px}
+.live-card .go{margin-top:12px;align-self:flex-start;background:var(--red);color:#fff;font-weight:800;font-size:13.5px;padding:10px 16px;border-radius:12px;box-shadow:0 6px 16px rgba(215,25,43,.45)}
+.up-row{display:flex;gap:12px;overflow-x:auto;padding:2px 14px 6px;margin:0 -14px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.up-row::-webkit-scrollbar{display:none}
+.up{flex:0 0 78%;max-width:300px;scroll-snap-align:start;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 16px rgba(60,20,40,.08);display:flex;flex-direction:column}
+.up .ph{height:96px;background-size:cover;background-position:center;position:relative}
+.up .ph:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.35))}
+.up .cd{position:absolute;left:12px;bottom:-18px;z-index:1;background:#fff;border-radius:14px;padding:6px 10px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.15);min-width:58px}
+.up .cd b{display:block;font-size:20px;font-weight:900;color:var(--red);line-height:1}
+.up .cd small{font-size:10.5px;font-weight:700;color:var(--mut);text-transform:uppercase}
+.up .bd{padding:26px 14px 14px;flex:1;display:flex;flex-direction:column}
+.up .bd b{font-size:15.5px;font-weight:800;line-height:1.2}
+.up .bd small{color:var(--mut);font-size:12.5px;margin-top:4px}
+.up .bd .act{margin-top:auto;padding-top:12px}
+.btn{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:13px;padding:9px 13px;border-radius:11px;background:var(--red);color:#fff}
+.btn.ghost{background:var(--fill);color:var(--mut)}
+.pill{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;text-transform:uppercase;letter-spacing:.03em}
+.pill.ma{background:#fde3e6;color:var(--red2)}.pill.pre{background:#e0e7ff;color:#4338ca}.pill.esp{background:#ede9fe;color:#6d28d9}
+.cal{background:#fff;border-radius:20px;box-shadow:0 4px 16px rgba(60,20,40,.06);overflow:hidden}
+.cal-m{padding:12px 16px 6px;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--red);background:linear-gradient(90deg,#fff1f2,#fff)}
+.cal-i{display:flex;gap:12px;align-items:center;padding:11px 16px;border-top:1px solid var(--line)}
+.cal-d{width:48px;flex-shrink:0;text-align:center;border-radius:12px;padding:6px 0;background:var(--fill)}
+.cal-d b{display:block;font-size:19px;font-weight:900;line-height:1}
+.cal-d small{font-size:10.5px;font-weight:700;color:var(--mut);text-transform:uppercase}
+.cal-i>div:nth-child(2){flex:1;min-width:0}
+.cal-i b.n{display:block;font-size:14.5px;font-weight:700;line-height:1.25}
+.cal-i small.s{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.cal-i .r{flex-shrink:0;color:#c4bcc8;font-size:20px}
+.past{background:#fff;border-radius:20px;box-shadow:0 4px 16px rgba(60,20,40,.06);overflow:hidden}
+.past-i{padding:12px 16px;border-top:1px solid var(--line)}
+.past-i:first-child{border-top:0}
+.past-i b{font-size:14px;font-weight:700}
+.past-i small{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.champs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.champs span{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;background:#fef3c7;color:#92400e;border-radius:99px;padding:4px 9px}
+.ig{background:#fff;border-radius:20px;box-shadow:0 4px 16px rgba(60,20,40,.06);padding:14px}
+.ig-h{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ig-h .av{width:44px;height:44px;border-radius:50%;padding:2px;background:linear-gradient(45deg,#f59e0b,#ef4444,#8b5cf6)}
+.ig-h .av span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:var(--red);border:2px solid #fff}
+.ig-h .av img{width:20px;height:24px;object-fit:contain;filter:brightness(0) invert(1)}
+.ig-h div{flex:1;min-width:0}
+.ig-h b{display:block;font-size:14.5px}
+.ig-h small{color:var(--mut);font-size:12px}
+.ig-g{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;border-radius:12px;overflow:hidden}
+.ig-g a{aspect-ratio:1;background-size:cover;background-position:center;position:relative}
+.ig-g a:after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0);transition:.2s}
+.ig-g a:active:after{background:rgba(0,0,0,.2)}
+.mascots{display:flex;justify-content:center;gap:4px;margin:26px 0 0}
+.mascots img{height:74px;width:auto}
+/* Torneo */
+.thead{position:relative;margin:-14px -14px 0;padding:14px 16px 18px;color:#fff;background:linear-gradient(135deg,var(--red2),var(--red3));overflow:hidden}
+.thead:before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;opacity:.28;background-image:var(--img)}
+.thead>*{position:relative}
+.thead .bk{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;opacity:.9;margin-bottom:10px}
+.thead h1{margin:0;font-size:22px;font-weight:900;line-height:1.15}
+.thead p{margin:6px 0 0;font-size:13px;opacity:.9}
+.cats{display:flex;gap:7px;overflow-x:auto;padding:12px 14px 2px;margin:0 -14px;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cats a{flex-shrink:0;padding:8px 15px;border-radius:99px;background:#fff;font-weight:700;font-size:13.5px;color:#5d5262;box-shadow:0 1px 4px rgba(60,20,40,.07)}
+.cats a.on{background:var(--ink);color:#fff}
+.stabs{position:sticky;top:calc(62px + var(--safe-t));z-index:20;margin:12px -14px 14px;background:rgba(236,238,244,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:6px 14px}
+.stabs nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:#fff;border-radius:16px;padding:4px;box-shadow:0 2px 10px rgba(60,20,40,.07)}
+.stabs a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0 6px;border-radius:12px;font-size:11.5px;font-weight:700;color:#8a7f8e}
+.stabs a svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.stabs a.on{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;box-shadow:0 6px 14px rgba(215,25,43,.3)}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:#dfe1e9;border-radius:13px;padding:4px;margin-bottom:12px}
+.seg.three{grid-template-columns:repeat(3,1fr)}
+.seg button{padding:9px 0;font-size:13px;font-weight:700;color:#7a6f7e;border-radius:10px}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.daynav{display:flex;align-items:stretch;height:48px;margin-bottom:12px;border-radius:14px;overflow:hidden;background:linear-gradient(120deg,var(--red),var(--red2));color:#fff;box-shadow:0 6px 16px rgba(215,25,43,.25)}
+.daynav button{width:48px;display:grid;place-items:center;background:rgba(0,0,0,.12)}
+.daynav button:disabled{opacity:.35}
+.daynav button svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.daynav .mid{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+.daynav .mid b{font-size:15px;font-weight:800}
+.daynav .mid b:first-letter{text-transform:uppercase}
+.daynav .mid small{font-size:11px;opacity:.85;font-weight:600}
+.daynav .mid select{position:absolute;inset:0;opacity:0;width:100%;font-size:16px}
+.search{position:relative;margin-bottom:14px}
+.search input{width:100%;padding:12px 40px 12px 14px;border:0;border-radius:13px;background:#fff;font-size:16px;box-shadow:0 1px 4px rgba(60,20,40,.07)}
+.search svg{position:absolute;right:13px;top:50%;width:18px;height:18px;margin-top:-9px;fill:none;stroke:#9a8fa0;stroke-width:2}
+.box{background:#fff;border-radius:18px;box-shadow:0 2px 10px rgba(60,20,40,.06);overflow:hidden;margin-bottom:12px}
+.box-h{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px;font-size:13px;font-weight:800;border-bottom:1px solid var(--line)}
+.box-h small{font-weight:600;color:var(--mut);font-size:12px}
+.box-h .zt{display:flex;align-items:center;gap:8px}
+.box-h .zt i{width:6px;height:18px;border-radius:3px;background:var(--zc,var(--red))}
+.mt{display:grid;grid-template-columns:1fr 32px 74px 32px 1fr;align-items:center;column-gap:6px;padding:12px 10px 10px;border-top:1px solid var(--line)}
+.mt:first-of-type{border-top:0}
+.mt .tn{font-size:12.5px;font-weight:700;line-height:1.2;word-break:normal;overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+.mt .tn.l{text-align:right}
+.mt .tn.tbd{color:#a59cab;font-weight:600;font-style:italic}
+.mt .tn.w{color:#047857}
+.mt .sc{text-align:center;font-weight:900;font-size:19px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mt .sc i{font-style:normal;display:inline-block;min-width:14px;padding-bottom:1px;border-bottom:3px solid transparent}
+.mt .sc i.w{border-bottom-color:var(--win)}
+.mt .sc .vs{display:inline-block;font-size:13px;font-weight:800;color:var(--red);background:#fff1f2;border-radius:9px;padding:5px 8px}
+.mt .sc.flash{animation:flash 1.8s ease}
+@keyframes flash{0%,35%{color:var(--win);transform:scale(1.18)}100%{}}
+.mt .pens{grid-column:3;text-align:center;font-size:11.5px;font-weight:700;color:var(--mut)}
+.mt .ft{grid-column:1/-1;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:7px;font-size:11.5px;font-weight:600;color:var(--mut)}
+.mt .ft span{background:var(--fill);border-radius:7px;padding:2px 8px}
+.mt .ft span.st{background:#ecfdf5;color:#047857}
+.cr{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:900;color:#fff;background:var(--c1);box-shadow:inset 0 0 0 3px var(--c2),0 1px 3px rgba(0,0,0,.2);text-shadow:0 1px 2px rgba(0,0,0,.45);flex-shrink:0}
+.cr.big{width:66px;height:66px;font-size:21px;box-shadow:inset 0 0 0 5px var(--c2),0 3px 8px rgba(0,0,0,.2)}
+.cr.ghost{background:#dcd6e0;box-shadow:none;text-shadow:none}
+.free{color:var(--mut);font-size:12.5px;padding:10px 14px;border-top:1px dashed var(--line)}
+.free b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{font-size:11px;font-weight:800;text-transform:uppercase;padding:9px 3px 7px;text-align:center;color:var(--mut)}
+th.g{box-shadow:inset 0 -3px var(--win)}th.p{box-shadow:inset 0 -3px var(--lose)}
+th.tn,td.tn{text-align:left}
+td{padding:9px 3px;text-align:center;border-top:1px solid var(--line);font-size:13.5px;font-weight:600}
+td.pos{width:30px;font-weight:900;color:var(--mut)}
+tr.q1 td.pos{box-shadow:inset 4px 0 var(--green);color:var(--green)}tr.q2 td.pos{box-shadow:inset 4px 0 var(--amber);color:#b45309}
+td.tn{max-width:0;width:100%}
+td.tn div{display:flex;align-items:center;gap:8px;min-width:0}
+td.tn span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;font-weight:700}
+td.tn .cr{width:26px;height:26px;font-size:9.5px;box-shadow:inset 0 0 0 2px var(--c2)}
+td.pts{font-weight:900;color:var(--ink)}
+td.zn{font-size:11px;color:var(--mut);font-weight:700}
+.wide{display:none}
+.refs{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin:0 4px 14px}
+.refs span{display:flex;align-items:center;gap:6px}
+.refs i{width:4px;height:14px;border-radius:2px}
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tm{background:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;box-shadow:0 2px 10px rgba(60,20,40,.06)}
+.tm b{font-size:13px;font-weight:800;line-height:1.2}
+.tm small{color:var(--mut);font-size:11.5px}
+.tm .z{font-size:10.5px;font-weight:800;color:var(--red);background:#fff1f2;border-radius:99px;padding:2px 8px}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.kpi{border-radius:18px;padding:14px;color:#fff;box-shadow:0 8px 20px rgba(60,20,40,.12)}
+.kpi small{display:block;font-size:12px;font-weight:700;opacity:.9}
+.kpi b{display:block;font-size:26px;font-weight:900;margin-top:4px}
+.kpi.k1{background:linear-gradient(135deg,#ef4444,#b91c1c)}.kpi.k2{background:linear-gradient(135deg,#6366f1,#4338ca)}.kpi.k3{background:linear-gradient(135deg,#38bdf8,#0284c7)}.kpi.k4{background:linear-gradient(135deg,#34d399,#059669)}
+.rk{display:flex;align-items:center;gap:10px;padding:10px 14px;border-top:1px solid var(--line)}
+.rk:first-of-type{border-top:0}
+.rk .n{width:20px;text-align:center;font-weight:900;color:var(--mut);font-size:13px}
+.rk .who{flex:1;min-width:0}
+.rk .who b{display:block;font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rk .bar{height:6px;border-radius:99px;background:var(--fill);margin-top:5px;overflow:hidden}
+.rk .bar i{display:block;height:100%;border-radius:99px;background:var(--bc)}
+.rk .v{text-align:right;min-width:44px}
+.rk .v b{display:block;font-size:18px;font-weight:900}
+.rk .v small{font-size:10.5px;color:var(--mut);font-weight:600}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--mut);font-size:14px;font-weight:700;margin:2px 0 12px}
+.det .vs{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:20px 12px}
+.det .side{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font-size:13.5px;font-weight:800}
+.det .side small{color:var(--mut);font-weight:500;font-size:12px}
+.det .big{font-size:32px;font-weight:900;text-align:center;white-space:nowrap}
+.det .big i{font-style:normal;border-bottom:3px solid transparent}
+.det .big i.w{border-bottom-color:var(--win)}
+.det .pen{display:block;text-align:center;font-size:12.5px;font-weight:700;color:var(--mut);margin-top:4px}
+.info{display:flex;align-items:center;gap:12px;padding:12px 14px;border-top:1px solid var(--line);font-size:14px;font-weight:700}
+.info svg{width:34px;height:34px;padding:7px;border-radius:10px;background:#fff1f2;stroke:var(--red);fill:none;stroke-width:2;flex-shrink:0}
+.info small{display:block;color:var(--mut);font-weight:500;font-size:12px}
+.empty{text-align:center;color:var(--mut);padding:26px 16px;font-size:14px;line-height:1.5}
+.empty img{height:96px;margin:0 auto 10px}
+.upd{text-align:center;font-size:11.5px;color:#9a8fa0;margin:8px 0 0}
+.toast{position:fixed;left:50%;bottom:calc(18px + var(--safe-b));transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:99px;font-size:13px;font-weight:700;opacity:0;transition:.3s;z-index:50;white-space:nowrap;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.skel{height:84px;border-radius:18px;background:linear-gradient(90deg,#e1e2ea,#f1f2f6,#e1e2ea);background-size:200% 100%;animation:sk 1.2s infinite;margin-bottom:10px}
+@keyframes sk{to{background-position:-200% 0}}
+footer{text-align:center;color:#9a8fa0;font-size:12px;padding:20px 16px calc(26px + var(--safe-b))}
+footer img{width:26px;height:32px;object-fit:contain;margin:0 auto 6px;opacity:.5}
+.hub-grid,.cols,.cols3{display:block}
+.lw{display:none}
+/* ── Computadora: banner de punta a punta, contenido más ancho y en columnas ── */
+@media (min-width:960px){
+ html{overflow-x:hidden}
+ :root{--side:max(24px,calc(50vw - 560px))}
+ .wrap{max-width:1120px}
+ main{padding:20px 24px 10px}
+ .top{height:70px;padding:0 var(--side)}
+ .top .logo img{width:34px;height:40px}
+ .top .logo b{font-size:20px}
+ .top .soc a{width:40px;height:40px}
+ .lw{display:inline}
+ .top .soc a.lbl{width:auto;padding:0 14px;gap:8px;display:flex;align-items:center;font-size:13px;font-weight:700}
+ .hero,.thead{margin:-20px calc(50% - 50vw) 0;padding-left:var(--side);padding-right:var(--side)}
+ .hero{padding-top:70px;padding-bottom:110px;min-height:380px}
+ .hero.nolive{padding-bottom:70px}
+ .hero h1{font-size:60px}
+ .hero p{font-size:17px;max-width:560px}
+ .hero .lg{width:74px;height:90px}
+ .thead{padding-top:26px;padding-bottom:30px}
+ .thead h1{font-size:34px}
+ .thead p{font-size:15px}
+ .lift{margin-top:-70px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+ .lift .live-card{margin:0;min-height:230px}
+ .lift .live-card>div{min-height:230px}
+ .hub-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:start}
+ .up-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;overflow:visible;margin:0;padding:2px 0 6px}
+ .up{max-width:none}
+ .up .ph{height:130px}
+ .h2 small.sw{display:none}
+ .ig-g{grid-template-columns:repeat(3,1fr)}
+ .cats{margin:0;padding:18px 0 4px}
+ .stabs{margin:14px 0 18px;padding:8px 0;top:70px;background:rgba(236,238,244,.94)}
+ .stabs nav{max-width:640px}
+ .stabs a{flex-direction:row;justify-content:center;gap:8px;padding:11px 0;font-size:14px}
+ .seg,.daynav,.search{max-width:640px}
+ .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+ .cols>.box,.cols3>.box{margin:0}
+ .cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+ .teams{grid-template-columns:repeat(4,1fr)!important}
+ .det-wrap{max-width:680px;margin:0 auto}
+ .mt{grid-template-columns:1fr 38px 92px 38px 1fr}
+ .mascots img{height:96px}
+ footer{padding-top:34px}
+}
+@media (min-width:640px){.wide{display:table-cell}.mt{grid-template-columns:1fr 38px 90px 38px 1fr}.mt .tn{font-size:14px}.cr{width:38px;height:38px}.teams{grid-template-columns:repeat(3,1fr)}.kpis{grid-template-columns:repeat(4,1fr)}.up{flex-basis:300px}}
+@media (min-width:640px) and (max-width:959px){.hero{padding:50px 28px 80px}.hero h1{font-size:44px}}
+/* ── v2: estética más sobria, íconos de línea, más contenido ── */
+.i{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:-2.5px;margin-right:6px;flex-shrink:0}
+.h2{display:flex;align-items:center;gap:12px;margin:28px 0 12px}
+.h2 h2{margin:0;font-size:13px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.h2 h2 i{display:none}
+.h2 .ln{flex:1;height:2px;background:#dad7e0;border-radius:2px}
+.h2 small{color:var(--mut);font-size:12px;font-weight:600;white-space:nowrap}
+.hero{padding:30px 18px 0}
+.hero.nolive{padding-bottom:0}
+.hero-in{display:flex;gap:14px;align-items:flex-start}
+.hero .lg{width:46px;height:56px;margin:4px 0 0}
+.hero .kick{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:4px}
+.hero h1{font-size:36px}
+.hero p{font-size:14px;margin-top:8px}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);margin:22px -18px 0;border-top:1px solid rgba(255,255,255,.18);background:rgba(40,0,8,.28)}
+.facts div{padding:12px 18px;border-right:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)}
+.facts div:nth-child(2n){border-right:0}
+.facts b{display:block;font-size:22px;font-weight:900;line-height:1.1}
+.facts span{font-size:11.5px;opacity:.85;font-weight:600}
+.hero:not(.nolive){padding-bottom:64px}
+.hero:not(.nolive) .facts{margin-bottom:0}
+.lift{margin-top:-46px}
+.live-card{border-radius:16px}
+.live-card small{display:flex;align-items:center}
+.live-card .go{display:inline-flex;align-items:center;gap:4px;border-radius:10px}
+.live-card .go .i{margin:0 0 0 4px}
+.up-row{gap:10px}
+.up{border-radius:14px;box-shadow:0 1px 2px rgba(40,20,40,.05);border:1px solid #e3e0e8}
+.up .ph{height:118px;padding:10px}
+.up .ph .pill{position:relative;z-index:1}
+.up .bd{flex-direction:row;gap:12px;padding:14px 14px 4px;align-items:flex-start}
+.up .dt{flex-shrink:0;width:50px;text-align:center;border:1px solid #e3e0e8;border-radius:10px;overflow:hidden}
+.up .dt b{display:block;font-size:21px;font-weight:900;color:var(--red);padding:5px 0 1px;line-height:1}
+.up .dt small{display:block;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:var(--ink);padding:2px 0;margin-top:4px}
+.up .tx{min-width:0;display:flex;flex-direction:column;gap:4px}
+.up .tx b{font-size:15px;font-weight:800;line-height:1.2}
+.up .tx small{display:flex;align-items:center;color:var(--mut);font-size:12.5px;line-height:1.3}
+.up .act{display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px 14px;margin-top:auto}
+.btn{border-radius:10px;gap:6px;padding:9px 13px}
+.btn .i{margin:0;width:14px;height:14px}
+.btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn.line{background:#fff;color:var(--ink);border:1px solid #dcd8e2}
+.btn.dark{background:var(--ink)}
+.soon{display:inline-flex;align-items:center;font-size:12.5px;font-weight:700;color:var(--mut);padding:9px 2px}
+.pill{border-radius:6px;font-size:10.5px;letter-spacing:.06em}
+.pill.ma{background:var(--red);color:#fff}.pill.pre{background:#312e81;color:#fff}.pill.esp{background:#5b21b6;color:#fff}
+.cal{border-radius:14px;border:1px solid #e3e0e8;box-shadow:none}
+.cal-g{border-top:1px solid var(--line)}
+.cal-g:first-child{border-top:0}
+.cal-m{display:flex;align-items:baseline;gap:8px;padding:12px 16px 4px;background:none;color:var(--ink);letter-spacing:0;text-transform:none;font-size:15px}
+.cal-m b{font-weight:900}
+.cal-m span{color:var(--mut);font-weight:600;font-size:13px}
+.cal-i{border-top:0;padding:9px 16px}
+.cal-d{width:46px;background:none;border:1px solid #e3e0e8;padding:4px 0 5px}
+.cal-d small{display:block;font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--red)}
+.cal-d b{font-size:19px}
+.cal-x{flex:1;min-width:0}
+.cal-i .tag{flex-shrink:0;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:3px 7px;border-radius:6px;background:var(--fill);color:var(--mut)}
+.cal-i .tag.ma{background:#fde3e6;color:var(--red2)}.cal-i .tag.pre{background:#e0e7ff;color:#3730a3}.cal-i .tag.esp{background:#ede9fe;color:#5b21b6}
+a.cal-i:hover{background:#faf8fb}
+.circ{background:#fff;border:1px solid #e3e0e8;border-radius:14px;overflow:hidden}
+.circ-i{display:flex;align-items:center;gap:12px;padding:11px 14px;border-top:1px solid var(--line)}
+.circ-i:first-child{border-top:0}
+.circ-i .cp{width:32px;height:32px;border-radius:9px;background:#fff1f2;color:var(--red);display:grid;place-items:center;flex-shrink:0}
+.circ-i .cp .i{margin:0;width:17px;height:17px}
+.circ-i>div{flex:1;min-width:0}
+.circ-i b{display:block;font-size:14px;font-weight:800}
+.circ-i small{color:var(--mut);font-size:12px}
+.circ-i .nx{font-size:11.5px;font-weight:800;color:var(--red);background:#fff1f2;border-radius:6px;padding:3px 8px;white-space:nowrap}
+.ig{border-radius:14px;border:1px solid #e3e0e8;box-shadow:none}
+.ig-h .av{width:42px;height:42px;padding:0;border-radius:50%;background:var(--red);display:grid;place-items:center}
+.ig-h .av img{width:20px;height:24px;object-fit:contain;filter:brightness(0) invert(1)}
+.ig-g{border-radius:10px}
+.ig-b{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.ig-b .btn{justify-content:center}
+.past{display:grid;grid-template-columns:1fr;gap:12px;background:none;box-shadow:none;border-radius:0;overflow:visible}
+.pc{background:#fff;border:1px solid #e3e0e8;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.pc .ph{height:96px;background-size:cover;background-position:center;position:relative;padding:10px;display:flex;justify-content:space-between;align-items:flex-start;filter:saturate(.75)}
+.pc .ph:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.35))}
+.pc .ph>*{position:relative;z-index:1}
+.pc .fin{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;background:rgba(255,255,255,.92);color:var(--ink);border-radius:6px;padding:3px 7px}
+.pc-b{padding:12px 14px 14px}
+.pc-b>b{display:block;font-size:15px;font-weight:800}
+.pc-b>small{display:flex;align-items:center;color:var(--mut);font-size:12.5px;margin-top:4px}
+.champs{display:block;margin-top:12px;border:1px solid #f1e3b5;border-radius:10px;overflow:hidden}
+.champs .ch-t{display:flex;align-items:center;padding:7px 10px;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#92400e;background:#fef7e0}
+.champs .ch-t .i{color:#d97706}
+.champs div{display:flex;justify-content:space-between;gap:10px;padding:7px 10px;border-top:1px solid #f6eccb;font-size:13px}
+.champs div span{color:var(--mut);font-weight:700;white-space:nowrap}
+.champs div b{font-weight:800;text-align:right}
+.past{align-items:start}
+.cats-p{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:12px}
+.cats-p span{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-right:4px}
+.cats-p i{font-style:normal;font-size:12px;font-weight:700;border:1px solid #e3e0e8;border-radius:6px;padding:2px 7px}
+.thead .pill{display:inline-block;margin-bottom:8px;background:rgba(255,255,255,.95)!important;color:var(--red2)!important}
+.thead .bk{display:flex}
+.tmeta{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:13px;font-weight:600}
+.tmeta span,.tmeta a{display:inline-flex;align-items:center;opacity:.95}
+.tmeta a{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:3px 9px}
+.tmeta a .i{margin-right:5px}
+@media (min-width:640px){.past{grid-template-columns:repeat(2,1fr)}.facts{grid-template-columns:repeat(4,1fr)}.facts div:nth-child(2n){border-right:1px solid rgba(255,255,255,.14)}.facts div:last-child{border-right:0}}
+@media (min-width:960px){
+ :root{--side:max(32px,calc(50vw - 620px))}
+ .wrap{max-width:1240px}
+ main{padding:24px 32px 10px}
+ html,body{font-size:16px}
+ .hero,.thead{margin-top:-24px}
+ .hero{padding:64px var(--side) 0;min-height:0}
+ .hero.nolive{padding-bottom:0}
+ .hero:not(.nolive){padding-bottom:96px}
+ .hero-in{gap:26px;align-items:center}
+ .hero .lg{width:86px;height:104px;margin:0}
+ .hero .kick{font-size:13px}
+ .hero h1{font-size:68px}
+ .hero p{font-size:17px;max-width:620px}
+ .facts{margin:40px calc(-1 * var(--side)) 0;padding:0 var(--side);grid-template-columns:repeat(4,1fr)}
+ .facts div{padding:18px 22px 20px;border-bottom:0}
+ .facts div:first-child{padding-left:0}
+ .facts b{font-size:32px}
+ .facts span{font-size:13px}
+ .lift{margin-top:-64px}
+ .hub-grid{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:36px}
+ .h2{margin:36px 0 14px}
+ .h2 h2{font-size:14px}
+ .up-row{grid-template-columns:repeat(2,1fr);gap:16px}
+ .up .ph{height:150px}
+ .up .tx b{font-size:16.5px}
+ .cal-i{padding:11px 18px}
+ .past{grid-template-columns:repeat(3,1fr);gap:18px}
+ .pc .ph{height:120px}
+ .thead{padding-top:30px;padding-bottom:34px}
+ .thead h1{font-size:38px}
+ .tmeta{font-size:14px}
+ .mascots{margin-top:40px}
+}
+</style>
+</head>
+<body>
+<header class="top" id="top"></header>
+<main class="wrap" id="app"><div class="skel"></div><div class="skel"></div><div class="skel"></div></main>
+<footer><img src="/logo.webp" alt="">Organización Mundialito · Club Atlético Alianza · Arteaga, Santa Fe</footer>
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/config.js"></script>
+<script>
+// ── Web pública del Mundialito: solo lectura, se actualiza en vivo desde el SGI ──
+const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const DAYS=['dom','lun','mar','mié','jue','vie','sáb'],DAYL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],MON=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],MONL=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const SV={ig:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="#fff"/></svg>',wa:'<svg viewBox="0 0 24 24"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c.2 2.6 3.4 5.9 6 6.2l1.2-1.4-2-1-1 .8c-.9-.4-2-1.5-2.4-2.4l.8-1-1-2z"/></svg>',pin:'<svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+ ball:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 5h-5L8 10z"/></svg>',shirt:'<svg viewBox="0 0 24 24"><path d="M8 3l-5 3 2 4 3-1v12h8V9l3 1 2-4-5-3a4 4 0 0 1-8 0z"/></svg>',table:'<svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16M9 6v12"/></svg>',chart:'<svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>',
+ l:'<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>',r:'<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>',lens:'<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>',pitch:'<svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="1"/><path d="M12 5v14"/><circle cx="12" cy="12" r="2.5"/></svg>',clock:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'};
+const PH={ma:['/img/inauguracion.jpg','/img/campeones.jpg','/img/aerea.jpg'],pre:['/img/juego.jpg','/img/historia.jpg'],esp:['/img/damfield.jpg','/img/juego.jpg']};
+let T=[],FX={},st={t:null,cat:null,view:'fixture',x:null,day:null,mode:'horario',pos:'grupos',q:''},online=false,lastUpd=null,channel=null;
+const ls={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}}};
+function toast(m){let t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2600)}
+const dISO=d=>new Date(d+'T00:00'),todayISO=()=>{let d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const fmtD=s=>{if(!s)return '';let d=dISO(s);return d.getDate()+' '+MON[d.getMonth()]};
+const daysTo=s=>Math.round((dISO(s)-dISO(todayISO()))/864e5);
+const tState=t=>{let n=todayISO();return n<t.inicio?'prox':n>t.fin?'fin':'live'};
+const tType=t=>/Premundialito/i.test(t.tipo)?'pre':/Mundialito Alianza/i.test(t.tipo)?'ma':'esp',tTypeName=t=>({ma:'Mundialito',pre:'Premundialito',esp:'Torneo especial'})[tType(t)];
+const photo=(t,k=0)=>{let p=PH[tType(t)];return p[(k+[...t.id].reduce((a,c)=>a+c.charCodeAt(0),0))%p.length]};
+const slug=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+// Misma lógica de resultados y posiciones que el SGI
+const played=m=>m.hs!=null&&m.as!=null&&m.hs!==''&&m.as!=='';
+function winner(m){if(m.bye)return m.h||m.a;if(!played(m))return null;if(+m.hs>+m.as)return m.h;if(+m.as>+m.hs)return m.a;if(m.hp!=null&&m.ap!=null&&m.hp!==''&&m.ap!==''){if(+m.hp>+m.ap)return m.h;if(+m.ap>+m.hp)return m.a}return null}
+const tName=(f,id)=>f.teams?.[id]?.n||'A definir',tCity=(f,id)=>f.teams?.[id]?.c||'';
+const cmp=(f)=>(a,b)=>b.pts-a.pts||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf||tName(f,a.id).localeCompare(tName(f,b.id));
+function standings(f,z){let rows={};z.teams.forEach(id=>rows[id]={id,z:z.name,pj:0,pg:0,pe:0,pp:0,gf:0,gc:0,pts:0});f.matches.filter(m=>m.z===z.id&&played(m)&&rows[m.h]&&rows[m.a]).forEach(m=>{let a=rows[m.h],b=rows[m.a],hs=+m.hs,as=+m.as;a.pj++;b.pj++;a.gf+=hs;a.gc+=as;b.gf+=as;b.gc+=hs;if(hs>as){a.pg++;b.pp++;a.pts+=3}else if(as>hs){b.pg++;a.pp++;b.pts+=3}else{a.pe++;b.pe++;a.pts++;b.pts++}});return Object.values(rows).sort(cmp(f))}
+// Nombres cortos ("Estrella del Sur" en vez de "Centro Deportivo Estrella del Sur") salvo que dos coincidan
+const LEAD=/^(club|atl[eé]tico|asociaci[oó]n|deportiv[oa]|recreativo|social|y|centro|cultural|sociedad|biblioteca)$/i,STOP=/^(club|atl[eé]tico|asociaci[oó]n|deportiv[oa]|social|y|de|del|la|el|los|las|centro|sportivo|recreativo|cultural|biblioteca|sociedad)$/i;
+function cutName(n){let w=String(n||'').split(/\s+/).filter(Boolean),i=0;while(i<w.length-1&&LEAD.test(w[i]))i++;return w.slice(i).join(' ')||n}
+function dName(f,id){let n=tName(f,id),s=cutName(n);if(s===n)return n;let c=f._short||(f._short=Object.values(f.teams||{}).reduce((a,x)=>{let k=cutName(x.n).toLowerCase();a[k]=(a[k]||0)+1;return a},{}));return c[s.toLowerCase()]>1?n:s}
+function initials(n){let w=String(n||'').replace(/[^\p{L}\p{N}\s]/gu,' ').split(/\s+/).filter(Boolean),k=w.filter(x=>!STOP.test(x));if(!k.length)k=w;return (k.length>1?k[0][0]+k[1][0]:(k[0]||'?').slice(0,2)).toUpperCase()}
+const hue=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))>>>0;return h%360};
+function crest(f,id,big){if(!id)return `<span class="cr ghost ${big?'big':''}">?</span>`;let t=f.teams?.[id]||{},k=t.k||[],c1=k[0]||`hsl(${hue(t.n)} 55% 38%)`,c2=k[1]&&k[1].toLowerCase()!==String(c1).toLowerCase()?k[1]:'#ffffff';return `<span class="cr ${big?'big':''}" style="--c1:${esc(c1)};--c2:${esc(c2)}">${esc(initials(t.n))}</span>`}
+// ── Datos y tiempo real ──
+async function loadAll(){let {data,error}=await sb.from('torneos_publicos').select('*').order('inicio',{ascending:true});if(error)throw error;T=data||[]}
+async function loadFixture(id){let {data,error}=await sb.from('fixture_publico').select('*').eq('torneo_id',id);if(error)throw error;FX[id]={};(data||[]).forEach(r=>FX[id][r.categoria]=r.datos);lastUpd=(data||[]).map(r=>r.actualizado).sort().pop()||null}
+function subscribe(id){if(channel)sb.removeChannel(channel);channel=sb.channel('fx-'+id).on('postgres_changes',{event:'*',schema:'public',table:'fixture_publico',filter:'torneo_id=eq.'+id},p=>{if(p.eventType==='DELETE'){let c=p.old?.categoria;if(c&&FX[id])delete FX[id][c];render();return}let r=p.new;if(!r?.categoria)return;let before=FX[id]?.[r.categoria];FX[id]=FX[id]||{};FX[id][r.categoria]=r.datos;lastUpd=r.actualizado;let ch=changed(before,r.datos);render(ch);if(ch.length)toast('Categoría '+r.categoria+': resultado actualizado')}).subscribe(s=>{online=s==='SUBSCRIBED';drawTop()})}
+function changed(a,b){if(!a||!b)return [];let o=Object.fromEntries((a.matches||[]).map(m=>[m.id,[m.hs,m.as,m.hp,m.ap].join()]));return (b.matches||[]).filter(m=>o[m.id]!==undefined&&o[m.id]!==[m.hs,m.as,m.hp,m.ap].join()).map(m=>m.id)}
+// ── Navegación con links cortos: /juvenil26 · /juvenil26/2010-masc/posiciones · /juvenil26/2010-masc/partido/12 ──
+const VIEWS=['fixture','equipos','posiciones','estadisticas','partido'];
+function readPath(){let p=location.pathname.replace(/^\/+|\/+$/g,'').split('/').filter(Boolean).map(decodeURIComponent);if(p[0]&&p[0]!=='index.html'){st.t=p[0];st.cat=p[1]||null;st.view=VIEWS.includes(p[2])?p[2]:'fixture';st.x=p[3]||null}else st.t=null}
+const U=(view,x,cat)=>'/'+[st.t,cat??st.cat,view==='fixture'&&!x?null:view,x].filter(v=>v!=null&&v!=='').join('/');
+function go(url,replace){if(replace)history.replaceState(null,'',url);else history.pushState(null,'',url);route()}
+document.addEventListener('click',e=>{let a=e.target.closest('a[data-l]');if(!a||e.metaKey||e.ctrlKey)return;e.preventDefault();go(a.getAttribute('href'))});
+addEventListener('popstate',route);
+let curT=null;async function route(){let pv=st.view,px=st.x,pc=st.cat;readPath();if(st.t&&st.t!==curT){curT=st.t;$('#app').innerHTML='<div class="skel"></div><div class="skel"></div>';try{await loadFixture(st.t);subscribe(st.t)}catch(e){$('#app').innerHTML='<div class="empty">No pudimos cargar el fixture. Revisá tu conexión.</div>';return}st.day=null;st.q=''}if(!st.t){curT=null;if(channel){sb.removeChannel(channel);channel=null}}render();if(pv!==st.view||px!==st.x||pc!==st.cat)scrollTo(0,0)}
+// Íconos de línea propios (sin emojis)
+const IC={trophy:'<svg class="i" viewBox="0 0 24 24"><path d="M8 21h8M12 16v5M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 6h3v1.5A3.5 3.5 0 0 1 16.6 11M7 6H4v1.5A3.5 3.5 0 0 0 7.4 11"/></svg>',cal:'<svg class="i" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M16 3v4M8 3v4M3.5 10h17"/></svg>',pin:'<svg class="i" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',arrow:'<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',route:'<svg class="i" viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>',flag:'<svg class="i" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>',
+ tt:'<svg viewBox="0 0 24 24"><path d="M14 3v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3c.6 2.8 2.6 4.7 5.5 5"/></svg>'};
+const mapsFor=t=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(String(t.sede||'').replace(/\s*·\s*/g,', '));
+const city=t=>{let p=String(t.sede||'').split('·');return (p[1]||p[0]||'').trim()};
+const prov=t=>{let p=city(t).split(',');return (p[1]||'').trim()};
+// ── Barra superior ──
+function drawTop(){let t=T.find(x=>x.id===st.t),wa=CFG.whatsapp?'https://wa.me/'+CFG.whatsapp:null,ig=CFG.instagram?'https://instagram.com/'+CFG.instagram:null,tk=CFG.tiktok?'https://www.tiktok.com/@'+CFG.tiktok:null;
+ const soc=(u,lab,icon)=>`<a href="${u||'#'}" ${u?'target="_blank" rel="noopener"':`onclick="toast('${lab}: próximamente');return false"`} aria-label="${lab}" class="lbl">${icon}<span class="lw">${lab}</span></a>`;
+ $('#top').innerHTML=`<a class="logo" href="/" data-l><img src="/logo.webp" alt=""><div><b>Mundialito</b><small>${t?`<i class="dot ${online?'':'off'}"></i>${online?'Resultados en vivo':'Conectando…'}`:'Fixture y resultados'}</small></div></a><nav class="soc">${soc(ig,'Instagram',SV.ig)}${soc(tk,'TikTok',IC.tt)}${soc(wa,'WhatsApp',SV.wa)}</nav>`}
+function render(flash=[]){drawTop();let app=$('#app');if(!st.t){app.innerHTML=hub();return}let t=T.find(x=>x.id===st.t);if(!t){app.innerHTML=`<div class="empty"><img src="/img/nenito.webp" alt="">No encontramos ese torneo.<br><br><a class="btn" href="/" data-l>Ver los torneos</a></div>`;return}app.innerHTML=tournament(t,flash);let q=$('#q');if(q&&st._focus){q.focus();q.setSelectionRange(q.value.length,q.value.length);st._focus=false}}
+const H2=(title,aside='')=>`<div class="h2"><h2>${title}</h2><span class="ln"></span>${aside?`<small>${aside}</small>`:''}</div>`;
+// ── Portada (hub) ──
+function hub(){let n=todayISO(),y=+n.slice(0,4),live=T.filter(t=>tState(t)==='live'),up=T.filter(t=>tState(t)==='prox'),fin=T.filter(t=>tState(t)==='fin'&&daysTo(t.fin)>-400).reverse(),ma=T.find(t=>tType(t)==='ma'&&t.inicio>=n),ed=ma?dISO(ma.inicio).getFullYear()-1986:null,yearT=T.filter(t=>t.inicio?.startsWith(String(y))),provs=new Set(T.map(prov).filter(Boolean));
+ let html=`<section class="hero ${live.length?'':'nolive'}"><div class="hero-in"><img class="lg" src="/logo.webp" alt=""><div><span class="kick">Circuito de fútbol infantil y juvenil</span><h1>Mundialito</h1><p>Fixture, resultados y posiciones de cada torneo del circuito, actualizados en el momento desde la organización.</p></div></div><div class="facts"><div><b>${ed||'40'}${ed?'.ª':''}</b><span>${ed?'edición en enero '+dISO(ma.inicio).getFullYear():'ediciones'}</span></div><div><b>${yearT.length}</b><span>torneos en ${y}</span></div><div><b>${provs.size}</b><span>provincias en el circuito</span></div><div><b>1987</b><span>primera edición</span></div></div></section><div class="lift">`;
+ if(live.length)html+=live.map((t,k)=>`<a class="live-card" href="/${esc(t.id)}" data-l><span class="bg" style="background-image:url(${photo(t,k)})"></span><div><span class="badge-live"><i></i>Jugándose ahora</span><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))} · ${fmtD(t.inicio)} al ${fmtD(t.fin)}</small><span class="go">${t.publicado?'Ver resultados':'Fixture próximamente'} ${IC.arrow}</span></div></a>`).join('');
+ html+=`</div><div class="hub-grid"><div class="col-a">`;
+ if(up.length)html+=H2('Próximos torneos',up.length+' en agenda')+`<div class="up-row">${up.slice(0,6).map((t,k)=>{let d=daysTo(t.inicio),s=dISO(t.inicio);return `<article class="up"><div class="ph" style="background-image:url(${photo(t,k+1)})"><span class="pill ${tType(t)}">${tTypeName(t)}</span></div><div class="bd"><div class="dt"><b>${s.getDate()}</b><small>${MON[s.getMonth()]}</small></div><div class="tx"><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))}</small><small>${IC.cal}${fmtD(t.inicio)} al ${fmtD(t.fin)} · faltan ${d} día${d===1?'':'s'}</small></div></div><div class="act">${t.publicado?`<a class="btn" href="/${esc(t.id)}" data-l>Ver fixture ${IC.arrow}</a>`:'<span class="soon">Fixture próximamente</span>'}<a class="btn line" href="${mapsFor(t)}" target="_blank" rel="noopener">${IC.route} Cómo llegar</a></div></article>`}).join('')}</div>`;
+ if(up.length||live.length){let list=[...live,...up],months={};list.forEach(t=>{let d=dISO(t.inicio),k=d.getFullYear()+'-'+d.getMonth();(months[k]=months[k]||{y:d.getFullYear(),m:d.getMonth(),l:[]}).l.push(t)});
+  html+=H2('Calendario',`${list.length} torneo${list.length>1?'s':''} por jugar`)+`<div class="cal">${Object.values(months).map(g=>`<div class="cal-g"><div class="cal-m"><b>${MONL[g.m]}</b><span>${g.y}</span></div><div class="cal-l">${g.l.map(t=>{let d=dISO(t.inicio),inner=`<div class="cal-d"><small>${DAYS[d.getDay()]}</small><b>${d.getDate()}</b></div><div class="cal-x"><b class="n">${esc(t.nombre)}</b><small class="s">${esc(t.sede||'')}</small></div><span class="tag ${tType(t)}">${tTypeName(t)}</span>`;return t.publicado?`<a class="cal-i" href="/${esc(t.id)}" data-l>${inner}</a>`:`<div class="cal-i">${inner}</div>`}).join('')}</div></div>`).join('')}</div>`}
+ html+=`</div><div class="col-b">`;
+ // El circuito: dónde se juega
+ let sedes={};T.forEach(t=>{let c=city(t);if(!c)return;(sedes[c]=sedes[c]||{c,n:0,next:null,last:null}).n++;if(tState(t)!=='fin'&&(!sedes[c].next||t.inicio<sedes[c].next.inicio))sedes[c].next=t});
+ let sl=Object.values(sedes).sort((a,b)=>(a.next?0:1)-(b.next?0:1)||b.n-a.n);
+ html+=H2('El circuito',sl.length+' sedes')+`<div class="circ">${sl.map(s=>`<div class="circ-i"><span class="cp">${IC.pin}</span><div><b>${esc(s.c.split(',')[0])}</b><small>${esc(s.c.split(',').slice(1).join(',').trim())} · ${s.n} torneo${s.n>1?'s':''}</small></div>${s.next?`<span class="nx">${fmtD(s.next.inicio)}</span>`:''}</div>`).join('')}</div>`;
+ let ig=CFG.instagram,photos=['/img/inauguracion.jpg','/img/campeones.jpg','/img/juego.jpg','/img/aerea.jpg','/img/damfield.jpg','/img/historia.jpg'],igl=ig?`https://instagram.com/${esc(ig)}`:'#',tkl=CFG.tiktok?`https://www.tiktok.com/@${esc(CFG.tiktok)}`:'#';
+ html+=H2('En redes')+`<div class="ig"><div class="ig-h"><span class="av"><img src="/logo.webp" alt=""></span><div><b>@${esc(ig||'mundialito')}</b><small>Fotos, videos y novedades</small></div></div><div class="ig-g">${photos.map(p=>`<a href="${igl}" target="_blank" rel="noopener" style="background-image:url(${p})" aria-label="Ver en Instagram"></a>`).join('')}</div><div class="ig-b"><a class="btn" href="${igl}" target="_blank" rel="noopener">${SV.ig} Instagram</a><a class="btn dark" href="${tkl}" target="_blank" rel="noopener">${IC.tt} TikTok</a></div></div>`;
+ html+=`</div></div>`;
+ // Ya se jugaron: tarjetas con foto y campeones por categoría
+ if(fin.length)html+=H2('Ya se jugaron','Últimos 12 meses')+`<div class="past">${fin.slice(0,6).map((t,k)=>{let c=Object.entries(t.campeones||{});return `<article class="pc"><div class="ph" style="background-image:url(${photo(t,k+2)})"><span class="pill ${tType(t)}">${tTypeName(t)}</span><span class="fin">Finalizado</span></div><div class="pc-b"><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))} · ${fmtD(t.inicio)} al ${fmtD(t.fin)}</small>${c.length?`<div class="champs"><span class="ch-t">${IC.trophy} Campeones</span>${c.map(([cat,nm])=>`<div><span>${esc(cat)}</span><b>${esc(cutName(nm))}</b></div>`).join('')}</div>`:`<div class="cats-p"><span>Categorías</span>${(t.categorias||[]).map(c=>`<i>${esc(c)}</i>`).join('')}</div>`}</div></article>`}).join('')}</div>`;
+ return html+`<div class="mascots"><img src="/img/pateando.webp" alt=""><img src="/img/cabeceando.webp" alt=""><img src="/img/pisando.webp" alt=""></div>`}
+// ── Torneo ──
+function tournament(t,flash){let cats=(t.categorias||[]).filter(c=>FX[t.id]?.[c]),head=`<section class="thead" style="--img:url(${photo(t)})"><a class="bk" href="/" data-l>${SV.l.replace('<svg','<svg width="14" height="14" style="fill:none;stroke:#fff;stroke-width:3"')} Todos los torneos</a><span class="pill ${tType(t)}">${tTypeName(t)}</span><h1>${esc(t.nombre)}</h1><div class="tmeta"><span>${IC.cal}${fmtD(t.inicio)} al ${fmtD(t.fin)}</span><span>${IC.pin}${esc(t.sede||'')}</span><a href="${mapsFor(t)}" target="_blank" rel="noopener">${IC.route} Cómo llegar</a></div></section>`;
+ if(!t.publicado||!cats.length)return head+`<div class="empty" style="margin-top:20px"><img src="/img/pateando.webp" alt="">El fixture de este torneo todavía no está publicado.<br>Volvé a entrar más cerca de la fecha.</div>`;
+ let byslug=Object.fromEntries(cats.map(c=>[slug(c),c]));if(!st.cat||!byslug[st.cat]){let c=ls.get('cat-'+t.id);st.cat=byslug[c]?c:slug(cats[0]);history.replaceState(null,'',U(st.view,st.x))}ls.set('cat-'+t.id,st.cat);let cat=byslug[st.cat],f=FX[t.id][cat];
+ let tv=st.view==='partido'?'fixture':st.view;
+ head+=`<div class="cats">${cats.map(c=>`<a href="${U(tv==='fixture'?'fixture':tv,null,slug(c))}" data-l class="${c===cat?'on':''}">${esc(c)}</a>`).join('')}</div><div class="stabs"><nav>${[['fixture','Fixture',SV.ball],['equipos','Equipos',SV.shirt],['posiciones','Posiciones',SV.table],['estadisticas','Estadísticas',SV.chart]].map(([k,n,i])=>`<a href="${U(k)}" data-l class="${tv===k?'on':''}">${i}${n}</a>`).join('')}</nav></div>`;
+ let body=st.view==='posiciones'?vPos(f):st.view==='equipos'?vTeams(f):st.view==='estadisticas'?vStats(f):st.view==='partido'?vMatch(f,st.x):vFixture(f,flash);
+ return head+body+(lastUpd?`<p class="upd">Actualizado: ${new Date(lastUpd).toLocaleString('es-AR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',hour12:false})} hs</p>`:'')}
+const zoneName=(f,m)=>m.ph==='Zona'?(f.zones.find(z=>z.id===m.z)?.name||'Zona'):m.ph;
+const ZC=['#d7192b','#4f46e5','#0ea5e9','#10b981','#f59e0b','#8b5cf6','#ec4899','#14b8a6'];
+const zColor=(f,name)=>{let i=(f.zones||[]).findIndex(z=>z.name===name);return i<0?'#2b2230':ZC[i%ZC.length]};
+function row(f,m,flash,showZone){let w=winner(m),pl=played(m),hn=m.h?dName(f,m.h):(m.hl||'A definir'),an=m.a?dName(f,m.a):(m.al||'A definir'),pen=m.hp!=null&&m.hp!=='';
+ return `<a class="mt" href="${U('partido',m.n??m.id)}" data-l><span class="tn l ${m.h?'':'tbd'} ${w&&w===m.h?'w':''}">${esc(hn)}</span>${crest(f,m.h)}<span class="sc ${flash.includes(m.id)?'flash':''}">${m.bye?'<span class="vs">LIBRE</span>':pl?`<i class="${w&&w===m.h?'w':''}">${esc(m.hs)}</i> - <i class="${w&&w===m.a?'w':''}">${esc(m.as)}</i>`:`<span class="vs">${esc(m.t||'VS')}</span>`}</span>${crest(f,m.a)}<span class="tn ${m.a?'':'tbd'} ${w&&w===m.a?'w':''}">${esc(an)}</span>${pen?`<span class="pens">Pen. ${esc(m.hp)}-${esc(m.ap)}</span>`:''}<span class="ft"><span>${esc(m.f||'Cancha a definir')}</span>${pl&&m.t?`<span>${esc(m.t)}</span>`:''}${showZone?`<span>${esc(zoneName(f,m))}</span>`:''}${pl?'<span class="st">Final</span>':''}</span></a>`}
+function vFixture(f,flash){let all=f.matches,days=[...new Set(all.map(m=>m.d).filter(Boolean))].sort(),today=todayISO();if(!st.day||!days.includes(st.day))st.day=days.find(d=>d>=today)||days[days.length-1]||null;let di=days.indexOf(st.day),q=st.q.trim().toLowerCase();
+ let ms=all.filter(m=>!days.length||m.d===st.day).filter(m=>!q||[tName(f,m.h),tName(f,m.a),m.hl,m.al].some(n=>String(n||'').toLowerCase().includes(q))).sort((a,b)=>(a.t||'').localeCompare(b.t||'')||(a.f||'').localeCompare(b.f||''));
+ let d=st.day?dISO(st.day):null,nav=days.length?`<div class="daynav"><button onclick="st.day='${days[di-1]||''}';render()" ${di<=0?'disabled':''} aria-label="Día anterior">${SV.l}</button><div class="mid"><b>${DAYL[d.getDay()]} ${d.getDate()} de ${MONL[d.getMonth()].toLowerCase()}</b><small>Día ${di+1} de ${days.length}${st.day===today?' · Hoy':''} · tocá para elegir</small><select aria-label="Elegir día" onchange="st.day=this.value;render()">${days.map((x,k)=>`<option value="${x}" ${x===st.day?'selected':''}>Día ${k+1}: ${DAYL[dISO(x).getDay()]} ${fmtD(x)}${x===today?' (hoy)':''}</option>`).join('')}</select></div><button onclick="st.day='${days[di+1]||''}';render()" ${di>=days.length-1?'disabled':''} aria-label="Día siguiente">${SV.r}</button></div>`:'';
+ let top=`<div class="seg"><button class="${st.mode==='horario'?'on':''}" onclick="st.mode='horario';render()">Por horario</button><button class="${st.mode==='grupo'?'on':''}" onclick="st.mode='grupo';render()">Por grupo</button></div>${nav}<div class="search"><input id="q" type="search" placeholder="Buscar equipo" value="${esc(st.q)}" oninput="st.q=this.value;st._focus=true;render()" autocomplete="off">${SV.lens}</div>`;
+ if(!ms.length)return top+`<div class="empty"><img src="/img/cabeceando.webp" alt="">${q?'No hay partidos de ese equipo este día.':'No hay partidos para mostrar.'}</div>`;
+ if(st.mode==='grupo'){let keys=[...new Set(ms.map(m=>zoneName(f,m)))];return top+'<div class="cols">'+keys.map(k=>{let list=ms.filter(m=>zoneName(f,m)===k),z=f.zones.find(z=>z.name===k),free=z&&!q?z.teams.filter(id=>!list.some(m=>m.h===id||m.a===id)):[];return `<div class="box"><div class="box-h"><span class="zt" style="--zc:${zColor(f,k)}"><i></i>${esc(k)}</span><small>${list.filter(played).length}/${list.length} jugados</small></div>${list.map(m=>row(f,m,flash,false)).join('')}${free.length?`<div class="free">Sin partido este día: ${free.map(id=>`<b>${esc(dName(f,id))}</b>`).join(', ')}</div>`:''}</div>`}).join('')+'</div>'}
+ let times=[...new Set(ms.map(m=>m.t||'A definir'))];return top+'<div class="cols">'+times.map(h=>{let list=ms.filter(m=>(m.t||'A definir')===h);return `<div class="box"><div class="box-h"><span class="zt"><i></i>${esc(h)}${h!=='A definir'?' hs':''}</span><small>${list.length} partido${list.length>1?'s':''}</small></div>${list.map(m=>row(f,m,flash,true)).join('')}</div>`}).join('')+'</div>'}
+function vTeams(f){let q=st.q.trim().toLowerCase(),zoneOf=id=>f.zones?.find(z=>z.teams.includes(id))?.name||'',list=Object.entries(f.teams||{}).filter(([,x])=>!q||x.n.toLowerCase().includes(q)||String(x.c||'').toLowerCase().includes(q)).sort((a,b)=>a[1].n.localeCompare(b[1].n));
+ return `<div class="search"><input id="q" type="search" placeholder="Buscar equipo o ciudad" value="${esc(st.q)}" oninput="st.q=this.value;st._focus=true;render()" autocomplete="off">${SV.lens}</div><div class="h2" style="margin-top:0"><h2><i></i>${list.length} equipos</h2></div><div class="teams">${list.map(([id,x])=>`<div class="tm">${crest(f,id,true)}<b>${esc(x.n)}</b><small>${esc(x.c||'')}</small>${zoneOf(id)?`<span class="z" style="color:${zColor(f,zoneOf(id))}">${esc(zoneOf(id))}</span>`:''}</div>`).join('')}</div>${list.length?'':'<div class="empty">No encontramos equipos con ese nombre.</div>'}`}
+const ORD=['Primeros','Segundos','Terceros','Cuartos','Quintos','Sextos','Séptimos','Octavos'];
+function table(f,rows,{zone=false,q=0}={}){return `<table><thead><tr><th>#</th><th class="tn">Equipo</th>${zone?'<th>Zona</th>':''}<th>Pts</th><th>PJ</th><th class="g">G</th><th class="wide">E</th><th class="p">P</th><th class="wide">GF</th><th class="wide">GC</th><th>DG</th></tr></thead><tbody>${rows.map((x,k)=>`<tr class="${q&&k<q?(k===0?'q1':'q2'):''}"><td class="pos">${k+1}</td><td class="tn"><div>${crest(f,x.id)}<span>${esc(dName(f,x.id))}</span></div></td>${zone?`<td class="zn" style="color:${zColor(f,x.z)}">${esc(String(x.z).replace(/^Zona\s*/i,''))}</td>`:''}<td class="pts">${x.pts}</td><td>${x.pj}</td><td>${x.pg}</td><td class="wide">${x.pe}</td><td>${x.pp}</td><td class="wide">${x.gf}</td><td class="wide">${x.gc}</td><td>${x.gf-x.gc>0?'+':''}${x.gf-x.gc}</td></tr>`).join('')}</tbody></table>`}
+function vPos(f){let seg=`<div class="seg three"><button class="${st.pos==='grupos'?'on':''}" onclick="st.pos='grupos';render()">Por grupo</button><button class="${st.pos==='general'?'on':''}" onclick="st.pos='general';render()">General</button><button class="${st.pos==='puesto'?'on':''}" onclick="st.pos='puesto';render()">Por puesto</button></div>`;
+ if(!f.zones?.length)return seg+`<div class="empty"><img src="/img/pisando.webp" alt="">Esta categoría se juega por eliminación directa: no tiene tabla de posiciones.</div>`;
+ let tabs=f.zones.map(z=>({z,rows:standings(f,z)})),q=f.format==='zonas'?f.perZone:0;
+ if(st.pos==='general'){let all=tabs.flatMap(x=>x.rows).sort(cmp(f));return seg+`<div class="box"><div class="box-h"><span class="zt"><i></i>Tabla general</span><small>${all.length} equipos</small></div>${table(f,all,{zone:true})}</div><p class="upd">Todos los equipos de todas las zonas, ordenados por puntos, diferencia de gol y goles a favor.</p>`}
+ if(st.pos==='puesto'){let max=Math.max(...tabs.map(x=>x.rows.length));return seg+'<div class="cols">'+Array.from({length:max},(_,k)=>{let rows=tabs.map(x=>x.rows[k]).filter(Boolean).sort(cmp(f));return `<div class="box"><div class="box-h"><span class="zt" style="--zc:${['#10b981','#f59e0b','#0ea5e9','#8b5cf6','#ec4899','#64748b'][k%6]}"><i></i>${ORD[k]||(k+1)+'.º'} de grupo</span><small>${rows.length} equipos</small></div>${table(f,rows,{zone:true})}</div>`}).join('')+`</div><p class="upd">Compara a los equipos que terminaron en el mismo puesto de cada zona.</p>`}
+ return seg+'<div class="cols">'+tabs.map(({z,rows})=>`<div class="box"><div class="box-h"><span class="zt" style="--zc:${zColor(f,z.name)}"><i></i>${esc(z.name)}</span><small>${q?'Clasifican '+q:''}</small></div>${table(f,rows,{q})}</div>`).join('')+'</div>'+(q?`<div class="refs"><span><i style="background:var(--green)"></i>Primero de la zona</span><span><i style="background:var(--amber)"></i>Clasifica</span></div>`:'')}
+function vStats(f){let s={};const T0=id=>s[id]=s[id]||{id,pj:0,gf:0,gc:0,vi:0};let pm=f.matches.filter(m=>played(m)&&m.h&&m.a),goals=0;pm.forEach(m=>{let a=T0(m.h),b=T0(m.a),hs=+m.hs,as=+m.as;goals+=hs+as;a.pj++;b.pj++;a.gf+=hs;a.gc+=as;b.gf+=as;b.gc+=hs;if(as===0)a.vi++;if(hs===0)b.vi++});
+ let L=Object.values(s),avg=x=>(x/(pm.length||1)).toFixed(1).replace('.',','),kp=`<div class="kpis"><div class="kpi k1"><small>Partidos jugados</small><b>${pm.length}<span style="font-size:14px;opacity:.8"> / ${f.matches.filter(m=>m.h&&m.a&&!m.bye).length}</span></b></div><div class="kpi k2"><small>Goles</small><b>${goals}</b></div><div class="kpi k3"><small>Promedio por partido</small><b>${avg(goals)}</b></div><div class="kpi k4"><small>Vallas invictas</small><b>${L.reduce((a,x)=>a+x.vi,0)}</b></div></div>`;
+ if(!pm.length)return kp+`<div class="empty"><img src="/img/pateando.webp" alt="">Las estadísticas aparecen cuando se juegan los primeros partidos.</div>`;
+ const rank=(title,color,list,val,sub,max)=>`<div class="box"><div class="box-h"><span class="zt" style="--zc:${color}"><i></i>${title}</span><small>Top ${list.length}</small></div>${list.map((x,k)=>`<div class="rk"><span class="n">${k+1}</span>${crest(f,x.id)}<div class="who"><b>${esc(dName(f,x.id))}</b><div class="bar"><i style="width:${max?Math.max(4,val(x)/max*100):0}%;--bc:${color}"></i></div></div><div class="v"><b>${val(x)}</b><small>${sub(x)}</small></div></div>`).join('')}</div>`;
+ let gf=[...L].sort((a,b)=>b.gf-a.gf||a.pj-b.pj).slice(0,8),gc=[...L].sort((a,b)=>a.gc/a.pj-b.gc/b.pj||b.pj-a.pj).slice(0,8),vi=[...L].filter(x=>x.vi).sort((a,b)=>b.vi-a.vi||a.gc-b.gc).slice(0,8),mgc=Math.max(...gc.map(x=>x.gc),1);
+ return kp+'<div class="cols3">'+rank('Equipos más goleadores','#d7192b',gf,x=>x.gf,x=>'en '+x.pj+' PJ',gf[0]?.gf)+rank('Valla menos vencida','#4f46e5',gc,x=>x.gc,x=>'goles en contra',mgc)+(vi.length?rank('Vallas invictas','#10b981',vi,x=>x.vi,x=>x.vi===1?'partido sin goles':'partidos sin goles',vi[0].vi):'')+'</div>'}
+function vMatch(f,key){let m=f.matches.find(x=>String(x.n??x.id)===String(key))||f.matches.find(x=>x.id===key);if(!m)return `<a class="back" href="${U('fixture')}" data-l>‹ Volver al fixture</a><div class="empty">Partido no encontrado.</div>`;let w=winner(m),pl=played(m),hn=m.h?tName(f,m.h):(m.hl||'A definir'),an=m.a?tName(f,m.a):(m.al||'A definir');
+ return `<div class="det-wrap"><a class="back" href="${U('fixture')}" data-l>‹ Volver al fixture</a><div class="box det"><div class="box-h"><span class="zt" style="--zc:${zColor(f,zoneName(f,m))}"><i></i>${esc(m.ph==='Zona'?zoneName(f,m):m.ph)}</span><small>${m.d?esc(DAYL[dISO(m.d).getDay()]+' '+fmtD(m.d)):'Fecha a definir'}</small></div><div class="vs"><div class="side">${crest(f,m.h,true)}${esc(hn)}${m.h&&tCity(f,m.h)?`<small>${esc(tCity(f,m.h))}</small>`:''}</div><div><div class="big">${pl?`<i class="${w&&w===m.h?'w':''}">${esc(m.hs)}</i> - <i class="${w&&w===m.a?'w':''}">${esc(m.as)}</i>`:'<span style="font-size:17px;color:var(--red)">VS</span>'}</div>${m.hp!=null&&m.hp!==''?`<span class="pen">Penales ${esc(m.hp)} - ${esc(m.ap)}</span>`:''}</div><div class="side">${crest(f,m.a,true)}${esc(an)}${m.a&&tCity(f,m.a)?`<small>${esc(tCity(f,m.a))}</small>`:''}</div></div><div class="info">${SV.pitch}<div>${esc(m.f||'Cancha a definir')}<small>${esc(m.v||'')}</small></div></div><div class="info">${SV.clock}<div>${esc(m.t?m.t+' hs':'Horario a definir')}<small>${pl?'Partido finalizado':'Horario de inicio'}</small></div></div></div></div>`}
+// Al volver a la pestaña del celular, se refresca por si se cortó la conexión
+document.addEventListener('visibilitychange',async()=>{if(document.visibilityState==='visible'){try{await loadAll();if(st.t)await loadFixture(st.t);render()}catch(e){}}});
+(async()=>{readPath();drawTop();try{await loadAll()}catch(e){$('#app').innerHTML='<div class="empty">No pudimos conectarnos. Revisá tu conexión e intentá de nuevo.</div>';return}route()})();
+</script>
+</body>
+</html>
