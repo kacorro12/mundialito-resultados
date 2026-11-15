@@ -165,7 +165,8 @@ main{padding:14px 14px 10px}
 .cr.big{width:66px;height:66px;font-size:21px;box-shadow:inset 0 0 0 5px var(--c2),0 3px 8px rgba(0,0,0,.2)}
 .cr.ghost{background:#dcd6e0;box-shadow:none;text-shadow:none}
 .cr.lg{background:none!important;box-shadow:none!important;border-radius:0}
-.cr.lg img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.18))}
+.cr.lg{display:flex;align-items:center;justify-content:center;overflow:visible}
+.cr.lg img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.18))}
 .free{color:var(--mut);font-size:12.5px;padding:10px 14px;border-top:1px dashed var(--line)}
 .free b{color:var(--ink)}
 table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
@@ -408,6 +409,33 @@ a.cal-i:hover{background:#faf8fb}
  .tmeta{font-size:14px}
  .mascots{margin-top:40px}
 }
+/* v3: fila de partido sin superposiciones y filtros del fixture */
+.mt{display:block!important;padding:10px 12px 12px}
+.mt-meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:11.5px;font-weight:700;color:var(--mut);margin-bottom:10px}
+.mt-meta span{display:inline-flex;align-items:center;background:var(--fill);border-radius:6px;padding:3px 8px}
+.mt-meta span.hr{background:#fff1f2;color:var(--red)}
+.mt-meta span.hr .i{width:13px;height:13px;margin-right:4px}
+.mt-meta span.st{background:#ecfdf5;color:#047857;margin-left:auto}
+.mt-row{display:grid;grid-template-columns:minmax(0,1fr) 78px minmax(0,1fr);align-items:center;gap:6px}
+.mt .side{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;min-width:0}
+.mt .side .cr{width:46px;height:46px;font-size:14px}
+.mt .side .tn{font-size:12.5px;font-weight:700;line-height:1.2;text-align:center!important;overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+.mt .side.w .tn{color:#047857}
+.mt .side.tbd .tn{color:#a59cab;font-style:italic;font-weight:600}
+.mt .sc{align-self:center}
+.mt .pens{text-align:center;margin-top:6px;font-size:11.5px;font-weight:700;color:var(--mut)}
+.flts{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:6px;margin-bottom:12px}
+.flt{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:12px;padding:6px 26px 6px 10px;box-shadow:0 1px 4px rgba(60,20,40,.07);border:1px solid transparent;min-width:0}
+.flt.on{border-color:var(--red);background:#fff7f8}
+.flt span{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--mut)}
+.flt select{appearance:none;-webkit-appearance:none;border:0;background:none;font-size:14px;font-weight:700;padding:1px 0 0;width:100%;color:var(--ink);text-overflow:ellipsis}
+.flt:after{content:'';position:absolute;right:10px;top:50%;border:5px solid transparent;border-top-color:#9a8fa0;margin-top:-1px;pointer-events:none}
+.clr{display:block;margin:-4px 0 12px auto;font-size:12.5px;font-weight:700;color:var(--red);text-decoration:underline}
+.tm-h{display:flex;align-items:center;gap:12px;background:#fff;border-radius:14px;padding:10px 12px;margin-bottom:12px;border:1px solid #e3e0e8}
+.tm-h .cr.big{width:52px;height:52px}
+.tm-h b{display:block;font-size:15px}
+.tm-h small{color:var(--mut);font-size:12px}
+@media (min-width:960px){.flts{max-width:640px}.mt .side .cr{width:54px;height:54px}.mt .side .tn{font-size:14px}.mt-row{grid-template-columns:minmax(0,1fr) 96px minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -504,15 +532,30 @@ function tournament(t,flash){let cats=(t.categorias||[]).filter(c=>FX[t.id]?.[c]
 const zoneName=(f,m)=>m.ph==='Zona'?(f.zones.find(z=>z.id===m.z)?.name||'Zona'):m.ph;
 const ZC=['#d7192b','#4f46e5','#0ea5e9','#10b981','#f59e0b','#8b5cf6','#ec4899','#14b8a6'];
 const zColor=(f,name)=>{let i=(f.zones||[]).findIndex(z=>z.name===name);return i<0?'#2b2230':ZC[i%ZC.length]};
+// Partido: arriba hora · cancha · zona; abajo cada equipo con su logo centrado sobre el nombre
+const CLK='<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
 function row(f,m,flash,showZone){let w=winner(m),pl=played(m),hn=m.h?dName(f,m.h):(m.hl||'A definir'),an=m.a?dName(f,m.a):(m.al||'A definir'),pen=m.hp!=null&&m.hp!=='';
- return `<a class="mt" href="${U('partido',m.n??m.id)}" data-l><span class="tn l ${m.h?'':'tbd'} ${w&&w===m.h?'w':''}">${esc(hn)}</span>${crest(f,m.h)}<span class="sc ${flash.includes(m.id)?'flash':''}">${m.bye?'<span class="vs">LIBRE</span>':pl?`<i class="${w&&w===m.h?'w':''}">${esc(m.hs)}</i> - <i class="${w&&w===m.a?'w':''}">${esc(m.as)}</i>`:`<span class="vs">${esc(m.t||'VS')}</span>`}</span>${crest(f,m.a)}<span class="tn ${m.a?'':'tbd'} ${w&&w===m.a?'w':''}">${esc(an)}</span>${pen?`<span class="pens">Pen. ${esc(m.hp)}-${esc(m.ap)}</span>`:''}<span class="ft"><span>${esc(m.f||'Cancha a definir')}</span>${pl&&m.t?`<span>${esc(m.t)}</span>`:''}${showZone?`<span>${esc(zoneName(f,m))}</span>`:''}${pl?'<span class="st">Final</span>':''}</span></a>`}
-function vFixture(f,flash){let all=f.matches,days=[...new Set(all.map(m=>m.d).filter(Boolean))].sort(),today=todayISO();if(!st.day||!days.includes(st.day))st.day=days.find(d=>d>=today)||days[days.length-1]||null;let di=days.indexOf(st.day),q=st.q.trim().toLowerCase();
- let ms=all.filter(m=>!days.length||m.d===st.day).filter(m=>!q||[tName(f,m.h),tName(f,m.a),m.hl,m.al].some(n=>String(n||'').toLowerCase().includes(q))).sort((a,b)=>(a.t||'').localeCompare(b.t||'')||(a.f||'').localeCompare(b.f||''));
- let d=st.day?dISO(st.day):null,nav=days.length?`<div class="daynav"><button onclick="st.day='${days[di-1]||''}';render()" ${di<=0?'disabled':''} aria-label="Día anterior">${SV.l}</button><div class="mid"><b>${DAYL[d.getDay()]} ${d.getDate()} de ${MONL[d.getMonth()].toLowerCase()}</b><small>Día ${di+1} de ${days.length}${st.day===today?' · Hoy':''} · tocá para elegir</small><select aria-label="Elegir día" onchange="st.day=this.value;render()">${days.map((x,k)=>`<option value="${x}" ${x===st.day?'selected':''}>Día ${k+1}: ${DAYL[dISO(x).getDay()]} ${fmtD(x)}${x===today?' (hoy)':''}</option>`).join('')}</select></div><button onclick="st.day='${days[di+1]||''}';render()" ${di>=days.length-1?'disabled':''} aria-label="Día siguiente">${SV.r}</button></div>`:'';
- let top=`<div class="seg"><button class="${st.mode==='horario'?'on':''}" onclick="st.mode='horario';render()">Por horario</button><button class="${st.mode==='grupo'?'on':''}" onclick="st.mode='grupo';render()">Por grupo</button></div>${nav}<div class="search"><input id="q" type="search" placeholder="Buscar equipo" value="${esc(st.q)}" oninput="st.q=this.value;st._focus=true;render()" autocomplete="off">${SV.lens}</div>`;
- if(!ms.length)return top+`<div class="empty"><img src="/img/cabeceando.webp" alt="">${q?'No hay partidos de ese equipo este día.':'No hay partidos para mostrar.'}</div>`;
- if(st.mode==='grupo'){let keys=[...new Set(ms.map(m=>zoneName(f,m)))];return top+'<div class="cols">'+keys.map(k=>{let list=ms.filter(m=>zoneName(f,m)===k),z=f.zones.find(z=>z.name===k),free=z&&!q?z.teams.filter(id=>!list.some(m=>m.h===id||m.a===id)):[];return `<div class="box"><div class="box-h"><span class="zt" style="--zc:${zColor(f,k)}"><i></i>${esc(k)}</span><small>${list.filter(played).length}/${list.length} jugados</small></div>${list.map(m=>row(f,m,flash,false)).join('')}${free.length?`<div class="free">Sin partido este día: ${free.map(id=>`<b>${esc(dName(f,id))}</b>`).join(', ')}</div>`:''}</div>`}).join('')+'</div>'}
- let times=[...new Set(ms.map(m=>m.t||'A definir'))];return top+'<div class="cols">'+times.map(h=>{let list=ms.filter(m=>(m.t||'A definir')===h);return `<div class="box"><div class="box-h"><span class="zt"><i></i>${esc(h)}${h!=='A definir'?' hs':''}</span><small>${list.length} partido${list.length>1?'s':''}</small></div>${list.map(m=>row(f,m,flash,true)).join('')}</div>`}).join('')+'</div>'}
+ const side=(id,name)=>`<div class="side ${id?'':'tbd'} ${w&&w===id?'w':''}">${crest(f,id)}<span class="tn">${esc(name)}</span></div>`;
+ const meta=`<span class="hr">${CLK}${esc(m.t||'A definir')}</span><span>${esc(m.f||'Cancha a definir')}</span>${showZone?`<span>${esc(zoneName(f,m))}</span>`:''}${pl?'<span class="st">Final</span>':''}`;
+ return `<a class="mt" href="${U('partido',m.n??m.id)}" data-l><div class="mt-meta">${meta}</div><div class="mt-row">${side(m.h,hn)}<span class="sc ${flash.includes(m.id)?'flash':''}">${m.bye?'<span class="vs">LIBRE</span>':pl?`<i class="${w&&w===m.h?'w':''}">${esc(m.hs)}</i> - <i class="${w&&w===m.a?'w':''}">${esc(m.as)}</i>`:'<span class="vs">VS</span>'}</span>${side(m.a,an)}</div>${pen?`<div class="pens">Penales ${esc(m.hp)} - ${esc(m.ap)}</div>`:''}</a>`}
+// Fixture con filtros dentro de la categoría: día, cancha, horario y equipo
+function vFixture(f,flash){if(st._fcat!==st.cat){st._fcat=st.cat;st.field='';st.time='';st.team=''}
+ let all=f.matches,days=[...new Set(all.map(m=>m.d).filter(Boolean))].sort(),today=todayISO();if(!st.day||!days.includes(st.day))st.day=days.find(d=>d>=today)||days[days.length-1]||null;let di=days.indexOf(st.day);
+ const byTime=(a,b)=>(a.d||'').localeCompare(b.d||'')||(a.t||'').localeCompare(b.t||'')||(a.f||'').localeCompare(b.f||'');
+ let dayMs=st.team?all.filter(m=>m.h===st.team||m.a===st.team):all.filter(m=>!days.length||m.d===st.day);
+ let fields=[...new Set(dayMs.map(m=>m.f).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es',{numeric:true})),times=[...new Set(dayMs.map(m=>m.t).filter(Boolean))].sort();
+ if(st.field&&!fields.includes(st.field))st.field='';if(st.time&&!times.includes(st.time))st.time='';
+ let ms=dayMs.filter(m=>(!st.field||m.f===st.field)&&(!st.time||m.t===st.time)).sort(byTime);
+ let d=st.day?dISO(st.day):null,nav=days.length&&!st.team?`<div class="daynav"><button onclick="st.day='${days[di-1]||''}';st.time='';render()" ${di<=0?'disabled':''} aria-label="Día anterior">${SV.l}</button><div class="mid"><b>${DAYL[d.getDay()]} ${d.getDate()} de ${MONL[d.getMonth()].toLowerCase()}</b><small>Día ${di+1} de ${days.length}${st.day===today?' · Hoy':''} · tocá para elegir</small><select aria-label="Elegir día" onchange="st.day=this.value;st.time='';render()">${days.map((x,k)=>`<option value="${x}" ${x===st.day?'selected':''}>Día ${k+1}: ${DAYL[dISO(x).getDay()]} ${fmtD(x)}${x===today?' (hoy)':''}</option>`).join('')}</select></div><button onclick="st.day='${days[di+1]||''}';st.time='';render()" ${di>=days.length-1?'disabled':''} aria-label="Día siguiente">${SV.r}</button></div>`:'';
+ const teams=Object.entries(f.teams||{}).sort((a,b)=>dName(f,a[0]).localeCompare(dName(f,b[0])));
+ const sel=(key,label,list,cur)=>`<label class="flt ${cur?'on':''}"><span>${label}</span><select onchange="st.${key}=this.value;render()"><option value="">${key==='team'?'Todos':'Todas'}</option>${list.map(([v,n])=>`<option value="${esc(v)}" ${v===cur?'selected':''}>${esc(n)}</option>`).join('')}</select></label>`;
+ let filters=`<div class="flts">${sel('team','Equipo',teams.map(([id])=>[id,dName(f,id)]),st.team)}${sel('field','Cancha',fields.map(x=>[x,x]),st.field)}${sel('time','Horario',times.map(x=>[x,x+' hs']),st.time)}</div>${st.team||st.field||st.time?`<button class="clr" onclick="st.team='';st.field='';st.time='';render()">Quitar filtros</button>`:''}`;
+ let top=`<div class="seg"><button class="${st.mode==='horario'?'on':''}" onclick="st.mode='horario';render()">Por horario</button><button class="${st.mode==='grupo'?'on':''}" onclick="st.mode='grupo';render()">Por grupo</button></div>${nav}${filters}`;
+ if(st.team)top+=`<div class="tm-h">${crest(f,st.team,true)}<div><b>${esc(tName(f,st.team))}</b><small>Todos sus partidos del torneo</small></div></div>`;
+ if(!ms.length)return top+`<div class="empty"><img src="/img/cabeceando.webp" alt="">No hay partidos con esos filtros.</div>`;
+ if(st.team){let ds=[...new Set(ms.map(m=>m.d||''))];return top+'<div class="cols">'+ds.map(x=>{let list=ms.filter(m=>(m.d||'')===x);return `<div class="box"><div class="box-h"><span class="zt"><i></i>${x?DAYL[dISO(x).getDay()]+' '+fmtD(x):'Sin fecha'}</span><small>${list.length} partido${list.length>1?'s':''}</small></div>${list.map(m=>row(f,m,flash,true)).join('')}</div>`}).join('')+'</div>'}
+ if(st.mode==='grupo'){let keys=[...new Set(ms.map(m=>zoneName(f,m)))];return top+'<div class="cols">'+keys.map(k=>{let list=ms.filter(m=>zoneName(f,m)===k),z=f.zones.find(z=>z.name===k),free=z&&!st.field&&!st.time?z.teams.filter(id=>!list.some(m=>m.h===id||m.a===id)):[];return `<div class="box"><div class="box-h"><span class="zt" style="--zc:${zColor(f,k)}"><i></i>${esc(k)}</span><small>${list.filter(played).length}/${list.length} jugados</small></div>${list.map(m=>row(f,m,flash,false)).join('')}${free.length?`<div class="free">Sin partido este día: ${free.map(id=>`<b>${esc(dName(f,id))}</b>`).join(', ')}</div>`:''}</div>`}).join('')+'</div>'}
+ let hs=[...new Set(ms.map(m=>m.t||'A definir'))];return top+'<div class="cols">'+hs.map(h=>{let list=ms.filter(m=>(m.t||'A definir')===h);return `<div class="box"><div class="box-h"><span class="zt"><i></i>${esc(h)}${h!=='A definir'?' hs':''}</span><small>${list.length} partido${list.length>1?'s':''}</small></div>${list.map(m=>row(f,m,flash,true)).join('')}</div>`}).join('')+'</div>'}
 function vTeams(f){let q=st.q.trim().toLowerCase(),zoneOf=id=>f.zones?.find(z=>z.teams.includes(id))?.name||'',list=Object.entries(f.teams||{}).filter(([,x])=>!q||x.n.toLowerCase().includes(q)||String(x.c||'').toLowerCase().includes(q)).sort((a,b)=>a[1].n.localeCompare(b[1].n));
  return `<div class="search"><input id="q" type="search" placeholder="Buscar equipo o ciudad" value="${esc(st.q)}" oninput="st.q=this.value;st._focus=true;render()" autocomplete="off">${SV.lens}</div><div class="h2" style="margin-top:0"><h2><i></i>${list.length} equipos</h2></div><div class="teams">${list.map(([id,x])=>`<div class="tm">${crest(f,id,true)}<b>${esc(x.n)}</b><small>${esc(x.c||'')}</small>${zoneOf(id)?`<span class="z" style="color:${zColor(f,zoneOf(id))}">${esc(zoneOf(id))}</span>`:''}</div>`).join('')}</div>${list.length?'':'<div class="empty">No encontramos equipos con ese nombre.</div>'}`}
 const ORD=['Primeros','Segundos','Terceros','Cuartos','Quintos','Sextos','Séptimos','Octavos'];
