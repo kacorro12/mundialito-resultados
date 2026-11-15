@@ -615,12 +615,38 @@ div.tz-c .tz-f{color:var(--mut);font-weight:600}
  .sco b{font-size:18px}
 }
 @media (min-width:1280px){.cols.wide3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* v7: partidos centrados, fondo más blanco y pie de página */
+:root{--bg:#f7f8fb}
+.stabs{background:rgba(247,248,251,.95)!important}
+.tbar{background:rgba(247,248,251,.95)!important}
+.box,.cal,.circ,.ig,.pc,.up,.tz-c,.tm,.rg-pt,.flt,.search input{border:1px solid #e9e6ee}
+.mt-meta{justify-content:center}
+.mt-meta span.st{margin-left:0}
+.ft{margin-top:40px;background:linear-gradient(160deg,#5a0712,#8f0d1c 60%,#a3101f);color:#fff;text-align:left;padding:0;font-size:14px}
+.ft-in{max-width:1280px;margin:0 auto;padding:38px 22px 24px;display:grid;gap:28px}
+.ft-brand{display:flex;align-items:center;gap:14px}
+.ft-brand img{width:44px;height:54px;object-fit:contain;filter:brightness(0) invert(1);opacity:1;margin:0}
+.ft-brand b{display:block;font-size:18px;font-weight:900;letter-spacing:.02em;text-transform:uppercase}
+.ft-brand span{font-size:13px;opacity:.8}
+.ft-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.ft-cols h4{margin:0 0 10px;font-size:11.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.ft-cols a,.ft-cols span{display:block;font-size:14px;margin-bottom:7px;color:#fff;opacity:.92}
+.ft-cols a:hover{opacity:1;text-decoration:underline}
+.ft-bot{border-top:1px solid rgba(255,255,255,.15);padding:16px 22px calc(18px + var(--safe-b));display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center;font-size:12px;opacity:.8;max-width:1280px;margin:0 auto}
+@media (min-width:700px){.ft-cols{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:960px){.ft-in{grid-template-columns:1.2fr 2fr;align-items:start;padding:52px var(--side) 30px;max-width:none}.ft-bot{flex-direction:row;justify-content:space-between;padding:18px var(--side) 24px;max-width:none}}
+
 </style>
 </head>
 <body>
 <header class="top" id="top"></header>
 <main class="wrap" id="app"><div class="skel"></div><div class="skel"></div><div class="skel"></div></main>
-<footer><img src="/logo.webp" alt="">Organización Mundialito · Club Atlético Alianza · Arteaga, Santa Fe</footer>
+<footer class="ft"><div class="ft-in"><div class="ft-brand"><img src="/logo.webp" alt=""><div><b>Mundialito Alianza</b><span>Fútbol infantil y juvenil desde 1987</span></div></div>
+<div class="ft-cols"><div><h4>El Mundialito</h4><a href="/" data-l>Inicio</a><a href="/#torneos" data-l>Torneos</a><a href="/#historia" data-l>Nuestra historia</a></div>
+<div><h4>Seguinos</h4><a href="https://instagram.com/mundialitoalianza" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@mundialitoalianza" target="_blank" rel="noopener">TikTok</a><a href="https://wa.me/5493467444037" target="_blank" rel="noopener">WhatsApp</a></div>
+<div><h4>Organiza</h4><span>Club Atlético Alianza</span><span>Arteaga, Santa Fe</span><span>Argentina</span></div></div></div>
+<div class="ft-bot"><span>© <b id="ftYear">2026</b> Mundialito Alianza · Club Atlético Alianza. Todos los derechos reservados.</span><span>Los resultados se actualizan en vivo desde la organización del torneo.</span></div></footer>
+<script>document.getElementById('ftYear').textContent=new Date().getFullYear()</script>
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script src="/config.js?v=20261116c"></script>
@@ -668,7 +694,7 @@ const U=(view,x,cat)=>'/'+[st.t,cat??st.cat,view==='fixture'&&!x?null:view,x].fi
 function go(url,replace){if(replace)history.replaceState(null,'',url);else history.pushState(null,'',url);route()}
 document.addEventListener('click',e=>{let a=e.target.closest('a[data-l]');if(!a||e.metaKey||e.ctrlKey)return;e.preventDefault();go(a.getAttribute('href'))});
 addEventListener('popstate',route);
-let curT=null;async function route(){let pv=st.view,px=st.x,pc=st.cat;readPath();if(st.t&&st.t!==curT){curT=st.t;$('#app').innerHTML='<div class="skel"></div><div class="skel"></div>';try{await loadFixture(st.t);subscribe(st.t)}catch(e){$('#app').innerHTML='<div class="empty">No pudimos cargar el fixture. Revisá tu conexión.</div>';return}st.day=null;st.q=''}if(!st.t){curT=null;if(channel){sb.removeChannel(channel);channel=null}}render();if(pv!==st.view||px!==st.x||pc!==st.cat)scrollTo(0,0)}
+let curT=null;async function route(){let pv=st.view,px=st.x,pc=st.cat;readPath();if(st.t&&st.t!==curT){curT=st.t;$('#app').innerHTML='<div class="skel"></div><div class="skel"></div>';try{await loadFixture(st.t);subscribe(st.t)}catch(e){$('#app').innerHTML='<div class="empty">No pudimos cargar el fixture. Revisá tu conexión.</div>';return}st.day=null;st.q=''}if(!st.t){curT=null;if(channel){sb.removeChannel(channel);channel=null}}render();if(pv!==st.view||px!==st.x||pc!==st.cat)scrollTo(0,0);let hid=location.hash.slice(1),hel=hid&&document.getElementById(hid);if(hel)setTimeout(()=>hel.scrollIntoView({behavior:'smooth'}),60)}
 // Íconos de línea propios (sin emojis)
 const IC={trophy:'<svg class="i" viewBox="0 0 24 24"><path d="M8 21h8M12 16v5M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 6h3v1.5A3.5 3.5 0 0 1 16.6 11M7 6H4v1.5A3.5 3.5 0 0 0 7.4 11"/></svg>',cal:'<svg class="i" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M16 3v4M8 3v4M3.5 10h17"/></svg>',pin:'<svg class="i" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',arrow:'<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',route:'<svg class="i" viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>',flag:'<svg class="i" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>',
  tt:'<svg viewBox="0 0 24 24"><path d="M14 3v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3c.6 2.8 2.6 4.7 5.5 5"/></svg>'};
