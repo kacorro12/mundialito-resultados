@@ -88,18 +88,16 @@ window.MUNDIALITO_CFG = {
     circuito: {
       titulo: 'Una misma pasión, nuevas experiencias',
       txt: 'Durante décadas, el Mundialito tuvo su gran encuentro en enero. El crecimiento de la marca y el vínculo con tantas instituciones impulsaron una evolución natural: el Circuito Mundialito, con torneos durante todo el año que mantienen la identidad y los valores de siempre.',
+      // En orden cronológico. "cuando" es la fecha estimada que se muestra arriba de cada tarjeta.
       propuestas: [
-        { id: 'ma', nombre: 'Mundialito Alianza', sub: 'El torneo principal', logo: '/logo.webp', fondo: '#fff', foto: 'd05',
-          txt: 'La competencia que dio origen a todo. Diez días de fútbol en Arteaga y sus subsedes, con clubes, escuelas y delegaciones de todo el país y del exterior. Es el corazón del circuito y el gran encuentro al que llevan todos los caminos del año.' },
-        { id: 'pm', nombre: 'Premundialitos', sub: 'El camino hacia enero', logo: '/logo.webp', fondo: '#fff', foto: 's01',
-          txt: 'Torneos durante el año en distintos puntos del país, con el mismo espíritu del Mundialito y la chance de clasificar gratis al torneo de enero. Volvemos a las sedes que nos recibieron con los brazos abiertos y cada año sumamos lugares nuevos.' },
-        // Antes "Torneos Especiales". El sello se muestra en rojo sobre blanco.
-        { id: 'es', nombre: 'Mundialito por el País', sub: 'Llevamos el sello a tu ciudad', logo: '/img/logo-sello.webp', logoRojo: true, fondo: '#fff', foto: 'e16',
-          txt: 'El Mundialito sale de Arteaga y lleva su sello a otras ciudades, con la misma organización y las mismas categorías de enero. En 2026 estuvimos dos veces en Funes: en octubre fueron 66 equipos y Maxi Rodríguez nos acompañó en la inauguración.' },
-        { id: 'ju', nombre: 'Torneos Juveniles de Clubes', sub: 'Para seguir siendo parte', logo: '/img/logo-juvenil.webp', fondo: '#fff', foto: 'm01',
-          txt: 'Un torneo internacional pensado para clubes, en Sub 17 y Sub 15, masculino y femenino. Reúne a instituciones de casi todas las provincias y a delegaciones de Bolivia y Estados Unidos, para que el vínculo con el Mundialito siga cuando los chicos crecen y los clubes se sigan encontrando.' },
-        { id: 'en', nombre: 'Encuentros', sub: 'Para los más chiquitos', logo: '/img/nenito.webp', fondo: '#fff', foto: '',
-          txt: 'Un fin de semana en familia para las categorías más chicas, las que todavía no juegan en enero. Porque en el Mundialito pensamos en todos: cada categoría tiene su lugar durante el año, con partidos, juegos y mucha alegría.' }
+        { id: 'pm', nombre: 'Premundialitos', sub: 'El camino hacia enero', cuando: 'Durante todo el año', logo: '/logo.webp', fondo: '#fff', foto: 's01',
+          txt: 'Torneos durante todo el año en distintas ciudades del país, con el mismo espíritu del Mundialito. Llevamos nuestro sello a nuevas sedes, volvemos a las que nos recibieron con los brazos abiertos y damos la chance de clasificar gratis al torneo de enero.' },
+        { id: 'en', nombre: 'Encuentros', sub: 'Para los más chiquitos', cuando: 'Durante el año', logo: '/img/nenito.webp', fondo: '#fff', foto: 'e16',
+          txt: 'Un fin de semana en familia para las categorías más chicas, las que todavía no juegan en enero. Porque en el Mundialito pensamos en todos: cada categoría tiene su lugar durante el año.' },
+        { id: 'ju', nombre: 'Torneo Juvenil de Clubes', sub: 'Para seguir siendo parte', cuando: 'Noviembre', logo: '/img/logo-juvenil.webp', fondo: '#fff', foto: 'm01',
+          txt: 'Un torneo internacional pensado para clubes, en Sub 17 y Sub 15, masculino y femenino. Reúne a instituciones de casi todas las provincias y a delegaciones de Bolivia y Estados Unidos.' },
+        { id: 'ma', nombre: 'Mundialito Alianza', sub: 'El torneo principal', cuando: 'Principio de enero', logo: '/logo.webp', fondo: '#fff', foto: 'd05',
+          txt: 'La competencia que dio origen a todo. Diez días de fútbol en Arteaga y sus subsedes, con clubes, escuelas y delegaciones de todo el país y del exterior. El gran cierre del circuito.' }
       ]
     },
     // 5. Presente y futuro
