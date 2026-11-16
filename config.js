@@ -31,19 +31,21 @@ window.MUNDIALITO_CFG = {
         { red: 'TikTok', datos: [ ['+900 mil', 'visualizaciones de video'], ['155.749', 'personas alcanzadas'], ['+3.000', 'visitas al perfil'] ] }
       ]
     },
-    // 1. Portada histórica: fondo armado con fotos de archivo (carpeta img/v)
+    // 1. Portada histórica: fondo armado con fotos de archivo.
+    // Fotos históricas con año: 'h1993-17' = img/h/h1993-17.jpg, sacada del álbum oficial de Facebook de ese año
+    // (originales en Contenido/Fotos y Videos/Fotos Viejas/Facebook por año). La web muestra el año sola.
     portada: {
       kick: 'Desde 1987 · Arteaga, Santa Fe',
       titulo: 'Una historia que comenzó con un sueño',
       txt: 'Y se convirtió en una pasión que une generaciones. El Mundialito Alianza es el torneo de fútbol infantil del Club Atlético Alianza, en Arteaga, Capital Provincial del Fútbol Infantil.',
-      fotos: ['v09','v19','v41','v37','v31','v25','v12','v20','v48','v16','v30','v03','v34','v43','v18','v21','v10','v44','v29','v47']
+      fotos: ['h1988-09','h2000-14','h1994-04','h2001-06','h1993-01','h1988-08','h2000-06','h1992-15','h1989-15','h1994-09','h2016-03','h1991-02','h1993-08','h1988-28','h2000-05','h1990-05','h2018-16','h1994-02','h1992-12','h2001-08']
     },
     // 2. Línea de tiempo interactiva
     linea: [
-      { y: '1986', t: 'El nacimiento de una ilusión', d: 'Delfor Bartomucci, junto a dirigentes, colaboradores y allegados del Club Atlético Alianza, impulsa un proyecto tan ambicioso como apasionante: un gran torneo de fútbol infantil que reúna a clubes de distintas localidades y provincias. Había que contactar instituciones, organizar alojamientos, preparar las canchas y movilizar a todo un pueblo. El entusiasmo pudo más que las dificultades.', fotos: ['v01','v02','v08'] },
-      { y: '1987', t: 'La primera edición', d: 'En enero se juega el primer Mundialito Alianza, con doce delegaciones. Y pasa algo extraordinario: un pueblo de poco más de 3.000 habitantes recibe a más de 5.000 personas en la jornada inaugural. Lo que parecía difícil de concretar se transforma en una fiesta del fútbol infantil. Y era solamente el principio.', fotos: ['v05','v07','v22'] },
-      { y: '1993', t: 'Capital Provincial del Fútbol Infantil', d: 'Cada verano llegan nuevas delegaciones; algunas recorren miles de kilómetros y otras vuelven año tras año. Mediante el Decreto Provincial N.º 3565, el Gobierno de Santa Fe declara a Arteaga Capital Provincial del Fútbol Infantil, reconociendo lo que el Mundialito había construido.', fotos: ['v14','v15','v35'] },
-      { y: '2026', t: 'Cuarenta ediciones haciendo historia', d: 'Del 9 al 18 de enero, la 40.ª edición celebra cuatro décadas de trayectoria, con una identidad renovada. Una oportunidad para reconocer a quienes hicieron posible el proyecto y renovar el compromiso con los futuros protagonistas.', fotos: ['m03','m01','m05'] },
+      { y: '1986', t: 'El nacimiento de una ilusión', d: 'Delfor Bartomucci, junto a dirigentes, colaboradores y allegados del Club Atlético Alianza, impulsa un proyecto tan ambicioso como apasionante: un gran torneo de fútbol infantil que reúna a clubes de distintas localidades y provincias. Había que contactar instituciones, organizar alojamientos, preparar las canchas y movilizar a todo un pueblo. El entusiasmo pudo más que las dificultades.', fotos: ['h1989-14','h1989-16','h1989-11'] },
+      { y: '1987', t: 'La primera edición', d: 'En enero se juega el primer Mundialito Alianza, con doce delegaciones. Y pasa algo extraordinario: un pueblo de poco más de 3.000 habitantes recibe a más de 5.000 personas en la jornada inaugural. Lo que parecía difícil de concretar se transforma en una fiesta del fútbol infantil. Y era solamente el principio.', fotos: ['h1988-25','h1988-05','h1988-17'] },
+      { y: '1993', t: 'Capital Provincial del Fútbol Infantil', d: 'Cada verano llegan nuevas delegaciones; algunas recorren miles de kilómetros y otras vuelven año tras año. Mediante el Decreto Provincial N.º 3565, el Gobierno de Santa Fe declara a Arteaga Capital Provincial del Fútbol Infantil, reconociendo lo que el Mundialito había construido.', fotos: ['h1993-01','h1993-17','h1993-18'] },
+      { y: '2026', t: 'Cuarenta ediciones haciendo historia', d: 'Del 9 al 18 de enero, la 40.ª edición celebra cuatro décadas de trayectoria, con una identidad renovada. Una oportunidad para reconocer a quienes hicieron posible el proyecto y renovar el compromiso con los futuros protagonistas.', fotos: ['m03','m12','m01'] },
       { y: '2027', t: 'El Circuito Mundialito', d: 'El Mundialito se trabaja como circuito: torneos casi todos los meses, en distintas sedes, que cierran con la 41.ª edición del 8 al 17 de enero en Arteaga. Una misma pasión, nuevas experiencias y más oportunidades para jugar.', fotos: ['e03','e15','e13'] }
     ],
     // 3. La experiencia Mundialito
@@ -56,10 +58,13 @@ window.MUNDIALITO_CFG = {
         'En los hogares de Arteaga que abren sus puertas, en los voluntarios que trabajan durante meses y en una comunidad que cada verano convierte al fútbol en una celebración colectiva.'
       ],
       cierre: 'Porque el Mundialito no se mide solamente en resultados. Se mide en experiencias, vínculos, recuerdos y emociones.',
-      // [foto, texto sobre la foto, torneo o lugar]. Carpetas: v = fotos históricas, m = Mundialito de enero,
-      // d = dron en Arteaga (enero), p = Premundialito Victoria, e = Mundialito Alianza Funes (Damfield)
-      fotos: [ ['v11','Los desfiles','Archivo histórico'], ['e05','Las familias','Funes'], ['v24','Las cenas de delegaciones','Archivo histórico'], ['e04','La tribuna','Funes'], ['v36','Las tradiciones','Archivo histórico'], ['e01','Mi pasión lleva tu nombre','Arteaga · enero 2026'], ['d03','Las canchas','Arteaga · enero'], ['v46','Generaciones','Archivo histórico'], ['e14','Ellas también','Funes'], ['v32','Las tribunas llenas','Archivo histórico'], ['p04','Compañeras','Premundialito Victoria'], ['e09','La pelota','Funes'], ['v26','Las noches de Arteaga','Archivo histórico'], ['m04','Cada partido','Arteaga · enero 2026'], ['e07','Los amigos','Funes'], ['p07','Entre partido y partido','Premundialito Victoria'], ['e16','El primer gran torneo','Funes'], ['v42','Las banderas','Archivo histórico'] ],
-      franja: ['v04','p02','e02','v17','m02','e06','v23','p05','e12','v28','m05','e17','v33','p03','e18','v40','d02','p08','v45','e08','v49','p06','e11']
+      // [foto, texto sobre la foto, torneo o lugar]. Carpetas: h = históricas con año (el lugar se completa solo), m = Mundialito de enero 2026,
+      // d = dron en Arteaga (enero), p = Premundialito Victoria, s = Premundialito San Basilio,
+      // r = Premundialito Regatas (San Nicolás), e = Mundialito Alianza Funes (Damfield)
+      fotos: [ ['h1991-02','Los desfiles'], ['m06','La luz de enero','Arteaga · enero 2026'], ['e05','Las familias','Funes'], ['s06','Las primeras veces','Premundialito San Basilio'], ['h1993-19','Las cenas de delegaciones'], ['r04','Compañeros de banco','Premundialito Regatas'], ['e04','La tribuna','Funes'], ['h1994-06','Las reinas'],
+        ['e01','Mi pasión lleva tu nombre','Arteaga · enero 2026'], ['s07','En andas','Premundialito San Basilio'], ['d03','Las canchas','Arteaga · enero'], ['r08','Los que alientan','Premundialito Regatas'], ['h2020-09','Los campeones'], ['e14','Ellas también','Funes'], ['m08','El kiosco','Arteaga · enero 2026'], ['h2001-08','Las tribunas llenas'],
+        ['p04','Compañeras','Premundialito Victoria'], ['r03','Concentración','Premundialito Regatas'], ['e09','La pelota','Funes'], ['s08','Amigas','Premundialito San Basilio'], ['h2000-14','Las noches de Arteaga'], ['m04','Cada partido','Arteaga · enero 2026'], ['e07','Los amigos','Funes'], ['h1992-17','Las tradiciones'] ],
+      franja: ['h1988-08','s01','p02','r01','m07','h2012-05','e02','s03','r05','h1990-09','m10','e06','s04','h1991-15','p05','r06','e12','h1993-07','s10','m11','r09','h1994-08','e17','s11','p03','h2000-02','r11','e18','s12','h2004-02','d02','r13','m12','h2016-05','p08','s14','r15','h2018-20','e08','s16','p06','h2020-36','r10','e11','s05','h2020-44','r12','s09','h1989-12','r16','h1992-14','h1988-12','h2013-02']
     },
     // 4. El Circuito Mundialito: las cuatro propuestas (los Encuentros van aparte)
     circuito: {
@@ -71,7 +76,7 @@ window.MUNDIALITO_CFG = {
           datos: ['Categorías 2012 a 2018', 'Masculino', '16 sedes en 2026'] },
         { id: 'pm', nombre: 'Premundialitos', sub: 'El camino hacia enero', logo: '/img/logo-premundialito.webp', fondo: '#fff', foto: 'p01',
           txt: 'Torneos durante el año que, además de ser una experiencia en sí mismos, dan la chance de clasificar con inscripción gratuita al Mundialito de enero en cada categoría. Son para plantar semillitas en distintos lugares: repetimos sedes y sumamos nuevas.',
-          datos: ['Victoria, Entre Ríos', 'Federal, Entre Ríos', 'San Basilio, Córdoba', 'Leones, Córdoba', 'San Nicolás, Buenos Aires'] },
+          datos: ['Victoria, Entre Ríos', 'Federal, Entre Ríos', 'San Basilio, Córdoba', 'Leones, Córdoba', 'San Nicolás (Club de Regatas), Buenos Aires'] },
         { id: 'es', nombre: 'Torneos Especiales', sub: 'Junto a otras instituciones', logo: '/img/logo-especiales.png', fondo: '#1a1a1f', foto: 'e10',
           txt: 'Se hacen en conjunto con otra institución: el Mundialito pone la marca y la estructura deportiva; la otra institución, su predio y su infraestructura. El Mundialito Alianza Funes, en Estancia Damfield, tuvo dos ediciones en 2026; la de octubre reunió a 66 equipos y a Maxi Rodríguez en la inauguración.',
           datos: ['Funes, Santa Fe', 'Estancia Damfield', 'Mismas categorías que enero'] },
@@ -91,7 +96,9 @@ window.MUNDIALITO_CFG = {
       ],
       foto: 'd01',
       porvenir: 'Miramos hacia el futuro con el mismo entusiasmo que impulsó aquella primera edición. Las canchas cambian, los equipos se renuevan y cada generación escribe sus propias historias. Pero las emociones permanecen.',
-      cierre: 'Mundialito. Una historia que nos une. Una pasión que nos encuentra.'
+      cierre: 'Mundialito. Una historia que nos une. Una pasión que nos encuentra.',
+      // Gráfica de la próxima edición (identidad visual 2027)
+      proxima: { img: '/img/41-edicion.png', txt: '8 al 17 de enero de 2027 · Arteaga, Santa Fe' }
     },
     porque: [
       { ic: 'map', t: 'Federal desde siempre', d: 'Hace 40 años que el Mundialito es federal: llegan clubes de todas las provincias y de otros países, no solo los más conocidos.' },
@@ -125,7 +132,7 @@ window.MUNDIALITO_CFG = {
       titulo: 'La Llama Votiva',
       texto: 'Uno de los símbolos más importantes del Mundialito. Se enciende en la inauguración y permanece encendida durante los diez días del torneo principal. Representa la pasión, el esfuerzo, la unión y los sueños de quienes participan.',
       encendidos: [ ['2026', 'Pato Abbondanzieri'], ['2025', 'Fernando Belluschi'] ],
-      fotos: ['v13','v27','v38','v06']
+      fotos: ['h1988-04','h1989-13','h1993-18','h2000-25']
     },
     mision:'Organizar torneos de fútbol infantil y juvenil donde cada chico y chica viva una experiencia inolvidable, con competencia sana, buena organización y un lugar para que las familias disfruten.',
     vision: 'Ser el circuito de fútbol formativo de referencia en Argentina, que une a clubes de todo el país y abre puertas a nuevos talentos, sin perder el espíritu de pueblo que nos vio nacer en 1987.',
