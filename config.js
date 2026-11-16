@@ -12,15 +12,16 @@ window.MUNDIALITO_CFG = {
   sitio: {
     // Contador animado. Para sumar una cifra, agregá una línea; las que estén en null no se muestran.
     // Cifras del último Mundialito de enero (pre: lo que va antes del número, por ejemplo '+')
-    cifrasTitulo: 'El último Mundialito en números',
+    // La primera cifra va destacada, ocupando todo el ancho
+    cifrasTitulo: 'El Mundialito en números',
     cifras: [
-      { n: 4500, pre: '+', txt: 'jugadores y jugadoras' },
+      { n: 40, txt: 'ediciones seguidas, sin suspender ninguna' },
+      { n: 4500, pre: '+', txt: 'jugadores' },
       { n: 250, pre: '+', txt: 'clubes, escuelas y selectivos' },
       { n: 30000, pre: '+', txt: 'espectadores' },
       { n: 23, pre: '+', txt: 'provincias representadas' },
       { n: 16, txt: 'sedes: la principal y 15 subsedes' },
-      { n: 10, txt: 'días de torneo' },
-      { n: 40, txt: 'años de historia' }
+      { n: 10, txt: 'días de torneo' }
     ],
     // Impacto en redes durante la edición 2026 (todo orgánico)
     impacto: {
@@ -40,6 +41,20 @@ window.MUNDIALITO_CFG = {
       txt: 'El Mundialito Alianza es el torneo de fútbol infantil del Club Atlético Alianza, en Arteaga, Capital Provincial del Fútbol Infantil.',
       fotos: ['h1988-09','h2000-14','h1994-04','h2001-06','h1993-01','h1988-08','h2000-06','h1992-15','h1989-15','h1994-09','h2016-03','h1991-02','h1993-08','h1988-28','h2000-05','h1990-05','h2018-16','h1994-02','h1992-12','h2001-08']
     },
+    // Cuenta regresiva de la portada: siempre al Mundialito de enero
+    cuentaRegresiva: { nombre: '41.º Mundialito Alianza', fecha: '2027-01-08T09:00:00-03:00', fechaTxt: '8 al 17 de enero de 2027 · Arteaga, Santa Fe' },
+    // Historia breve del inicio (con link a la página Historia)
+    historiaBreve: {
+      titulo: 'Desde 1987, una historia que nos une',
+      txt: 'En el corazón de Santa Fe, en una pequeña localidad llamada Arteaga, nació una idea que se convertiría en una de las tradiciones más importantes del fútbol infantil argentino. En enero de 1987 se jugó la primera edición: doce delegaciones y más de 5.000 personas en la inauguración.',
+      fotos: ['h1987-01','h1994-02','h2000-14','m06']
+    },
+    // Calendario: torneos que todavía no están cargados en el sistema
+    calendarioExtra: [
+      { nombre: '41.º Mundialito Alianza', tipo: 'ma', inicio: '2027-01-08', fin: '2027-01-17', sede: 'Club Atlético Alianza · Arteaga, Santa Fe', cupos: null }
+    ],
+    // Cupos por torneo (id del torneo): 'llenos', o { ocupados: 40, total: 60 }. Si no está, dice "Consultá disponibilidad".
+    cupos: { juvenil26: 'llenos' },
     // 2. Línea de tiempo interactiva
     linea: [
       { y: '1986', t: 'El nacimiento de una ilusión', d: 'Delfor Bartomucci, junto a dirigentes, colaboradores y allegados del Club Atlético Alianza, impulsa un proyecto tan ambicioso como apasionante: un gran torneo de fútbol infantil que reúna a clubes de distintas localidades y provincias. Había que contactar instituciones, organizar alojamientos, preparar las canchas y movilizar a todo un pueblo. El entusiasmo pudo más que las dificultades.', fotos: ['h1989-14','h1989-16','h1989-11'] },
@@ -58,6 +73,9 @@ window.MUNDIALITO_CFG = {
         'En los hogares de Arteaga que abren sus puertas, en los voluntarios que trabajan durante meses y en una comunidad que cada verano convierte al fútbol en una celebración colectiva.'
       ],
       cierre: 'Porque el Mundialito no se mide solamente en resultados. Se mide en experiencias, vínculos, recuerdos y emociones.',
+      // Foto de la ventana de texto y las 5 destacadas antes de "Ver galería" (la galería junta todas las de "fotos" y "franja")
+      foto: 'h1991-02',
+      destacadas: ['m06','h2000-14','s07','h1993-19','r08'],
       // [foto, texto sobre la foto, torneo o lugar]. Carpetas: h = históricas con año (el lugar se completa solo), m = Mundialito de enero 2026,
       // d = dron en Arteaga (enero), p = Premundialito Victoria, s = Premundialito San Basilio,
       // r = Premundialito Regatas (San Nicolás), e = Mundialito Alianza Funes (Damfield)
@@ -66,25 +84,23 @@ window.MUNDIALITO_CFG = {
         ['p04','Compañeras','Premundialito Victoria'], ['r03','Concentración','Premundialito Regatas'], ['e09','La pelota','Funes'], ['s08','Amigas','Premundialito San Basilio'], ['h2000-14','Las noches de Arteaga'], ['m04','Cada partido','Arteaga · enero 2026'], ['e07','Los amigos','Funes'], ['h1992-17','Las tradiciones'] ],
       franja: ['h1988-08','s01','p02','r01','m07','h2012-05','e02','s03','r05','h1990-09','m10','e06','s04','h1991-15','p05','r06','e12','h1993-07','s10','m11','r09','h1994-08','e17','s11','p03','h2000-02','r11','e18','s12','h2004-02','d02','r13','m12','h2016-05','p08','s14','r15','h2018-20','e08','s16','p06','h2020-36','r10','e11','s05','h2020-44','r12','s09','h1989-12','r16','h1992-14','h1988-12','h2013-02']
     },
-    // 4. El Circuito Mundialito: las cuatro propuestas (los Encuentros van aparte)
+    // 4. El Circuito Mundialito: las propuestas (la de "ancho: true" ocupa todo el ancho)
     circuito: {
       titulo: 'Una misma pasión, nuevas experiencias',
       txt: 'Durante décadas, el Mundialito tuvo su gran encuentro en enero. El crecimiento de la marca y el vínculo con tantas instituciones impulsaron una evolución natural: el Circuito Mundialito, con torneos durante todo el año que mantienen la identidad y los valores de siempre.',
       propuestas: [
-        { id: 'ma', nombre: 'Mundialito Alianza', sub: 'Enero · el torneo principal', logo: '/img/logo-sello.webp', fondo: '#c8101f', foto: 'd05',
-          txt: 'La competencia que dio origen a todo. Unos diez días en Arteaga y sus subsedes, con clubes, escuelas y delegaciones de todo el país y del exterior. Es el corazón del circuito y el punto de encuentro de todas las propuestas.',
-          datos: ['Categorías 2012 a 2018', 'Masculino', '16 sedes en 2026'] },
+        { id: 'ma', nombre: 'Mundialito Alianza', sub: 'El torneo principal', logo: '/img/logo-mundialito-alianza.png', fondo: '#c8101f', foto: 'd05',
+          txt: 'La competencia que dio origen a todo. Diez días de fútbol en Arteaga y sus subsedes, con clubes, escuelas y delegaciones de todo el país y del exterior. Es el corazón del circuito y el gran encuentro al que llevan todos los caminos del año.' },
         { id: 'pm', nombre: 'Premundialitos', sub: 'El camino hacia enero', logo: '/img/logo-premundialito.webp', fondo: '#fff', foto: 'p01',
-          txt: 'Torneos durante el año que, además de ser una experiencia en sí mismos, dan la chance de clasificar con inscripción gratuita al Mundialito de enero en cada categoría. Son para plantar semillitas en distintos lugares: repetimos sedes y sumamos nuevas.',
-          datos: ['Victoria, Entre Ríos', 'Federal, Entre Ríos', 'San Basilio, Córdoba', 'Leones, Córdoba', 'San Nicolás (Club de Regatas), Buenos Aires'] },
-        { id: 'es', nombre: 'Torneos Especiales', sub: 'Junto a otras instituciones', logo: '/img/logo-especiales.png', fondo: '#1a1a1f', foto: 'e10',
-          txt: 'Se hacen en conjunto con otra institución: el Mundialito pone la marca y la estructura deportiva; la otra institución, su predio y su infraestructura. El Mundialito Alianza Funes, en Estancia Damfield, tuvo dos ediciones en 2026; la de octubre reunió a 66 equipos y a Maxi Rodríguez en la inauguración.',
-          datos: ['Funes, Santa Fe', 'Estancia Damfield', 'Mismas categorías que enero'] },
+          txt: 'Torneos durante el año en distintos puntos del país, con la misma organización y el mismo espíritu del Mundialito. Cada uno es una fiesta en sí misma y, además, da la chance de clasificar con inscripción gratuita al Mundialito de enero. Volvemos a las sedes que nos recibieron con los brazos abiertos y cada año sumamos lugares nuevos, para que más chicos puedan vivir la experiencia.' },
+        // Nombre a confirmar por Franco (no le convence "Torneos Especiales")
+        { id: 'es', nombre: 'Torneos Especiales', sub: 'El Mundialito en tu ciudad', logo: '/img/logo-sello.webp', fondo: '#1a1a1f', foto: 'e10',
+          txt: 'El Mundialito sale de Arteaga y lleva su sello a otras ciudades, con la misma organización, el mismo cariño y las mismas categorías de enero. En 2026 estuvimos dos veces en Funes, en Estancia Damfield: en octubre fueron 66 equipos y Maxi Rodríguez nos acompañó en la inauguración.' },
         { id: 'ju', nombre: 'Torneos Juveniles de Clubes', sub: 'Para seguir siendo parte', logo: '/img/logo-juvenil.webp', fondo: '#fff', foto: '', // sin fotos del Juvenil todavía: se muestra un fondo rojo
-          txt: 'Para que el vínculo con el Mundialito no termine cuando los chicos crecen. Solo para clubes, en las categorías 2010 y 2011, masculino y femenino. La 4.ª edición completó su cupo: 23 instituciones y unos 500 jugadores y jugadoras de Argentina, Bolivia y Estados Unidos.',
-          datos: ['Categorías 2010 y 2011', 'Masculino y femenino', 'Solo clubes'] }
-      ],
-      encuentros: 'Además del circuito, en el club se organizan Encuentros para los más chiquitos, con categorías que no se juegan en enero.'
+          txt: 'Un torneo internacional pensado para clubes, en Sub 17 y Sub 15, masculino y femenino. Reúne a instituciones de casi todas las provincias y a delegaciones de Bolivia y Estados Unidos, para que el vínculo con el Mundialito siga cuando los chicos crecen y los clubes se sigan encontrando.' },
+        { id: 'en', nombre: 'Encuentros', sub: 'Para los más chiquitos', logo: '/img/nenito.webp', fondo: '#fff', foto: 'e16', ancho: true,
+          txt: 'Un fin de semana en familia para las categorías más chicas, las que todavía no juegan en enero. Porque en el Mundialito pensamos en todos: cada categoría tiene su lugar durante el año, con partidos, juegos y mucha alegría.' }
+      ]
     },
     // 5. Presente y futuro
     futuro: {
@@ -105,11 +121,12 @@ window.MUNDIALITO_CFG = {
       { ic: 'calendar', t: '10 días de fútbol', d: 'Es el segundo torneo de fútbol infantil del país con más días de competencia: diez días a puro fútbol.' },
       { ic: 'pin', t: '16 sedes', d: 'La sede principal en Arteaga y 15 subsedes en ciudades y pueblos de la región. Todo un territorio jugando al mismo tiempo.' },
       { ic: 'heart', t: 'Amistad y unión', d: 'El Mundialito es encuentro: chicos, familias y clubes que vuelven cada año y se hacen amigos para siempre.' },
-      { ic: 'eye', t: 'Una vidriera real', d: 'Ojeadores de clubes de AFA siguen a los jugadores en enero y en todo el circuito.' },
+      { ic: 'history', t: '40 ediciones seguidas', d: 'Desde 1987 no se suspendió nunca. Arteaga es Capital Provincial del Fútbol Infantil y cada enero todo el pueblo se prepara para recibir a las delegaciones.' },
       { ic: 'ticket', t: 'Bonos para viajar', d: '200 bonos por categoría: lo recaudado queda para la delegación y participa de un sorteo en efectivo.' }
     ],
-    scouts: { t: 'Una vidriera para el futuro', d: 'El Mundialito de enero, el torneo principal, y cada fecha del circuito reúnen a ojeadores de clubes de AFA que siguen de cerca a los chicos y chicas. Para muchos, es el primer lugar donde alguien los ve jugar fuera de su ciudad.',
-      clubes: ['AFA', 'River Plate', 'Boca Juniors', 'Talleres', 'Lanús', 'Belgrano', 'Independiente', 'Sarmiento'], mas: 'y muchos más' },
+    // Logo de AFA: cuando esté, poner la ruta en "logo" (por ejemplo '/img/afa.png'); mientras, se muestra el texto AFA
+    scouts: { t: 'Una vidriera para el futuro', d: 'En el Mundialito de enero y en cada fecha del circuito hay ojeadores de la Asociación del Fútbol Argentino siguiendo de cerca a los chicos. Para muchos, es la primera vez que alguien los ve jugar fuera de su ciudad.',
+      org: 'Ojeadores de la AFA', logo: '' },
     lema: 'La magia está por volver',
     historia: {
       titulo: 'Una pasión que empezó en Arteaga',
