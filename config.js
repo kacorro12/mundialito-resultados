@@ -47,7 +47,30 @@ window.MUNDIALITO_CFG = {
     ],
     scouts: { t: 'Una vidriera para el futuro', d: 'El Mundialito de enero, el torneo principal, y cada fecha del circuito reúnen a ojeadores de clubes de AFA que siguen de cerca a los chicos y chicas. Para muchos, es el primer lugar donde alguien los ve jugar fuera de su ciudad.',
       clubes: ['AFA', 'River Plate', 'Boca Juniors', 'Talleres', 'Lanús', 'Belgrano', 'Independiente', 'Sarmiento'], mas: 'y muchos más' },
-    mision: 'Organizar torneos de fútbol infantil y juvenil donde cada chico y chica viva una experiencia inolvidable, con competencia sana, buena organización y un lugar para que las familias disfruten.',
+    lema: 'La magia está por volver',
+    historia: {
+      titulo: 'Una pasión que empezó en Arteaga',
+      parrafos: [
+        'El Mundialito Alianza es un torneo de fútbol infantil organizado por el Club Atlético Alianza, con sede histórica en Arteaga, departamento Caseros, provincia de Santa Fe.',
+        'Es uno de los acontecimientos deportivos y sociales más importantes de la localidad: convoca a jugadores, clubes, delegaciones, familias, entrenadores, colaboradores y comunidades de distintos lugares.',
+        'Aunque la competencia es su actividad principal, su identidad va más allá de los resultados: la amistad, el compañerismo, el respeto, la familia, el esfuerzo y los sueños de los chicos. No es solo un torneo que reúne equipos; es un acontecimiento deportivo, familiar y comunitario que forma parte de la identidad de Arteaga.'
+      ],
+      hitos: [
+        ['1986', 'Delfor Bartomucci impulsa la idea y comienzan los primeros trabajos organizativos.'],
+        ['1987', 'Primera edición: 12 delegaciones y más de 5.000 personas en la inauguración.'],
+        ['1993', 'Por el Decreto provincial N.º 3565/1993, Arteaga es reconocida como Capital Provincial del Fútbol Infantil.'],
+        ['Hoy', 'Diez días en enero, con sede principal y subsedes en distintas localidades, y delegaciones de todo el país y del exterior.'],
+        ['2025', 'Fernando Belluschi enciende la Llama Votiva.'],
+        ['2026', 'Pato Abbondanzieri enciende la Llama Votiva.'],
+        ['2027', '41.ª edición del Mundialito Alianza, del 8 al 17 de enero.']
+      ]
+    },
+    llama: {
+      titulo: 'La Llama Votiva',
+      texto: 'Uno de los símbolos más importantes del Mundialito. Se enciende en la inauguración y permanece encendida durante los diez días del torneo principal. Representa la pasión, el esfuerzo, la unión y los sueños de quienes participan.',
+      encendidos: [ ['2026', 'Pato Abbondanzieri'], ['2025', 'Fernando Belluschi'] ]
+    },
+    mision:'Organizar torneos de fútbol infantil y juvenil donde cada chico y chica viva una experiencia inolvidable, con competencia sana, buena organización y un lugar para que las familias disfruten.',
     vision: 'Ser el circuito de fútbol formativo de referencia en Argentina, que une a clubes de todo el país y abre puertas a nuevos talentos, sin perder el espíritu de pueblo que nos vio nacer en 1987.',
     alojamiento: {
       torneo: '41.º Mundialito Alianza · 8 al 17 de enero de 2027',
