@@ -1542,6 +1542,44 @@ body:not(.home) .sec-more{display:none}
 .ft3-bot nav a{color:#fff}
 
 .band .nw-c,.band .nw-c h3,.band .pq-c h3,.band .bn-p h3{color:#1d1d1f}.band .nw-c .nw-more{color:#d7192b}.band+.nl{margin-top:0}
+/* v22: portada con diapositivas */
+.hx2 .hx-mos{display:none}
+.hx-sl{position:absolute;inset:0;overflow:hidden;background:#0a0a0c}
+.hx-s{position:absolute;inset:0;background:center/cover no-repeat;opacity:0;transform:translateX(8%) scale(1.06);transition:opacity 1.3s ease,transform 1.3s cubic-bezier(.2,.7,.2,1)}
+.hx-s.on{opacity:1;transform:none;animation:hxkb 7s ease-out both}
+.hx-s.out{opacity:0;transform:translateX(-8%) scale(1.04)}
+@keyframes hxkb{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+.hx-pl{position:absolute;right:20px;bottom:22px;z-index:3;font-size:11.5px;font-weight:800;letter-spacing:.06em;color:rgba(255,255,255,.85);background:rgba(0,0,0,.45);padding:5px 10px;border-radius:8px;backdrop-filter:blur(6px)}
+.hx2:after{background:linear-gradient(180deg,rgba(10,6,8,.55) 0%,rgba(10,6,8,.45) 40%,rgba(10,6,8,.9) 100%)}
+.hx2 h1.hx-t em{font-style:normal;color:#ff3b3b}
+@media (min-width:960px){
+ .hx.hx2{align-items:center}
+ .hx2:after{background:radial-gradient(ellipse at center,rgba(10,6,8,.55) 0%,rgba(10,6,8,.78) 70%),linear-gradient(0deg,rgba(10,6,8,.6),transparent 40%)}
+ .hx2 .hx-in{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1180px;margin:0 auto;padding:110px 32px 90px;column-gap:0}
+ .hx2 .hx-in>.hx-kick{justify-self:auto}
+ .hx2 .hx-in>h1.hx-t{font-size:92px;line-height:.98;max-width:1100px;letter-spacing:-.035em;text-transform:uppercase;text-wrap:balance}
+ .hx2 .hx-in>p{order:3;margin-top:18px;font-size:19px;max-width:900px;white-space:normal;opacity:.92}
+ .hx2 .hx-in>.cd-box{order:4;grid-column:auto;grid-row:auto;align-self:center;margin-top:34px;padding:26px 34px 28px;border-radius:28px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(16px) saturate(150%);box-shadow:0 30px 70px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.25)}
+ .hx2 .cd-box small{font-size:14px;letter-spacing:.18em;color:#fff;text-align:center}
+ .hx2 .cd-date{text-align:center;font-size:15px;margin:6px 0 20px}
+ .hx2 .cd{gap:14px;justify-content:center}
+ .hx2 .cd div{min-width:132px;padding:20px 12px 14px;border-radius:20px;background:#fff;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+ .hx2 .cd b{font-size:78px;letter-spacing:-.04em;color:#d7192b}
+ .hx2 .cd span{font-size:12.5px;letter-spacing:.16em;color:#2f2b2c}
+ .hx2 .hx-down{bottom:26px}
+}
+@media (min-width:1400px){.hx2 .hx-in>h1.hx-t{font-size:104px}}
+@media (max-width:959px){.hx2 h1.hx-t{font-size:44px;text-transform:uppercase;line-height:1}.hx.hx2{align-items:flex-end}}
+
+.hx2 h1.hx-t em{font-weight:900;letter-spacing:inherit}
+@media (prefers-reduced-motion:reduce){.hx-s{transition:opacity 1.2s ease}.hx-s.on{animation:none}}
+/* v23: botones rellenos y pie apenas más oscuro */
+.btn.line{background:#d7192b;color:#fff;border:2px solid #d7192b}
+.btn.line:hover{background:#9e0e1d;border-color:#9e0e1d;color:#fff}
+.band .btn.line{background:#fff;color:#9e0e1d;border-color:#fff}
+.band .btn.line:hover{background:#fdecec;border-color:#fdecec;color:#9e0e1d}
+.nl{background:#8a0c19;border-bottom:1px solid rgba(255,255,255,.1)}
+.ft3{background:#8a0c19}
 </style>
 </head>
 <body>
@@ -1551,7 +1589,7 @@ body:not(.home) .sec-more{display:none}
 
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js?v=20261118n"></script>
+<script src="/config.js?v=20261118q"></script>
 <script>
 // ── Web pública del Mundialito: solo lectura, se actualiza en vivo desde el SGI ──
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
@@ -1618,7 +1656,8 @@ async function loadHubTeams(){if(hubTeams||hubTeamsLoading)return;hubTeamsLoadin
 function marquee(){if(!hubTeams||!hubTeams.length)return '<div id="mq"></div>';let items=hubTeams.map(x=>`<div class="mq-i">${x.l?`<img src="${esc(x.l)}" alt="" decoding="async">`:`<span class="cr" style="--c1:#d7192b;--c2:#fff">${esc(initials(x.n))}</span>`}<span>${esc(cutName(x.n))}</span></div>`).join('');return `<section class="hs mq-s" id="mq"><div class="hs-h center"><span>Clubes participantes</span><h2>Los que ya son parte</h2></div><div class="mq"><div class="mq-track">${items}${items}</div></div></section>`}
 // Cuenta regresiva y contador animado
 let cdTimer=null;
-function startHubFx(){clearInterval(cdTimer);const cd=document.getElementById('cd');if(cd){const tick=()=>{let ms=new Date(cd.dataset.t)-new Date();if(ms<=0){cd.innerHTML='<b class="cd-now">¡Ya empezó!</b>';clearInterval(cdTimer);return}let d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,s=Math.floor(ms/1e3)%60;cd.querySelectorAll('[data-u]').forEach(e=>e.textContent=String({d,h,m,s}[e.dataset.u]).padStart(2,'0'))};tick();cdTimer=setInterval(tick,1000)}
+let slTimer=null;
+function startHubFx(){clearInterval(cdTimer);clearInterval(slTimer);{let sl=[...document.querySelectorAll('.hx-s')];if(sl.length>1){let i=0;slTimer=setInterval(()=>{if(!document.body.contains(sl[0])){clearInterval(slTimer);return}let a=sl[i];i=(i+1)%sl.length;let b=sl[i];a.classList.remove('on');a.classList.add('out');b.classList.remove('out');void b.offsetWidth;b.classList.add('on');setTimeout(()=>a.classList.remove('out'),1400)},5500)}}const cd=document.getElementById('cd');if(cd){const tick=()=>{let ms=new Date(cd.dataset.t)-new Date();if(ms<=0){cd.innerHTML='<b class="cd-now">¡Ya empezó!</b>';clearInterval(cdTimer);return}let d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,s=Math.floor(ms/1e3)%60;cd.querySelectorAll('[data-u]').forEach(e=>e.textContent=String({d,h,m,s}[e.dataset.u]).padStart(2,'0'))};tick();cdTimer=setInterval(tick,1000)}
  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);let el=e.target,n=+el.dataset.n,t0=performance.now();const step=t=>{let k=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-k,3))).toLocaleString('es-AR');if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.4}):null;document.querySelectorAll('.cnt').forEach(el=>io?io.observe(el):el.textContent=el.dataset.n);loadHubTeams()}
 async function subscribeNews(form){let inp=form.querySelector('input'),btn=form.querySelector('button'),msg=form.querySelector('.nl-msg'),email=inp.value.trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.textContent='Revisá el correo.';return false}btn.disabled=true;let {error}=await sb.from('suscriptores').insert({email,origen:'web'});btn.disabled=false;if(error&&!/duplicate|unique/i.test(error.message)){msg.textContent='No se pudo anotar. Probá de nuevo.';return false}form.classList.add('ok');msg.textContent=error?'Ya estabas suscripto. ¡Gracias!':'¡Listo! Te vamos a escribir con las novedades.';inp.value='';return false}
 // Fotos de la portada (img/v viejas, img/e actuales, img/d dron) y línea de tiempo interactiva
@@ -1689,7 +1728,7 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  // 1. Portada histórica (mosaico de fotos de archivo)
  let P=S.portada||{},pf=P.fotos||[];
  let CD=S.cuentaRegresiva,cdOk=CD&&new Date(CD.fecha)>new Date();
- let html=`<section class="hx hx2"><div class="hx-mos" aria-hidden="true">${pf.length?[0,1,2,3,4].map(c=>{let col=[0,1,2,3].map(r=>pf[(c*4+r)%pf.length]);return `<div class="hx-colm c${c}">${col.concat(col).map(k=>`<img src="${ph(k)}" alt="" decoding="async"${c>2?' loading="lazy"':''}>`).join('')}</div>`}).join(''):''}</div><div class="hx-in"><span class="hx-kick">${esc(P.kick||'Desde 1987 · Arteaga, Santa Fe')}</span><h1 class="hx-t">${esc(P.titulo||'Mundialito Alianza')}</h1><p>${esc(P.txt||'')}</p>${cdOk?`<div class="cd-box"><small>Faltan para el ${esc(CD.nombre)}</small>${CD.fechaTxt?`<em class="cd-date">${esc(CD.fechaTxt)}</em>`:''}<div class="cd" id="cd" data-t="${esc(CD.fecha)}">${[['d','días'],['h','horas'],['m','min'],['s','seg']].map(([u,l])=>`<div><b data-u="${u}">00</b><span>${l}</span></div>`).join('')}</div></div>`:''}</div><a class="hx-down" href="#circuito" ${go('circuito')} aria-label="Bajar">${SV.r}</a></section>`;
+ let html=`<section class="hx hx2"><div class="hx-sl" aria-hidden="true">${(P.slides||pf).map((k,i)=>`<div class="hx-s${i?'':' on'}" style="background-image:url(${ph(k)})"><span class="hx-pl">${esc(phPlace(k))}</span></div>`).join('')}</div><div class="hx-in"><span class="hx-kick">${esc(P.kick||'Desde 1987 · Arteaga, Santa Fe')}</span><h1 class="hx-t">${(t=>{let w=t.split(' '),k=Math.max(1,w.length-3);return esc(w.slice(0,k).join(' '))+' <em>'+esc(w.slice(k).join(' '))+'</em>'})(P.titulo||'Mundialito Alianza')}</h1><p>${esc(P.txt||'')}</p>${cdOk?`<div class="cd-box"><small>Faltan para el ${esc(CD.nombre)}</small>${CD.fechaTxt?`<em class="cd-date">${esc(CD.fechaTxt)}</em>`:''}<div class="cd" id="cd" data-t="${esc(CD.fecha)}">${[['d','días'],['h','horas'],['m','min'],['s','seg']].map(([u,l])=>`<div><b data-u="${u}">00</b><span>${l}</span></div>`).join('')}</div></div>`:''}</div><a class="hx-down" href="#circuito" ${go('circuito')} aria-label="Bajar">${SV.r}</a></section>`;
  // Inicio: historia breve con fotos
  {let HT=S.historiaBreve;if(HT)html+=`<section class="hs ht band" id="hteaser"><div class="ht-tx"><div class="hs-h"><span>Nuestra historia</span><h2>${esc(HT.titulo)}</h2></div><p>${esc(HT.txt)}</p><a class="btn" href="/historia" data-l>Conocé nuestra historia ${IC.arrow}</a></div><div class="ht-ph">${(HT.fotos||[]).map((k,j)=>phF(k,'f'+j,'Mundialito Alianza')).join('')}</div></section>`}
  // 2. En juego y próximos
