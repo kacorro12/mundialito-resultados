@@ -92,10 +92,10 @@ window.MUNDIALITO_CFG = {
         { id: 'ma', nombre: 'Mundialito Alianza', sub: 'El torneo principal', logo: '/img/logo-mundialito-alianza.png', fondo: '#c8101f', foto: 'd05',
           txt: 'La competencia que dio origen a todo. Diez días de fútbol en Arteaga y sus subsedes, con clubes, escuelas y delegaciones de todo el país y del exterior. Es el corazón del circuito y el gran encuentro al que llevan todos los caminos del año.' },
         { id: 'pm', nombre: 'Premundialitos', sub: 'El camino hacia enero', logo: '/img/logo-premundialito.webp', fondo: '#fff', foto: 'p01',
-          txt: 'Torneos durante el año en distintos puntos del país, con la misma organización y el mismo espíritu del Mundialito. Cada uno es una fiesta en sí misma y, además, da la chance de clasificar con inscripción gratuita al Mundialito de enero. Volvemos a las sedes que nos recibieron con los brazos abiertos y cada año sumamos lugares nuevos, para que más chicos puedan vivir la experiencia.' },
+          txt: 'Torneos durante el año en distintos puntos del país, con el mismo espíritu del Mundialito y la chance de clasificar gratis al torneo de enero. Volvemos a las sedes que nos recibieron con los brazos abiertos y cada año sumamos lugares nuevos.' },
         // Nombre a confirmar por Franco (no le convence "Torneos Especiales")
         { id: 'es', nombre: 'Torneos Especiales', sub: 'El Mundialito en tu ciudad', logo: '/img/logo-sello.webp', fondo: '#1a1a1f', foto: 'e10',
-          txt: 'El Mundialito sale de Arteaga y lleva su sello a otras ciudades, con la misma organización, el mismo cariño y las mismas categorías de enero. En 2026 estuvimos dos veces en Funes, en Estancia Damfield: en octubre fueron 66 equipos y Maxi Rodríguez nos acompañó en la inauguración.' },
+          txt: 'El Mundialito sale de Arteaga y lleva su sello a otras ciudades, con la misma organización y las mismas categorías de enero. En 2026 estuvimos dos veces en Funes: en octubre fueron 66 equipos y Maxi Rodríguez nos acompañó en la inauguración.' },
         { id: 'ju', nombre: 'Torneos Juveniles de Clubes', sub: 'Para seguir siendo parte', logo: '/img/logo-juvenil.webp', fondo: '#fff', foto: '', // sin fotos del Juvenil todavía: se muestra un fondo rojo
           txt: 'Un torneo internacional pensado para clubes, en Sub 17 y Sub 15, masculino y femenino. Reúne a instituciones de casi todas las provincias y a delegaciones de Bolivia y Estados Unidos, para que el vínculo con el Mundialito siga cuando los chicos crecen y los clubes se sigan encontrando.' },
         { id: 'en', nombre: 'Encuentros', sub: 'Para los más chiquitos', logo: '/img/nenito.webp', fondo: '#fff', foto: 'e16', ancho: true,
@@ -125,7 +125,10 @@ window.MUNDIALITO_CFG = {
       { ic: 'ticket', t: 'Bonos para viajar', d: '200 bonos por categoría: lo recaudado queda para la delegación y participa de un sorteo en efectivo.' }
     ],
     // Logo de AFA: cuando esté, poner la ruta en "logo" (por ejemplo '/img/afa.png'); mientras, se muestra el texto AFA
-    scouts: { t: 'Una vidriera para el futuro', d: 'En el Mundialito de enero y en cada fecha del circuito hay ojeadores de la Asociación del Fútbol Argentino siguiendo de cerca a los chicos. Para muchos, es la primera vez que alguien los ve jugar fuera de su ciudad.',
+    scouts: { t: 'Una vidriera para el futuro', d: 'Para muchos chicos, el Mundialito es la primera vidriera de su carrera. En el torneo de enero y en las distintas fechas del circuito hay ojeadores de la Asociación del Fútbol Argentino que siguen de cerca cada partido, y clubes de AFA que compiten con sus divisiones formativas.',
+      puntos: ['Ojeadores de la AFA en el Mundialito de enero y en el circuito', 'Clubes de AFA compiten con sus categorías formativas', 'Chicos de todo el país, a la vista de quienes forman a los jugadores del futuro'],
+      // Fotos de chicos con camisetas de clubes de AFA (Rosario Central y Newell's, Funes 2026)
+      fotos: ['e19','e22','e21','e23'],
       org: 'Ojeadores de la AFA', logo: '' },
     lema: 'La magia está por volver',
     historia: {
