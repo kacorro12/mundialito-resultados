@@ -1256,6 +1256,68 @@ body:has(#app>.nl:last-child) .ft2-top{border-top:0}
 .gal-grid button{aspect-ratio:auto;flex-shrink:0}.gal-grid button::before{content:'';display:block;padding-top:75%}
 .gal-grid{grid-auto-rows:max-content;grid-template-rows:none}
 .band .pq-c{color:#1a1520}.band .pq-c h3{color:#1a1520}.band .pq-c p{color:#4a4350}
+/* v17 */
+/* Títulos con barra roja debajo */
+.hs-h span:after{content:'';display:block;width:54px;height:4px;border-radius:4px;background:var(--red);margin-top:12px}
+.hs-h.center span:after{margin-left:auto;margin-right:auto}
+#patrocinadores .hs-h span:after{display:none}
+/* Nueva paleta de los bloques: grafito profundo con luz roja (sin dorado) */
+.band{background:#150c0f;background-image:radial-gradient(circle at 8% 0%,rgba(215,25,43,.32),transparent 48%),radial-gradient(circle at 100% 100%,rgba(215,25,43,.16),transparent 42%)}
+.band .hs-h span{color:#fff}
+.band .btn{background:var(--red);color:#fff}
+.band .btn:hover{background:#b3121f}
+.llama2{background:#150c0f}
+.llama2:before{background:radial-gradient(circle at 10% 10%,rgba(215,25,43,.35),transparent 50%),radial-gradient(circle at 95% 95%,rgba(215,25,43,.15),transparent 45%)}
+.llama2 .llama-k,.llama-et,.llama-e small{color:#ff6b75}
+.llama2 .llama-e div{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.05)}
+.hx2 .cd-box small{color:#ff6b75}
+/* Circuito: 5 tarjetas verticales en una fila */
+@media (min-width:960px){
+ .ci{grid-template-columns:repeat(3,1fr);gap:16px}
+ .ci-c,.ci-c.ancho{display:flex;flex-direction:column;grid-column:auto;min-height:0}
+ .ci-ph{height:150px;min-height:0;grid-row:auto}
+ .ci-logo{margin:-40px auto 0;justify-self:auto;width:80px;height:80px;border:4px solid #fff}
+ .ci-logo.wide{width:auto;max-width:86%;padding:0 12px}
+ .ci-logo.wide img{max-width:150px;max-height:42px}
+ .ci-b{padding:14px 18px 22px;text-align:center}
+ .ci-b h3{white-space:normal;font-size:19px;line-height:1.15;min-height:2.3em;display:flex;align-items:center;justify-content:center}
+ .ci-b small{font-size:10.5px}
+ .ci-b p{font-size:13.5px;line-height:1.6}
+}
+@media (min-width:1180px){.ci{grid-template-columns:repeat(5,1fr)}}
+@media (min-width:960px) and (max-width:1179px){.ci-c.ancho{grid-column:span 1}}
+/* Ojeadores AFA */
+.sct3{display:grid;gap:24px;align-items:center}
+.sct3-tx p{margin:0 0 16px;font-size:16px;line-height:1.7;color:#3b3440}
+.sct3 .sct2-org{margin-bottom:12px}
+.sct3-l{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.sct3-l li{display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:700;color:#1a1520}
+.sct3-l svg{width:20px;height:20px;flex-shrink:0;fill:none;stroke:var(--red);stroke-width:2.6}
+.sct3-ph{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:8px;min-height:340px}
+.sct3-ph figure{margin:0;position:relative;border-radius:16px;overflow:hidden;min-height:150px}
+.sct3-ph .s0{grid-row:span 2}
+.sct3-ph .s3{display:none}
+.sct3-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.sct3-ph figure:hover img{transform:scale(1.06)}
+.sct3-ph figcaption{position:absolute;left:10px;bottom:10px;font-size:11px;font-weight:800;color:#fff;background:rgba(0,0,0,.55);padding:3px 8px;border-radius:6px}
+@media (min-width:960px){.sct3{grid-template-columns:1fr 1.1fr;gap:56px}.sct3-ph{min-height:420px}}
+/* Encabezados de página */
+.pg-bc{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:rgba(255,255,255,.75)}
+.pg-bc a{color:#fff}
+.pg-bc a:hover{text-decoration:underline}
+.pg-bc i{font-style:normal;opacity:.5}
+.pg-bc span{background:var(--red);color:#fff;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.pg-in p{margin:12px 0 0;max-width:620px;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.85)}
+.pg-h:before{background:linear-gradient(90deg,rgba(14,8,10,.94) 0%,rgba(14,8,10,.7) 55%,rgba(14,8,10,.35) 100%)}
+@media (min-width:960px){.pg-in p{font-size:17px}}
+/* Pulido general */
+.hs{scroll-margin-top:90px}
+.ci-tx,.fu p,.nm-pie{color:#4a4350}
+.band .nm-pie{color:rgba(255,255,255,.8)}
+.nw-c{transition:transform .3s,box-shadow .3s}
+.btn{transition:background .2s,transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(215,25,43,.25)}
+
 </style>
 </head>
 <body>
@@ -1270,7 +1332,7 @@ body:has(#app>.nl:last-child) .ft2-top{border-top:0}
 <script>document.getElementById('ftYear').textContent=new Date().getFullYear()</script>
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js?v=20261118h"></script>
+<script src="/config.js?v=20261118i"></script>
 <script>
 // ── Web pública del Mundialito: solo lectura, se actualiza en vivo desde el SGI ──
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
@@ -1356,7 +1418,7 @@ function calEv(e){let a=dISO(e.inicio),b=dISO(e.fin),L=TLOGO[e.tipo]||TLOGO.esp,
  return `<div class="kc-e cl-${e.tipo}"><div class="kc-lg${e.tipo==='pre'?' wide':''}" style="background:${L[1]}"><img src="${L[0]}" alt=""></div><div class="kc-b"><small>${({ma:'Mundialito Alianza',pre:'Premundialito',esp:'Torneo Especial',juv:'Juvenil de Clubes'})[e.tipo]||''} · ${dd>1?'faltan '+dd+' días':dd===1?'empieza mañana':dd===0?'empieza hoy':'jugándose ahora'}</small><b>${esc(e.nombre)}</b><span class="kc-f">${IC.cal}${fecha}</span><span class="kc-f">${IC.pin}${esc(e.sede||'')}</span>${cb}${e.link?`<a class="btn kc-btn" href="${esc(e.link)}" data-l>Ver fixture y resultados ${IC.arrow}</a>`:'<span class="kc-nofx">El fixture se publica cerca de la fecha</span>'}</div></div>`}
 // Animaciones al aparecer en pantalla
 function reveal(){if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;let io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -30px 0px'});
- document.querySelectorAll('#app .hs-h,#app .ci-c,#app .xp-g figure,#app .nw-c,#app .pq-c,#app .al-c,#app .kc-m,#app .ct-c,#app .mv article,#app .imp-c,#app .tlp,#app .ht-ph figure,#app .ht-tx p,#app .llama-ph figure,#app .llama-tx,#app .nums>div,#app .sp-c,#app .fu p,#app .fu-in,#app .tz-c,#app .pc,#app .sco,#app .xp-fr p,#app .ci-tx,#app .nm-c,#app .g5,#app .xp-card,#app .sct2-in,#app .ct2-tx,#app .nm-pie').forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%4)*90+'ms');io.observe(el)})}
+ document.querySelectorAll('#app .hs-h,#app .ci-c,#app .xp-g figure,#app .nw-c,#app .pq-c,#app .al-c,#app .kc-m,#app .ct-c,#app .mv article,#app .imp-c,#app .tlp,#app .ht-ph figure,#app .ht-tx p,#app .llama-ph figure,#app .llama-tx,#app .nums>div,#app .sp-c,#app .fu p,#app .fu-in,#app .tz-c,#app .pc,#app .sco,#app .xp-fr p,#app .ci-tx,#app .nm-c,#app .g5,#app .xp-card,#app .sct2-in,#app .ct2-tx,#app .nm-pie,#app .sct3-tx,#app .sct3-ph figure').forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%4)*90+'ms');io.observe(el)})}
 // Galería de fotos de la experiencia (pantalla completa)
 const XI='<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 function galOpen(i){let m=document.getElementById('gal');if(!m){m=document.createElement('div');m.id='gal';document.body.append(m);addEventListener('keydown',e=>{if(!m.classList.contains('on'))return;if(e.key==='Escape')galClose();if(e.key==='ArrowRight')galGo(1);if(e.key==='ArrowLeft')galGo(-1)})}m.className='on';document.body.style.overflow='hidden';galRender(i)}
@@ -1371,9 +1433,9 @@ addEventListener('scroll',()=>document.body.classList.toggle('scrolled',scrollY>
 // Alojamientos queda guardada (/alojamientos) pero fuera del menú hasta corregir la información
 const PNAV=[['','Inicio'],['torneos','Torneos'],['historia','Historia'],['calendario','Calendario'],['novedades','Novedades'],['contacto','Contacto']];
 const PSEL={'':['.hx2','#circuito','#hteaser','#scouts','#numeros','#noticias','#patrocinadores','.nl'],torneos:['#circuito','#jugados','#porque','#scouts','#mq','#patrocinadores','.nl'],historia:['#historia','#experiencia','.llama','#futuro','#mision','#patrocinadores','.nl'],calendario:['#calendario','#patrocinadores','.nl'],alojamientos:['#alojamiento','#patrocinadores','.nl'],novedades:['#noticias','#patrocinadores','.nl'],contacto:['#contacto','#patrocinadores','.nl']};
-const PHEAD={torneos:['Torneos','Nuestros torneos','m12'],historia:['Historia','Una historia que nos une','h1988-28'],calendario:['Calendario','Circuito Mundialito','d05'],alojamientos:['Alojamientos','Dónde hospedarse','d01'],novedades:['Novedades','Lo último del Mundialito','m06'],contacto:['Contacto','Hablemos','h2001-08']};
+const PHEAD={torneos:['Torneos','Nuestros torneos','m12','Las propuestas del Circuito Mundialito: del gran torneo de enero a los encuentros para los más chiquitos.'],historia:['Historia','Una historia que nos une','h1988-28','Cuatro décadas de fútbol infantil en Arteaga, Capital Provincial del Fútbol Infantil.'],calendario:['Calendario','Circuito Mundialito','d05','Todas las fechas del circuito, mes a mes, con sede, cupos y acceso al fixture.'],alojamientos:['Alojamientos','Dónde hospedarse','d01','Opciones de alojamiento para el Mundialito Alianza de enero, en Arteaga.'],novedades:['Novedades','Lo último del Mundialito','m06','Noticias, anuncios y resultados de todo el circuito.'],contacto:['Contacto','Hablemos','h2001-08','Inscripciones, consultas y propuestas: estamos para ayudarte.']};
 function pageView(pg){let tp=document.createElement('template');tp.innerHTML=hub();let out=document.createElement('div'),h=PHEAD[pg];
- if(h)out.insertAdjacentHTML('beforeend',`<section class="pg-h" style="background-image:url(${ph(h[2])})"><div class="pg-in"><span>${esc(h[0])}</span><h1>${esc(h[1])}</h1></div></section>`);
+ if(h)out.insertAdjacentHTML('beforeend',`<section class="pg-h" style="background-image:url(${ph(h[2])})"><div class="pg-in"><nav class="pg-bc"><a href="/" data-l>Inicio</a><i>/</i><span>${esc(h[0])}</span></nav><h1>${esc(h[1])}</h1>${h[3]?`<p>${esc(h[3])}</p>`:''}</div></section>`);
  let n0=out.children.length;(PSEL[pg]||PSEL['']).forEach(q=>tp.content.querySelectorAll(q).forEach(n=>out.append(n)));
  if(!out.querySelector('#calendario,#alojamiento,#noticias,#contacto,#historia,#torneos,#circuito')&&pg)out.firstElementChild.insertAdjacentHTML('afterend','<p class="hs-empty pg-empty">Pronto vamos a publicar esta sección.</p>');
  return out.innerHTML}
@@ -1402,7 +1464,7 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  // 5. Por qué elegirnos
  if(S.porque)html+=`<section class="hs band" id="porque"><div class="hs-h center"><span>¿Por qué el Mundialito?</span><h2>¿Por qué el Mundialito?</h2></div><div class="pq">${S.porque.map(x=>`<article class="pq-c"><span class="pq-i">${PI[x.ic]||PI.shield}</span><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></article>`).join('')}</div></section>`;
  // 6. Scouts
- if(S.scouts)html+=`<section class="hs sct2" id="scouts"><div class="sct2-in"><div class="sct2-org">${S.scouts.logo?`<img src="${esc(S.scouts.logo)}" alt="AFA">`:'<b class="afa">AFA</b>'}<span>${esc(S.scouts.org||'')}</span></div><div class="hs-h center"><span>${esc(S.scouts.t)}</span></div><p>${esc(S.scouts.d)}</p></div></section>`;
+ if(S.scouts){let SC=S.scouts;html+=`<section class="hs sct3" id="scouts"><div class="sct3-tx"><div class="sct2-org">${SC.logo?`<img src="${esc(SC.logo)}" alt="AFA">`:'<b class="afa">AFA</b>'}<span>${esc(SC.org||'')}</span></div><div class="hs-h"><span>${esc(SC.t)}</span></div><p>${esc(SC.d)}</p>${SC.puntos?`<ul class="sct3-l">${SC.puntos.map(t=>`<li>${PI.check}<span>${esc(t)}</span></li>`).join('')}</ul>`:''}</div>${SC.fotos?`<div class="sct3-ph">${SC.fotos.map((k,j)=>`<figure class="s${j}"><img src="${ph(k)}" alt="Chicos de clubes de AFA en el Mundialito" loading="lazy"><figcaption>${esc(phPlace(k))}</figcaption></figure>`).join('')}</div>`:''}</section>`}
  if(S.mision||S.vision)html+=`<section class="hs band" id="mision"><div class="hs-h center"><span>Misión y visión</span><h2>Misión y visión</h2></div><div class="mv">${S.mision?`<article><span>Misión</span><p>${esc(S.mision)}</p></article>`:''}${S.vision?`<article><span>Visión</span><p>${esc(S.vision)}</p></article>`:''}</div></section>`;
  // 9. Calendario del Circuito Mundialito
  {let ext=(S.calendarioExtra||[]).filter(x=>x.fin>=n&&!T.some(t=>t.inicio===x.inicio&&tType(t)===x.tipo)),ev=[...next.map(t=>({nombre:t.nombre,inicio:t.inicio,fin:t.fin,sede:t.sede,tipo:tType(t),link:t.publicado?'/'+t.id:'',cupos:(S.cupos||{})[t.id]})),...ext.map(x=>({nombre:x.nombre,inicio:x.inicio,fin:x.fin,sede:x.sede,tipo:x.tipo,link:'',cupos:x.cupos}))].sort((a,b)=>a.inicio.localeCompare(b.inicio));
