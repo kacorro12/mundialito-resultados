@@ -1001,21 +1001,275 @@ a.tlc-c:hover{border-color:#e7b5bc}
 .pill.juv{background:#b45309;color:#fff}
 .pg-h+#calendario>.hs-h,.pg-h+#alojamiento>.hs-h,.pg-h+#noticias>.hs-h{display:none}
 .pg-h+.hs{padding-top:30px}
+/* v15 */
+.hx2 .hx-in>*{animation:hxin .9s cubic-bezier(.2,.7,.2,1) both}
+.hx2 .hx-in>*:nth-child(2){animation-delay:.12s}.hx2 .hx-in>*:nth-child(3){animation-delay:.24s}.hx2 .hx-in>*:nth-child(4){animation-delay:.36s}
+@keyframes hxin{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+body.home .top{position:fixed;left:0;right:0;top:0;transform:translateY(-110%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+body.home.scrolled .top{transform:none}
+body.home .hx.hx2{min-height:100svh}
+@media (min-width:960px){body.home .hx.hx2{min-height:100vh}}
+.ht{display:grid;gap:22px;align-items:center}
+.ht-tx p{margin:0 0 18px;font-size:16px;line-height:1.7;color:#3b3440}
+.ht-tx .btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;margin-left:4px}
+.ht-ph{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.ht-ph figure{margin:0;position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+.ht-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
+.ht-ph figure:hover img{transform:scale(1.07)}
+@media (min-width:860px){.ht{grid-template-columns:1fr 1.15fr;gap:44px}}
+.xp-g figure{grid-column:auto;grid-row:auto}
+.xp-g figure.big{grid-column:span 2;grid-row:span 2}
+.xp-g figcaption{font-size:11.5px;font-weight:800;letter-spacing:.04em}
+.llama2 .flame{display:none}
+.llama2{background:#121014}
+.llama2:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(215,25,43,.28),transparent 55%),radial-gradient(circle at 90% 90%,rgba(249,115,22,.16),transparent 50%)}
+.llama2 .llama-in{grid-template-columns:1fr}
+.llama-et{display:block;width:100%;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#fdba74;margin-bottom:2px}
+.llama2 .llama-ph{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:8px;grid-column:auto}
+.llama2 .llama-ph figure{border-radius:14px}
+.llama2 .llama-ph figure img{aspect-ratio:auto;height:100%;min-height:150px;border-radius:14px}
+.llama2 .llama-ph .l0{grid-row:span 2}
+.llama2 .llama-ph .l3{display:none}
+@media (min-width:860px){.llama2 .llama-in{grid-template-columns:1fr 1.1fr;gap:48px}.llama2 .llama-ph figure img{min-height:200px}}
+@media (min-width:960px){.fu-in{padding:110px 40px;max-width:980px}.fu-in p{font-size:30px;line-height:1.4}}
+.al-c{--ac:var(--red);display:flex;flex-direction:column}
+.al{align-items:stretch}
+.al-h b{white-space:nowrap}
+.al-c li{align-items:flex-start}
+@media (min-width:1100px){.al{grid-template-columns:repeat(5,1fr)}}
+.kc-ley{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin:-6px 0 22px;font-size:12.5px;font-weight:800;color:#4a4350}
+.kc-ley span{display:flex;align-items:center;gap:6px}
+.kc-ley i{width:12px;height:12px;border-radius:4px;background:var(--cc)}
+.cl-ma{--cc:#d7192b}.cl-pre{--cc:#4338ca}.cl-esp{--cc:#5b21b6}.cl-juv{--cc:#b45309}
+.kc{display:grid;gap:16px}
+.kc-m{background:#fff;border:1px solid #e9e6ee;border-radius:22px;padding:20px}
+.kc-m h3{margin:0 0 14px;font-size:20px;font-weight:900}
+.kc-m h3 em{font-style:normal;color:#8a8392;font-weight:700}
+.kc-g{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;margin-bottom:16px}
+.kc-g b{font-size:11px;font-weight:900;color:#a39cab;padding-bottom:4px}
+.kc-g span{aspect-ratio:1;display:grid;place-items:center;font-size:13.5px;font-weight:700;color:#3b3440;border-radius:10px}
+.kc-g span.on{background:var(--cc);color:#fff;border-radius:4px}
+.kc-g span.on.a{border-top-left-radius:12px;border-bottom-left-radius:12px}
+.kc-g span.on.b{border-top-right-radius:12px;border-bottom-right-radius:12px}
+.kc-g span.hoy{box-shadow:inset 0 0 0 2px #1a1520}
+.kc-no{margin:0;font-size:13.5px;color:#8a8392;text-align:center;padding:10px;border:1px dashed #e4dfe9;border-radius:14px}
+.kc-e{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:16px;background:#faf9fc;border:1px solid #eee9f2;border-left:5px solid var(--cc)}
+.kc-e+.kc-e{margin-top:10px}
+.kc-lg{flex:0 0 64px;width:64px;height:64px;border-radius:14px;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.kc-lg img{max-width:50px;max-height:50px;object-fit:contain}
+.kc-lg.wide img{max-width:58px}
+.kc-b{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.kc-b small{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--cc)}
+.kc-b>b{font-size:16.5px;font-weight:900;line-height:1.2}
+.kc-f{display:flex;align-items:center;gap:6px;font-size:13.5px;color:#4a4350}
+.kc-f svg{width:15px;height:15px;flex-shrink:0;fill:none;stroke:#8a8392;stroke-width:2}
+.kcup{margin-top:4px;display:flex;flex-direction:column;gap:5px}
+.kcup div{height:8px;border-radius:99px;background:#ece8f0;overflow:hidden}
+.kcup i{display:block;height:100%;width:0;background:var(--red);border-radius:99px;transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.kcup.full i{width:100%}
+.kcup span{font-size:12.5px;font-weight:800;color:#3b3440}
+.kcup.full span{color:var(--red2)}
+.kcup.open span{color:#6b6474;font-weight:700}
+.kc-btn{align-self:flex-start;margin-top:8px;font-size:13.5px;padding:10px 14px}
+.kc-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.4;margin-left:4px}
+.kc-nofx{margin-top:6px;font-size:12.5px;font-weight:700;color:#8a8392}
+@media (min-width:860px){.kc{grid-template-columns:repeat(2,1fr);align-items:start}}
+@media (min-width:1200px){.kc{grid-template-columns:repeat(3,1fr)}}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .75s ease var(--d,0ms),transform .75s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.rv.in{opacity:1;transform:none}
+.xp-g figure.rv,.ht-ph figure.rv,.llama-ph figure.rv,.sp-c.rv{transform:scale(.92)}
+.xp-g figure.rv.in,.ht-ph figure.rv.in,.llama-ph figure.rv.in,.sp-c.rv.in{transform:none}
+.hs-h.rv:not(.center){transform:translateX(-28px)}
+.hs-h.rv.in{transform:none}
+.nums>div.rv{transform:translateY(18px) scale(.96)}
+.ci-c,.nw-c,.pq-c,.al-c,.ct-c,.kc-m{transition-property:opacity,transform,box-shadow,border-color}
+.ci-c:hover,.nw-c:hover,.pq-c:hover,.al-c:hover,.kc-m:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(26,21,32,.1)}
+@media (min-width:960px){.ci-b h3{min-height:2.25em;display:flex;align-items:center;justify-content:center}.ci-b small{min-height:1.3em}.nw-c h3{min-height:2.5em}}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.hx2 .hx-in>*{animation:none}}
+
+.llama2 .llama-ph{grid-template-rows:170px 170px}.llama2 .llama-ph figure img{min-height:0}
+@media (min-width:860px){.llama2 .llama-ph{grid-template-rows:240px 240px}}
+/* v16 */
+/* Títulos de sección: una sola línea, roja y en mayúsculas */
+.hs-h h2{display:none}
+.hs-h span{font-size:26px;font-weight:900;letter-spacing:-.005em;line-height:1.1;color:var(--red);text-transform:uppercase}
+@media (min-width:960px){.hs-h span{font-size:38px}}
+#patrocinadores .hs-h{margin-bottom:12px}
+#patrocinadores .hs-h span{font-size:12.5px;letter-spacing:.2em;color:#8a8392}
+#patrocinadores{padding-top:36px}
+.sp .sp-cta b{font-size:15px}
+/* Bloques rojo bordó con dorado */
+.band{position:relative;color:#fff;background:linear-gradient(135deg,#8e0f1d 0%,#b3121f 50%,#6a0914 100%);margin:44px -14px 0;padding:44px 22px 48px}
+.band .hs-h span{color:#f5c26b}
+.band p{color:rgba(255,255,255,.92)}
+.band .btn{background:#f5c26b;color:#3a0610}
+@media (min-width:960px){.band{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:72px var(--side);margin-top:70px}}
+/* Portada en PC: título en dos renglones, texto en una línea y cuenta regresiva a la derecha */
+.cd-date{display:none}
+@media (min-width:960px){
+ .hx2 .hx-in{display:grid;grid-template-columns:1fr auto;column-gap:56px;align-items:end;width:100%;max-width:none;padding-bottom:96px}
+ .hx2 .hx-in>.hx-kick{grid-column:1;justify-self:start}
+ .hx2 .hx-in>h1.hx-t{grid-column:1;font-size:70px;max-width:820px;text-wrap:balance}
+ .hx2 .hx-in>p{grid-column:1/-1;margin-top:22px;font-size:17px;max-width:none}
+ .hx2 .hx-in>.cd-box{grid-column:2;grid-row:1/span 2;align-self:end;margin:0;padding:24px 26px;border-radius:24px;background:rgba(10,10,12,.55);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px)}
+ .hx2 .cd-box small{display:block;font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#f5c26b}
+ .hx2 .cd-date{display:block;font-style:normal;font-size:14px;font-weight:700;color:rgba(255,255,255,.85);margin:6px 0 16px}
+ .hx2 .cd{gap:10px}
+ .hx2 .cd div{min-width:96px;padding:16px 10px 12px;background:#fff;border:0;border-radius:16px;box-shadow:0 10px 26px rgba(0,0,0,.35)}
+ .hx2 .cd b{font-size:54px;line-height:1;color:var(--red);font-weight:900}
+ .hx2 .cd span{color:#1a1520;font-size:11.5px;font-weight:900;letter-spacing:.12em}
+}
+@media (min-width:1280px){.hx2 .hx-in>p{white-space:nowrap}}
+/* Circuito: tarjetas anchas y parejas */
+.ci-ph.none{background:radial-gradient(circle at 30% 20%,#e0303f,#a10d1b 60%,#5a0712)}
+.ci-logo.wide img{max-width:170px;max-height:46px}
+.ci-b h3{white-space:nowrap}
+@media (max-width:420px){.ci-b h3{font-size:19px}}
+@media (min-width:960px){
+ .ci{grid-template-columns:repeat(2,1fr);gap:20px}
+ .ci-c{display:grid;grid-template-columns:40% 1fr;grid-template-rows:auto 1fr;min-height:330px}
+ .ci-c.ancho{grid-column:1/-1;grid-template-columns:30% 1fr;min-height:250px}
+ .ci-ph{grid-row:1/3;height:auto;min-height:100%}
+ .ci-logo{margin:24px 0 0 26px;justify-self:start;width:78px;height:78px;border-width:0;box-shadow:0 6px 16px rgba(0,0,0,.14)}
+ .ci-logo img{max-width:62px;max-height:62px}
+ .ci-logo.wide{width:auto;padding:0 14px}
+ .ci-b{padding:14px 28px 26px;text-align:left}
+ .ci-b h3{font-size:24px;min-height:0;display:block}
+ .ci-b small{min-height:0}
+ .ci-b p{font-size:14.5px}
+}
+/* Historia breve: el texto ocupa lo mismo que las fotos */
+.ht-tx p{color:rgba(255,255,255,.92)}
+@media (min-width:860px){.ht{align-items:stretch}.ht-tx{display:flex;flex-direction:column;justify-content:center}.ht-ph{grid-template-rows:1fr 1fr}.ht-ph figure{aspect-ratio:auto;min-height:150px}}
+/* Scouts AFA */
+.sct2-in{max-width:760px;margin:0 auto;text-align:center;background:#fff;border:1px solid #e9e6ee;border-top:5px solid var(--red);border-radius:22px;padding:30px 24px}
+.sct2-org{display:inline-flex;align-items:center;gap:12px;margin-bottom:14px}
+.sct2-org img{height:56px;width:auto}
+.sct2-org .afa{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#75aadb;color:#fff;font-size:17px;font-weight:900;letter-spacing:.04em;box-shadow:inset 0 0 0 3px #fff,0 0 0 2px #75aadb}
+.sct2-org span{font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#4a4350}
+.sct2 .hs-h{margin-bottom:10px}
+.sct2 p{margin:0;font-size:16px;line-height:1.65;color:#3b3440}
+/* El Mundialito en números */
+.nm-g{display:grid;gap:16px}
+.nm-c{background:#fff;color:#1a1520;border-radius:22px;padding:22px;box-shadow:0 18px 40px rgba(0,0,0,.18);display:flex;flex-direction:column}
+.nm-c.red{background:linear-gradient(150deg,#e11d2e,#8e0f1d);color:#fff}
+.nm-h{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.nm-i{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(140deg,var(--red),var(--red2))}
+.nm-c.red .nm-i{background:rgba(255,255,255,.16)}
+.nm-i svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2}
+.nm-h b{display:block;font-size:19px;font-weight:900}
+.nm-h small{font-size:12.5px;font-weight:700;opacity:.7}
+.nm-d{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1}
+.nm-d>div{background:#faf5f6;border-radius:14px;padding:14px}
+.nm-d>div.dest{grid-column:1/-1;background:linear-gradient(140deg,#fff1f2,#fde3e6)}
+.nm-d b{display:block;font-size:28px;font-weight:900;color:var(--red);line-height:1.05}
+.nm-d .dest b{font-size:44px}
+.nm-d b .cnt{display:inline;font-size:inherit;color:inherit}
+.nm-d span{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#4a4350;line-height:1.3}
+.nm-r+.nm-r{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.22)}
+.nm-rn{display:flex;align-items:center;gap:10px;color:#fff;margin-bottom:10px}
+.nm-rn>svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2}
+.nm-rn b{font-size:17px;font-weight:900}
+.nm-rn span{font-size:14px;font-weight:700;opacity:.85;flex:1}
+.nm-rn svg:last-child{width:16px;height:16px;opacity:.8}
+.nm-rd{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.nm-rd>div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 12px}
+.nm-rd>div:last-child:nth-child(odd){grid-column:1/-1}
+.nm-rd b{display:block;font-size:22px;font-weight:900}
+.nm-rd span{display:block;font-size:12px;font-weight:700;opacity:.85}
+.nm-pie{margin:18px auto 0;max-width:720px;text-align:center;font-size:14px;line-height:1.55}
+@media (min-width:960px){.nm-g{grid-template-columns:1fr 1fr;align-items:stretch}.nm-rd{grid-template-columns:repeat(var(--n),1fr)}.nm-rd>div:last-child:nth-child(odd){grid-column:auto}}
+/* Experiencia: ventana con foto y texto, destacadas y galería */
+.xp-card{display:grid;background:#fff;border:1px solid #e9e6ee;border-radius:24px;overflow:hidden}
+.xp-ph{margin:0;position:relative;min-height:240px}
+.xp-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.xp-ph figcaption{position:absolute;left:12px;bottom:12px;font-size:11.5px;font-weight:800;color:#fff;background:rgba(0,0,0,.55);padding:4px 9px;border-radius:7px}
+.xp-tx{padding:24px}
+.xp-tx h3{margin:0 0 10px;font-size:24px;font-weight:900;line-height:1.15}
+.xp-tx .xp-intro{margin:0 0 12px}
+.xp-cierre2{margin:14px 0 0;font-size:16px;font-weight:800;color:var(--red2)}
+@media (min-width:860px){.xp-card{grid-template-columns:44% 1fr}.xp-tx{padding:36px 40px;align-self:center}}
+.gal5{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:130px;gap:8px;margin-top:16px}
+.g5{position:relative;border:0;padding:0;border-radius:14px;overflow:hidden;cursor:pointer;background:#eee}
+.g5 img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.g5:hover img{transform:scale(1.07)}
+.g5 span{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;font-size:11.5px;font-weight:800;color:#fff;text-align:left;background:linear-gradient(180deg,transparent,rgba(0,0,0,.65))}
+.g5-0{grid-column:1/-1;grid-row:span 2}
+@media (min-width:860px){.gal5{grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:10px}.g5-0{grid-column:span 2;grid-row:span 2}}
+.gal-cta{text-align:center;margin-top:16px}
+.gal-cta .btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;margin-right:6px}
+#gal{display:none}
+#gal.on{display:flex;flex-direction:column;position:fixed;inset:0;z-index:100;background:rgba(12,8,10,.97);color:#fff}
+.gal-top{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+.gal-top b{flex:1;font-size:15px;font-weight:900}
+.gal-x,.gal-back,.gal-nav{border:0;background:rgba(255,255,255,.1);color:#fff;border-radius:12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font:inherit;font-weight:800;font-size:13.5px}
+.gal-x{width:42px;height:42px;justify-content:center}
+.gal-back{padding:10px 14px;flex:0 0 auto}
+.gal-x svg,.gal-back svg,.gal-nav svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.4}
+.gal-grid{flex:1;overflow:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:10px;align-content:start}
+.gal-grid button{position:relative;border:0;padding:0;aspect-ratio:4/3;border-radius:10px;overflow:hidden;cursor:pointer;background:#222}
+.gal-grid img{width:100%;height:100%;object-fit:cover;display:block}
+.gal-grid span{position:absolute;left:0;right:0;bottom:0;padding:16px 8px 6px;font-size:11px;font-weight:800;text-align:left;background:linear-gradient(180deg,transparent,rgba(0,0,0,.7))}
+@media (min-width:700px){.gal-grid{grid-template-columns:repeat(4,1fr);gap:8px;padding:16px}}
+@media (min-width:1100px){.gal-grid{grid-template-columns:repeat(6,1fr)}}
+.gal-view{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px;min-height:0}
+.gal-view figure{margin:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;height:100%}
+.gal-view img{max-width:100%;max-height:calc(100% - 34px);object-fit:contain;border-radius:10px}
+.gal-view figcaption{margin-top:10px;font-size:13.5px;font-weight:800;opacity:.85}
+.gal-nav{width:46px;height:46px;justify-content:center;flex:0 0 auto}
+/* Llama Votiva: rojo bordó con dorado */
+.llama2{background:linear-gradient(135deg,#8e0f1d 0%,#b3121f 50%,#5a0712 100%)}
+.llama2:before{background:radial-gradient(circle at 15% 20%,rgba(245,194,107,.18),transparent 55%)}
+.llama2 .llama-k,.llama-et,.llama-e small{color:#f5c26b}
+.llama2 .llama-e div{border-color:rgba(245,194,107,.55);background:rgba(0,0,0,.14)}
+/* Misión y visión sobre rojo */
+.band .mv article{background:#fff;color:#1a1520;box-shadow:0 14px 30px rgba(0,0,0,.18)}
+.band .mv article:nth-child(2){background:#fff}
+.band .mv span{color:var(--red);opacity:1}
+.band .mv p{color:#1a1520}
+/* Calendario parejo */
+.kc{align-items:stretch}
+.kc-m{display:flex;flex-direction:column}
+/* Contacto */
+.ct2{display:grid;gap:22px}
+.ct2-lead{margin:0 0 16px;font-size:17px;line-height:1.6;color:#3b3440}
+.ct2-l{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
+.ct2-l li{display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:700;color:#1a1520}
+.ct2-l svg{width:20px;height:20px;flex-shrink:0;fill:none;stroke:var(--red);stroke-width:2.6}
+.ct2-soc{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:13.5px;color:#6b6474}
+.ct2-soc a{display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--red2)}
+.ct2-soc svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+.ct2 .ct{grid-template-columns:1fr}
+@media (min-width:960px){.ct2{grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}}
+/* Newsletter pegado al pie, con su misma estética */
+.nl{background:#21040a}
+body:has(#app>.nl:last-child) main{padding-bottom:0}
+body:has(#app>.nl:last-child) .ft2{margin-top:0;border-top:0}
+body:has(#app>.nl:last-child) .ft2-top{border-top:0}
+
+@media (min-width:960px){.hx2 .hx-in>h1.hx-t{font-size:58px;max-width:none;text-wrap:wrap}.hx2 .cd div{min-width:84px;padding:14px 8px 10px}.hx2 .cd b{font-size:46px}}
+@media (min-width:1400px){.hx2 .hx-in>h1.hx-t{font-size:64px}}
+@media (min-width:960px){.ci-c{grid-template-columns:36% minmax(0,1fr)}.ci-c.ancho{grid-template-columns:30% minmax(0,1fr)}.ci-b h3{font-size:22px}}
+@media (min-width:1300px){.ci-b h3{font-size:24px}}
+@media (min-width:860px){.ht-ph figure img{position:absolute;inset:0;width:100%;height:100%}}
+.gal-grid button img{position:absolute;inset:0}.gal-grid{grid-auto-rows:auto}.g5 img{position:absolute;inset:0}
+.gal-grid button{aspect-ratio:auto;flex-shrink:0}.gal-grid button::before{content:'';display:block;padding-top:75%}
+.gal-grid{grid-auto-rows:max-content;grid-template-rows:none}
 </style>
 </head>
 <body>
 <header class="top" id="top"></header>
 <main class="wrap" id="app"><div class="skel"></div><div class="skel"></div><div class="skel"></div></main>
-<footer class="ft2"><div class="ft2-top"><div class="ft2-brand"><img src="/logo.webp" alt=""><b>Mundialito Alianza</b><p>Torneos de fútbol infantil y juvenil desde 1987. Más de cuarenta ediciones uniendo clubes, chicos y familias de todo el país.</p><div class="ft2-soc"><a href="https://instagram.com/mundialitoalianza" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a><a href="https://www.tiktok.com/@mundialitoalianza" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3c.6 2.8 2.6 4.7 5.5 5"/></svg></a><a href="https://wa.me/5493467444037" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c.2 2.6 3.4 5.9 6 6.2l1.2-1.4-2-1-1 .8c-.9-.4-2-1.5-2.4-2.4l.8-1-1-2z"/></svg></a></div></div>
+<footer class="ft2"><div class="ft2-top"><div class="ft2-brand"><img src="/logo.webp" alt=""><b>Mundialito Alianza</b><p>Torneos de fútbol infantil y juvenil desde 1987. Más de cuarenta ediciones uniendo clubes, chicos y familias de todo el país.</p><div class="ft2-soc"><a href="https://instagram.com/mundialitoalianza" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a><a href="https://www.tiktok.com/@mundialitoalianza" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3c.6 2.8 2.6 4.7 5.5 5"/></svg></a></div></div>
 <div class="ft2-cols"><div><h4>Torneos</h4><a href="/torneos#circuito" data-l>Mundialito de enero</a><a href="/torneos#circuito" data-l>Premundialitos</a><a href="/torneos#circuito" data-l>Torneos Especiales</a><a href="/torneos#circuito" data-l>Juveniles de Clubes</a><a href="/calendario" data-l>Calendario</a></div>
-<div><h4>El Mundialito</h4><a href="/historia" data-l>Nuestra historia</a><a href="/torneos#porque" data-l>Por qué elegirnos</a><a href="/alojamientos" data-l>Alojamientos</a><a href="/novedades" data-l>Novedades</a><a href="/contacto#patrocinadores" data-l>Patrocinadores</a></div>
+<div><h4>El Mundialito</h4><a href="/historia" data-l>Nuestra historia</a><a href="/torneos#porque" data-l>Por qué elegirnos</a><a href="/novedades" data-l>Novedades</a><a href="/contacto#patrocinadores" data-l>Patrocinadores</a></div>
 <div><h4>Contacto</h4><a href="mailto:mundialitoalianza@gmail.com">Inscripción y alojamiento<small>mundialitoalianza@gmail.com</small></a><a href="mailto:marketingmundialito@gmail.com">Marketing y publicidad<small>marketingmundialito@gmail.com</small></a><a href="https://wa.me/5493467444037" target="_blank" rel="noopener">WhatsApp<small>3467 444037</small></a></div></div></div>
 <div class="ft2-org"><span>Organiza</span><b>Club Atlético Alianza</b><span>Arteaga · Santa Fe · Argentina</span></div>
 <div class="ft2-bot"><span>© <b id="ftYear">2026</b> Mundialito Alianza · Club Atlético Alianza. Todos los derechos reservados.</span><span>Resultados en vivo desde la organización del torneo.</span></div></footer>
 <script>document.getElementById('ftYear').textContent=new Date().getFullYear()</script>
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js?v=20261118e"></script>
+<script src="/config.js?v=20261118g"></script>
 <script>
 // ── Web pública del Mundialito: solo lectura, se actualiza en vivo desde el SGI ──
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
@@ -1071,8 +1325,8 @@ const prov=t=>{let p=city(t).split(',');return (p[1]||'').trim()};
 // ── Barra superior ──
 function drawTop(){let t=T.find(x=>x.id===st.t),wa=CFG.whatsapp?'https://wa.me/'+CFG.whatsapp:null,ig=CFG.instagram?'https://instagram.com/'+CFG.instagram:null,tk=CFG.tiktok?'https://www.tiktok.com/@'+CFG.tiktok:null;
  const soc=(u,lab,icon)=>`<a href="${u||'#'}" ${u?'target="_blank" rel="noopener"':`onclick="toast('${lab}: próximamente');return false"`} aria-label="${lab}" class="lbl">${icon}<span class="lw">${lab}</span></a>`;
- $('#top').innerHTML=`<a class="logo" href="/" data-l><img src="/logo.webp" alt=""><div><b>Mundialito</b><small>Alianza${t?` <i class="dot ${online?'':'off'}"></i>${online?'En vivo':''}`:''}</small></div></a><nav class="pnav" aria-label="Secciones">${PNAV.map(([k,l])=>`<a href="/${k}" data-l class="${(st.t?'torneos':(st.page||''))===k?'on':''}">${l}</a>`).join('')}</nav><nav class="soc">${soc(ig,'Instagram',SV.ig)}${soc(tk,'TikTok',IC.tt)}${soc(wa,'WhatsApp',SV.wa)}</nav>`}
-function render(flash=[]){drawTop();{let nv=document.querySelector('.pnav'),on=nv&&nv.querySelector('.on');if(on&&nv.scrollWidth>nv.clientWidth)nv.scrollLeft=on.offsetLeft-nv.clientWidth/2+on.offsetWidth/2}let app=$('#app');if(!st.t){app.innerHTML=pageView(st.page||'');return}let t=T.find(x=>x.id===st.t);if(!t){app.innerHTML=`<div class="empty"><img src="/img/nenito.webp" alt="">No encontramos ese torneo.<br><br><a class="btn" href="/" data-l>Ver los torneos</a></div>`;return}app.innerHTML=tournament(t,flash);let q=$('#q');if(q&&st._focus){q.focus();q.setSelectionRange(q.value.length,q.value.length);st._focus=false}}
+ $('#top').innerHTML=`<a class="logo" href="/" data-l><img src="/logo.webp" alt=""><div><b>Mundialito</b><small>Alianza${t?` <i class="dot ${online?'':'off'}"></i>${online?'En vivo':''}`:''}</small></div></a><nav class="pnav" aria-label="Secciones">${PNAV.map(([k,l])=>`<a href="/${k}" data-l class="${(st.t?'torneos':(st.page||''))===k?'on':''}">${l}</a>`).join('')}</nav><nav class="soc">${soc(ig,'Instagram',SV.ig)}${soc(tk,'TikTok',IC.tt)}</nav>`}
+function render(flash=[]){drawTop();{let nv=document.querySelector('.pnav'),on=nv&&nv.querySelector('.on');if(on&&nv.scrollWidth>nv.clientWidth)nv.scrollLeft=on.offsetLeft-nv.clientWidth/2+on.offsetWidth/2}let app=$('#app');document.body.classList.toggle('home',!st.t&&!st.page);document.body.classList.toggle('scrolled',scrollY>innerHeight*.45);if(!st.t){app.innerHTML=pageView(st.page||'');setTimeout(reveal,30);return}let t=T.find(x=>x.id===st.t);if(!t){app.innerHTML=`<div class="empty"><img src="/img/nenito.webp" alt="">No encontramos ese torneo.<br><br><a class="btn" href="/" data-l>Ver los torneos</a></div>`;return}app.innerHTML=tournament(t,flash);let q=$('#q');if(q&&st._focus){q.focus();q.setSelectionRange(q.value.length,q.value.length);st._focus=false}}
 const H2=(title,aside='')=>`<div class="h2"><h2>${title}</h2><span class="ln"></span>${aside?`<small>${aside}</small>`:''}</div>`;
 // ── Portada del Mundialito Alianza (v4): todas las secciones del inicio ──
 const S=CFG.sitio||{};
@@ -1091,49 +1345,77 @@ const phY=k=>/^h\d{4}/.test(k||'')?k.slice(1,5):/^m\d/.test(k||'')?'2026':'';
 const phF=(k,cls,alt)=>{let y=phY(k);return `<figure class="${cls||''}"><img src="${ph(k)}" alt="${esc(alt||'')}" loading="lazy">${y?`<span class="yr">${y}</span>`:''}</figure>`};
 function tlPanel(i){let x=(S.linea||[])[i];if(!x)return '';let f=x.fotos||[],n=S.linea.length;return `<div class="tlp-ph">${f.slice(0,3).map((k,j)=>phF(k,'p'+j,x.t)).join('')}</div><div class="tlp-tx"><small>${esc(x.y)}</small><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p><div class="tlp-nav"><button aria-label="Anterior" ${i?`onclick="tlGo(${i-1})"`:'disabled'}>${SV.l}</button><span>${i+1} / ${n}</span><button aria-label="Siguiente" ${i<n-1?`onclick="tlGo(${i+1})"`:'disabled'}>${SV.r}</button></div></div>`}
 function tlGo(i){st.tl=i;let p=document.getElementById('tlp');if(!p)return;p.classList.remove('in');p.innerHTML=tlPanel(i);void p.offsetWidth;p.classList.add('in');document.querySelectorAll('.tli button').forEach((b,k)=>{b.classList.toggle('on',k===i);if(k===i)b.parentNode.scrollTo({left:b.offsetLeft-b.parentNode.offsetWidth/2+b.offsetWidth/2,behavior:'smooth'})})}
+// Lugar y fecha de cada foto, según su carpeta
+const phPlace=k=>{k=k||'';if(/^h\d{4}/.test(k))return 'Arteaga · enero '+k.slice(1,5);return ({m:'Arteaga · enero 2026',d:'Arteaga · enero',p:'Victoria · julio 2026',s:'San Basilio · septiembre 2026',r:'San Nicolás · agosto 2026',e:'Funes · junio 2026'})[k[0]]||''};
+// Tarjeta de un torneo en el calendario
+const TLOGO={ma:['/img/logo-sello.webp','#c8101f'],pre:['/img/logo-premundialito.webp','#fff'],esp:['/img/logo-especiales.png','#1a1a1f'],juv:['/img/logo-juvenil.webp','#fff']};
+function calEv(e){let a=dISO(e.inicio),b=dISO(e.fin),L=TLOGO[e.tipo]||TLOGO.esp,dd=daysTo(e.inicio),kcup=e.cupos,ml=d=>MONL[d.getMonth()].toLowerCase();
+ let fecha=a.getMonth()===b.getMonth()?`${a.getDate()}${b>a?' al '+b.getDate():''} de ${ml(a)}`:`${a.getDate()} de ${ml(a)} al ${b.getDate()} de ${ml(b)}`;
+ let cb=kcup==='llenos'?'<div class="kcup full"><div><i></i></div><span>Cupos llenos</span></div>':kcup&&kcup.total?`<div class="kcup"><div><i style="width:${Math.min(100,kcup.ocupados/kcup.total*100)}%"></i></div><span>${kcup.ocupados} de ${kcup.total} cupos ocupados</span></div>`:'<div class="kcup open"><span>Consultá la disponibilidad de cupos</span></div>';
+ return `<div class="kc-e cl-${e.tipo}"><div class="kc-lg${e.tipo==='pre'?' wide':''}" style="background:${L[1]}"><img src="${L[0]}" alt=""></div><div class="kc-b"><small>${({ma:'Mundialito Alianza',pre:'Premundialito',esp:'Torneo Especial',juv:'Juvenil de Clubes'})[e.tipo]||''} · ${dd>1?'faltan '+dd+' días':dd===1?'empieza mañana':dd===0?'empieza hoy':'jugándose ahora'}</small><b>${esc(e.nombre)}</b><span class="kc-f">${IC.cal}${fecha}</span><span class="kc-f">${IC.pin}${esc(e.sede||'')}</span>${cb}${e.link?`<a class="btn kc-btn" href="${esc(e.link)}" data-l>Ver fixture y resultados ${IC.arrow}</a>`:'<span class="kc-nofx">El fixture se publica cerca de la fecha</span>'}</div></div>`}
+// Animaciones al aparecer en pantalla
+function reveal(){if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;let io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -30px 0px'});
+ document.querySelectorAll('#app .hs-h,#app .ci-c,#app .xp-g figure,#app .nw-c,#app .pq-c,#app .al-c,#app .kc-m,#app .ct-c,#app .mv article,#app .imp-c,#app .tlp,#app .ht-ph figure,#app .ht-tx p,#app .llama-ph figure,#app .llama-tx,#app .nums>div,#app .sp-c,#app .fu p,#app .fu-in,#app .tz-c,#app .pc,#app .sco,#app .xp-fr p,#app .ci-tx,#app .nm-c,#app .g5,#app .xp-card,#app .sct2-in,#app .ct2-tx,#app .nm-pie').forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%4)*90+'ms');io.observe(el)})}
+// Galería de fotos de la experiencia (pantalla completa)
+const XI='<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+function galOpen(i){let m=document.getElementById('gal');if(!m){m=document.createElement('div');m.id='gal';document.body.append(m);addEventListener('keydown',e=>{if(!m.classList.contains('on'))return;if(e.key==='Escape')galClose();if(e.key==='ArrowRight')galGo(1);if(e.key==='ArrowLeft')galGo(-1)})}m.className='on';document.body.style.overflow='hidden';galRender(i)}
+function galRender(i){let G=window.__gal||[],m=document.getElementById('gal');window.__gi=i;
+ m.innerHTML=i<0?`<div class="gal-top"><b>Galería · ${G.length} fotos</b><button class="gal-x" onclick="galClose()" aria-label="Cerrar">${XI}</button></div><div class="gal-grid">${G.map((k,j)=>`<button onclick="galRender(${j})"><img src="${ph(k)}" alt="" loading="lazy"><span>${esc(phPlace(k))}</span></button>`).join('')}</div>`
+ :`<div class="gal-top"><button class="gal-back" onclick="galRender(-1)">${SV.l} Todas las fotos</button><b>${i+1} / ${G.length}</b><button class="gal-x" onclick="galClose()" aria-label="Cerrar">${XI}</button></div><div class="gal-view"><button class="gal-nav" onclick="galGo(-1)" aria-label="Anterior">${SV.l}</button><figure><img src="${ph(G[i])}" alt=""><figcaption>${esc(phPlace(G[i]))}</figcaption></figure><button class="gal-nav" onclick="galGo(1)" aria-label="Siguiente">${SV.r}</button></div>`}
+function galGo(d){let G=window.__gal||[];if(!(window.__gi>=0))return;galRender((window.__gi+d+G.length)%G.length)}
+function galClose(){let m=document.getElementById('gal');if(m){m.className='';m.innerHTML=''}document.body.style.overflow=''}
+// Barra de arriba: en el inicio aparece al bajar
+addEventListener('scroll',()=>document.body.classList.toggle('scrolled',scrollY>innerHeight*.45),{passive:true});
 // Páginas de la web: cada pestaña muestra algunas secciones del inicio completo
-const PNAV=[['','Inicio'],['torneos','Torneos'],['historia','Historia'],['calendario','Calendario'],['alojamientos','Alojamientos'],['novedades','Novedades'],['contacto','Contacto']];
-const PSEL={'':['.hx2','#torneos','#circuito','.nums','#noticias','#patrocinadores'],torneos:['#torneos','#circuito','#jugados','#porque','.sct','#mq'],historia:['#historia','#experiencia','.fr','.llama','#futuro','.fu-band','#mision'],calendario:['#calendario'],alojamientos:['#alojamiento'],novedades:['#noticias','#impacto','#redes','.nl'],contacto:['#contacto','#redes','#patrocinadores','.nl']};
-const PHEAD={torneos:['Torneos','Nuestros torneos','m12'],historia:['Historia','Una historia que nos une','h1988-28'],calendario:['Calendario','Próximas fechas','d05'],alojamientos:['Alojamientos','Dónde hospedarse','d01'],novedades:['Novedades','Lo último del Mundialito','m06'],contacto:['Contacto','Hablemos','h2001-08']};
+// Alojamientos queda guardada (/alojamientos) pero fuera del menú hasta corregir la información
+const PNAV=[['','Inicio'],['torneos','Torneos'],['historia','Historia'],['calendario','Calendario'],['novedades','Novedades'],['contacto','Contacto']];
+const PSEL={'':['.hx2','#circuito','#hteaser','#scouts','#numeros','#noticias','#patrocinadores','.nl'],torneos:['#circuito','#jugados','#porque','#scouts','#mq','#patrocinadores','.nl'],historia:['#historia','#experiencia','.llama','#futuro','#mision','#patrocinadores','.nl'],calendario:['#calendario','#patrocinadores','.nl'],alojamientos:['#alojamiento','#patrocinadores','.nl'],novedades:['#noticias','#patrocinadores','.nl'],contacto:['#contacto','#patrocinadores','.nl']};
+const PHEAD={torneos:['Torneos','Nuestros torneos','m12'],historia:['Historia','Una historia que nos une','h1988-28'],calendario:['Calendario','Circuito Mundialito','d05'],alojamientos:['Alojamientos','Dónde hospedarse','d01'],novedades:['Novedades','Lo último del Mundialito','m06'],contacto:['Contacto','Hablemos','h2001-08']};
 function pageView(pg){let tp=document.createElement('template');tp.innerHTML=hub();let out=document.createElement('div'),h=PHEAD[pg];
  if(h)out.insertAdjacentHTML('beforeend',`<section class="pg-h" style="background-image:url(${ph(h[2])})"><div class="pg-in"><span>${esc(h[0])}</span><h1>${esc(h[1])}</h1></div></section>`);
  let n0=out.children.length;(PSEL[pg]||PSEL['']).forEach(q=>tp.content.querySelectorAll(q).forEach(n=>out.append(n)));
- if(out.children.length===n0)out.insertAdjacentHTML('beforeend','<p class="hs-empty pg-empty">Pronto vamos a publicar las próximas fechas.</p>');
+ if(!out.querySelector('#calendario,#alojamiento,#noticias,#contacto,#historia,#torneos,#circuito')&&pg)out.firstElementChild.insertAdjacentHTML('afterend','<p class="hs-empty pg-empty">Pronto vamos a publicar esta sección.</p>');
  return out.innerHTML}
 function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter(t=>tState(t)==='prox'),fin=T.filter(t=>tState(t)==='fin'&&daysTo(t.fin)>-400).reverse(),next=[...live,...up],nt=up[0],ma=T.find(t=>tType(t)==='ma'&&t.inicio>=n),ed=ma?dISO(ma.inicio).getFullYear()-1986:41;
  const ig=CFG.instagram?'https://instagram.com/'+CFG.instagram:'#',tk=CFG.tiktok?'https://www.tiktok.com/@'+CFG.tiktok:'#',wa=CFG.whatsapp?'https://wa.me/'+CFG.whatsapp:'#',C=S.contacto||{};
  const go=id=>`onclick="event.preventDefault();document.getElementById('${id}').scrollIntoView({behavior:'smooth'})"`;
  // 1. Portada histórica (mosaico de fotos de archivo)
  let P=S.portada||{},pf=P.fotos||[];
- let html=`<section class="hx hx2"><div class="hx-mos" aria-hidden="true">${pf.length?[0,1,2,3,4].map(c=>{let col=[0,1,2,3].map(r=>pf[(c*4+r)%pf.length]);return `<div class="hx-colm c${c}">${col.concat(col).map(k=>`<img src="${ph(k)}" alt="" decoding="async"${c>2?' loading="lazy"':''}>`).join('')}</div>`}).join(''):''}</div><div class="hx-in"><div class="hx-brand"><img src="/logo.webp" alt=""><span>Mundialito Alianza</span></div><span class="hx-kick">${esc(P.kick||'Arteaga · Santa Fe · Desde 1987')}</span><h1 class="hx-t">${esc(P.titulo||'Mundialito Alianza')}</h1><p>${esc(P.txt||'')}</p>${nt?`<div class="cd-box"><small>${live.length?'Ahora: '+esc(live[0].nombre)+' · Próximo: ':'Faltan para '}${esc(nt.nombre)}</small><div class="cd" id="cd" data-t="${nt.inicio}T09:00:00-03:00">${[['d','días'],['h','horas'],['m','min'],['s','seg']].map(([u,l])=>`<div><b data-u="${u}">00</b><span>${l}</span></div>`).join('')}</div></div>`:''}<div class="hx-cta"><a class="hx-btn" href="#torneos" ${go('torneos')}>Ver torneos</a><a class="hx-btn ghost" href="/historia" data-l>Nuestra historia</a></div></div><a class="hx-down" href="#torneos" ${go('torneos')} aria-label="Bajar">${SV.r}</a></section>`;
+ let CD=S.cuentaRegresiva,cdOk=CD&&new Date(CD.fecha)>new Date();
+ let html=`<section class="hx hx2"><div class="hx-mos" aria-hidden="true">${pf.length?[0,1,2,3,4].map(c=>{let col=[0,1,2,3].map(r=>pf[(c*4+r)%pf.length]);return `<div class="hx-colm c${c}">${col.concat(col).map(k=>`<img src="${ph(k)}" alt="" decoding="async"${c>2?' loading="lazy"':''}>`).join('')}</div>`}).join(''):''}</div><div class="hx-in"><span class="hx-kick">${esc(P.kick||'Desde 1987 · Arteaga, Santa Fe')}</span><h1 class="hx-t">${esc(P.titulo||'Mundialito Alianza')}</h1><p>${esc(P.txt||'')}</p>${cdOk?`<div class="cd-box"><small>Faltan para el ${esc(CD.nombre)}</small>${CD.fechaTxt?`<em class="cd-date">${esc(CD.fechaTxt)}</em>`:''}<div class="cd" id="cd" data-t="${esc(CD.fecha)}">${[['d','días'],['h','horas'],['m','min'],['s','seg']].map(([u,l])=>`<div><b data-u="${u}">00</b><span>${l}</span></div>`).join('')}</div></div>`:''}</div><a class="hx-down" href="#circuito" ${go('circuito')} aria-label="Bajar">${SV.r}</a></section>`;
+ // Inicio: historia breve con fotos
+ {let HT=S.historiaBreve;if(HT)html+=`<section class="hs ht band" id="hteaser"><div class="ht-tx"><div class="hs-h"><span>Nuestra historia</span><h2>${esc(HT.titulo)}</h2></div><p>${esc(HT.txt)}</p><a class="btn" href="/historia" data-l>Conocé nuestra historia ${IC.arrow}</a></div><div class="ht-ph">${(HT.fotos||[]).map((k,j)=>phF(k,'f'+j,'Mundialito Alianza')).join('')}</div></section>`}
  // 2. En juego y próximos
  html+=`<section class="hs" id="torneos"><div class="hs-h"><span>Torneos</span><h2>${live.length?'Se está jugando':'Lo que viene'}</h2></div>`+(next.length?`<div class="tz ${next.length===1?'one':''}">${next.slice(0,6).map((t,k)=>{let d=daysTo(t.inicio),s=dISO(t.inicio),st_=tState(t),g=t.publicado?`/${esc(t.id)}`:null;return `<${g?'a href="'+g+'" data-l':'div'} class="tz-c ${st_}"><div class="tz-ph" style="background-image:url(${photo(t,k)})"><span class="tz-tag">${st_==='live'?'<i></i>En juego':d===1?'Mañana':'Faltan '+d+' días'}</span></div><div class="tz-b"><div class="tz-d"><b>${s.getDate()}</b><span>${MON[s.getMonth()]}</span></div><div><small>${tTypeName(t)}</small><h3>${esc(t.nombre)}</h3><p>${IC.pin}${esc(city(t))}</p></div></div><div class="tz-f">${g?`<span>Fixture, posiciones y reglamento</span>${IC.arrow}`:'<span>El fixture se publica cerca de la fecha</span>'}</div></${g?'a':'div'}>`}).join('')}</div>`:'<p class="hs-empty">Pronto vamos a anunciar los próximos torneos.</p>')+`</section>`;
  // 2. Línea de tiempo interactiva
  let LN=S.linea||[];if(LN.length){let i=Math.min(st.tl||0,LN.length-1);html+=`<section class="hs tlx" id="historia"><div class="hs-h center"><span>Nuestra historia</span><h2>De un sueño a un circuito</h2></div><div class="tli" role="tablist">${LN.map((x,k)=>`<button role="tab" class="${k===i?'on':''}" onclick="tlGo(${k})"><i></i><b>${esc(x.y)}</b><span>${esc(x.t)}</span></button>`).join('')}</div><div class="tlp" id="tlp">${tlPanel(i)}</div></section>`}
  // 3. La experiencia Mundialito
- let E=S.experiencia;if(E){let fr=(E.franja||[]).map(k=>phF(k)).join('');html+=`<section class="hs xp" id="experiencia"><div class="xp-h"><div class="hs-h"><span>La experiencia Mundialito</span><h2>${esc(E.titulo)}</h2></div><div><p class="xp-intro">${esc(E.intro)}</p><div class="xp-fr">${(E.frases||[]).map(f=>`<p>${esc(f)}</p>`).join('')}</div></div></div><div class="xp-g">${(E.fotos||[]).map(([k,l,w],j)=>`<figure class="x${j%8}"><img src="${ph(k)}" alt="${esc(l)}" loading="lazy"><figcaption>${(w=w||(phY(k)?'Mundialito '+phY(k):''))?`<small>${esc(w)}</small>`:''}${esc(l)}</figcaption></figure>`).join('')}</div>${E.cierre?`<p class="xp-cierre">${esc(E.cierre)}</p>`:''}</section>`+(fr?`<div class="fr" aria-hidden="true"><div class="fr-t">${fr}${fr}</div></div>`:'')}
- let L=S.llama;if(L)html+=`<section class="llama"><div class="llama-in"><div class="flame" aria-hidden="true"><i></i><i></i><i></i></div><div><span class="llama-k">Nuestra identidad y nuestras tradiciones</span><h2>${esc(L.titulo)}</h2><p>${esc(L.texto)}</p>${L.encendidos?`<div class="llama-e">${L.encendidos.map(([y,n])=>`<div><small>${esc(y)}</small><b>${esc(n)}</b></div>`).join('')}</div>`:''}</div>${L.fotos?`<div class="llama-ph">${L.fotos.map(k=>phF(k,'','La Llama Votiva')).join('')}</div>`:''}</div></section>`;
+ let E=S.experiencia;if(E){let G=[...(E.fotos||[]).map(x=>x[0]),...(E.franja||[])].filter((k,i,a)=>a.indexOf(k)===i);window.__gal=G;let dest=(E.destacadas||G.slice(0,5)).filter(k=>G.includes(k)),f0=E.foto||G[0];html+=`<section class="hs xp2" id="experiencia"><div class="hs-h center"><span>La experiencia Mundialito</span></div><article class="xp-card"><figure class="xp-ph"><img src="${ph(f0)}" alt="" loading="lazy"><figcaption>${esc(phPlace(f0))}</figcaption></figure><div class="xp-tx"><h3>${esc(E.titulo)}</h3><p class="xp-intro">${esc(E.intro)}</p><div class="xp-fr">${(E.frases||[]).map(t=>`<p>${esc(t)}</p>`).join('')}</div>${E.cierre?`<p class="xp-cierre2">${esc(E.cierre)}</p>`:''}</div></article><div class="gal5">${dest.map((k,j)=>`<button class="g5 g5-${j}" onclick="galOpen(${G.indexOf(k)})" aria-label="Ver foto"><img src="${ph(k)}" alt="" loading="lazy"><span>${esc(phPlace(k))}</span></button>`).join('')}</div><div class="gal-cta"><button class="btn" onclick="galOpen(-1)">${PI.eye} Ver galería completa · ${G.length} fotos</button></div></section>`}
+ let L=S.llama;if(L)html+=`<section class="llama llama2"><div class="llama-in"><div class="llama-tx"><span class="llama-k">Nuestra identidad y nuestras tradiciones</span><h2>${esc(L.titulo)}</h2><p>${esc(L.texto)}</p>${L.encendidos?`<div class="llama-e"><small class="llama-et">La encendieron</small>${L.encendidos.map(([y,nm])=>`<div><small>${esc(y)}</small><b>${esc(nm)}</b></div>`).join('')}</div>`:''}</div>${L.fotos?`<div class="llama-ph">${L.fotos.map((k,j)=>phF(k,'l'+j,'La Llama Votiva')).join('')}</div>`:''}</div></section>`;
  // 4. El Circuito Mundialito
- let CI=S.circuito;if(CI)html+=`<section class="hs" id="circuito"><div class="hs-h center"><span>El Circuito Mundialito</span><h2>${esc(CI.titulo)}</h2></div><p class="ci-tx">${esc(CI.txt)}</p><div class="ci">${CI.propuestas.map((x,j)=>`<article class="ci-c"><div class="ci-ph${x.foto?'':' none'}"${x.foto?` style="background-image:url(${ph(x.foto)})"`:''}><span class="ci-n">0${j+1}</span></div><div class="ci-logo${x.id==='pm'?' wide':''}" style="background:${x.fondo}"><img src="${esc(x.logo)}" alt="${esc(x.nombre)}"></div><div class="ci-b"><small>${esc(x.sub)}</small><h3>${esc(x.nombre)}</h3><p>${esc(x.txt)}</p><div class="ci-d">${(x.datos||[]).map(d=>`<span>${esc(d)}</span>`).join('')}</div></div></article>`).join('')}</div>${CI.encuentros?`<p class="ci-enc">${PI.heart}<span>${esc(CI.encuentros)}</span></p>`:''}</section>`;
+ let CI=S.circuito;if(CI)html+=`<section class="hs" id="circuito"><div class="hs-h center"><span>El Circuito Mundialito</span></div><p class="ci-tx">${esc(CI.txt)}</p><div class="ci">${CI.propuestas.map(x=>`<article class="ci-c${x.ancho?' ancho':''}"><div class="ci-ph${x.foto?'':' none'}"${x.foto?` style="background-image:url(${ph(x.foto)})"`:''}></div><div class="ci-logo${x.id==='pm'||x.id==='ma'?' wide':''}" style="background:${x.fondo}"><img src="${esc(x.logo)}" alt="${esc(x.nombre)}"></div><div class="ci-b"><small>${esc(x.sub)}</small><h3>${esc(x.nombre)}</h3><p>${esc(x.txt)}</p></div></article>`).join('')}</div></section>`;
  // 5. Presente y futuro
- let F=S.futuro;if(F)html+=`<section class="hs" id="futuro"><div class="hs-h center"><span>Nuestro presente y futuro</span><h2>${esc(F.titulo)}</h2></div><div class="fu">${(F.parrafos||[]).map(p=>`<p>${esc(p)}</p>`).join('')}</div></section><section class="fu-band" style="background-image:url(${ph(F.foto)})"><div class="fu-in"><p>${esc(F.porvenir||'')}</p>${F.cierre?`<b>${esc(F.cierre)}</b>`:''}${F.proxima?`<div class="fu-next"><img src="${esc(F.proxima.img)}" alt="41.ª edición" loading="lazy"><span>${esc(F.proxima.txt)}</span></div>`:''}</div></section>`;
+ let F=S.futuro;if(F)html+=`<section class="hs" id="futuro"><div class="hs-h center"><span>Nuestro presente y futuro</span></div><div class="fu">${(F.parrafos||[]).map(p=>`<p>${esc(p)}</p>`).join('')}</div></section>`;
  // 3. Contador animado
- let cif=(S.cifras||[]).filter(c=>c.n!=null);if(cif.length)html+=`<section class="nums">${S.cifrasTitulo?`<div class="nums-h">${esc(S.cifrasTitulo)}</div>`:''}${cif.map(c=>`<div><b>${esc(c.pre||'')}<span class="cnt" data-n="${+c.n}">0</span>${esc(c.suf||'')}</b><span>${esc(c.txt)}</span></div>`).join('')}</section>`;
+ {let cif=(S.cifras||[]).filter(c=>c.n!=null),I=S.impacto;if(cif.length||I)html+=`<section class="hs nm band" id="numeros"><div class="hs-h center"><span>${esc(S.cifrasTitulo||'El Mundialito en números')}</span></div><div class="nm-g"><article class="nm-c"><div class="nm-h"><span class="nm-i">${PI.chart}</span><div><b>En la cancha</b><small>El último Mundialito de enero</small></div></div><div class="nm-d">${cif.map((c,j)=>`<div class="${j?'':'dest'}"><b>${esc(c.pre||'')}<span class="cnt" data-n="${+c.n}">0</span>${esc(c.suf||'')}</b><span>${esc(c.txt)}</span></div>`).join('')}</div></article>${I?`<article class="nm-c red"><div class="nm-h"><span class="nm-i">${PI.live}</span><div><b>En redes</b><small>Durante la edición 2026</small></div></div>${I.redes.map(r=>{let isIg=r.red==='Instagram',u=isIg?ig:tk,at='@'+(isIg?CFG.instagram:CFG.tiktok);return `<div class="nm-r"><a class="nm-rn" href="${u}" target="_blank" rel="noopener">${isIg?SV.ig:IC.tt}<b>${esc(r.red)}</b><span>${esc(at)}</span>${IC.arrow}</a><div class="nm-rd" style="--n:${r.datos.length}">${r.datos.map(([v,l])=>`<div><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('')}</div></div>`}).join('')}</article>`:''}</div>${I?`<p class="nm-pie">${esc(I.txt)}</p>`:''}</section>`}
  // 5. Por qué elegirnos
- if(S.porque)html+=`<section class="hs" id="porque"><div class="hs-h center"><span>Por qué elegirnos</span><h2>¿Por qué el Mundialito?</h2></div><div class="pq">${S.porque.map(x=>`<article class="pq-c"><span class="pq-i">${PI[x.ic]||PI.shield}</span><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></article>`).join('')}</div></section>`;
+ if(S.porque)html+=`<section class="hs band" id="porque"><div class="hs-h center"><span>¿Por qué el Mundialito?</span><h2>¿Por qué el Mundialito?</h2></div><div class="pq">${S.porque.map(x=>`<article class="pq-c"><span class="pq-i">${PI[x.ic]||PI.shield}</span><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></article>`).join('')}</div></section>`;
  // 6. Scouts
- if(S.scouts)html+=`<section class="sct"><div class="sct-in"><span class="sct-k">${PI.eye} Scouts y ojeadores</span><h2>${esc(S.scouts.t)}</h2><p>${esc(S.scouts.d)}</p>${S.scouts.clubes?`<div class="sct-cl"><small>Ojeadores de</small><div>${S.scouts.clubes.map(c=>`<span>${esc(c)}</span>`).join('')}${S.scouts.mas?`<span class="mas">${esc(S.scouts.mas)}</span>`:''}</div></div>`:''}</div></section>`;
- if(S.mision||S.vision)html+=`<section class="hs" id="mision"><div class="hs-h center"><span>Lo que nos guía</span><h2>Misión y visión</h2></div><div class="mv">${S.mision?`<article><span>Misión</span><p>${esc(S.mision)}</p></article>`:''}${S.vision?`<article><span>Visión</span><p>${esc(S.vision)}</p></article>`:''}</div></section>`;
- // 9. Calendario (línea de tiempo)
- if(next.length){let months={};next.forEach(t=>{let d=dISO(t.inicio),key=d.getFullYear()+'-'+d.getMonth();(months[key]=months[key]||{y:d.getFullYear(),m:d.getMonth(),l:[]}).l.push(t)});html+=`<section class="hs" id="calendario"><div class="hs-h center"><span>Calendario</span><h2>Próximas fechas</h2></div><div class="tlc">${Object.values(months).map(g=>`<div class="tlc-m"><h3>${MONL[g.m]} <em>${g.y}</em></h3>${g.l.map(t=>{let s=dISO(t.inicio),e=dISO(t.fin),dd=daysTo(t.inicio),pr=Math.max(4,Math.min(100,100-dd/90*100));return `<${t.publicado?'a href="/'+esc(t.id)+'" data-l':'div'} class="tlc-c"><div class="tlc-d"><b>${s.getDate()}${e>s?'–'+e.getDate():''}</b><span>${MON[s.getMonth()]}</span></div><div class="tlc-b"><div><b>${esc(t.nombre)}</b><span class="pill ${tType(t)}">${tTypeName(t)}</span></div><small>${IC.pin}${esc(t.sede||'')}</small><div class="tlc-bar"><i style="width:${pr}%"></i></div><small class="tlc-s">${tState(t)==='live'?'Jugándose ahora':'Faltan '+dd+' días'}</small></div></${t.publicado?'a':'div'}>`}).join('')}</div>`).join('')}</div></section>`}
+ if(S.scouts)html+=`<section class="hs sct2" id="scouts"><div class="sct2-in"><div class="sct2-org">${S.scouts.logo?`<img src="${esc(S.scouts.logo)}" alt="AFA">`:'<b class="afa">AFA</b>'}<span>${esc(S.scouts.org||'')}</span></div><div class="hs-h center"><span>${esc(S.scouts.t)}</span></div><p>${esc(S.scouts.d)}</p></div></section>`;
+ if(S.mision||S.vision)html+=`<section class="hs band" id="mision"><div class="hs-h center"><span>Misión y visión</span><h2>Misión y visión</h2></div><div class="mv">${S.mision?`<article><span>Misión</span><p>${esc(S.mision)}</p></article>`:''}${S.vision?`<article><span>Visión</span><p>${esc(S.vision)}</p></article>`:''}</div></section>`;
+ // 9. Calendario del Circuito Mundialito
+ {let ext=(S.calendarioExtra||[]).filter(x=>x.fin>=n&&!T.some(t=>t.inicio===x.inicio&&tType(t)===x.tipo)),ev=[...next.map(t=>({nombre:t.nombre,inicio:t.inicio,fin:t.fin,sede:t.sede,tipo:tType(t),link:t.publicado?'/'+t.id:'',cupos:(S.cupos||{})[t.id]})),...ext.map(x=>({nombre:x.nombre,inicio:x.inicio,fin:x.fin,sede:x.sede,tipo:x.tipo,link:'',cupos:x.cupos}))].sort((a,b)=>a.inicio.localeCompare(b.inicio));
+ if(ev.length){let m0=dISO(ev[0].inicio),m1=dISO(ev[ev.length-1].fin),months=[];for(let d=new Date(m0.getFullYear(),m0.getMonth(),1);d<=m1;d=new Date(d.getFullYear(),d.getMonth()+1,1))months.push(d);
+ html+=`<section class="hs" id="calendario"><div class="hs-h center"><span>Calendario</span><h2>Circuito Mundialito</h2></div><div class="kc-ley">${[['ma','Mundialito Alianza'],['pre','Premundialitos'],['esp','Torneos Especiales'],['juv','Juveniles de Clubes']].map(([k,l])=>`<span class="cl-${k}"><i></i>${l}</span>`).join('')}</div><div class="kc">${months.map(M=>{let y=M.getFullYear(),mo=M.getMonth(),dim=new Date(y,mo+1,0).getDate(),off=(new Date(y,mo,1).getDay()+6)%7,pf=y+'-'+String(mo+1).padStart(2,'0'),mev=ev.filter(e=>e.inicio.slice(0,7)===pf),cells='';for(let i=0;i<off;i++)cells+='<i></i>';for(let d=1;d<=dim;d++){let iso=pf+'-'+String(d).padStart(2,'0'),e=ev.find(e=>e.inicio<=iso&&e.fin>=iso);cells+=`<span class="${e?'on cl-'+e.tipo+(e.inicio===iso?' a':'')+(e.fin===iso?' b':''):''}${iso===n?' hoy':''}">${d}</span>`};for(let i=off+dim;i<42;i++)cells+='<i></i>';
+ return `<article class="kc-m"><h3>${MONL[mo]} <em>${y}</em></h3><div class="kc-g"><b>L</b><b>M</b><b>M</b><b>J</b><b>V</b><b>S</b><b>D</b>${cells}</div>${mev.length?mev.map(calEv).join(''):'<p class="kc-no">Sin torneos este mes.</p>'}</article>`}).join('')}</div></section>`}}
  // 8. Guía de alojamientos
- let A=S.alojamiento;if(A){let k=st.aloj||'5';html+=`<section class="hs" id="alojamiento"><div class="hs-h"><span>Guía de alojamientos</span><h2>Dónde hospedarse</h2></div><p class="al-sub">${esc(A.torneo)}. ${esc(A.nota)}</p><div class="seg al-seg"><button class="${k==='5'?'on':''}" onclick="st.aloj='5';render()">Por 5 noches</button><button class="${k==='3'?'on':''}" onclick="st.aloj='3';render()">Por 3 noches</button></div><div class="al">${A.niveles.map(x=>`<article class="al-c" style="--ac:${x.color}"><div class="al-h"><span>Nivel ${x.nivel}</span><b>${esc(x.t)}</b></div><ul>${x.d.map(i=>`<li>${PI.check}${esc(i)}</li>`).join('')}</ul><div class="al-p">${esc(k==='5'?x.p5:x.p3)}<small>${x.nivel===5?'':'por persona · '+(k==='5'?'5':'3')+' noches'}</small></div>${x.extra?`<p class="al-x">Si siguen en competencia: ${esc(x.extra)}</p>`:''}</article>`).join('')}</div><div class="al-cta"><span>Consultá disponibilidad y reservá tu lugar</span><a class="btn" href="${wa}" target="_blank" rel="noopener">${SV.wa} Consultar por WhatsApp</a>${C.inscripcion?`<a class="btn line" href="mailto:${esc(C.inscripcion)}">${PI.mail} ${esc(C.inscripcion)}</a>`:''}</div></section>`}
+ let A=S.alojamiento;if(A)html+=`<section class="hs" id="alojamiento"><div class="hs-h"><span>Guía de alojamientos</span><h2>Dónde hospedarse</h2></div><p class="al-sub">${esc(A.torneo)}. ${esc(A.nota)}</p><div class="al">${A.niveles.map(x=>`<article class="al-c"><div class="al-h"><span>Nivel ${x.nivel}</span><b>${esc(x.t)}</b></div><ul>${x.d.map(i=>`<li>${PI.check}<span>${esc(i)}</span></li>`).join('')}</ul></article>`).join('')}</div><div class="al-cta"><span>Consultá precios, disponibilidad y reservá tu lugar</span><a class="btn" href="${wa}" target="_blank" rel="noopener">${SV.wa} Consultar por WhatsApp</a>${C.inscripcion?`<a class="btn line" href="mailto:${esc(C.inscripcion)}">${PI.mail} ${esc(C.inscripcion)}</a>`:''}</div></section>`;
  // 7. Clubes participantes
  html+=marquee();
  // 12. Noticias
  if(S.noticias&&S.noticias.length)html+=`<section class="hs" id="noticias"><div class="hs-h"><span>Noticias</span><h2>Novedades del Mundialito</h2></div><div class="nw">${S.noticias.slice(0,6).map(x=>{let ext=/^https?:/.test(x.link||''),tag=x.link?(ext?`a href="${esc(x.link)}" target="_blank" rel="noopener"`:`a href="${esc(x.link)}" data-l`):'div';return `<${tag} class="nw-c"><div class="nw-ph" style="background-image:url(${esc(x.img||'/img/juego.jpg')})"></div><div class="nw-b"><small>${fmtD(x.fecha)} ${x.fecha?dISO(x.fecha).getFullYear():''}</small><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p>${x.link?`<span class="nw-more">Ver más ${IC.arrow}</span>`:''}</div></${tag.split(' ')[0]}>`}).join('')}</div></section>`;
  // Ya se jugaron
- if(fin.length)html+=`<section class="hs" id="jugados"><div class="hs-h"><span>Resultados</span><h2>Ya se jugaron</h2></div><div class="past">${fin.slice(0,6).map((t,k)=>{let c=Object.entries(t.campeones||{});return `<article class="pc"><div class="ph" style="background-image:url(${photo(t,k+2)})"><span class="pill ${tType(t)}">${tTypeName(t)}</span><span class="fin">Finalizado</span></div><div class="pc-b"><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))} · ${fmtD(t.inicio)} al ${fmtD(t.fin)}</small>${c.length?`<div class="champs"><span class="ch-t">${IC.trophy} Campeones</span>${c.map(([cat,nm])=>`<div><span>${esc(cat)}</span><b>${esc(cutName(nm))}</b></div>`).join('')}</div>`:''}</div></article>`}).join('')}</div></section>`;
+ if(fin.length)html+=`<section class="hs" id="jugados"><div class="hs-h"><span>Ya se jugaron</span><h2>Ya se jugaron</h2></div><div class="past">${fin.slice(0,6).map((t,k)=>{let c=Object.entries(t.campeones||{});return `<article class="pc"><div class="ph" style="background-image:url(${photo(t,k+2)})"><span class="pill ${tType(t)}">${tTypeName(t)}</span><span class="fin">Finalizado</span></div><div class="pc-b"><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))} · ${fmtD(t.inicio)} al ${fmtD(t.fin)}</small>${c.length?`<div class="champs"><span class="ch-t">${IC.trophy} Campeones</span>${c.map(([cat,nm])=>`<div><span>${esc(cat)}</span><b>${esc(cutName(nm))}</b></div>`).join('')}</div>`:''}</div></article>`}).join('')}</div></section>`;
  // Impacto digital
  let I=S.impacto;if(I)html+=`<section class="hs imp" id="impacto"><div class="hs-h center"><span>${esc(I.titulo||'Impacto digital')}</span><h2>El Mundialito en redes</h2></div><p class="imp-tx">${esc(I.txt)}</p><div class="imp-g">${I.redes.map(r=>`<article class="imp-c ${r.red.toLowerCase()}"><div class="imp-h">${r.red==='Instagram'?SV.ig:IC.tt}<b>${esc(r.red)}</b></div><div class="imp-d">${r.datos.map(([v,l])=>`<div><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('')}</div></article>`).join('')}</div></section>`;
  // 13. Newsletter
@@ -1141,7 +1423,7 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  // 14. Redes
  html+=`<section class="hs" id="redes"><div class="hs-h"><span>Seguinos</span><h2>Viví el Mundialito en redes</h2></div><div class="soc-c"><a class="sco ig" href="${ig}" target="_blank" rel="noopener">${SV.ig}<div><b>Instagram</b><span>@${esc(CFG.instagram||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sco tk" href="${tk}" target="_blank" rel="noopener">${IC.tt}<div><b>TikTok</b><span>@${esc(CFG.tiktok||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sco wa" href="${wa}" target="_blank" rel="noopener">${SV.wa}<div><b>WhatsApp</b><span>Consultas e inscripciones</span></div>${IC.arrow}</a></div></section>`;
  // Contacto
- {let mp='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('Club Atlético Alianza, Arteaga, Santa Fe');html+=`<section class="hs" id="contacto"><div class="ct">${[[PI.mail,'Inscripciones y alojamiento',C.inscripcion,C.inscripcion?'mailto:'+C.inscripcion:''],[PI.mail,'Marketing y patrocinios',C.marketing,C.marketing?'mailto:'+C.marketing:''],[SV.wa,'WhatsApp',C.whatsappTxt,CFG.whatsapp?wa:''],[SV.ig,'Instagram',CFG.instagram?'@'+CFG.instagram:'',ig],[IC.tt,'TikTok',CFG.tiktok?'@'+CFG.tiktok:'',tk],[PI.pin,'Club Atlético Alianza','Arteaga, Santa Fe',mp]].filter(x=>x[2]&&x[3]).map(([i,t,d,u])=>`<a class="ct-c" href="${esc(u)}" ${/^mailto:/.test(u)?'':'target="_blank" rel="noopener"'}><span class="ct-i">${i}</span><div><small>${esc(t)}</small><b>${esc(d)}</b></div>${IC.arrow}</a>`).join('')}</div></section>`}
+ {let mp='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('Club Atlético Alianza, Arteaga, Santa Fe');html+=`<section class="hs ct2" id="contacto"><div class="ct2-tx"><div class="hs-h"><span>Sumate al Circuito Mundialito</span></div><p class="ct2-lead">¿Querés inscribir a tu club, escuela o selectivo para jugar el Mundialito de enero o alguna fecha del circuito? ¿Tenés dudas sobre categorías, fechas o sedes? Escribinos y te respondemos a la brevedad.</p><ul class="ct2-l">${['Inscripciones al Mundialito Alianza de enero','Premundialitos y demás torneos del circuito','Categorías, fechas y sedes','Marcas y empresas que quieran acompañarnos'].map(t=>`<li>${PI.check}<span>${t}</span></li>`).join('')}</ul><div class="ct2-soc"><span>También estamos en</span>${CFG.instagram?`<a href="${ig}" target="_blank" rel="noopener">${SV.ig}@${esc(CFG.instagram)}</a>`:''}${CFG.tiktok?`<a href="${tk}" target="_blank" rel="noopener">${IC.tt}@${esc(CFG.tiktok)}</a>`:''}</div></div><div class="ct">${[[PI.mail,'Inscripciones',C.inscripcion,C.inscripcion?'mailto:'+C.inscripcion:''],[SV.wa,'WhatsApp',C.whatsappTxt,CFG.whatsapp?wa:''],[PI.mail,'Marketing y patrocinios',C.marketing,C.marketing?'mailto:'+C.marketing:''],[PI.pin,'Club Atlético Alianza','Arteaga, Santa Fe',mp]].filter(x=>x[2]&&x[3]).map(([i,t,d,u])=>`<a class="ct-c" href="${esc(u)}" ${/^mailto:/.test(u)?'':'target="_blank" rel="noopener"'}><span class="ct-i">${i}</span><div><small>${esc(t)}</small><b>${esc(d)}</b></div>${IC.arrow}</a>`).join('')}</div></section>`}
  // 15. Patrocinadores
  let sp=S.patrocinadores||[];html+=`<section class="hs sp" id="patrocinadores"><div class="hs-h center"><span>Patrocinadores oficiales</span><h2>Nos acompañan</h2></div><div class="sp-g">${sp.map(x=>`<a href="${esc(x.link||'#')}" target="_blank" rel="noopener" class="sp-c"><img src="${esc(x.logo)}" alt="${esc(x.nombre)}"></a>`).join('')}${Array.from({length:Math.max(0,(S.lugaresSponsors||0)-sp.length)},()=>`<div class="sp-c sp-free"><span>Tu marca acá</span></div>`).join('')}</div><div class="sp-cta"><b>¿Querés que tu marca sea parte del Mundialito?</b><span>Miles de familias, clubes de todo el país y una vidriera única para tu empresa.</span>${C.marketing?`<a class="btn" href="mailto:${esc(C.marketing)}">${PI.mail} Escribinos a ${esc(C.marketing)}</a>`:''}</div></section>`;
  setTimeout(startHubFx,0);
