@@ -942,14 +942,7 @@ a.tlc-c:hover{border-color:#e7b5bc}
  .llama-in{grid-template-columns:auto 1fr 1.1fr}.llama-ph{grid-column:auto;grid-template-columns:1fr 1fr}
 }
 @media (prefers-reduced-motion:reduce){.hx-colm,.fr-t{animation:none}}
-/* v12: identidad visual 2027 */
-@font-face{font-family:'Sakana';src:url(/fonts/sakana.ttf) format('truetype');font-display:swap}
-.hx2 h1.hx-t,.hs-h h2,.tli b,.tlp-tx small,.tlp-tx h3,.llama h2,.ci-b h3,.nums b,.fu-in b,.xp-cierre{font-family:'Sakana','Inter',system-ui,sans-serif;font-weight:400;letter-spacing:.01em}
-.hx2 h1.hx-t{font-size:36px;line-height:1.05}
-.hs-h h2{font-size:25px;line-height:1.12}
-.tlp-tx h3{font-size:20px}
-.ci-b h3{font-size:19px}
-.xp-cierre{font-size:18px;line-height:1.35}
+/* v12: logotipo y gráfica 41.ª edición */
 .hx-brand img.hx-wm{width:auto;height:30px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
 .fu-next{margin-top:30px;display:flex;flex-direction:column;align-items:center;gap:10px}
 .fu-next img{height:84px;width:auto}
@@ -963,24 +956,66 @@ a.tlc-c:hover{border-color:#e7b5bc}
 .tlp-ph .p0{grid-row:span 2}
 .llama-ph figure img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;border:1px solid rgba(253,186,116,.3);display:block}
 .fr figure{flex:0 0 auto}
-.yr{position:absolute;left:8px;top:8px;font-family:'Sakana','Inter',sans-serif;font-size:13px;letter-spacing:.04em;color:#fff;background:rgba(0,0,0,.55);padding:3px 7px;border-radius:6px;backdrop-filter:blur(2px)}
+.yr{position:absolute;left:8px;top:8px;font-size:12px;font-weight:900;letter-spacing:.04em;color:#fff;background:rgba(0,0,0,.55);padding:3px 7px;border-radius:6px;backdrop-filter:blur(2px)}
 .fr .yr{font-size:11px;left:6px;top:6px}
 
+/* v14: pestañas, páginas y portada con más contraste */
+.pnav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.pnav::-webkit-scrollbar{display:none}
+.pnav a{flex:0 0 auto;padding:8px 13px;border-radius:999px;font-size:13px;font-weight:800;color:rgba(255,255,255,.88);white-space:nowrap;transition:background .2s}
+.pnav a:hover{background:rgba(255,255,255,.14)}
+.pnav a.on{background:#fff;color:var(--red2)}
+@media (max-width:959px){.top{height:auto;flex-wrap:wrap;row-gap:2px;padding-bottom:8px}.top .logo{height:56px}.pnav{order:3;flex:0 0 calc(100% + 28px);margin:0 -14px;padding:0 14px}.hx.hx2{min-height:calc(100svh - 108px)}}
+@media (min-width:960px){.top .logo{flex:0 0 auto}.pnav{flex:1;justify-content:center}.top .lw{display:none}.top .soc a.lbl{width:40px;padding:0;justify-content:center}}
+.hx2{background:#0a0a0c;border-bottom:5px solid var(--red)}
+.hx2 .hx-mos{opacity:1}
+.hx-colm img{filter:contrast(1.08) saturate(1.05);border-radius:6px}
+.hx2:after{background:linear-gradient(180deg,rgba(8,8,10,.15) 0%,rgba(8,8,10,.5) 42%,rgba(8,8,10,.95) 90%)}
+.hx2 .hx-kick{background:var(--red);border-color:var(--red)}
+.hx2 .hx-btn{background:var(--red);color:#fff}
+.hx2 .hx-btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.75)}
+@media (min-width:960px){.hx2:after{background:linear-gradient(90deg,rgba(8,8,10,.95) 0%,rgba(8,8,10,.8) 36%,rgba(8,8,10,.2) 72%,rgba(8,8,10,.05) 100%),linear-gradient(0deg,rgba(8,8,10,.55),transparent 35%)}.hx2 .hx-in{max-width:calc(760px + var(--side))}}
+.pg-h{margin:-14px -14px 0;position:relative;background:#111 center/cover;color:#fff;border-bottom:5px solid var(--red)}
+.pg-h:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,10,.93),rgba(8,8,10,.55))}
+.pg-in{position:relative;padding:44px 22px 38px}
+.pg-in span{display:inline-block;font-size:11.5px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;background:var(--red);padding:5px 10px;border-radius:6px}
+.pg-in h1{margin:12px 0 0;font-weight:900;font-size:36px;line-height:1.02;letter-spacing:-.02em}
+.pg-empty{margin:40px 0;text-align:center}
+@media (min-width:960px){.pg-h{margin:-24px calc(50% - 50vw) 0}.pg-in{padding:84px var(--side) 72px}.pg-in h1{font-size:62px}}
+.ct{display:grid;gap:10px}
+.ct-c{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e9e6ee;border-radius:16px;padding:14px 16px;transition:border-color .2s,transform .2s}
+.ct-c:hover{border-color:var(--red);transform:translateY(-1px)}
+.ct-c>div{flex:1;min-width:0}
+.ct-c small{display:block;font-size:12px;font-weight:800;color:#8a8392;text-transform:uppercase;letter-spacing:.06em}
+.ct-c b{display:block;font-size:16px;font-weight:800;overflow-wrap:anywhere}
+.ct-i{width:44px;height:44px;border-radius:12px;background:linear-gradient(140deg,var(--red),var(--red2));display:grid;place-items:center;flex-shrink:0}
+.ct-i svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ct-c>svg{width:18px;height:18px;fill:none;stroke:#b4adbb;stroke-width:2}
+@media (min-width:700px){.ct{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:960px){.ct{grid-template-columns:repeat(3,1fr)}}
+
+.ct-c b{overflow-wrap:normal;word-break:normal}
+@media (max-width:420px){.ct-c b{font-size:14.5px}.ct-c>svg{display:none}.ct-c{gap:12px;padding:13px 14px}}
+.pnav a:hover{background:rgba(255,255,255,.14)}.pnav a.on,.pnav a.on:hover{background:#fff;color:var(--red2)}
+@media (hover:none){.pnav a:hover:not(.on){background:none}}
+.pill.juv{background:#b45309;color:#fff}
+.pg-h+#calendario>.hs-h,.pg-h+#alojamiento>.hs-h,.pg-h+#noticias>.hs-h{display:none}
+.pg-h+.hs{padding-top:30px}
 </style>
 </head>
 <body>
 <header class="top" id="top"></header>
 <main class="wrap" id="app"><div class="skel"></div><div class="skel"></div><div class="skel"></div></main>
 <footer class="ft2"><div class="ft2-top"><div class="ft2-brand"><img src="/logo.webp" alt=""><b>Mundialito Alianza</b><p>Torneos de fútbol infantil y juvenil desde 1987. Más de cuarenta ediciones uniendo clubes, chicos y familias de todo el país.</p><div class="ft2-soc"><a href="https://instagram.com/mundialitoalianza" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a><a href="https://www.tiktok.com/@mundialitoalianza" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3c.6 2.8 2.6 4.7 5.5 5"/></svg></a><a href="https://wa.me/5493467444037" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c.2 2.6 3.4 5.9 6 6.2l1.2-1.4-2-1-1 .8c-.9-.4-2-1.5-2.4-2.4l.8-1-1-2z"/></svg></a></div></div>
-<div class="ft2-cols"><div><h4>Torneos</h4><a href="/#nuestros" data-l>Mundialito de enero</a><a href="/#nuestros" data-l>Premundialitos</a><a href="/#nuestros" data-l>Especiales</a><a href="/#nuestros" data-l>Encuentros</a><a href="/#calendario" data-l>Calendario</a></div>
-<div><h4>El Mundialito</h4><a href="/#historia" data-l>Nuestra historia</a><a href="/#porque" data-l>Por qué elegirnos</a><a href="/#alojamiento" data-l>Alojamientos</a><a href="/#noticias" data-l>Noticias</a><a href="/#patrocinadores" data-l>Patrocinadores</a></div>
+<div class="ft2-cols"><div><h4>Torneos</h4><a href="/torneos#circuito" data-l>Mundialito de enero</a><a href="/torneos#circuito" data-l>Premundialitos</a><a href="/torneos#circuito" data-l>Torneos Especiales</a><a href="/torneos#circuito" data-l>Juveniles de Clubes</a><a href="/calendario" data-l>Calendario</a></div>
+<div><h4>El Mundialito</h4><a href="/historia" data-l>Nuestra historia</a><a href="/torneos#porque" data-l>Por qué elegirnos</a><a href="/alojamientos" data-l>Alojamientos</a><a href="/novedades" data-l>Novedades</a><a href="/contacto#patrocinadores" data-l>Patrocinadores</a></div>
 <div><h4>Contacto</h4><a href="mailto:mundialitoalianza@gmail.com">Inscripción y alojamiento<small>mundialitoalianza@gmail.com</small></a><a href="mailto:marketingmundialito@gmail.com">Marketing y publicidad<small>marketingmundialito@gmail.com</small></a><a href="https://wa.me/5493467444037" target="_blank" rel="noopener">WhatsApp<small>3467 444037</small></a></div></div></div>
 <div class="ft2-org"><span>Organiza</span><b>Club Atlético Alianza</b><span>Arteaga · Santa Fe · Argentina</span></div>
 <div class="ft2-bot"><span>© <b id="ftYear">2026</b> Mundialito Alianza · Club Atlético Alianza. Todos los derechos reservados.</span><span>Resultados en vivo desde la organización del torneo.</span></div></footer>
 <script>document.getElementById('ftYear').textContent=new Date().getFullYear()</script>
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js?v=20261118d"></script>
+<script src="/config.js?v=20261118e"></script>
 <script>
 // ── Web pública del Mundialito: solo lectura, se actualiza en vivo desde el SGI ──
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
@@ -997,8 +1032,8 @@ const dISO=d=>new Date(d+'T00:00'),todayISO=()=>{let d=new Date();return d.getFu
 const fmtD=s=>{if(!s)return '';let d=dISO(s);return d.getDate()+' '+MON[d.getMonth()]};
 const daysTo=s=>Math.round((dISO(s)-dISO(todayISO()))/864e5);
 const tState=t=>{let n=todayISO();return n<t.inicio?'prox':n>t.fin?'fin':'live'};
-const tType=t=>/Premundialito/i.test(t.tipo)?'pre':/Mundialito Alianza/i.test(t.tipo)?'ma':'esp',tTypeName=t=>({ma:'Mundialito',pre:'Premundialito',esp:'Torneo especial'})[tType(t)];
-const photo=(t,k=0)=>{let p=PH[tType(t)];return p[(k+[...t.id].reduce((a,c)=>a+c.charCodeAt(0),0))%p.length]};
+const tType=t=>/Premundialito/i.test(t.tipo)?'pre':/Juvenil/i.test((t.tipo||'')+' '+(t.nombre||''))?'juv':/Mundialito Alianza/i.test(t.tipo)?'ma':'esp',tTypeName=t=>({ma:'Mundialito',pre:'Premundialito',juv:'Juvenil de Clubes',esp:'Torneo especial'})[tType(t)];
+const photo=(t,k=0)=>{let p=PH[tType(t)]||PH.esp;return p[(k+[...t.id].reduce((a,c)=>a+c.charCodeAt(0),0))%p.length]};
 const slug=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 // Misma lógica de resultados y posiciones que el SGI
 const played=m=>m.hs!=null&&m.as!=null&&m.hs!==''&&m.as!=='';
@@ -1020,12 +1055,13 @@ function subscribe(id){if(channel)sb.removeChannel(channel);channel=sb.channel('
 function changed(a,b){if(!a||!b)return [];let o=Object.fromEntries((a.matches||[]).map(m=>[m.id,[m.hs,m.as,m.hp,m.ap].join()]));return (b.matches||[]).filter(m=>o[m.id]!==undefined&&o[m.id]!==[m.hs,m.as,m.hp,m.ap].join()).map(m=>m.id)}
 // ── Navegación con links cortos: /juvenil26 · /juvenil26/2010-masc/posiciones · /juvenil26/2010-masc/partido/12 ──
 const VIEWS=['fixture','equipos','posiciones','estadisticas','reglamento','partido'];
-function readPath(){let p=location.pathname.replace(/^\/+|\/+$/g,'').split('/').filter(Boolean).map(decodeURIComponent);if(p[0]&&p[0]!=='index.html'){st.t=p[0];st.cat=p[1]||null;st.view=VIEWS.includes(p[2])?p[2]:'fixture';st.x=p[3]||null}else st.t=null}
+const PAGES=['torneos','historia','calendario','alojamientos','novedades','contacto'];
+function readPath(){let p=location.pathname.replace(/^\/+|\/+$/g,'').split('/').filter(Boolean).map(decodeURIComponent);st.page='';if(p[0]&&PAGES.includes(p[0])){st.page=p[0];st.t=null}else if(p[0]&&p[0]!=='index.html'){st.t=p[0];st.cat=p[1]||null;st.view=VIEWS.includes(p[2])?p[2]:'fixture';st.x=p[3]||null}else st.t=null}
 const U=(view,x,cat)=>'/'+[st.t,cat??st.cat,view==='fixture'&&!x?null:view,x].filter(v=>v!=null&&v!=='').join('/');
 function go(url,replace){if(replace)history.replaceState(null,'',url);else history.pushState(null,'',url);route()}
 document.addEventListener('click',e=>{let a=e.target.closest('a[data-l]');if(!a||e.metaKey||e.ctrlKey)return;e.preventDefault();go(a.getAttribute('href'))});
 addEventListener('popstate',route);
-let curT=null;async function route(){let pv=st.view,px=st.x,pc=st.cat;readPath();if(st.t&&st.t!==curT){curT=st.t;$('#app').innerHTML='<div class="skel"></div><div class="skel"></div>';try{await loadFixture(st.t);subscribe(st.t)}catch(e){$('#app').innerHTML='<div class="empty">No pudimos cargar el fixture. Revisá tu conexión.</div>';return}st.day=null;st.q=''}if(!st.t){curT=null;if(channel){sb.removeChannel(channel);channel=null}}render();if(pv!==st.view||px!==st.x||pc!==st.cat)scrollTo(0,0);let hid=location.hash.slice(1),hel=hid&&document.getElementById(hid);if(hel)setTimeout(()=>hel.scrollIntoView({behavior:'smooth'}),60)}
+let curT=null;async function route(){let pv=st.view,px=st.x,pc=st.cat,pp=st.page;readPath();if(st.t&&st.t!==curT){curT=st.t;$('#app').innerHTML='<div class="skel"></div><div class="skel"></div>';try{await loadFixture(st.t);subscribe(st.t)}catch(e){$('#app').innerHTML='<div class="empty">No pudimos cargar el fixture. Revisá tu conexión.</div>';return}st.day=null;st.q=''}if(!st.t){curT=null;if(channel){sb.removeChannel(channel);channel=null}}render();if(pv!==st.view||px!==st.x||pc!==st.cat||pp!==st.page)scrollTo(0,0);let hid=location.hash.slice(1),hel=hid&&document.getElementById(hid);if(hel)setTimeout(()=>hel.scrollIntoView({behavior:'smooth'}),60)}
 // Íconos de línea propios (sin emojis)
 const IC={trophy:'<svg class="i" viewBox="0 0 24 24"><path d="M8 21h8M12 16v5M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 6h3v1.5A3.5 3.5 0 0 1 16.6 11M7 6H4v1.5A3.5 3.5 0 0 0 7.4 11"/></svg>',cal:'<svg class="i" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M16 3v4M8 3v4M3.5 10h17"/></svg>',pin:'<svg class="i" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',arrow:'<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',route:'<svg class="i" viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>',flag:'<svg class="i" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>',
  tt:'<svg viewBox="0 0 24 24"><path d="M14 3v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3c.6 2.8 2.6 4.7 5.5 5"/></svg>'};
@@ -1035,8 +1071,8 @@ const prov=t=>{let p=city(t).split(',');return (p[1]||'').trim()};
 // ── Barra superior ──
 function drawTop(){let t=T.find(x=>x.id===st.t),wa=CFG.whatsapp?'https://wa.me/'+CFG.whatsapp:null,ig=CFG.instagram?'https://instagram.com/'+CFG.instagram:null,tk=CFG.tiktok?'https://www.tiktok.com/@'+CFG.tiktok:null;
  const soc=(u,lab,icon)=>`<a href="${u||'#'}" ${u?'target="_blank" rel="noopener"':`onclick="toast('${lab}: próximamente');return false"`} aria-label="${lab}" class="lbl">${icon}<span class="lw">${lab}</span></a>`;
- $('#top').innerHTML=`<a class="logo" href="/" data-l><img src="/logo.webp" alt=""><div><b>Mundialito</b><small>Alianza${t?` <i class="dot ${online?'':'off'}"></i>${online?'En vivo':''}`:''}</small></div></a><nav class="soc">${soc(ig,'Instagram',SV.ig)}${soc(tk,'TikTok',IC.tt)}${soc(wa,'WhatsApp',SV.wa)}</nav>`}
-function render(flash=[]){drawTop();let app=$('#app');if(!st.t){app.innerHTML=hub();return}let t=T.find(x=>x.id===st.t);if(!t){app.innerHTML=`<div class="empty"><img src="/img/nenito.webp" alt="">No encontramos ese torneo.<br><br><a class="btn" href="/" data-l>Ver los torneos</a></div>`;return}app.innerHTML=tournament(t,flash);let q=$('#q');if(q&&st._focus){q.focus();q.setSelectionRange(q.value.length,q.value.length);st._focus=false}}
+ $('#top').innerHTML=`<a class="logo" href="/" data-l><img src="/logo.webp" alt=""><div><b>Mundialito</b><small>Alianza${t?` <i class="dot ${online?'':'off'}"></i>${online?'En vivo':''}`:''}</small></div></a><nav class="pnav" aria-label="Secciones">${PNAV.map(([k,l])=>`<a href="/${k}" data-l class="${(st.t?'torneos':(st.page||''))===k?'on':''}">${l}</a>`).join('')}</nav><nav class="soc">${soc(ig,'Instagram',SV.ig)}${soc(tk,'TikTok',IC.tt)}${soc(wa,'WhatsApp',SV.wa)}</nav>`}
+function render(flash=[]){drawTop();{let nv=document.querySelector('.pnav'),on=nv&&nv.querySelector('.on');if(on&&nv.scrollWidth>nv.clientWidth)nv.scrollLeft=on.offsetLeft-nv.clientWidth/2+on.offsetWidth/2}let app=$('#app');if(!st.t){app.innerHTML=pageView(st.page||'');return}let t=T.find(x=>x.id===st.t);if(!t){app.innerHTML=`<div class="empty"><img src="/img/nenito.webp" alt="">No encontramos ese torneo.<br><br><a class="btn" href="/" data-l>Ver los torneos</a></div>`;return}app.innerHTML=tournament(t,flash);let q=$('#q');if(q&&st._focus){q.focus();q.setSelectionRange(q.value.length,q.value.length);st._focus=false}}
 const H2=(title,aside='')=>`<div class="h2"><h2>${title}</h2><span class="ln"></span>${aside?`<small>${aside}</small>`:''}</div>`;
 // ── Portada del Mundialito Alianza (v4): todas las secciones del inicio ──
 const S=CFG.sitio||{};
@@ -1055,12 +1091,21 @@ const phY=k=>/^h\d{4}/.test(k||'')?k.slice(1,5):/^m\d/.test(k||'')?'2026':'';
 const phF=(k,cls,alt)=>{let y=phY(k);return `<figure class="${cls||''}"><img src="${ph(k)}" alt="${esc(alt||'')}" loading="lazy">${y?`<span class="yr">${y}</span>`:''}</figure>`};
 function tlPanel(i){let x=(S.linea||[])[i];if(!x)return '';let f=x.fotos||[],n=S.linea.length;return `<div class="tlp-ph">${f.slice(0,3).map((k,j)=>phF(k,'p'+j,x.t)).join('')}</div><div class="tlp-tx"><small>${esc(x.y)}</small><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p><div class="tlp-nav"><button aria-label="Anterior" ${i?`onclick="tlGo(${i-1})"`:'disabled'}>${SV.l}</button><span>${i+1} / ${n}</span><button aria-label="Siguiente" ${i<n-1?`onclick="tlGo(${i+1})"`:'disabled'}>${SV.r}</button></div></div>`}
 function tlGo(i){st.tl=i;let p=document.getElementById('tlp');if(!p)return;p.classList.remove('in');p.innerHTML=tlPanel(i);void p.offsetWidth;p.classList.add('in');document.querySelectorAll('.tli button').forEach((b,k)=>{b.classList.toggle('on',k===i);if(k===i)b.parentNode.scrollTo({left:b.offsetLeft-b.parentNode.offsetWidth/2+b.offsetWidth/2,behavior:'smooth'})})}
+// Páginas de la web: cada pestaña muestra algunas secciones del inicio completo
+const PNAV=[['','Inicio'],['torneos','Torneos'],['historia','Historia'],['calendario','Calendario'],['alojamientos','Alojamientos'],['novedades','Novedades'],['contacto','Contacto']];
+const PSEL={'':['.hx2','#torneos','#circuito','.nums','#noticias','#patrocinadores'],torneos:['#torneos','#circuito','#jugados','#porque','.sct','#mq'],historia:['#historia','#experiencia','.fr','.llama','#futuro','.fu-band','#mision'],calendario:['#calendario'],alojamientos:['#alojamiento'],novedades:['#noticias','#impacto','#redes','.nl'],contacto:['#contacto','#redes','#patrocinadores','.nl']};
+const PHEAD={torneos:['Torneos','Nuestros torneos','m12'],historia:['Historia','Una historia que nos une','h1988-28'],calendario:['Calendario','Próximas fechas','d05'],alojamientos:['Alojamientos','Dónde hospedarse','d01'],novedades:['Novedades','Lo último del Mundialito','m06'],contacto:['Contacto','Hablemos','h2001-08']};
+function pageView(pg){let tp=document.createElement('template');tp.innerHTML=hub();let out=document.createElement('div'),h=PHEAD[pg];
+ if(h)out.insertAdjacentHTML('beforeend',`<section class="pg-h" style="background-image:url(${ph(h[2])})"><div class="pg-in"><span>${esc(h[0])}</span><h1>${esc(h[1])}</h1></div></section>`);
+ let n0=out.children.length;(PSEL[pg]||PSEL['']).forEach(q=>tp.content.querySelectorAll(q).forEach(n=>out.append(n)));
+ if(out.children.length===n0)out.insertAdjacentHTML('beforeend','<p class="hs-empty pg-empty">Pronto vamos a publicar las próximas fechas.</p>');
+ return out.innerHTML}
 function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter(t=>tState(t)==='prox'),fin=T.filter(t=>tState(t)==='fin'&&daysTo(t.fin)>-400).reverse(),next=[...live,...up],nt=up[0],ma=T.find(t=>tType(t)==='ma'&&t.inicio>=n),ed=ma?dISO(ma.inicio).getFullYear()-1986:41;
  const ig=CFG.instagram?'https://instagram.com/'+CFG.instagram:'#',tk=CFG.tiktok?'https://www.tiktok.com/@'+CFG.tiktok:'#',wa=CFG.whatsapp?'https://wa.me/'+CFG.whatsapp:'#',C=S.contacto||{};
  const go=id=>`onclick="event.preventDefault();document.getElementById('${id}').scrollIntoView({behavior:'smooth'})"`;
  // 1. Portada histórica (mosaico de fotos de archivo)
  let P=S.portada||{},pf=P.fotos||[];
- let html=`<section class="hx hx2"><div class="hx-mos" aria-hidden="true">${pf.length?[0,1,2,3,4].map(c=>{let col=[0,1,2,3].map(r=>pf[(c*4+r)%pf.length]);return `<div class="hx-colm c${c}">${col.concat(col).map(k=>`<img src="${ph(k)}" alt="" decoding="async"${c>2?' loading="lazy"':''}>`).join('')}</div>`}).join(''):''}</div><div class="hx-in"><div class="hx-brand"><img class="hx-wm" src="/img/logo-mundialito-alianza.png" alt="Mundialito Alianza"></div><span class="hx-kick">${esc(P.kick||'Arteaga · Santa Fe · Desde 1987')}</span><h1 class="hx-t">${esc(P.titulo||'Mundialito Alianza')}</h1><p>${esc(P.txt||'')}</p>${nt?`<div class="cd-box"><small>${live.length?'Ahora: '+esc(live[0].nombre)+' · Próximo: ':'Faltan para '}${esc(nt.nombre)}</small><div class="cd" id="cd" data-t="${nt.inicio}T09:00:00-03:00">${[['d','días'],['h','horas'],['m','min'],['s','seg']].map(([u,l])=>`<div><b data-u="${u}">00</b><span>${l}</span></div>`).join('')}</div></div>`:''}<div class="hx-cta"><a class="hx-btn" href="#torneos" ${go('torneos')}>Ver torneos</a><a class="hx-btn ghost" href="#historia" ${go('historia')}>Nuestra historia</a></div></div><a class="hx-down" href="#torneos" ${go('torneos')} aria-label="Bajar">${SV.r}</a></section>`;
+ let html=`<section class="hx hx2"><div class="hx-mos" aria-hidden="true">${pf.length?[0,1,2,3,4].map(c=>{let col=[0,1,2,3].map(r=>pf[(c*4+r)%pf.length]);return `<div class="hx-colm c${c}">${col.concat(col).map(k=>`<img src="${ph(k)}" alt="" decoding="async"${c>2?' loading="lazy"':''}>`).join('')}</div>`}).join(''):''}</div><div class="hx-in"><div class="hx-brand"><img src="/logo.webp" alt=""><span>Mundialito Alianza</span></div><span class="hx-kick">${esc(P.kick||'Arteaga · Santa Fe · Desde 1987')}</span><h1 class="hx-t">${esc(P.titulo||'Mundialito Alianza')}</h1><p>${esc(P.txt||'')}</p>${nt?`<div class="cd-box"><small>${live.length?'Ahora: '+esc(live[0].nombre)+' · Próximo: ':'Faltan para '}${esc(nt.nombre)}</small><div class="cd" id="cd" data-t="${nt.inicio}T09:00:00-03:00">${[['d','días'],['h','horas'],['m','min'],['s','seg']].map(([u,l])=>`<div><b data-u="${u}">00</b><span>${l}</span></div>`).join('')}</div></div>`:''}<div class="hx-cta"><a class="hx-btn" href="#torneos" ${go('torneos')}>Ver torneos</a><a class="hx-btn ghost" href="/historia" data-l>Nuestra historia</a></div></div><a class="hx-down" href="#torneos" ${go('torneos')} aria-label="Bajar">${SV.r}</a></section>`;
  // 2. En juego y próximos
  html+=`<section class="hs" id="torneos"><div class="hs-h"><span>Torneos</span><h2>${live.length?'Se está jugando':'Lo que viene'}</h2></div>`+(next.length?`<div class="tz ${next.length===1?'one':''}">${next.slice(0,6).map((t,k)=>{let d=daysTo(t.inicio),s=dISO(t.inicio),st_=tState(t),g=t.publicado?`/${esc(t.id)}`:null;return `<${g?'a href="'+g+'" data-l':'div'} class="tz-c ${st_}"><div class="tz-ph" style="background-image:url(${photo(t,k)})"><span class="tz-tag">${st_==='live'?'<i></i>En juego':d===1?'Mañana':'Faltan '+d+' días'}</span></div><div class="tz-b"><div class="tz-d"><b>${s.getDate()}</b><span>${MON[s.getMonth()]}</span></div><div><small>${tTypeName(t)}</small><h3>${esc(t.nombre)}</h3><p>${IC.pin}${esc(city(t))}</p></div></div><div class="tz-f">${g?`<span>Fixture, posiciones y reglamento</span>${IC.arrow}`:'<span>El fixture se publica cerca de la fecha</span>'}</div></${g?'a':'div'}>`}).join('')}</div>`:'<p class="hs-empty">Pronto vamos a anunciar los próximos torneos.</p>')+`</section>`;
  // 2. Línea de tiempo interactiva
@@ -1078,7 +1123,7 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  if(S.porque)html+=`<section class="hs" id="porque"><div class="hs-h center"><span>Por qué elegirnos</span><h2>¿Por qué el Mundialito?</h2></div><div class="pq">${S.porque.map(x=>`<article class="pq-c"><span class="pq-i">${PI[x.ic]||PI.shield}</span><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></article>`).join('')}</div></section>`;
  // 6. Scouts
  if(S.scouts)html+=`<section class="sct"><div class="sct-in"><span class="sct-k">${PI.eye} Scouts y ojeadores</span><h2>${esc(S.scouts.t)}</h2><p>${esc(S.scouts.d)}</p>${S.scouts.clubes?`<div class="sct-cl"><small>Ojeadores de</small><div>${S.scouts.clubes.map(c=>`<span>${esc(c)}</span>`).join('')}${S.scouts.mas?`<span class="mas">${esc(S.scouts.mas)}</span>`:''}</div></div>`:''}</div></section>`;
- if(S.mision||S.vision)html+=`<section class="hs"><div class="hs-h center"><span>Lo que nos guía</span><h2>Misión y visión</h2></div><div class="mv">${S.mision?`<article><span>Misión</span><p>${esc(S.mision)}</p></article>`:''}${S.vision?`<article><span>Visión</span><p>${esc(S.vision)}</p></article>`:''}</div></section>`;
+ if(S.mision||S.vision)html+=`<section class="hs" id="mision"><div class="hs-h center"><span>Lo que nos guía</span><h2>Misión y visión</h2></div><div class="mv">${S.mision?`<article><span>Misión</span><p>${esc(S.mision)}</p></article>`:''}${S.vision?`<article><span>Visión</span><p>${esc(S.vision)}</p></article>`:''}</div></section>`;
  // 9. Calendario (línea de tiempo)
  if(next.length){let months={};next.forEach(t=>{let d=dISO(t.inicio),key=d.getFullYear()+'-'+d.getMonth();(months[key]=months[key]||{y:d.getFullYear(),m:d.getMonth(),l:[]}).l.push(t)});html+=`<section class="hs" id="calendario"><div class="hs-h center"><span>Calendario</span><h2>Próximas fechas</h2></div><div class="tlc">${Object.values(months).map(g=>`<div class="tlc-m"><h3>${MONL[g.m]} <em>${g.y}</em></h3>${g.l.map(t=>{let s=dISO(t.inicio),e=dISO(t.fin),dd=daysTo(t.inicio),pr=Math.max(4,Math.min(100,100-dd/90*100));return `<${t.publicado?'a href="/'+esc(t.id)+'" data-l':'div'} class="tlc-c"><div class="tlc-d"><b>${s.getDate()}${e>s?'–'+e.getDate():''}</b><span>${MON[s.getMonth()]}</span></div><div class="tlc-b"><div><b>${esc(t.nombre)}</b><span class="pill ${tType(t)}">${tTypeName(t)}</span></div><small>${IC.pin}${esc(t.sede||'')}</small><div class="tlc-bar"><i style="width:${pr}%"></i></div><small class="tlc-s">${tState(t)==='live'?'Jugándose ahora':'Faltan '+dd+' días'}</small></div></${t.publicado?'a':'div'}>`}).join('')}</div>`).join('')}</div></section>`}
  // 8. Guía de alojamientos
@@ -1088,13 +1133,15 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  // 12. Noticias
  if(S.noticias&&S.noticias.length)html+=`<section class="hs" id="noticias"><div class="hs-h"><span>Noticias</span><h2>Novedades del Mundialito</h2></div><div class="nw">${S.noticias.slice(0,6).map(x=>{let ext=/^https?:/.test(x.link||''),tag=x.link?(ext?`a href="${esc(x.link)}" target="_blank" rel="noopener"`:`a href="${esc(x.link)}" data-l`):'div';return `<${tag} class="nw-c"><div class="nw-ph" style="background-image:url(${esc(x.img||'/img/juego.jpg')})"></div><div class="nw-b"><small>${fmtD(x.fecha)} ${x.fecha?dISO(x.fecha).getFullYear():''}</small><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p>${x.link?`<span class="nw-more">Ver más ${IC.arrow}</span>`:''}</div></${tag.split(' ')[0]}>`}).join('')}</div></section>`;
  // Ya se jugaron
- if(fin.length)html+=`<section class="hs"><div class="hs-h"><span>Resultados</span><h2>Ya se jugaron</h2></div><div class="past">${fin.slice(0,6).map((t,k)=>{let c=Object.entries(t.campeones||{});return `<article class="pc"><div class="ph" style="background-image:url(${photo(t,k+2)})"><span class="pill ${tType(t)}">${tTypeName(t)}</span><span class="fin">Finalizado</span></div><div class="pc-b"><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))} · ${fmtD(t.inicio)} al ${fmtD(t.fin)}</small>${c.length?`<div class="champs"><span class="ch-t">${IC.trophy} Campeones</span>${c.map(([cat,nm])=>`<div><span>${esc(cat)}</span><b>${esc(cutName(nm))}</b></div>`).join('')}</div>`:''}</div></article>`}).join('')}</div></section>`;
+ if(fin.length)html+=`<section class="hs" id="jugados"><div class="hs-h"><span>Resultados</span><h2>Ya se jugaron</h2></div><div class="past">${fin.slice(0,6).map((t,k)=>{let c=Object.entries(t.campeones||{});return `<article class="pc"><div class="ph" style="background-image:url(${photo(t,k+2)})"><span class="pill ${tType(t)}">${tTypeName(t)}</span><span class="fin">Finalizado</span></div><div class="pc-b"><b>${esc(t.nombre)}</b><small>${IC.pin}${esc(city(t))} · ${fmtD(t.inicio)} al ${fmtD(t.fin)}</small>${c.length?`<div class="champs"><span class="ch-t">${IC.trophy} Campeones</span>${c.map(([cat,nm])=>`<div><span>${esc(cat)}</span><b>${esc(cutName(nm))}</b></div>`).join('')}</div>`:''}</div></article>`}).join('')}</div></section>`;
  // Impacto digital
  let I=S.impacto;if(I)html+=`<section class="hs imp" id="impacto"><div class="hs-h center"><span>${esc(I.titulo||'Impacto digital')}</span><h2>El Mundialito en redes</h2></div><p class="imp-tx">${esc(I.txt)}</p><div class="imp-g">${I.redes.map(r=>`<article class="imp-c ${r.red.toLowerCase()}"><div class="imp-h">${r.red==='Instagram'?SV.ig:IC.tt}<b>${esc(r.red)}</b></div><div class="imp-d">${r.datos.map(([v,l])=>`<div><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('')}</div></article>`).join('')}</div></section>`;
  // 13. Newsletter
  html+=`<section class="nl"><div class="nl-in"><span class="nl-i">${PI.mail}</span><div class="nl-tx"><h2>Recibí las novedades</h2><p>Fechas, inscripciones y resultados del Mundialito en tu correo. Sin spam, solo lo importante.</p></div><form onsubmit="return subscribeNews(this)"><input type="email" required placeholder="Tu correo electrónico" aria-label="Correo electrónico" autocomplete="email"><button class="btn" type="submit">Suscribirme</button><small class="nl-msg">Usamos tu correo solo para enviarte novedades del Mundialito.</small></form></div></section>`;
  // 14. Redes
- html+=`<section class="hs"><div class="hs-h"><span>Seguinos</span><h2>Viví el Mundialito en redes</h2></div><div class="soc-c"><a class="sco ig" href="${ig}" target="_blank" rel="noopener">${SV.ig}<div><b>Instagram</b><span>@${esc(CFG.instagram||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sco tk" href="${tk}" target="_blank" rel="noopener">${IC.tt}<div><b>TikTok</b><span>@${esc(CFG.tiktok||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sco wa" href="${wa}" target="_blank" rel="noopener">${SV.wa}<div><b>WhatsApp</b><span>Consultas e inscripciones</span></div>${IC.arrow}</a></div></section>`;
+ html+=`<section class="hs" id="redes"><div class="hs-h"><span>Seguinos</span><h2>Viví el Mundialito en redes</h2></div><div class="soc-c"><a class="sco ig" href="${ig}" target="_blank" rel="noopener">${SV.ig}<div><b>Instagram</b><span>@${esc(CFG.instagram||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sco tk" href="${tk}" target="_blank" rel="noopener">${IC.tt}<div><b>TikTok</b><span>@${esc(CFG.tiktok||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sco wa" href="${wa}" target="_blank" rel="noopener">${SV.wa}<div><b>WhatsApp</b><span>Consultas e inscripciones</span></div>${IC.arrow}</a></div></section>`;
+ // Contacto
+ {let mp='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('Club Atlético Alianza, Arteaga, Santa Fe');html+=`<section class="hs" id="contacto"><div class="ct">${[[PI.mail,'Inscripciones y alojamiento',C.inscripcion,C.inscripcion?'mailto:'+C.inscripcion:''],[PI.mail,'Marketing y patrocinios',C.marketing,C.marketing?'mailto:'+C.marketing:''],[SV.wa,'WhatsApp',C.whatsappTxt,CFG.whatsapp?wa:''],[SV.ig,'Instagram',CFG.instagram?'@'+CFG.instagram:'',ig],[IC.tt,'TikTok',CFG.tiktok?'@'+CFG.tiktok:'',tk],[PI.pin,'Club Atlético Alianza','Arteaga, Santa Fe',mp]].filter(x=>x[2]&&x[3]).map(([i,t,d,u])=>`<a class="ct-c" href="${esc(u)}" ${/^mailto:/.test(u)?'':'target="_blank" rel="noopener"'}><span class="ct-i">${i}</span><div><small>${esc(t)}</small><b>${esc(d)}</b></div>${IC.arrow}</a>`).join('')}</div></section>`}
  // 15. Patrocinadores
  let sp=S.patrocinadores||[];html+=`<section class="hs sp" id="patrocinadores"><div class="hs-h center"><span>Patrocinadores oficiales</span><h2>Nos acompañan</h2></div><div class="sp-g">${sp.map(x=>`<a href="${esc(x.link||'#')}" target="_blank" rel="noopener" class="sp-c"><img src="${esc(x.logo)}" alt="${esc(x.nombre)}"></a>`).join('')}${Array.from({length:Math.max(0,(S.lugaresSponsors||0)-sp.length)},()=>`<div class="sp-c sp-free"><span>Tu marca acá</span></div>`).join('')}</div><div class="sp-cta"><b>¿Querés que tu marca sea parte del Mundialito?</b><span>Miles de familias, clubes de todo el país y una vidriera única para tu empresa.</span>${C.marketing?`<a class="btn" href="mailto:${esc(C.marketing)}">${PI.mail} Escribinos a ${esc(C.marketing)}</a>`:''}</div></section>`;
  setTimeout(startHubFx,0);
