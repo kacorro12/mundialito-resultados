@@ -1318,21 +1318,131 @@ body:has(#app>.nl:last-child) .ft2-top{border-top:0}
 .btn{transition:background .2s,transform .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(215,25,43,.25)}
 
+/* v18: paleta del sistema (SGI) */
+:root{--red:#d50000;--red2:#9b0000;--red-dark:#6d0000;--ink:#3a0a0e;--ink-2:#5e3a3d;--muted:#8a7a7b;--red-soft:#fdecec;--glass:rgba(255,255,255,.8);--glass-line:rgba(213,0,0,.1);--glass-shadow:0 10px 30px rgba(110,0,0,.07),0 1px 2px rgba(110,0,0,.05)}
+body{color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.top{background:linear-gradient(120deg,#d50000 0%,#c00000 60%,#9b0000 100%);box-shadow:0 6px 22px rgba(110,0,0,.25)}
+.ci-b p,.fu p,.sct3-tx p,.ct2-lead,.ht-tx p,.xp-tx p,.ci-tx{color:var(--ink-2)}
+.ci-b h3,.xp-tx h3,.sct3-l li,.ct2-l li{color:var(--ink)}
+.ci-c,.nw-c,.pq-c,.ct-c,.kc-m,.xp-card,.sct2-in,.al-c,.tlp{border-color:var(--glass-line);box-shadow:var(--glass-shadow)}
+.ct-i,.nm-i,.pq-i{background:linear-gradient(140deg,#d50000,#9b0000)}
+/* Bloques rojos con foto de fondo suave */
+.band{background:linear-gradient(135deg,#c80000 0%,#9b0000 50%,#6d0000 100%);isolation:isolate;overflow:hidden}
+.band:before{content:'';position:absolute;inset:-12px;background:var(--bgimg) center/cover;opacity:.17;filter:blur(3px) grayscale(.25);z-index:-1}
+#hteaser{--bgimg:url(/img/h/h1988-28.jpg)}#numeros{--bgimg:url(/img/m/m12.jpg)}#porque{--bgimg:url(/img/d/d01.jpg)}#bonos{--bgimg:url(/img/m/m11.jpg)}#mision{--bgimg:url(/img/h/h2001-08.jpg)}
+.band .hs-h span:after{background:#fff}
+.band .btn{background:#fff;color:#9b0000}
+.band .btn:hover{background:#fdecec}
+.llama2{background:linear-gradient(135deg,#c80000 0%,#9b0000 50%,#6d0000 100%);overflow:hidden}
+.llama2:before{background:url(/img/h/h1993-18.jpg) center/cover;opacity:.15;filter:blur(3px) grayscale(.25)}
+.llama2 .llama-k,.llama-et,.llama-e small{color:#ffd3d3}
+.llama2 .llama-e div{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.1);backdrop-filter:blur(10px)}
+/* Bloques parejos en compu */
+@media (min-width:960px){#hteaser,#scouts,#porque,#bonos{min-height:600px;align-content:center}}
+/* El Mundialito en números: dos ventanas de vidrio iguales */
+.nm-c,.nm-c.red{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:0 22px 50px rgba(40,0,0,.35),inset 0 1px 0 rgba(255,255,255,.35)}
+.nm-c .nm-i,.nm-c.red .nm-i{background:rgba(255,255,255,.18)}
+.nm-h small{color:rgba(255,255,255,.78);opacity:1}
+.nm-d>div,.nm-d>div.dest,.nm-rd>div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+.nm-d>div.dest{background:rgba(255,255,255,.16)}
+.nm-d b{color:#fff}
+.nm-d span,.nm-rd span{color:rgba(255,255,255,.82);opacity:1}
+.nm-c.red .nm-r{flex:1;display:flex;flex-direction:column}
+.nm-rd{flex:1;grid-auto-rows:1fr}
+.nm-rd>div{display:flex;flex-direction:column;justify-content:center;padding:12px 14px}
+.nm-rd b{font-size:24px}
+.nm-r+.nm-r{border-top-color:rgba(255,255,255,.25)}
+@media (min-width:960px){.nm-rd{grid-template-columns:repeat(2,1fr)}.nm-rd>div:last-child:nth-child(odd){grid-column:1/-1}.nm-rd b{font-size:28px}}
+@media (min-width:1100px){.nm-pie{white-space:nowrap;max-width:none}}
+/* Circuito: tarjetas más anchas, logos rojos sobre blanco */
+@media (min-width:1180px){#circuito .ci{width:min(1560px,calc(100vw - 48px));margin-left:calc((100% - min(1560px,calc(100vw - 48px)))/2);gap:18px}#circuito .ci-b p{font-size:14px}}
+.ci-logo{background:#fff!important}
+.ci-logo img{max-width:62px;max-height:62px}
+.ci-logo.rojo img{filter:brightness(0) saturate(100%) invert(12%) sepia(98%) saturate(6800%) hue-rotate(358deg) brightness(92%) contrast(118%)}
+.ci-ph.nofoto{display:none}
+.ci-ph.nofoto+.ci-logo{margin-top:28px}
+.ci-b small{white-space:nowrap;letter-spacing:.08em}
+/* Ojeadores: lista en un renglón */
+@media (min-width:960px){.sct3-l li{white-space:nowrap}}
+/* Bonos */
+.bn-in{display:grid;gap:26px;align-items:center}
+.bn-intro{margin:0 0 16px;font-size:17px;line-height:1.65}
+.bn-cierre{display:flex;gap:10px;align-items:flex-start;margin:0;font-size:15.5px;font-weight:800;color:#fff}
+.bn-cierre svg{width:22px;height:22px;flex-shrink:0;fill:none;stroke:#fff;stroke-width:2.6}
+.bn-p{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.bn-p li{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.26);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+.bn-n{flex:0 0 40px;height:40px;border-radius:12px;background:#fff;color:#9b0000;display:grid;place-items:center;font-size:18px;font-weight:900}
+.bn-p h3{margin:0 0 4px;font-size:17px;font-weight:900;color:#fff}
+.bn-p p{margin:0;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.88)}
+@media (min-width:960px){.bn-in{grid-template-columns:1fr 1.2fr;gap:56px}.bn-p{grid-template-columns:1fr 1fr}}
+/* Presente y futuro con ventanas */
+.fu2{display:grid;gap:16px;margin-top:6px}
+.fu2-ph{margin:0;position:relative;border-radius:22px;overflow:hidden;min-height:240px;box-shadow:var(--glass-shadow)}
+.fu2-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fu2-ph figcaption{position:absolute;left:12px;bottom:12px;font-size:11.5px;font-weight:800;color:#fff;background:rgba(0,0,0,.55);padding:4px 9px;border-radius:7px}
+.fu2-c{display:grid;gap:12px}
+.fu2-i{display:flex;gap:14px;align-items:flex-start;background:var(--glass);border:1px solid var(--glass-line);border-radius:20px;padding:20px;box-shadow:var(--glass-shadow);backdrop-filter:blur(16px)}
+.fu2-ic{flex:0 0 46px;height:46px;border-radius:13px;background:linear-gradient(140deg,#d50000,#9b0000);display:grid;place-items:center}
+.fu2-ic svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2}
+.fu2-i h3{margin:0 0 6px;font-size:18px;font-weight:900;color:var(--ink)}
+.fu2-i p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-2);text-align:left}
+@media (min-width:960px){.fu2{grid-template-columns:1fr 1.25fr;gap:24px;align-items:stretch}.fu2-ph{min-height:100%}}
+/* Newsletter y pie con la paleta */
+.nl,.ft2{background:#3a0a0e}
+@media (min-width:960px){.nl-in{grid-template-columns:auto auto 1fr}.nl-tx p{white-space:nowrap}}
+.ft2-bot{justify-content:center!important;text-align:center}
+@media (min-width:960px){.ft2-bot{flex-direction:row}}
+
+/* v19 */
+/* Nuestra historia: texto blanco sobre rojo y botón a su medida */
+.band .ht-tx p{color:rgba(255,255,255,.93)}
+.ht-tx .btn{align-self:flex-start;width:auto}
+/* El Mundialito en números: ventanas blancas */
+.nm-c,.nm-c.red{background:rgba(255,255,255,.97);color:var(--ink);border:1px solid rgba(255,255,255,.7);box-shadow:0 24px 54px rgba(60,0,0,.32)}
+.nm-c .nm-i,.nm-c.red .nm-i{background:linear-gradient(140deg,#d50000,#9b0000)}
+.nm-h b{color:var(--ink)}
+.nm-h small{color:var(--muted)}
+.nm-d>div,.nm-rd>div{background:var(--red-soft);border:1px solid rgba(213,0,0,.08)}
+.nm-d>div.dest{background:linear-gradient(135deg,#fdecec,#fbd3d3)}
+.nm-d b,.nm-rd b{color:var(--red)}
+.nm-d span,.nm-rd span{color:var(--ink-2)}
+.nm-rn{color:var(--ink)}
+.nm-rn>svg{stroke:var(--red)}
+.nm-rn span{color:var(--ink-2)}
+.nm-rn svg:last-child{stroke:var(--muted)}
+.nm-r+.nm-r{border-top-color:rgba(213,0,0,.12)}
+/* Bonos */
+.bn-tag{display:inline-block;font-size:11.5px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);padding:6px 12px;border-radius:99px;margin-bottom:14px;backdrop-filter:blur(8px)}
+.bn-stat{display:flex;align-items:center;gap:16px;margin:4px 0 18px;padding:16px 22px;background:#fff;border-radius:18px;box-shadow:0 18px 40px rgba(60,0,0,.3);max-width:430px}
+.bn-stat b{font-size:58px;font-weight:900;color:var(--red);line-height:1;letter-spacing:-.03em}
+.bn-stat span{font-size:17px;font-weight:900;line-height:1.25;color:var(--ink)}
+.bn-stat small{display:block;margin-top:3px;font-size:13px;font-weight:600;color:var(--ink-2)}
+.bn-cta{margin-top:20px;display:inline-flex;align-items:center;gap:8px}
+.bn-cta svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4}
+.bn-p li{display:block;position:relative;overflow:hidden;background:#fff;border:0;padding:22px 22px 24px;border-radius:20px;box-shadow:0 18px 40px rgba(60,0,0,.25);backdrop-filter:none;transition:transform .3s,box-shadow .3s}
+.bn-p li:hover{transform:translateY(-5px);box-shadow:0 26px 50px rgba(60,0,0,.32)}
+.bn-ic{width:50px;height:50px;border-radius:15px;background:linear-gradient(140deg,#d50000,#9b0000);display:grid;place-items:center;margin-bottom:16px;box-shadow:0 8px 18px rgba(213,0,0,.3)}
+.bn-ic svg{width:25px;height:25px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bn-n{position:absolute;top:8px;right:16px;font-style:normal;font-size:54px;font-weight:900;line-height:1;color:rgba(213,0,0,.09);letter-spacing:-.04em}
+.bn-p h3{margin:0 0 6px;font-size:18px;font-weight:900;color:var(--ink)}
+.bn-p p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+.band .bn-p p{color:var(--ink-2)}
+@media (min-width:960px){.bn-p{gap:16px}}
+
 </style>
 </head>
 <body>
 <header class="top" id="top"></header>
 <main class="wrap" id="app"><div class="skel"></div><div class="skel"></div><div class="skel"></div></main>
 <footer class="ft2"><div class="ft2-top"><div class="ft2-brand"><img src="/logo.webp" alt=""><b>Mundialito Alianza</b><p>Torneos de fútbol infantil y juvenil desde 1987. Más de cuarenta ediciones uniendo clubes, chicos y familias de todo el país.</p><div class="ft2-soc"><a href="https://instagram.com/mundialitoalianza" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a><a href="https://www.tiktok.com/@mundialitoalianza" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3c.6 2.8 2.6 4.7 5.5 5"/></svg></a></div></div>
-<div class="ft2-cols"><div><h4>Torneos</h4><a href="/torneos#circuito" data-l>Mundialito de enero</a><a href="/torneos#circuito" data-l>Premundialitos</a><a href="/torneos#circuito" data-l>Torneos Especiales</a><a href="/torneos#circuito" data-l>Juveniles de Clubes</a><a href="/calendario" data-l>Calendario</a></div>
+<div class="ft2-cols"><div><h4>Torneos</h4><a href="/torneos#circuito" data-l>Mundialito de enero</a><a href="/torneos#circuito" data-l>Premundialitos</a><a href="/torneos#circuito" data-l>Mundialito por el País</a><a href="/torneos#circuito" data-l>Juveniles de Clubes</a><a href="/calendario" data-l>Calendario</a></div>
 <div><h4>El Mundialito</h4><a href="/historia" data-l>Nuestra historia</a><a href="/torneos#porque" data-l>Por qué elegirnos</a><a href="/novedades" data-l>Novedades</a><a href="/contacto#patrocinadores" data-l>Patrocinadores</a></div>
 <div><h4>Contacto</h4><a href="mailto:mundialitoalianza@gmail.com">Inscripción y alojamiento<small>mundialitoalianza@gmail.com</small></a><a href="mailto:marketingmundialito@gmail.com">Marketing y publicidad<small>marketingmundialito@gmail.com</small></a><a href="https://wa.me/5493467444037" target="_blank" rel="noopener">WhatsApp<small>3467 444037</small></a></div></div></div>
-<div class="ft2-org"><span>Organiza</span><b>Club Atlético Alianza</b><span>Arteaga · Santa Fe · Argentina</span></div>
-<div class="ft2-bot"><span>© <b id="ftYear">2026</b> Mundialito Alianza · Club Atlético Alianza. Todos los derechos reservados.</span><span>Resultados en vivo desde la organización del torneo.</span></div></footer>
+<div class="ft2-bot"><span>© <b id="ftYear">2026</b> Mundialito Alianza · Club Atlético Alianza. Todos los derechos reservados.</span></div></footer>
 <script>document.getElementById('ftYear').textContent=new Date().getFullYear()</script>
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js?v=20261118i"></script>
+<script src="/config.js?v=20261118k"></script>
 <script>
 // ── Web pública del Mundialito: solo lectura, se actualiza en vivo desde el SGI ──
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
@@ -1418,7 +1528,7 @@ function calEv(e){let a=dISO(e.inicio),b=dISO(e.fin),L=TLOGO[e.tipo]||TLOGO.esp,
  return `<div class="kc-e cl-${e.tipo}"><div class="kc-lg${e.tipo==='pre'?' wide':''}" style="background:${L[1]}"><img src="${L[0]}" alt=""></div><div class="kc-b"><small>${({ma:'Mundialito Alianza',pre:'Premundialito',esp:'Torneo Especial',juv:'Juvenil de Clubes'})[e.tipo]||''} · ${dd>1?'faltan '+dd+' días':dd===1?'empieza mañana':dd===0?'empieza hoy':'jugándose ahora'}</small><b>${esc(e.nombre)}</b><span class="kc-f">${IC.cal}${fecha}</span><span class="kc-f">${IC.pin}${esc(e.sede||'')}</span>${cb}${e.link?`<a class="btn kc-btn" href="${esc(e.link)}" data-l>Ver fixture y resultados ${IC.arrow}</a>`:'<span class="kc-nofx">El fixture se publica cerca de la fecha</span>'}</div></div>`}
 // Animaciones al aparecer en pantalla
 function reveal(){if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;let io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -30px 0px'});
- document.querySelectorAll('#app .hs-h,#app .ci-c,#app .xp-g figure,#app .nw-c,#app .pq-c,#app .al-c,#app .kc-m,#app .ct-c,#app .mv article,#app .imp-c,#app .tlp,#app .ht-ph figure,#app .ht-tx p,#app .llama-ph figure,#app .llama-tx,#app .nums>div,#app .sp-c,#app .fu p,#app .fu-in,#app .tz-c,#app .pc,#app .sco,#app .xp-fr p,#app .ci-tx,#app .nm-c,#app .g5,#app .xp-card,#app .sct2-in,#app .ct2-tx,#app .nm-pie,#app .sct3-tx,#app .sct3-ph figure').forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%4)*90+'ms');io.observe(el)})}
+ document.querySelectorAll('#app .hs-h,#app .ci-c,#app .xp-g figure,#app .nw-c,#app .pq-c,#app .al-c,#app .kc-m,#app .ct-c,#app .mv article,#app .imp-c,#app .tlp,#app .ht-ph figure,#app .ht-tx p,#app .llama-ph figure,#app .llama-tx,#app .nums>div,#app .sp-c,#app .fu p,#app .fu-in,#app .tz-c,#app .pc,#app .sco,#app .xp-fr p,#app .ci-tx,#app .nm-c,#app .g5,#app .xp-card,#app .sct2-in,#app .ct2-tx,#app .nm-pie,#app .sct3-tx,#app .sct3-ph figure,#app .bn-p li,#app .bn-tx,#app .fu2-i,#app .fu2-ph').forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%4)*90+'ms');io.observe(el)})}
 // Galería de fotos de la experiencia (pantalla completa)
 const XI='<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 function galOpen(i){let m=document.getElementById('gal');if(!m){m=document.createElement('div');m.id='gal';document.body.append(m);addEventListener('keydown',e=>{if(!m.classList.contains('on'))return;if(e.key==='Escape')galClose();if(e.key==='ArrowRight')galGo(1);if(e.key==='ArrowLeft')galGo(-1)})}m.className='on';document.body.style.overflow='hidden';galRender(i)}
@@ -1432,7 +1542,7 @@ addEventListener('scroll',()=>document.body.classList.toggle('scrolled',scrollY>
 // Páginas de la web: cada pestaña muestra algunas secciones del inicio completo
 // Alojamientos queda guardada (/alojamientos) pero fuera del menú hasta corregir la información
 const PNAV=[['','Inicio'],['torneos','Torneos'],['historia','Historia'],['calendario','Calendario'],['novedades','Novedades'],['contacto','Contacto']];
-const PSEL={'':['.hx2','#circuito','#hteaser','#scouts','#numeros','#noticias','#patrocinadores','.nl'],torneos:['#circuito','#jugados','#porque','#scouts','#mq','#patrocinadores','.nl'],historia:['#historia','#experiencia','.llama','#futuro','#mision','#patrocinadores','.nl'],calendario:['#calendario','#patrocinadores','.nl'],alojamientos:['#alojamiento','#patrocinadores','.nl'],novedades:['#noticias','#patrocinadores','.nl'],contacto:['#contacto','#patrocinadores','.nl']};
+const PSEL={'':['.hx2','#circuito','#hteaser','#scouts','#numeros','#noticias','#patrocinadores','.nl'],torneos:['#circuito','#porque','#scouts','#bonos','#jugados','#mq','#patrocinadores','.nl'],historia:['#historia','#experiencia','.llama','#futuro','#mision','#patrocinadores','.nl'],calendario:['#calendario','#patrocinadores','.nl'],alojamientos:['#alojamiento','#patrocinadores','.nl'],novedades:['#noticias','#patrocinadores','.nl'],contacto:['#contacto','#patrocinadores','.nl']};
 const PHEAD={torneos:['Torneos','Nuestros torneos','m12','Las propuestas del Circuito Mundialito: del gran torneo de enero a los encuentros para los más chiquitos.'],historia:['Historia','Una historia que nos une','h1988-28','Cuatro décadas de fútbol infantil en Arteaga, Capital Provincial del Fútbol Infantil.'],calendario:['Calendario','Circuito Mundialito','d05','Todas las fechas del circuito, mes a mes, con sede, cupos y acceso al fixture.'],alojamientos:['Alojamientos','Dónde hospedarse','d01','Opciones de alojamiento para el Mundialito Alianza de enero, en Arteaga.'],novedades:['Novedades','Lo último del Mundialito','m06','Noticias, anuncios y resultados de todo el circuito.'],contacto:['Contacto','Hablemos','h2001-08','Inscripciones, consultas y propuestas: estamos para ayudarte.']};
 function pageView(pg){let tp=document.createElement('template');tp.innerHTML=hub();let out=document.createElement('div'),h=PHEAD[pg];
  if(h)out.insertAdjacentHTML('beforeend',`<section class="pg-h" style="background-image:url(${ph(h[2])})"><div class="pg-in"><nav class="pg-bc"><a href="/" data-l>Inicio</a><i>/</i><span>${esc(h[0])}</span></nav><h1>${esc(h[1])}</h1>${h[3]?`<p>${esc(h[3])}</p>`:''}</div></section>`);
@@ -1456,9 +1566,9 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  let E=S.experiencia;if(E){let G=[...(E.fotos||[]).map(x=>x[0]),...(E.franja||[])].filter((k,i,a)=>a.indexOf(k)===i);window.__gal=G;let dest=(E.destacadas||G.slice(0,5)).filter(k=>G.includes(k)),f0=E.foto||G[0];html+=`<section class="hs xp2" id="experiencia"><div class="hs-h center"><span>La experiencia Mundialito</span></div><article class="xp-card"><figure class="xp-ph"><img src="${ph(f0)}" alt="" loading="lazy"><figcaption>${esc(phPlace(f0))}</figcaption></figure><div class="xp-tx"><h3>${esc(E.titulo)}</h3><p class="xp-intro">${esc(E.intro)}</p><div class="xp-fr">${(E.frases||[]).map(t=>`<p>${esc(t)}</p>`).join('')}</div>${E.cierre?`<p class="xp-cierre2">${esc(E.cierre)}</p>`:''}</div></article><div class="gal5">${dest.map((k,j)=>`<button class="g5 g5-${j}" onclick="galOpen(${G.indexOf(k)})" aria-label="Ver foto"><img src="${ph(k)}" alt="" loading="lazy"><span>${esc(phPlace(k))}</span></button>`).join('')}</div><div class="gal-cta"><button class="btn" onclick="galOpen(-1)">${PI.eye} Ver galería completa · ${G.length} fotos</button></div></section>`}
  let L=S.llama;if(L)html+=`<section class="llama llama2"><div class="llama-in"><div class="llama-tx"><span class="llama-k">Nuestra identidad y nuestras tradiciones</span><h2>${esc(L.titulo)}</h2><p>${esc(L.texto)}</p>${L.encendidos?`<div class="llama-e"><small class="llama-et">La encendieron</small>${L.encendidos.map(([y,nm])=>`<div><small>${esc(y)}</small><b>${esc(nm)}</b></div>`).join('')}</div>`:''}</div>${L.fotos?`<div class="llama-ph">${L.fotos.map((k,j)=>phF(k,'l'+j,'La Llama Votiva')).join('')}</div>`:''}</div></section>`;
  // 4. El Circuito Mundialito
- let CI=S.circuito;if(CI)html+=`<section class="hs" id="circuito"><div class="hs-h center"><span>El Circuito Mundialito</span></div><p class="ci-tx">${esc(CI.txt)}</p><div class="ci">${CI.propuestas.map(x=>`<article class="ci-c${x.ancho?' ancho':''}"><div class="ci-ph${x.foto?'':' none'}"${x.foto?` style="background-image:url(${ph(x.foto)})"`:''}></div><div class="ci-logo${x.id==='pm'||x.id==='ma'?' wide':''}" style="background:${x.fondo}"><img src="${esc(x.logo)}" alt="${esc(x.nombre)}"></div><div class="ci-b"><small>${esc(x.sub)}</small><h3>${esc(x.nombre)}</h3><p>${esc(x.txt)}</p></div></article>`).join('')}</div></section>`;
+ let CI=S.circuito;if(CI)html+=`<section class="hs" id="circuito"><div class="hs-h center"><span>El Circuito Mundialito</span></div><p class="ci-tx">${esc(CI.txt)}</p><div class="ci">${CI.propuestas.map(x=>`<article class="ci-c${x.ancho?' ancho':''}"><div class="ci-ph${x.foto?'':' nofoto'}"${x.foto?` style="background-image:url(${ph(x.foto)})"`:''}></div><div class="ci-logo${x.logoRojo?' rojo':''}" style="background:${x.fondo}"><img src="${esc(x.logo)}" alt="${esc(x.nombre)}"></div><div class="ci-b"><small>${esc(x.sub)}</small><h3>${esc(x.nombre)}</h3><p>${esc(x.txt)}</p></div></article>`).join('')}</div></section>`;
  // 5. Presente y futuro
- let F=S.futuro;if(F)html+=`<section class="hs" id="futuro"><div class="hs-h center"><span>Nuestro presente y futuro</span></div><div class="fu">${(F.parrafos||[]).map(p=>`<p>${esc(p)}</p>`).join('')}</div></section>`;
+ let F=S.futuro;if(F)html+=`<section class="hs" id="futuro"><div class="hs-h center"><span>Nuestro presente y futuro</span></div><div class="fu2">${F.fotoVentana?`<figure class="fu2-ph"><img src="${ph(F.fotoVentana)}" alt="" loading="lazy"><figcaption>${esc(phPlace(F.fotoVentana))}</figcaption></figure>`:''}<div class="fu2-c">${(F.parrafos||[]).map((p,j)=>`<article class="fu2-i"><span class="fu2-ic">${[PI.history,PI.heart,PI.shield][j%3]}</span><div><h3>${esc((F.items||[])[j]||'')}</h3><p>${esc(p)}</p></div></article>`).join('')}</div></div></section>`;
  // 3. Contador animado
  {let cif=(S.cifras||[]).filter(c=>c.n!=null),I=S.impacto;if(cif.length||I)html+=`<section class="hs nm band" id="numeros"><div class="hs-h center"><span>${esc(S.cifrasTitulo||'El Mundialito en números')}</span></div><div class="nm-g"><article class="nm-c"><div class="nm-h"><span class="nm-i">${PI.chart}</span><div><b>En la cancha</b><small>El último Mundialito de enero</small></div></div><div class="nm-d">${cif.map((c,j)=>`<div class="${j?'':'dest'}"><b>${esc(c.pre||'')}<span class="cnt" data-n="${+c.n}">0</span>${esc(c.suf||'')}</b><span>${esc(c.txt)}</span></div>`).join('')}</div></article>${I?`<article class="nm-c red"><div class="nm-h"><span class="nm-i">${PI.live}</span><div><b>En redes</b><small>Durante la edición 2026</small></div></div>${I.redes.map(r=>{let isIg=r.red==='Instagram',u=isIg?ig:tk,at='@'+(isIg?CFG.instagram:CFG.tiktok);return `<div class="nm-r"><a class="nm-rn" href="${u}" target="_blank" rel="noopener">${isIg?SV.ig:IC.tt}<b>${esc(r.red)}</b><span>${esc(at)}</span>${IC.arrow}</a><div class="nm-rd" style="--n:${r.datos.length}">${r.datos.map(([v,l])=>`<div><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('')}</div></div>`}).join('')}</article>`:''}</div>${I?`<p class="nm-pie">${esc(I.txt)}</p>`:''}</section>`}
  // 5. Por qué elegirnos
@@ -1473,6 +1583,8 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  return `<article class="kc-m"><h3>${MONL[mo]} <em>${y}</em></h3><div class="kc-g"><b>L</b><b>M</b><b>M</b><b>J</b><b>V</b><b>S</b><b>D</b>${cells}</div>${mev.length?mev.map(calEv).join(''):'<p class="kc-no">Sin torneos este mes.</p>'}</article>`}).join('')}</div></section>`}}
  // 8. Guía de alojamientos
  let A=S.alojamiento;if(A)html+=`<section class="hs" id="alojamiento"><div class="hs-h"><span>Guía de alojamientos</span><h2>Dónde hospedarse</h2></div><p class="al-sub">${esc(A.torneo)}. ${esc(A.nota)}</p><div class="al">${A.niveles.map(x=>`<article class="al-c"><div class="al-h"><span>Nivel ${x.nivel}</span><b>${esc(x.t)}</b></div><ul>${x.d.map(i=>`<li>${PI.check}<span>${esc(i)}</span></li>`).join('')}</ul></article>`).join('')}</div><div class="al-cta"><span>Consultá precios, disponibilidad y reservá tu lugar</span><a class="btn" href="${wa}" target="_blank" rel="noopener">${SV.wa} Consultar por WhatsApp</a>${C.inscripcion?`<a class="btn line" href="mailto:${esc(C.inscripcion)}">${PI.mail} ${esc(C.inscripcion)}</a>`:''}</div></section>`;
+ // Bonos para viajar
+ {let B=S.bonos;if(B){const BI=[PI.ticket,'<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18 20c0-2.6-1.3-4.6-3-5.6"/></svg>','<svg viewBox="0 0 24 24"><path d="M8 21h8M12 16v5M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 6h3v1.5A3.5 3.5 0 0 1 16.6 11M7 6H4v1.5A3.5 3.5 0 0 0 7.4 11"/></svg>','<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M16 14.5h2"/><path d="M6 6l9-3 1.5 3"/></svg>'];html+=`<section class="hs band" id="bonos"><div class="bn-in"><div class="bn-tx"><span class="bn-tag">Así funciona</span><div class="hs-h"><span>${esc(B.titulo)}</span></div><p class="bn-intro">${esc(B.intro)}</p><div class="bn-stat"><b>200</b><span>bonos por categoría<small>para vender en tu pueblo o ciudad</small></span></div>${B.cierre?`<p class="bn-cierre">${PI.check}<span>${esc(B.cierre)}</span></p>`:''}<a class="btn bn-cta" href="/contacto" data-l>Consultá cómo sumarte ${IC.arrow}</a></div><ol class="bn-p">${(B.pasos||[]).map((p,j)=>`<li><span class="bn-ic">${BI[j%4]}</span><em class="bn-n">0${j+1}</em><h3>${esc(p.t)}</h3><p>${esc(p.d)}</p></li>`).join('')}</ol></div></section>`}}
  // 7. Clubes participantes
  html+=marquee();
  // 12. Noticias
@@ -1482,7 +1594,7 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  // Impacto digital
  let I=S.impacto;if(I)html+=`<section class="hs imp" id="impacto"><div class="hs-h center"><span>${esc(I.titulo||'Impacto digital')}</span><h2>El Mundialito en redes</h2></div><p class="imp-tx">${esc(I.txt)}</p><div class="imp-g">${I.redes.map(r=>`<article class="imp-c ${r.red.toLowerCase()}"><div class="imp-h">${r.red==='Instagram'?SV.ig:IC.tt}<b>${esc(r.red)}</b></div><div class="imp-d">${r.datos.map(([v,l])=>`<div><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('')}</div></article>`).join('')}</div></section>`;
  // 13. Newsletter
- html+=`<section class="nl"><div class="nl-in"><span class="nl-i">${PI.mail}</span><div class="nl-tx"><h2>Recibí las novedades</h2><p>Fechas, inscripciones y resultados del Mundialito en tu correo. Sin spam, solo lo importante.</p></div><form onsubmit="return subscribeNews(this)"><input type="email" required placeholder="Tu correo electrónico" aria-label="Correo electrónico" autocomplete="email"><button class="btn" type="submit">Suscribirme</button><small class="nl-msg">Usamos tu correo solo para enviarte novedades del Mundialito.</small></form></div></section>`;
+ html+=`<section class="nl"><div class="nl-in"><span class="nl-i">${PI.mail}</span><div class="nl-tx"><h2>Recibí las novedades</h2><p>Fechas, inscripciones y resultados del Mundialito, directo en tu correo.</p></div><form onsubmit="return subscribeNews(this)"><input type="email" required placeholder="Tu correo electrónico" aria-label="Correo electrónico" autocomplete="email"><button class="btn" type="submit">Suscribirme</button><small class="nl-msg">Usamos tu correo solo para enviarte novedades del Mundialito.</small></form></div></section>`;
  // 14. Redes
  html+=`<section class="hs" id="redes"><div class="hs-h"><span>Seguinos</span><h2>Viví el Mundialito en redes</h2></div><div class="soc-c"><a class="sco ig" href="${ig}" target="_blank" rel="noopener">${SV.ig}<div><b>Instagram</b><span>@${esc(CFG.instagram||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sco tk" href="${tk}" target="_blank" rel="noopener">${IC.tt}<div><b>TikTok</b><span>@${esc(CFG.tiktok||'mundialitoalianza')}</span></div>${IC.arrow}</a><a class="sco wa" href="${wa}" target="_blank" rel="noopener">${SV.wa}<div><b>WhatsApp</b><span>Consultas e inscripciones</span></div>${IC.arrow}</a></div></section>`;
  // Contacto
