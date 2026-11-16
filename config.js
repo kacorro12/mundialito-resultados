@@ -38,7 +38,9 @@ window.MUNDIALITO_CFG = {
     portada: {
       kick: 'Desde 1987 · Arteaga, Santa Fe',
       titulo: 'Una historia que comenzó con un sueño',
-      txt: 'El Mundialito Alianza es el torneo de fútbol infantil del Club Atlético Alianza, en Arteaga, Capital Provincial del Fútbol Infantil.',
+      txt: 'El torneo de fútbol infantil más federal del país.',
+      // Diapositivas del fondo (de a una, se deslizan): INICIAL 1 e INICIAL 2 (Arteaga, enero 2026)
+      slides: ['m13','m14'],
       fotos: ['h1988-09','h2000-14','h1994-04','h2001-06','h1993-01','h1988-08','h2000-06','h1992-15','h1989-15','h1994-09','h2016-03','h1991-02','h1993-08','h1988-28','h2000-05','h1990-05','h2018-16','h1994-02','h1992-12','h2001-08']
     },
     // Cuenta regresiva de la portada: siempre al Mundialito de enero
