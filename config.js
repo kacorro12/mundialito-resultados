@@ -89,16 +89,16 @@ window.MUNDIALITO_CFG = {
       titulo: 'Una misma pasión, nuevas experiencias',
       txt: 'Durante décadas, el Mundialito tuvo su gran encuentro en enero. El crecimiento de la marca y el vínculo con tantas instituciones impulsaron una evolución natural: el Circuito Mundialito, con torneos durante todo el año que mantienen la identidad y los valores de siempre.',
       propuestas: [
-        { id: 'ma', nombre: 'Mundialito Alianza', sub: 'El torneo principal', logo: '/img/logo-mundialito-alianza.png', fondo: '#c8101f', foto: 'd05',
+        { id: 'ma', nombre: 'Mundialito Alianza', sub: 'El torneo principal', logo: '/logo.webp', fondo: '#fff', foto: 'd05',
           txt: 'La competencia que dio origen a todo. Diez días de fútbol en Arteaga y sus subsedes, con clubes, escuelas y delegaciones de todo el país y del exterior. Es el corazón del circuito y el gran encuentro al que llevan todos los caminos del año.' },
-        { id: 'pm', nombre: 'Premundialitos', sub: 'El camino hacia enero', logo: '/img/logo-premundialito.webp', fondo: '#fff', foto: 'p01',
+        { id: 'pm', nombre: 'Premundialitos', sub: 'El camino hacia enero', logo: '/logo.webp', fondo: '#fff', foto: 's01',
           txt: 'Torneos durante el año en distintos puntos del país, con el mismo espíritu del Mundialito y la chance de clasificar gratis al torneo de enero. Volvemos a las sedes que nos recibieron con los brazos abiertos y cada año sumamos lugares nuevos.' },
-        // Nombre a confirmar por Franco (no le convence "Torneos Especiales")
-        { id: 'es', nombre: 'Torneos Especiales', sub: 'El Mundialito en tu ciudad', logo: '/img/logo-sello.webp', fondo: '#1a1a1f', foto: 'e10',
+        // Antes "Torneos Especiales". El sello se muestra en rojo sobre blanco.
+        { id: 'es', nombre: 'Mundialito por el País', sub: 'Llevamos el sello a tu ciudad', logo: '/img/logo-sello.webp', logoRojo: true, fondo: '#fff', foto: 'e16',
           txt: 'El Mundialito sale de Arteaga y lleva su sello a otras ciudades, con la misma organización y las mismas categorías de enero. En 2026 estuvimos dos veces en Funes: en octubre fueron 66 equipos y Maxi Rodríguez nos acompañó en la inauguración.' },
-        { id: 'ju', nombre: 'Torneos Juveniles de Clubes', sub: 'Para seguir siendo parte', logo: '/img/logo-juvenil.webp', fondo: '#fff', foto: '', // sin fotos del Juvenil todavía: se muestra un fondo rojo
+        { id: 'ju', nombre: 'Torneos Juveniles de Clubes', sub: 'Para seguir siendo parte', logo: '/img/logo-juvenil.webp', fondo: '#fff', foto: 'm01',
           txt: 'Un torneo internacional pensado para clubes, en Sub 17 y Sub 15, masculino y femenino. Reúne a instituciones de casi todas las provincias y a delegaciones de Bolivia y Estados Unidos, para que el vínculo con el Mundialito siga cuando los chicos crecen y los clubes se sigan encontrando.' },
-        { id: 'en', nombre: 'Encuentros', sub: 'Para los más chiquitos', logo: '/img/nenito.webp', fondo: '#fff', foto: 'e16', ancho: true,
+        { id: 'en', nombre: 'Encuentros', sub: 'Para los más chiquitos', logo: '/img/nenito.webp', fondo: '#fff', foto: '',
           txt: 'Un fin de semana en familia para las categorías más chicas, las que todavía no juegan en enero. Porque en el Mundialito pensamos en todos: cada categoría tiene su lugar durante el año, con partidos, juegos y mucha alegría.' }
       ]
     },
@@ -110,6 +110,8 @@ window.MUNDIALITO_CFG = {
         'Creemos que el fútbol es mucho más que una competencia. Es una herramienta para enseñar valores, crear amistades, fortalecer vínculos y acompañar el crecimiento de chicos y chicas.',
         'Detrás de cada torneo hay dirigentes, profesores, árbitros, voluntarios, familias, comunidades anfitrionas y empresas. El Mundialito nunca fue solamente el esfuerzo de una institución.'
       ],
+      items: ['Nuestra esencia permanece', 'Más que una competencia', 'Un esfuerzo compartido'],
+      fotoVentana: 'm12',
       foto: 'd01',
       porvenir: 'Miramos hacia el futuro con el mismo entusiasmo que impulsó aquella primera edición. Las canchas cambian, los equipos se renuevan y cada generación escribe sus propias historias. Pero las emociones permanecen.',
       cierre: 'Mundialito. Una historia que nos une. Una pasión que nos encuentra.',
@@ -122,11 +124,24 @@ window.MUNDIALITO_CFG = {
       { ic: 'pin', t: '16 sedes', d: 'La sede principal en Arteaga y 15 subsedes en ciudades y pueblos de la región. Todo un territorio jugando al mismo tiempo.' },
       { ic: 'heart', t: 'Amistad y unión', d: 'El Mundialito es encuentro: chicos, familias y clubes que vuelven cada año y se hacen amigos para siempre.' },
       { ic: 'history', t: '40 ediciones seguidas', d: 'Desde 1987 no se suspendió nunca. Arteaga es Capital Provincial del Fútbol Infantil y cada enero todo el pueblo se prepara para recibir a las delegaciones.' },
-      { ic: 'ticket', t: 'Bonos para viajar', d: '200 bonos por categoría: lo recaudado queda para la delegación y participa de un sorteo en efectivo.' }
+      { ic: 'shield', t: 'Organización de primera', d: 'Fixture y resultados en vivo, sedes preparadas y un equipo que acompaña a cada delegación durante todo el torneo.' }
     ],
+    // Bonos: cómo funcionan (sección propia en Torneos)
+    bonos: {
+      titulo: 'Bonos para viajar',
+      intro: 'En todos nuestros torneos cada delegación recibe bonos para vender. Es la forma que encontramos para que viajar al Mundialito casi no salga del bolsillo de las familias.',
+      pasos: [
+        { t: 'Recibís los bonos', d: 'Cada categoría inscripta recibe 200 bonos para vender.' },
+        { t: 'Los chicos los venden', d: 'Los ofrecen en su pueblo o ciudad: familia, vecinos, comercios y amigos.' },
+        { t: 'Hacemos el sorteo', d: 'Sorteamos entre todos los bonos vendidos y quienes los compraron pueden ganar premios en efectivo.' },
+        { t: 'La delegación se financia', d: 'Lo recaudado queda para la categoría y ayuda a pagar los viajes y la inscripción.' }
+      ],
+      cierre: 'Así, cada club, escuela o selectivo puede venir al Mundialito con un gasto mínimo.',
+      foto: 'm11'
+    },
     // Logo de AFA: cuando esté, poner la ruta en "logo" (por ejemplo '/img/afa.png'); mientras, se muestra el texto AFA
     scouts: { t: 'Una vidriera para el futuro', d: 'Para muchos chicos, el Mundialito es la primera vidriera de su carrera. En el torneo de enero y en las distintas fechas del circuito hay ojeadores de la Asociación del Fútbol Argentino que siguen de cerca cada partido, y clubes de AFA que compiten con sus divisiones formativas.',
-      puntos: ['Ojeadores de la AFA en el Mundialito de enero y en el circuito', 'Clubes de AFA compiten con sus categorías formativas', 'Chicos de todo el país, a la vista de quienes forman a los jugadores del futuro'],
+      puntos: ['Ojeadores de la AFA en el Mundialito de enero y en el circuito', 'Clubes de AFA compiten con sus categorías formativas', 'Chicos de todo el país, a la vista de los formadores'],
       // Fotos de chicos con camisetas de clubes de AFA (Rosario Central y Newell's, Funes 2026)
       fotos: ['e19','e22','e21','e23'],
       org: 'Ojeadores de la AFA', logo: '' },
