@@ -49,13 +49,14 @@ textarea.i{resize:vertical;min-height:100px}
 .msg svg{width:58px;height:58px;fill:none;stroke:var(--ok);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;background:#f0fdf4;border-radius:50%;padding:12px}
 .msg h2{font-size:22px;margin:14px 0 6px}.msg p{color:var(--ink2);margin:0 auto 18px;max-width:440px}
 .skel{height:280px;border-radius:22px;background:linear-gradient(90deg,#fff,#f8eef0,#fff);background-size:200% 100%;animation:sk 1.2s infinite}@keyframes sk{to{background-position:-200% 0}}
+p,li,figcaption,blockquote,small,dd{text-wrap:pretty}h1,h2,h3,h4{text-wrap:balance}
 </style>
 </head>
 <body>
 <header class="hd"><a href="/"><img src="/logo.webp" alt="">Mundialito Alianza</a><small>Encuesta a las delegaciones</small><h1 id="tit">¿Cómo te fue?</h1><p>Son dos minutos. Lo que nos cuentes nos ayuda a que el próximo torneo sea todavía mejor.</p></header>
 <main class="wrap"><div id="box"><div class="skel"></div></div></main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js?v=20261117d"></script>
+<script src="/config.js?v=20261117e"></script>
 <script>
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key),$=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // Las mismas preguntas que lee el panel (/gestion → Encuesta)
