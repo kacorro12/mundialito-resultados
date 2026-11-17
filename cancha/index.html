@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#d7192b">
+<title>Planillero · Mundialito Alianza</title>
+<link rel="icon" href="/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#d7192b;--red2:#9e0e1d;--ink:#1d1d1f;--muted:#8a7a7b;--line:#eee3e4;--bg:#f6f4f6;--ok:#16a34a}
+*{box-sizing:border-box}html,body{margin:0}body{font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);font-size:15px}
+button,input,select{font:inherit}.hidden{display:none!important}
+.gate{min-height:100svh;display:grid;place-items:center;padding:20px;background:linear-gradient(160deg,#d7192b,#9e0e1d)}
+.gate form{width:min(360px,100%);background:#fff;border-radius:24px;padding:28px 22px;text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.3)}
+.gate img{width:50px;height:60px;object-fit:contain}.gate h1{margin:10px 0 4px;font-size:21px;font-weight:900}.gate p{margin:0 0 16px;color:var(--muted);font-size:13.5px}
+.gate input{width:100%;padding:14px;border:1.5px solid var(--line);border-radius:12px;font-size:24px;letter-spacing:.3em;text-align:center;text-transform:uppercase;font-weight:900}
+.gate input:focus{outline:none;border-color:var(--red)}.err{min-height:20px;margin-top:10px;color:var(--red);font-weight:800;font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;background:var(--red);color:#fff}
+.gate .btn{width:100%;margin-top:14px;padding:14px;font-size:16px}
+.btn.g{background:var(--ok)}.btn.l{background:#fff;color:var(--red2);box-shadow:inset 0 0 0 1.5px #f0cfd3}
+.top{position:sticky;top:0;z-index:10;background:linear-gradient(120deg,#d7192b,#9e0e1d);color:#fff;padding:12px 16px calc(12px);box-shadow:0 6px 18px rgba(110,0,0,.25)}
+.top small{display:block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.top b{display:block;font-size:17px;font-weight:900}.top .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.top button{border:0;background:rgba(255,255,255,.16);color:#fff;border-radius:10px;padding:8px 12px;font-weight:800;cursor:pointer}
+.days{display:flex;gap:6px;overflow-x:auto;margin-top:10px;scrollbar-width:none}.days::-webkit-scrollbar{display:none}
+.days button{flex:0 0 auto}.days button.on{background:#fff;color:var(--red2)}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px 120px}
+.hr{margin:16px 4px 8px;font-size:13px;font-weight:900;color:var(--red2);text-transform:uppercase;letter-spacing:.08em}
+.m{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:12px;margin-bottom:10px}
+.m.dirty{border-color:#f59e0b;background:#fffbeb}.m.done{border-color:#bbf7d0}
+.mh{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:800;color:var(--muted);margin-bottom:8px}
+.mh b{color:var(--ink);font-size:15px}
+.row3{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center}
+.tm{font-weight:800;font-size:14px;line-height:1.2}.tm.h{text-align:right}
+.sc{display:flex;gap:6px;align-items:center}
+.sc input{width:54px;height:54px;text-align:center;font-size:24px;font-weight:900;border:1.5px solid var(--line);border-radius:12px}
+.sc input:focus{outline:none;border-color:var(--red)}
+.pen{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:8px;font-size:12.5px;font-weight:800}.pen input{width:46px;height:38px;text-align:center;font-weight:900;border:1.5px solid var(--line);border-radius:9px}
+.est{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.est button{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:7px 4px;font-size:12px;font-weight:800;color:#5e3a3d;cursor:pointer}
+.est button.on{background:var(--ink);border-color:var(--ink);color:#fff}.est button.on.vivo{background:#dc2626;border-color:#dc2626}
+.empty{padding:30px;text-align:center;color:var(--muted);font-weight:700;background:#fff;border-radius:16px;border:1.5px dashed var(--line)}
+.save{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;gap:10px;align-items:center;justify-content:space-between;transform:translateY(110%);transition:transform .25s;z-index:20}
+.save.on{transform:none}.save span{font-weight:800;color:#b45309;font-size:13px}.save .btn{flex:0 0 auto;padding:14px 22px;font-size:16px}
+.net{margin-top:10px;padding:9px 12px;border-radius:12px;background:#fff;color:#9a3412;font-size:12.5px;font-weight:700;line-height:1.35}.net b{display:block;font-size:13.5px;font-weight:900}.net.q{background:#fef3c7;color:#92400e}
+.toast{position:fixed;left:50%;top:14px;transform:translate(-50%,-160%);background:#1d1d1f;color:#fff;padding:12px 16px;border-radius:12px;font-weight:800;z-index:99;transition:transform .25s;max-width:92vw}.toast.on{transform:translate(-50%,0)}.toast.err{background:var(--red2)}
+</style>
+</head>
+<body>
+<div class="gate" id="gate"><form onsubmit="return entrar(event)"><img src="/logo.webp" alt=""><h1>Carga de resultados</h1><p>Ingresá el código que te dio la organización.</p><input id="cod" maxlength="8" autocomplete="one-time-code" autocapitalize="characters" placeholder="CÓDIGO" autofocus><button class="btn" type="submit">Entrar</button><div class="err" id="gerr"></div></form></div>
+<div id="app" class="hidden"></div>
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/config.js?v=20261117c"></script>
+<script>
+const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
+let COD='',YO=null,FX={},DIA='',EDIT={};
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const DAYS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],MON=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const fmtDay=d=>{if(!d)return 'Sin fecha';let x=new Date(d+'T00:00');return DAYS[x.getDay()]+' '+x.getDate()+' '+MON[x.getMonth()]};
+function toast(t,e){let x=$('#toast');x.textContent=t;x.className='toast on'+(e?' err':'');clearTimeout(x._t);x._t=setTimeout(()=>x.className='toast',2600)}
+// Motor (igual que el panel): posiciones, ganador y llaves
+const played=m=>m.hs!==null&&m.hs!==undefined&&m.hs!==''&&m.as!==null&&m.as!==undefined&&m.as!=='';
+function winner(m){if(!played(m)||!m.h||!m.a)return null;let hs=+m.hs,as=+m.as;if(hs>as)return m.h;if(as>hs)return m.a;if(m.hp!=null&&m.ap!=null&&m.hp!==''&&m.ap!==''&&+m.hp!==+m.ap)return +m.hp>+m.ap?m.h:m.a;return null}
+function standings(f,z){let R={};z.teams.forEach(id=>R[id]={id,pj:0,pts:0,gf:0,gc:0});f.matches.filter(m=>played(m)&&(m.z===z.id||(m.ph==='Interzonal'&&(R[m.h]||R[m.a])))).forEach(m=>{[[m.h,+m.hs,+m.as],[m.a,+m.as,+m.hs]].forEach(([id,g,c])=>{let r=R[id];if(!r)return;r.pj++;r.gf+=g;r.gc+=c;r.pts+=g>c?3:g===c?1:0})});
+ let L=Object.values(R).sort((a,b)=>b.pts-a.pts),out=[],i=0;const nm=id=>(f.teams[id]||{}).n||'';while(i<L.length){let j=i;while(j<L.length&&L[j].pts===L[i].pts)j++;let g=L.slice(i,j);if(g.length>1){let ids=g.map(x=>x.id),p={};ids.forEach(x=>p[x]=0);f.matches.filter(m=>m.z===z.id&&played(m)&&ids.includes(m.h)&&ids.includes(m.a)).forEach(m=>{let hs=+m.hs,as=+m.as;if(hs>as)p[m.h]+=3;else if(as>hs)p[m.a]+=3;else{p[m.h]++;p[m.a]++}});g.sort((a,b)=>p[b.id]-p[a.id]||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf||a.gc-b.gc||nm(a.id).localeCompare(nm(b.id)))}out.push(...g);i=j}return out}
+function srcLabel(f,s){if(!s)return 'A definir';if(s.team)return (f.teams[s.team]||{}).n||'Equipo';if(s.zone!==undefined)return s.pos+'° '+((f.zones[s.zone]||{}).name||'Zona');if(s.rank)return (s.rank===1?'Mejor ':s.rank+'° mejor ')+s.pos+'°';let m=f.matches.find(x=>x.k===(s.winner||s.loser));return (s.winner?'Ganador P':'Perdedor P')+(m?m.n:'?')}
+function resolver(f){const zm=z=>f.matches.filter(m=>m.z===z.id||(m.ph==='Interzonal'&&(z.teams.includes(m.h)||z.teams.includes(m.a))));const done=zi=>{let z=f.zones[zi];return z&&zm(z).length>0&&zm(z).every(played)},all=f.zones.length&&f.zones.every((z,k)=>done(k)),tabs=f.zones.map(z=>standings(f,z));const cross=(a,b)=>b.pts-a.pts||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf||a.gc-b.gc;
+ const pick=s=>{if(!s)return null;if(s.team)return s.team;if(s.zone!==undefined)return done(s.zone)?(tabs[s.zone][s.pos-1]||{}).id||null:null;if(s.rank){if(!all)return null;let l=tabs.map(t=>t[s.pos-1]).filter(Boolean).sort(cross);return (l[s.rank-1]||{}).id||null}let m=f.matches.find(x=>x.k===(s.winner||s.loser));if(!m)return null;let w=winner(m);if(!w)return null;return s.winner?w:(w===m.h?m.a:m.h)};
+ for(let p=0;p<4;p++)f.matches.forEach(m=>{if(!m.src)return;let h=pick(m.src.h),a=pick(m.src.a);m.h=h;m.a=a;m.hl=h?f.teams[h].n:srcLabel(f,m.src.h);m.al=a?f.teams[a].n:srcLabel(f,m.src.a)})}
+const tn=(f,id,l)=>id&&f.teams[id]?f.teams[id].n:(l||'A definir');
+
+// ── Sin señal: el fixture y los resultados quedan guardados en el teléfono y se envían solos cuando vuelve la señal ──
+const LS={get:k=>{try{return JSON.parse(localStorage.getItem(k)||'null')}catch(x){return null}},set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}},del:k=>{try{localStorage.removeItem(k)}catch(x){}}};
+let OFF=false,COLA=false,ENVIANDO=false;
+const guardarCola=()=>{if(COD)Object.keys(EDIT).length?LS.set('pl-pend-'+COD,EDIT):LS.del('pl-pend-'+COD)};
+const sinRed=e=>!navigator.onLine||/fetch|network|Failed|Load failed|timeout/i.test(String(e&&(e.message||e)));
+async function entrar(e){e&&e.preventDefault();let c=$('#cod').value.trim().toUpperCase();if(!c)return false;$('#gerr').textContent='Verificando…';let data=null,error=null;
+ try{let r=await sb.rpc('planillero_entrar',{codigo:c});data=r.data;error=r.error}catch(x){error=x}
+ let cache=LS.get('pl-cache');if((error&&sinRed(error)||!navigator.onLine)&&cache&&cache.cod===c){data=cache.yo;OFF=true}else if(error||!data){$('#gerr').textContent=error&&sinRed(error)?'Sin señal. Para entrar la primera vez necesitás conexión.':'Código incorrecto';return false}
+ COD=c;YO=data;EDIT=LS.get('pl-pend-'+c)||{};COLA=Object.keys(EDIT).length>0;try{localStorage.setItem('planillero-cod',c)}catch(x){}$('#gate').classList.add('hidden');$('#app').classList.remove('hidden');await cargar();if(COLA)reintentar();return false}
+function salir(){if(Object.keys(EDIT).length&&!confirm('Hay resultados sin enviar. Si salís se pierden. ¿Salir igual?'))return;LS.del('pl-pend-'+COD);LS.del('pl-cache');COD='';YO=null;EDIT={};try{localStorage.removeItem('planillero-cod')}catch(x){}$('#app').classList.add('hidden');$('#gate').classList.remove('hidden');$('#gerr').textContent=''}
+async function cargar(){let data=null,error=null;try{let r=await sb.rpc('planillero_fixture',{codigo:COD});data=r.data;error=r.error}catch(x){error=x}
+ if(error||!data){let c=LS.get('pl-cache');if(c&&c.cod===COD){data=c.rows;OFF=true}else{toast('No se pudo cargar el fixture',1);return}}else{OFF=false;LS.set('pl-cache',{cod:COD,yo:YO,rows:data,at:Date.now()})}
+ FX={};data.forEach(r=>FX[r.categoria]=r.datos);let d0=new Date(),hoy=new Date(d0-d0.getTimezoneOffset()*6e4).toISOString().slice(0,10),ds=dias();DIA=ds.includes(DIA)?DIA:(ds.find(d=>d>=hoy)||ds[ds.length-1]||'');draw()}
+function reintentar(){if(!COLA||ENVIANDO||!navigator.onLine||!Object.keys(EDIT).length)return;guardar(true)}
+addEventListener('online',()=>{OFF=false;draw();reintentar();if(!COLA)cargar()});addEventListener('offline',()=>{OFF=true;draw()});setInterval(reintentar,20000);
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/cancha/sw.js').catch(()=>{}));
+const mios=()=>Object.entries(FX).flatMap(([c,f])=>f.matches.filter(m=>YO.cancha==='Todas'||m.f===YO.cancha).map(m=>({c,f,m})));
+const dias=()=>[...new Set(mios().map(x=>x.m.d||''))].sort();
+function draw(){let L=mios().filter(x=>(x.m.d||'')===DIA).sort((a,b)=>(a.m.t||'').localeCompare(b.m.t||'')||(a.m.f||'').localeCompare(b.m.f||''));
+ let h=`<div class="top"><div class="row"><div><small>${esc(YO.torneo_nombre)}</small><b>${esc(YO.cancha==='Todas'?'Todas las canchas':YO.cancha)} · ${esc(YO.nombre)}</b></div><button onclick="salir()">Salir</button></div>${OFF||!navigator.onLine||COLA?`<div class="net ${COLA?'q':''}">${COLA?`<b>${Object.keys(EDIT).length} resultado${Object.keys(EDIT).length===1?'':'s'} esperando señal</b><span>Quedan guardados en el teléfono y se envían solos cuando vuelve la conexión.</span>`:'<b>Sin señal</b><span>Podés seguir cargando: se guarda en el teléfono.</span>'}</div>`:''}<div class="days">${dias().map(d=>`<button class="${d===DIA?'on':''}" onclick="DIA='${d}';draw()">${fmtDay(d)}</button>`).join('')}</div></div><div class="wrap">`;
+ if(!L.length)h+=`<div class="empty">No hay partidos en tu cancha este día.</div>`;let lastT='';
+ L.forEach(({c,f,m})=>{let k=c+'|'+m.id,e=EDIT[k]||{},v=x=>e[x]!==undefined?e[x]:m[x],hs=v('hs'),as=v('as'),est=v('est')||'',ko=!!m.src||!/^(Zona|Interzonal)$/.test(m.ph||'Zona'),tie=hs!=null&&hs!==''&&as!=null&&as!==''&&+hs===+as&&ko,ok=m.h&&m.a;
+  if(m.t!==lastT){h+=`<div class="hr">${esc(m.t||'Sin horario')} hs</div>`;lastT=m.t}
+  h+=`<div class="m ${EDIT[k]?'dirty':played(m)?'done':''}"><div class="mh"><span><b>${esc(c)}</b> · ${esc(m.ph||'')}${YO.cancha==='Todas'?' · '+esc(m.f||''):''}</span><span>P${m.n}</span></div><div class="row3"><div class="tm h">${esc(tn(f,m.h,m.hl))}</div><div class="sc"><input inputmode="numeric" value="${hs??''}" ${ok?'':'disabled'} oninput="ed('${k}','hs',this.value)"><b>-</b><input inputmode="numeric" value="${as??''}" ${ok?'':'disabled'} oninput="ed('${k}','as',this.value)"></div><div class="tm">${esc(tn(f,m.a,m.al))}</div></div>
+  ${tie?`<div class="pen">Penales <input inputmode="numeric" value="${v('hp')??''}" oninput="ed('${k}','hp',this.value,1)"> - <input inputmode="numeric" value="${v('ap')??''}" oninput="ed('${k}','ap',this.value,1)"></div>`:''}
+  ${ok?`<div class="est">${[['','Programado'],['vivo','En juego'],['susp','Suspendido'],['post','Postergado']].map(([x,l])=>`<button class="${est===x?'on':''} ${x}" onclick="ed('${k}','est','${x}');draw()">${l}</button>`).join('')}</div>`:'<div class="mh" style="margin:8px 0 0">Los equipos se definen con los resultados anteriores.</div>'}</div>`});
+ h+=`</div><div class="save ${Object.keys(EDIT).length?'on':''}" id="save"><span>${Object.keys(EDIT).length} partido${Object.keys(EDIT).length===1?'':'s'} ${COLA?'esperando señal':'sin guardar'}</span><button class="btn g" onclick="guardar()">${COLA?'Reintentar':'Guardar'}</button></div>`;
+ $('#app').innerHTML=h}
+function ed(k,campo,val,pen){let [c,id]=[k.slice(0,k.indexOf('|')),k.slice(k.indexOf('|')+1)];let m=FX[c].matches.find(x=>x.id===id);let e=EDIT[k]=EDIT[k]||{hs:m.hs,as:m.as,hp:m.hp,ap:m.ap,est:m.est||''};
+ if(campo==='est')e.est=val;else{val=String(val).replace(/\D/g,'').slice(0,2);e[campo]=val===''?null:+val}
+ if(campo!=='est'&&e.hs!=null&&e.as!=null&&!e.est)e.est='';guardarCola();let b=document.querySelector('.save');if(b){b.classList.add('on');b.querySelector('span').textContent=Object.keys(EDIT).length+' partido'+(Object.keys(EDIT).length===1?'':'s')+' sin guardar'}
+ if(!pen&&(campo==='hs'||campo==='as')){let ko=!!m.src||!/^(Zona|Interzonal)$/.test(m.ph||'Zona'),need=e.hs!=null&&e.as!=null&&+e.hs===+e.as&&ko;if(need!==!!document.activeElement?.closest('.m')?.querySelector('.pen')){let y=scrollY,ix=campo==='hs'?0:1,cards=[...document.querySelectorAll('.m')].indexOf(document.activeElement.closest('.m'));draw();scrollTo(0,y);document.querySelectorAll('.m')[cards]?.querySelectorAll('.sc input')[ix]?.focus()}}}
+async function guardar(auto){let b=$('.save .btn');if(ENVIANDO)return;guardarCola();
+ if(!navigator.onLine){COLA=true;draw();if(!auto)toast('Sin señal: quedó guardado en el teléfono. Se envía solo cuando vuelva la conexión.');return}
+ ENVIANDO=true;if(b){b.disabled=true;b.textContent='Enviando…'}let porCat={};Object.entries(EDIT).forEach(([k,e])=>{let c=k.slice(0,k.indexOf('|')),id=k.slice(k.indexOf('|')+1);(porCat[c]=porCat[c]||[]).push({id,k,...e})});
+ try{for(const [c,lista] of Object.entries(porCat)){let f=JSON.parse(JSON.stringify(FX[c]));let cambios=lista.map(({k,...x})=>x);cambios.forEach(x=>{let m=f.matches.find(y=>y.id===x.id);if(m)Object.assign(m,{hs:x.hs,as:x.as,hp:x.hp,ap:x.ap,est:x.est})});resolver(f);let llaves=f.matches.filter(m=>m.src).map(m=>({id:m.id,h:m.h,a:m.a,hl:m.hl,al:m.al}));
+   let {error}=await sb.rpc('planillero_guardar',{codigo:COD,cat:c,cambios,llaves});if(error)throw error;
+   // Lo que ya se envió sale de la cola y queda aplicado en la copia local
+   lista.forEach(x=>delete EDIT[x.k]);FX[c]=f;guardarCola()}
+  EDIT={};COLA=false;guardarCola();ENVIANDO=false;toast(auto?'Volvió la señal: resultados enviados':'Guardado: ya se ve en la web');await cargar()}
+ catch(e){ENVIANDO=false;if(sinRed(e)){COLA=true;OFF=true;draw();if(!auto)toast('Sin señal: quedó guardado en el teléfono. Se envía solo cuando vuelva la conexión.')}else{toast('No se pudo guardar: '+(e.message||'probá de nuevo'),1);if(b){b.disabled=false;b.textContent='Guardar'}}}}
+(function(){let c='';try{c=localStorage.getItem('planillero-cod')||''}catch(x){}if(c){$('#cod').value=c;entrar()}})();
+</script>
+</body>
+</html>
