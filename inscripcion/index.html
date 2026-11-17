@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#d7192b">
+<title>Inscripción · Mundialito Alianza</title>
+<meta name="description" content="Inscribí a tu club en los torneos del Circuito Mundialito Alianza.">
+<link rel="icon" href="/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#d7192b;--red2:#9e0e1d;--ink:#1d1d1f;--ink2:#5e3a3d;--muted:#8a7a7b;--line:#eee3e4;--soft:#fdf2f3;--bg:#f6f4f6;--ok:#16a34a}
+*{box-sizing:border-box}html,body{margin:0}body{font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);font-size:15.5px;line-height:1.5}
+button,input,select,textarea{font:inherit}
+.hd{background:linear-gradient(150deg,#d7192b,#9e0e1d);color:#fff;padding:26px 18px 70px;text-align:center}
+.hd a{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:13px}
+.hd a img{width:30px;height:36px;object-fit:contain;filter:brightness(0) invert(1)}
+.hd small{display:block;margin-top:22px;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.hd h1{margin:6px auto 0;font-size:clamp(26px,6vw,38px);font-weight:900;line-height:1.1;max-width:680px}
+.hd p{margin:10px auto 0;max-width:560px;opacity:.9;font-weight:600}
+.wrap{max-width:680px;margin:-44px auto 0;padding:0 14px 60px}
+.card{background:#fff;border-radius:22px;padding:24px 22px;box-shadow:0 18px 40px rgba(110,0,0,.08);border:1px solid var(--line)}
+.card h2{margin:0 0 4px;font-size:19px;font-weight:900}
+.sec{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.sec:first-of-type{margin-top:0;padding-top:0;border:0}
+.sec>b{display:block;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--red2);margin-bottom:10px}
+.g2{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+@media (max-width:560px){.g2{grid-template-columns:1fr}}
+label.f{display:block;font-size:13px;font-weight:800;color:var(--ink2)}label.f .i{display:block;margin-top:6px}
+label.f i{font-style:normal;color:var(--red)}
+.i{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-size:16px}
+.i:focus{outline:none;border-color:var(--red)}
+textarea.i{resize:vertical;min-height:90px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:99px;border:1.5px solid var(--line);font-weight:800;cursor:pointer;user-select:none}
+.chip input{accent-color:var(--red);width:17px;height:17px}
+.chip:has(input:checked){border-color:var(--red);background:var(--soft);color:var(--red2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:15px 22px;font-weight:900;font-size:16px;cursor:pointer;background:var(--red);color:#fff;text-decoration:none}
+.btn:hover{background:var(--red2)}.btn:disabled{opacity:.6;cursor:wait}
+.btn.l{background:#fff;color:var(--red2);box-shadow:inset 0 0 0 1.5px #f0cfd3}
+.btn.w{width:100%;margin-top:22px}
+.priv{font-size:12.5px;color:var(--muted);margin:12px 0 0;text-align:center}
+.err{color:var(--red);font-weight:800;font-size:13.5px;margin-top:10px;text-align:center;min-height:1em}
+.msg{text-align:center;padding:12px 4px}
+.msg svg{width:58px;height:58px;fill:none;stroke:var(--ok);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;background:#f0fdf4;border-radius:50%;padding:12px}
+.msg h2{font-size:22px;margin:14px 0 6px}
+.msg p{color:var(--ink2);margin:0 auto 18px;max-width:440px}
+.msg .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.skel{height:280px;border-radius:22px;background:linear-gradient(90deg,#fff,#f8eef0,#fff);background-size:200% 100%;animation:sk 1.2s infinite}@keyframes sk{to{background-position:-200% 0}}
+</style>
+</head>
+<body>
+<header class="hd"><a href="/"><img src="/logo.webp" alt="">Mundialito Alianza</a><small id="tipo">Inscripción</small><h1 id="tit">Inscribí a tu club</h1><p id="sub"></p></header>
+<main class="wrap"><div id="box"><div class="skel"></div></div></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/config.js?v=20261117d"></script>
+<script>
+const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key),$=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const MON=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'],fd=d=>{if(!d)return '';let x=new Date(d+'T00:00');return x.getDate()+' de '+MON[x.getMonth()]};
+const PROV=['Buenos Aires','Ciudad de Buenos Aires','Catamarca','Chaco','Chubut','Córdoba','Corrientes','Entre Ríos','Formosa','Jujuy','La Pampa','La Rioja','Mendoza','Misiones','Neuquén','Río Negro','Salta','San Juan','San Luis','Santa Cruz','Santa Fe','Santiago del Estero','Tierra del Fuego','Tucumán','Otro país'];
+const OK='<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>',wa=CFG.whatsapp?'https://wa.me/'+CFG.whatsapp:'';
+let T=null;
+const cerrado=t=>`<div class="card msg"><h2>Las inscripciones no están abiertas</h2><p>${t?'Por ahora no se reciben inscripciones online para el '+esc(t.nombre)+'.':'No encontramos ese torneo.'} Escribinos y te contamos cómo sumarte.</p><div class="row">${wa?`<a class="btn" href="${wa}" target="_blank" rel="noopener">Escribinos por WhatsApp</a>`:''}<a class="btn l" href="/">Ir al inicio</a></div></div>`;
+async function init(){let id=new URLSearchParams(location.search).get('t');let {data}=id?await sb.from('torneos_publicos').select('*').eq('id',id).maybeSingle():{data:null};T=data;
+ if(T){$('#tipo').textContent=T.tipo||'Inscripción';$('#tit').textContent=T.nombre;$('#sub').textContent=[T.inicio?fd(T.inicio)+(T.fin&&T.fin!==T.inicio?' al '+fd(T.fin):''):'',String(T.sede||'').replace(/\s*·\s*/g,', ')].filter(Boolean).join(' · ');document.title='Inscripción · '+T.nombre}
+ let C=(T&&T.config)||{},hoy=new Date().toISOString().slice(0,10);if(!T||!C.inscripciones||(C.inscCierre&&C.inscCierre<hoy)){$('#box').innerHTML=cerrado(T);return}
+ let cats=(Array.isArray(C.inscCats)&&C.inscCats.length?C.inscCats:T.categorias)||[];
+ $('#box').innerHTML=`<form class="card" onsubmit="return enviar(event)" novalidate>
+ <div class="sec"><b>Club o institución</b><div class="g2"><label class="f" style="grid-column:1/-1">Nombre del club <i>*</i><input class="i" name="club" required maxlength="100" autocomplete="organization" placeholder="Ej.: Club Atlético Alianza"></label><label class="f">Ciudad <i>*</i><input class="i" name="ciudad" required maxlength="60"></label><label class="f">Provincia <i>*</i><select class="i" name="provincia" required><option value="">Elegí</option>${PROV.map(p=>`<option>${p}</option>`).join('')}</select></label></div></div>
+ <div class="sec"><b>Categorías</b>${cats.length?`<div class="chips">${cats.map(c=>`<label class="chip"><input type="checkbox" name="cat" value="${esc(c)}">${esc(c)}</label>`).join('')}</div>`:'<label class="f">¿En qué categorías? <i>*</i><input class="i" name="catTxt" maxlength="120" placeholder="Ej.: Sub 15 y Sub 17"></label>'}${C.inscCupo?`<p class="priv" style="text-align:left">Cupos limitados: ${esc(C.inscCupo)} equipos por categoría.</p>`:''}<label class="f" style="margin-top:12px">Cantidad aproximada de jugadores<input class="i" name="jugadores" type="number" min="1" max="400" inputmode="numeric"></label></div>
+ <div class="sec"><b>Persona de contacto</b><div class="g2"><label class="f" style="grid-column:1/-1">Nombre y apellido del delegado <i>*</i><input class="i" name="delegado" required maxlength="80" autocomplete="name"></label><label class="f">WhatsApp <i>*</i><input class="i" name="telefono" required maxlength="30" inputmode="tel" autocomplete="tel" placeholder="Ej.: 3467 44-4444"></label><label class="f">Correo electrónico<input class="i" name="email" type="email" maxlength="100" autocomplete="email"></label></div></div>
+ <div class="sec"><b>¿Algo más?</b><label class="f">Comentario<textarea class="i" name="comentario" maxlength="800" placeholder="Consultas, alojamiento, fechas de llegada…"></textarea></label></div>
+ <input class="trap" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+ <button class="btn w" type="submit">Enviar inscripción</button><div class="err" id="err"></div>
+ <p class="priv">Tus datos los ve solo la organización del torneo, para confirmar la inscripción y escribirte. No se publican.</p></form>`}
+async function enviar(e){e.preventDefault();let F=e.target,v=n=>(F[n]?.value||'').trim(),cats=[...F.querySelectorAll('input[name=cat]:checked')].map(x=>x.value);if(F.catTxt&&v('catTxt'))cats=[v('catTxt')];
+ let falta=!v('club')?'el nombre del club':!v('ciudad')?'la ciudad':!v('provincia')?'la provincia':!cats.length?'al menos una categoría':!v('delegado')?'el nombre del delegado':v('telefono').replace(/\D/g,'').length<8?'un WhatsApp válido':'';if(falta){$('#err').textContent='Falta completar '+falta+'.';return false}
+ if(v('web'))return false;let b=F.querySelector('button');b.disabled=true;b.textContent='Enviando…';$('#err').textContent='';
+ let datos={club:v('club'),ciudad:v('ciudad'),provincia:v('provincia'),categorias:cats,jugadores:v('jugadores'),delegado:v('delegado'),telefono:v('telefono'),email:v('email'),comentario:v('comentario')};
+ let {error}=await sb.from('inscripciones').insert({torneo_id:T.id,datos});if(error){console.error(error);b.disabled=false;b.textContent='Enviar inscripción';$('#err').textContent='No se pudo enviar. Revisá la conexión y probá de nuevo.';return false}
+ $('#box').innerHTML=`<div class="card msg">${OK}<h2>¡Recibimos la inscripción!</h2><p>Gracias, ${esc(datos.delegado.split(' ')[0])}. Anotamos a <b>${esc(datos.club)}</b> en ${esc(cats.join(', '))}. Te vamos a escribir por WhatsApp para confirmar los lugares y los próximos pasos.</p><div class="row"><a class="btn" href="/${esc(T.id)}">Ver el torneo</a>${wa?`<a class="btn l" href="${wa}" target="_blank" rel="noopener">Hablar por WhatsApp</a>`:''}</div></div>`;scrollTo(0,0);return false}
+init();
+</script>
+</body>
+</html>
