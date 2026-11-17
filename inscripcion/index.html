@@ -49,13 +49,14 @@ textarea.i{resize:vertical;min-height:90px}
 .msg .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .skel{height:280px;border-radius:22px;background:linear-gradient(90deg,#fff,#f8eef0,#fff);background-size:200% 100%;animation:sk 1.2s infinite}@keyframes sk{to{background-position:-200% 0}}
+p,li,figcaption,blockquote,small,dd{text-wrap:pretty}h1,h2,h3,h4{text-wrap:balance}
 </style>
 </head>
 <body>
 <header class="hd"><a href="/"><img src="/logo.webp" alt="">Mundialito Alianza</a><small id="tipo">Inscripción</small><h1 id="tit">Inscribí a tu club</h1><p id="sub"></p></header>
 <main class="wrap"><div id="box"><div class="skel"></div></div></main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js?v=20261117d"></script>
+<script src="/config.js?v=20261117e"></script>
 <script>
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key),$=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const MON=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'],fd=d=>{if(!d)return '';let x=new Date(d+'T00:00');return x.getDate()+' de '+MON[x.getMonth()]};
