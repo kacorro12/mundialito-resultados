@@ -8,7 +8,7 @@
 <meta name="description" content="Fixture, resultados y tablas de posiciones del Mundialito en vivo.">
 <link rel="icon" href="/logo.webp">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="apple-touch-icon" href="/logo.webp">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="Mundialito"><meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -2023,7 +2023,7 @@ const enApp=()=>matchMedia('(display-mode: standalone)').matches||navigator.stan
 function avisosEstado(){if(esIOS&&!enApp())return 'ios';if(!pushOK())return 'no';let p=Notification.permission;return p==='granted'?'on':p==='denied'?'bloq':'off'}
 const b64u=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/');s+='='.repeat((4-s.length%4)%4);return Uint8Array.from(atob(s),c=>c.charCodeAt(0))};
 function todosSeguidos(){let o=segLeer(),L=[];for(const t in o)for(const x of o[t]||[])if(x.catN)L.push({t,c:x.catN,id:x.id,n:x.n});return L}
-let swReg=null;if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js').then(r=>{swReg=r;if(pushOK()&&Notification.permission==='granted')pushSync()}).catch(()=>{});
+let swReg=null;if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js',{updateViaCache:'none'}).then(r=>{swReg=r;if(pushOK()&&Notification.permission==='granted')pushSync()}).catch(()=>{});
 async function pushSync(pedir){try{if(!pushOK())return 'no';if(Notification.permission!=='granted'){if(!pedir||Notification.permission==='denied')return avisosEstado();let p=await Notification.requestPermission();if(p!=='granted')return p==='denied'?'bloq':'off'}
  let reg=swReg||await navigator.serviceWorker.ready,sub=await reg.pushManager.getSubscription();if(!sub)sub=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64u(PUSH_PUB)});
  let j=sub.toJSON(),{error}=await sb.rpc('push_guardar',{endpoint:j.endpoint,p256dh:j.keys.p256dh,auth:j.keys.auth,sigue:todosSeguidos()});if(error)throw error;return 'on'}catch(e){console.warn('avisos',e);return 'err'}}
