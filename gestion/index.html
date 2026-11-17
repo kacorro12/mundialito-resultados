@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Panel de fixture · Mundialito Alianza</title>
+<link rel="icon" href="/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#d7192b;--red2:#9e0e1d;--ink:#1d1d1f;--ink2:#5e3a3d;--muted:#8a7a7b;--line:#eee3e4;--soft:#fdf2f3;--bg:#f6f4f6;--ok:#16a34a;--amber:#b45309}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);font-size:14px}
+button,input,select{font:inherit}
+.hidden{display:none!important}
+/* Ingreso */
+.gate{min-height:100svh;display:grid;place-items:center;padding:20px;background:linear-gradient(160deg,#d7192b,#9e0e1d)}
+.gate form{width:min(380px,100%);background:#fff;border-radius:24px;padding:30px 26px;text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.3)}
+.gate img{width:54px;height:64px;object-fit:contain}
+.gate h1{margin:12px 0 4px;font-size:22px;font-weight:900}
+.gate p{margin:0 0 18px;color:var(--muted);font-size:13.5px}
+.gate input{width:100%;padding:14px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;text-align:center}
+.gate input:focus{outline:none;border-color:var(--red)}
+.gate .err{min-height:20px;margin:10px 0 0;color:var(--red);font-weight:700;font-size:13px}
+/* General */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:11px;padding:10px 14px;font-weight:800;cursor:pointer;background:var(--red);color:#fff;white-space:nowrap}
+.btn:hover{background:var(--red2)}
+.btn.l{background:#fff;color:var(--red2);box-shadow:inset 0 0 0 1.5px #f0cfd3}
+.btn.l:hover{background:var(--soft)}
+.btn.g{background:var(--ok)}
+.btn.s{padding:7px 10px;font-size:12.5px;border-radius:9px}
+.btn.x{background:transparent;color:var(--muted);padding:6px 8px}
+.btn.x:hover{color:var(--red);background:var(--soft)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.gate .btn{width:100%;margin-top:14px;padding:14px}
+input.i,select.i{width:100%;padding:9px 10px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);min-width:0}
+input.i:focus,select.i:focus{outline:none;border-color:var(--red)}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:11.5px;font-weight:800;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em}
+/* Barra */
+.top{position:sticky;top:0;z-index:20;background:linear-gradient(120deg,#d7192b,#9e0e1d);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;box-shadow:0 6px 20px rgba(110,0,0,.25)}
+.top .brand{display:flex;align-items:center;gap:9px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;font-size:14px}
+.top .brand img{width:26px;height:31px;object-fit:contain;filter:brightness(0) invert(1)}
+.top .brand small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.12em;opacity:.85}
+.top select{max-width:340px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:8px 10px;font-weight:700}
+.top select option{color:#1d1d1f}
+.top .sp{flex:1}
+.top .btn.l{box-shadow:none}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 16px 120px}
+.main .card{max-width:1100px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(110,0,0,.05);margin-bottom:16px}
+.card h2{margin:0 0 14px;font-size:17px;font-weight:900;display:flex;align-items:center;gap:10px}
+.card h2 small{font-weight:700;color:var(--muted);font-size:12.5px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--soft);color:var(--red2);font-weight:800;border-radius:99px;padding:6px 6px 6px 12px;font-size:13px}
+.chip button{border:0;background:#fff;color:var(--red2);border-radius:50%;width:22px;height:22px;cursor:pointer;font-weight:900}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{border:0;background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:8px 14px;font-weight:800;cursor:pointer;color:var(--ink2)}
+.tabs button.on{background:var(--red);border-color:var(--red);color:#fff}
+.tabs.sub button{border-radius:10px;padding:7px 12px;font-size:13px}
+.tabs.sub button.on{background:#1d1d1f;border-color:#1d1d1f}
+.empty{padding:26px;text-align:center;color:var(--muted);font-weight:700;border:1.5px dashed var(--line);border-radius:14px}
+.note{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.switch{display:inline-flex;align-items:center;gap:10px;font-weight:800;cursor:pointer}
+.switch input{width:44px;height:24px;appearance:none;background:#ddd;border-radius:99px;position:relative;cursor:pointer;transition:.2s}
+.switch input:before{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.switch input:checked{background:var(--ok)}
+.switch input:checked:before{left:23px}
+/* Partidos */
+.day{margin:18px 0 8px;font-size:13px;font-weight:900;color:var(--red2);text-transform:uppercase;letter-spacing:.08em}
+.m{display:grid;grid-template-columns:62px 1fr auto 1fr;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:8px}
+.m.dirty{border-color:var(--amber);background:#fffbeb}
+.m.done{background:#f7fdf9;border-color:#cdeedb}
+.m .meta{font-size:11.5px;font-weight:800;color:var(--muted);line-height:1.35}
+.m .meta b{display:block;color:var(--ink);font-size:14px}
+.m .tm{font-weight:800;font-size:13.5px;line-height:1.2}
+.m .tm.h{text-align:right}
+.m .tm small{display:block;font-size:11px;font-weight:700;color:var(--muted)}
+.m .sc{display:flex;align-items:center;gap:6px}
+.m .sc input{width:46px;height:42px;text-align:center;font-size:18px;font-weight:900;border:1.5px solid var(--line);border-radius:10px}
+.m .sc input:focus{outline:none;border-color:var(--red)}
+.m .pen{grid-column:1/-1;display:flex;justify-content:center;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--ink2)}
+.m .pen input{width:40px;height:32px;text-align:center;font-weight:900;border:1.5px solid var(--line);border-radius:8px}
+.m .ph{grid-column:1/-1;font-size:11px;font-weight:900;color:var(--red2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:-4px}
+.save{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
+.save.on{transform:none}
+.save span{align-self:center;font-weight:800;color:var(--amber)}
+/* Tablas de edición */
+table.e{width:100%;border-collapse:collapse}
+table.e th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:left;padding:6px}
+table.e td{padding:4px;border-top:1px solid var(--line);vertical-align:middle}
+.scroll{overflow-x:auto}
+.logo{width:34px;height:34px;object-fit:contain;border-radius:8px;background:#fff}
+.ini{width:34px;height:34px;border-radius:50%;background:var(--soft);color:var(--red2);display:grid;place-items:center;font-size:11px;font-weight:900}
+.toast{position:fixed;left:50%;top:18px;transform:translate(-50%,-150%);background:#1d1d1f;color:#fff;padding:11px 16px;border-radius:12px;font-weight:800;z-index:99;transition:transform .25s;max-width:92vw}
+.toast.on{transform:translate(-50%,0)}
+.toast.err{background:var(--red2)}
+.lay{display:grid;grid-template-columns:260px 1fr;min-height:calc(100svh - 60px)}
+/* Pestaña activa fundida con el contenido (como en el sistema) */
+.side{padding:16px 0 120px 12px!important}
+.nav-i,.cat{position:relative;border-radius:12px 0 0 12px!important;width:100%!important}
+.nav-i.on,.cat.on{background:var(--bg)!important;color:#9e0e1d!important;box-shadow:none!important}
+.nav-i.on:before,.nav-i.on:after,.cat.on:before,.cat.on:after{content:'';position:absolute;right:0;width:18px;height:18px;pointer-events:none}
+.nav-i.on:before,.cat.on:before{top:-18px;background:radial-gradient(circle at 0 0,transparent 17.5px,var(--bg) 18px)}
+.nav-i.on:after,.cat.on:after{bottom:-18px;background:radial-gradient(circle at 0 100%,transparent 17.5px,var(--bg) 18px)}
+.side-t{margin-right:12px}
+.main{padding:22px 28px 120px!important}
+.main .card{max-width:none!important}
+.mlist{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(520px,1fr))}
+.mlist .m{margin:0}
+.meta .est{display:block;margin-top:6px;border:1.5px solid var(--line);border-radius:8px;padding:3px 4px;font-size:11px;font-weight:800;background:#fff;color:var(--ink2);max-width:100%}
+.est-vivo{border-color:#dc2626!important;color:#dc2626!important;background:#fef2f2!important}
+.est-susp,.est-post{border-color:#ea580c!important;color:#c2410c!important;background:#fff7ed!important}
+.m{grid-template-columns:96px 1fr auto 1fr}
+.up{display:flex;align-items:center;gap:8px;flex-wrap:wrap;text-transform:none;letter-spacing:0}
+.up .btn{cursor:pointer}
+.up-n{font-size:13px;font-weight:700;color:var(--muted);text-transform:none;letter-spacing:0}
+.lg-up{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;font-weight:800;color:var(--red2);white-space:nowrap}
+.lg-up:hover .logo,.lg-up:hover .ini{outline:2px solid var(--red);outline-offset:2px}
+.kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:16px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;box-shadow:0 10px 30px rgba(110,0,0,.05)}
+.kpi small{display:block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.kpi b{display:block;font-size:34px;font-weight:900;color:var(--red);line-height:1.1;margin:4px 0}
+.kpi span{font-size:12.5px;color:var(--ink2);font-weight:700}
+.kpi.warn b{color:#c2410c}
+.bar{height:8px;border-radius:99px;background:#f1e7e8;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#d7192b,#9e0e1d);border-radius:99px}
+.two{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}
+.two .card{margin-bottom:16px}
+.rl{display:grid;grid-template-columns:56px 1fr;gap:2px 10px;width:100%;text-align:left;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px;margin-bottom:6px;cursor:pointer;font:inherit}
+.rl:hover{border-color:var(--red)}
+.rl b{grid-row:span 2;font-size:15px;font-weight:900;align-self:center}
+.rl span{font-size:11.5px;font-weight:800;color:var(--muted)}
+.rl em{font-style:normal;font-weight:800;font-size:13.5px}
+.chk{display:flex;align-items:center;gap:10px;padding:8px 0;font-weight:800;font-size:13.5px}
+.chk b{min-width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--soft);color:var(--red2)}
+.chk b.bad{background:#fff7ed;color:#c2410c}
+.chk b.ok{background:#fef2f2;color:#dc2626}
+.prog{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.pg{text-align:left;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;cursor:pointer;font:inherit}
+.pg:hover{border-color:var(--red)}
+.pg b{display:block;font-weight:900}
+.pg span{font-size:12.5px;font-weight:700;color:var(--muted)}
+.hor{margin:14px 0;padding:16px;border-radius:14px;background:var(--soft);border:1.5px solid #f3cdd1}
+.hor h3{margin:0 0 6px;font-size:15px;font-weight:900}
+.chip.ck{padding:6px 12px;cursor:pointer;background:#fff;gap:8px;text-transform:none;letter-spacing:0}
+.chip.ck input{accent-color:var(--red)}
+@media (max-width:1100px){.mlist{grid-template-columns:1fr}}
+.sub3{margin:18px 0 8px;font-size:14px;font-weight:900;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em}
+.cuadro{margin:6px 0 18px;padding:14px;border-radius:16px;background:linear-gradient(180deg,#fff,#fdf2f3);border:1.5px solid var(--line)}
+.cuadro h3{margin:0 0 10px;font-size:15px;font-weight:900;color:var(--red2)}
+.cuadro.copa-de-oro{border-color:#f5d48a;background:linear-gradient(180deg,#fff,#fffaf0)}.cuadro.copa-de-oro h3{color:#a16207}
+.cuadro.copa-de-plata{border-color:#cbd5e1;background:linear-gradient(180deg,#fff,#f6f8fb)}.cuadro.copa-de-plata h3{color:#475569}
+.cuadro.copa-de-bronce{border-color:#e8bf9a;background:linear-gradient(180deg,#fff,#fdf6ef)}.cuadro.copa-de-bronce h3{color:#9a5b26}
+.cq{display:flex;gap:28px;overflow-x:auto;align-items:stretch;padding-bottom:4px}
+.cr{display:flex;flex-direction:column;min-width:220px}
+.cr>small{font-size:10.5px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+.cm{display:flex;flex-direction:column;justify-content:space-around;flex:1;gap:12px}
+.bx{position:relative;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:6px 10px;box-shadow:0 4px 12px rgba(110,0,0,.05)}
+.cr:not(:last-child):not(.ter) .bx:after{content:'';position:absolute;right:-29px;top:50%;width:28px;border-top:2px solid #e8c9cd}
+.bx small{display:block;font-size:10px;font-weight:800;color:var(--muted)}
+.bt{display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:700;padding:2px 0}
+.bt.w{font-weight:900;color:#15803d}
+.bt b{font-weight:900}
+.cr.ter{border-left:1.5px dashed var(--line);padding-left:18px}
+.lw{display:grid;gap:16px;grid-template-columns:260px 1fr;align-items:start}
+.lt h2{margin-bottom:8px}
+.lt-i{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:none;padding:8px 10px;border-radius:10px;font:inherit;font-weight:800;font-size:13px;cursor:pointer;text-align:left}
+.lt-i:hover{background:var(--soft)}.lt-i.on{background:var(--red);color:#fff}
+.lt-i b{min-width:26px;height:22px;border-radius:7px;display:grid;place-items:center;font-size:11.5px;background:#f1e7e8;color:var(--ink2)}
+.lt-i b.ok{background:#dcfce7;color:#15803d}.lt-i b.bad{background:#fff7ed;color:#c2410c}.lt-i.on b{background:#fff;color:var(--red2)}
+tr.old td{background:#fff7ed}
+.paste{margin-top:12px;border:1.5px dashed var(--line);border-radius:12px;padding:10px 12px}.paste summary{cursor:pointer;font-weight:800;color:var(--red2)}
+textarea.i{font-family:inherit;resize:vertical}
+.pl-r{display:grid;grid-template-columns:70px 1fr auto;grid-template-rows:auto auto;gap:2px 12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:6px;background:#fff}
+.pl-r b{grid-row:span 2;font-weight:900;font-size:14px}.pl-r span{font-size:11.5px;font-weight:800;color:var(--muted)}.pl-r em{font-style:normal;font-weight:800;grid-column:2}.pl-r .btn{grid-column:3;grid-row:1/3}
+.codigo{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px;padding:14px 16px;border-radius:14px;background:#f0fdf4;border:1.5px solid #86efac}
+.codigo small{display:block;font-size:11.5px;font-weight:800;color:#166534}.codigo b{display:block;font-size:30px;letter-spacing:.18em;font-weight:900;color:#14532d}.codigo span{font-size:12px;color:#166534;font-weight:700}
+.camp{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:12px}
+.camp>div{padding:12px 14px;border-radius:14px;background:linear-gradient(135deg,#fffaf0,#fef3c7);border:1px solid #f5d48a}
+.camp small{display:block;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:#a16207}.camp b{display:block;font-size:18px;font-weight:900}.camp span{font-size:12px;color:#713f12;font-weight:700}
+.kpis.sm .kpi b{font-size:26px}
+@media (max-width:860px){.lw{grid-template-columns:1fr}}
+.side{background:linear-gradient(180deg,#d7192b,#9e0e1d);color:#fff;padding:16px 12px 120px;display:flex;flex-direction:column;gap:3px;position:sticky;top:56px;height:calc(100svh - 56px);overflow:auto}
+.side-t{padding:10px 12px 14px;margin-bottom:6px;border-bottom:1px solid rgba(255,255,255,.18)}
+.side-t small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.side-t b{display:block;font-size:15px;font-weight:900;line-height:1.25;margin:4px 0 8px}
+.side-t span{display:inline-block;font-size:11px;font-weight:800;padding:3px 8px;border-radius:99px;background:rgba(255,255,255,.18)}
+.side-t span.pub{background:#fff;color:#15803d}
+.side-h{margin:14px 12px 4px;font-size:10.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.nav-i,.cat{display:flex;align-items:center;gap:10px;width:100%;border:0;background:none;color:#fff;font:inherit;font-weight:800;font-size:13.5px;text-align:left;padding:10px 12px;border-radius:11px;cursor:pointer}
+.nav-i svg{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nav-i:hover,.cat:hover{background:rgba(255,255,255,.12)}
+.nav-i.on,.cat.on{background:#fff;color:#9e0e1d;box-shadow:0 6px 16px rgba(0,0,0,.15)}
+.cats{display:flex;flex-direction:column;gap:3px}
+.cat{flex-direction:column;align-items:flex-start;gap:1px}
+.cat small{font-size:11px;font-weight:700;opacity:.75}
+.side-n{margin:4px 12px;font-size:12px;opacity:.8}
+.main{padding:20px 22px 120px;min-width:0}
+.crumb{font-size:12.5px;font-weight:700;color:var(--muted);margin:0 0 12px}
+.crumb b{color:var(--ink)}
+.crumb i{font-style:normal;opacity:.5;margin:0 4px}
+.top{position:sticky;top:0}
+.steps{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:14px}
+.step{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1.5px solid var(--line);border-radius:14px}
+.step>b{flex:0 0 32px;height:32px;border-radius:10px;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:900}
+.step h3{margin:2px 0 4px;font-size:14.5px;font-weight:900}
+.step p{margin:0 0 10px;font-size:12.5px;color:var(--muted)}
+.sumi{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.sumi>div{padding:10px 12px;border-radius:12px;background:var(--soft)}
+.sumi b{display:block;font-weight:900}
+.sumi span{font-size:12.5px;color:var(--ink2)}
+.sumi em{display:block;font-style:normal;font-size:11.5px;font-weight:800;color:var(--amber);margin-top:2px}
+.warn{margin:10px 0 0;padding:8px 12px;border-radius:10px;background:#fffbeb;color:var(--amber);font-weight:800;font-size:12.5px}
+.bad{color:var(--red);font-weight:900}
+tr.camr td{font-size:12px;font-weight:800;color:#c2410c;background:#fff7ed;border-top:0}
+.switch input[type=radio]{width:18px;height:18px;border-radius:50%}
+.switch input[type=radio]:before{display:none}
+.switch input[type=radio]:checked{background:var(--red);box-shadow:inset 0 0 0 4px #fff}
+@media (max-width:860px){.side{padding:10px!important}.nav-i,.cat{border-radius:10px!important;width:auto!important}.nav-i.on:before,.nav-i.on:after,.cat.on:before,.cat.on:after{display:none}.nav-i.on,.cat.on{background:#fff!important}.main{padding:16px 12px 120px!important}.m{grid-template-columns:1fr auto 1fr}.two{grid-template-columns:1fr}.lay{grid-template-columns:1fr}.side{position:static;height:auto;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;padding:10px;gap:6px;align-items:center}.side-t,.side-h,.side-n{display:none}.cats{flex-direction:row;gap:6px}.nav-i,.cat{width:auto;white-space:nowrap;padding:8px 12px;flex:0 0 auto}.cat small{display:none}.main{padding:16px 12px 120px}}
+@media (max-width:640px){.m{grid-template-columns:1fr auto 1fr}.m .meta{grid-column:1/-1;display:flex;gap:8px;align-items:baseline}.m .meta b{display:inline}.top select{max-width:none;width:100%}}
+/* v5: TV, árbitros, placas, galería, sedes, inscripciones y encuesta */
+.lnk{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px;padding:10px 12px;border-radius:12px;background:var(--soft)}.lnk code{flex:1;min-width:200px;font-weight:800;color:var(--red2);word-break:break-all;font-family:inherit;font-size:13.5px}
+.tvw{display:grid;gap:16px;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start;margin-bottom:16px}.tvw .card{margin:0}
+.tvp{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#e9e4e7;border:1px solid var(--line)}.tvp iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
+@media (max-width:1100px){.tvw{grid-template-columns:1fr}}
+.pl-r.ar{grid-template-columns:70px 1fr 220px}.pl-r.ar select{grid-column:3;grid-row:1/3}.pl-r.bad{border-color:#fdba74;background:#fff7ed}.pl-r i{font-style:normal;color:#c2410c}
+.gal{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-top:14px}.gal-i{border:1px solid var(--line);border-radius:14px;padding:8px;display:flex;flex-direction:column;gap:6px}.gal-i img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;background:var(--soft)}
+.mapa{width:100%;height:260px;border:0;border-radius:14px;margin-top:12px}
+.ins{border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:10px}.ins.pendiente{border-color:#fcd34d;background:#fffdf5}.ins-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.ins-h b{display:block;font-size:16px;font-weight:900}.ins-h span{font-size:12.5px;color:var(--muted);font-weight:700}.ins-h em{font-style:normal;font-size:12px;font-weight:900;padding:4px 10px;border-radius:99px}
+.est-pendiente{background:#fef3c7;color:#92400e}.est-aprobada{background:#dcfce7;color:#166534}.est-rechazada{background:#f3f4f6;color:#6b7280}
+.ins-d{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));font-weight:700;font-size:13.5px}.ins-d small{display:block;font-size:10.5px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.ins-d a{color:var(--red2)}
+.enc-r{display:grid;grid-template-columns:210px 1fr 40px;gap:10px;align-items:center;padding:7px 0;font-weight:800;font-size:13.5px}.enc-r .bar{margin:0;height:10px}.enc-r b{text-align:right;color:var(--red)}
+.enc-c{padding:10px 12px;border-radius:12px;background:var(--soft);margin-bottom:8px}.enc-c p{margin:0 0 4px;font-weight:600}.enc-c small{font-size:11.5px;font-weight:800;color:var(--muted)}
+.pqs{display:flex;gap:18px;flex-wrap:wrap}.pq-w{display:flex;flex-direction:column;gap:8px;align-items:center}.pq-sc{width:324px;height:576px;overflow:hidden;border-radius:14px;box-shadow:0 14px 34px rgba(110,0,0,.15)}
+.placa{width:1080px;height:1920px;transform:scale(.3);transform-origin:top left;background:#f6f4f6;font-family:Inter,sans-serif;color:#17171a;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.pq-h{background:linear-gradient(150deg,#d7192b,#9e0e1d);color:#fff;padding:90px 80px 70px;text-align:center}.pq-h img{width:110px;height:130px;object-fit:contain;filter:brightness(0) invert(1)}.pq-h small{display:block;font-size:34px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin-top:22px}.pq-h h1{margin:6px 0 0;font-size:150px;font-weight:900;letter-spacing:-.03em;line-height:1}.pq-c{display:flex;justify-content:center;gap:16px;margin-top:30px}.pq-c span{white-space:nowrap;font-size:34px;font-weight:800;background:rgba(255,255,255,.16);padding:12px 26px;border-radius:99px}
+.pq-b{flex:1;padding:44px 60px 20px;display:flex;flex-direction:column;gap:16px}
+.pq-cat{font-size:30px;font-weight:900;color:#9e0e1d;text-transform:uppercase;letter-spacing:.12em;margin-top:10px}
+.pq-m{display:grid;grid-template-columns:1fr 190px 1fr;align-items:center;background:#fff;border-radius:28px;padding:20px 26px;box-shadow:0 10px 26px rgba(60,10,20,.07);min-height:116px}
+.pq-t{display:flex;align-items:center;gap:16px;font-size:34px;font-weight:800;line-height:1.1;min-width:0}.pq-t>span:last-child{overflow:hidden;max-height:2.25em;word-break:break-word}.pq-t.a{flex-direction:row-reverse;text-align:right}.pq-t.w{color:#15803d;font-weight:900}
+.pq-cr{flex:0 0 auto;width:72px;height:72px;border-radius:18px;background:#fff;display:grid;place-items:center;box-shadow:0 4px 12px rgba(60,10,20,.12);overflow:hidden}.pq-cr img{width:86%;height:86%;object-fit:contain}.pq-cr.in{background:#fdf2f3;color:#9e0e1d;font-weight:900;font-size:26px}.pq-cr.q{box-shadow:none;border:3px dashed #d9c9cb;color:#b9a8aa;font-weight:900}
+.pq-s{text-align:center}.pq-s b{display:block;font-size:66px;font-weight:900;letter-spacing:-.02em;line-height:1}.pq-s b i{font-style:normal;color:#c9b9bb;margin:0 10px}.pq-s b.hr{font-size:52px;color:#d7192b}.pq-s small{display:block;font-size:22px;font-weight:800;color:#857a7c;margin-top:6px}
+.pq-f{display:flex;justify-content:space-between;align-items:center;padding:34px 70px;background:#fff;border-top:6px solid #d7192b;font-size:30px;font-weight:900;color:#5e3a3d}
+</style>
+</head>
+<body>
+<div class="gate" id="gate"><form onsubmit="return entrar(event)"><img src="/logo.webp" alt=""><h1>Panel de fixture</h1><p>Mundialito Alianza · acceso solo para la organización</p><input id="clave" type="password" placeholder="Clave" autocomplete="current-password" autofocus><button class="btn" type="submit">Ingresar</button><div class="err" id="gerr"></div></form></div>
+<div id="app" class="hidden"></div>
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/config.js?v=20261117a"></script>
+<script>
+const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
+let CLAVE='',TS=[],TID=null,FX={},CAT=null,VIEW='resumen',DIRTY=false,DAY='',ORIG={},IMP=null,HOR=null,LST={},LEQ=null,PLN=[],PLNC=null,PDIA='',PCAN='';
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=p=>p+Math.random().toString(36).slice(2,9)+Date.now().toString(36).slice(-4);
+const slug=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const DAYS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],MON=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const fmtDay=d=>{if(!d)return 'Sin fecha';let x=new Date(d+'T00:00');return DAYS[x.getDay()]+' '+x.getDate()+' de '+MON[x.getMonth()]};
+function toast(t,err){let e=$('#toast');e.textContent=t;e.className='toast on'+(err?' err':'');clearTimeout(e._t);e._t=setTimeout(()=>e.className='toast',2600)}
+async function rpc(fn,args){let {data,error}=await sb.rpc(fn,{clave:CLAVE,...args});if(error){if(/clave/.test(error.message)){salir();toast('La clave cambió o es incorrecta',1)}throw error}return data}
+
+// ── Ingreso ──
+async function entrar(e){e&&e.preventDefault();let c=$('#clave').value.trim();if(!c)return false;$('#gerr').textContent='Verificando…';let {data,error}=await sb.rpc('panel_ok',{clave:c});if(error||!data){$('#gerr').textContent='Clave incorrecta';return false}CLAVE=c;try{sessionStorage.setItem('panel-clave',c)}catch(x){}$('#gate').classList.add('hidden');$('#app').classList.remove('hidden');await cargar();return false}
+function salir(){CLAVE='';try{sessionStorage.removeItem('panel-clave')}catch(x){}$('#app').classList.add('hidden');$('#gate').classList.remove('hidden');$('#gerr').textContent=''}
+window.addEventListener('beforeunload',e=>{if(DIRTY){e.preventDefault();e.returnValue=''}});
+
+// ── Datos ──
+async function cargar(tid){TS=await rpc('panel_torneos',{});TID=tid||TID||(TS.find(t=>t.publicado)||TS[0]||{}).id||null;await cargarFx();draw()}
+async function cargarFx(){FX={};if(!TID)return;let rows=await rpc('panel_fixture',{tid:TID});rows.forEach(r=>FX[r.categoria]=r.datos);fotoHorarios();LST={};try{(await rpc('panel_listas_get',{tid:TID})).forEach(r=>{(LST[r.categoria]=LST[r.categoria]||{})[r.equipo]={jugadores:r.jugadores||[],cuerpo:r.cuerpo||[]}})}catch(e){}let t=tor();(t?.categorias||[]).forEach(c=>{if(!FX[c])FX[c]=nuevoFx()});if(!CAT||!FX[CAT])CAT=(t?.categorias||[])[0]||null;DIRTY=false;try{let r=await rpc('panel_arbitros_get',{tid:TID});ARB=r&&r[0]?{arbitros:r[0].arbitros||[],asignaciones:r[0].asignaciones||{}}:{arbitros:[],asignaciones:{}};ARBT=TID}catch(e){}}
+const tor=()=>TS.find(t=>t.id===TID),fx=()=>FX[CAT];
+const nuevoFx=()=>({format:'zonas',perZone:0,zones:[],teams:{},matches:[]});
+
+// Foto de día/hora/cancha de cada partido tal como está publicado (para detectar cambios de horario)
+function fotoHorarios(){ORIG={};Object.values(FX).forEach(f=>f.matches.forEach(m=>ORIG[m.id]={d:m.d||'',t:m.t||'',f:m.f||''}))}
+function marcarCambios(){let at=new Date().toISOString(),n=0;Object.values(FX).forEach(f=>f.matches.forEach(m=>{let o=ORIG[m.id];if(!o||!(o.d||o.t))return;let now={d:m.d||'',t:m.t||'',f:m.f||''};if(o.d===now.d&&o.t===now.t&&o.f===now.f)return;
+ let base=m.cam||o;if(base.d===now.d&&base.t===now.t&&base.f===now.f){delete m.cam;return}m.cam={d:base.d,t:base.t,f:base.f,at};n++}));return n}
+// ── Motor: posiciones, ganador y llaves ──
+const played=m=>m.hs!==null&&m.hs!==undefined&&m.hs!==''&&m.as!==null&&m.as!==undefined&&m.as!=='';
+function winner(m){if(!played(m)||!m.h||!m.a)return null;let hs=+m.hs,as=+m.as;if(hs>as)return m.h;if(as>hs)return m.a;if(m.hp!=null&&m.ap!=null&&m.hp!==''&&m.ap!==''&&+m.hp!==+m.ap)return +m.hp>+m.ap?m.h:m.a;return null}
+function standings(f,z){let R={};z.teams.forEach(id=>R[id]={id,pj:0,pts:0,gf:0,gc:0});
+ f.matches.filter(m=>played(m)&&(m.z===z.id||(m.ph==='Interzonal'&&(R[m.h]||R[m.a])))).forEach(m=>{[[m.h,+m.hs,+m.as],[m.a,+m.as,+m.hs]].forEach(([id,g,c])=>{let r=R[id];if(!r)return;r.pj++;r.gf+=g;r.gc+=c;r.pts+=g>c?3:g===c?1:0})});
+ let L=Object.values(R).sort((a,b)=>b.pts-a.pts),out=[],i=0;const nm=id=>(f.teams[id]||{}).n||'';
+ while(i<L.length){let j=i;while(j<L.length&&L[j].pts===L[i].pts)j++;let g=L.slice(i,j);if(g.length>1){let ids=g.map(x=>x.id),p={};ids.forEach(x=>p[x]=0);f.matches.filter(m=>m.z===z.id&&played(m)&&ids.includes(m.h)&&ids.includes(m.a)).forEach(m=>{let hs=+m.hs,as=+m.as;if(hs>as)p[m.h]+=3;else if(as>hs)p[m.a]+=3;else{p[m.h]++;p[m.a]++}});g.sort((a,b)=>p[b.id]-p[a.id]||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf||a.gc-b.gc||nm(a.id).localeCompare(nm(b.id)))}out.push(...g);i=j}return out}
+function srcLabel(f,s){if(!s)return 'A definir';if(s.team)return (f.teams[s.team]||{}).n||'Equipo';if(s.zone!==undefined)return s.pos+'° '+((f.zones[s.zone]||{}).name||'Zona');if(s.rank)return (s.rank===1?'Mejor ':s.rank+'° mejor ')+s.pos+'°';let m=f.matches.find(x=>x.k===(s.winner||s.loser));return (s.winner?'Ganador P':'Perdedor P')+(m?m.n:'?')}
+function resolver(f){const zm=(z)=>f.matches.filter(m=>m.z===z.id||(m.ph==='Interzonal'&&(z.teams.includes(m.h)||z.teams.includes(m.a))));
+ const done=zi=>{let z=f.zones[zi];return z&&zm(z).length>0&&zm(z).every(played)},all=f.zones.length&&f.zones.every((z,k)=>done(k)),tabs=f.zones.map(z=>standings(f,z));
+ const cross=(a,b)=>b.pts-a.pts||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf||a.gc-b.gc;
+ const pick=s=>{if(!s)return null;if(s.team)return s.team;if(s.zone!==undefined)return done(s.zone)?(tabs[s.zone][s.pos-1]||{}).id||null:null;if(s.rank){if(!all)return null;let l=tabs.map(t=>t[s.pos-1]).filter(Boolean).sort(cross);return (l[s.rank-1]||{}).id||null}let m=f.matches.find(x=>x.k===(s.winner||s.loser));if(!m)return null;let w=winner(m);if(!w)return null;return s.winner?w:(w===m.h?m.a:m.h)};
+ for(let p=0;p<4;p++)f.matches.forEach(m=>{if(!m.src)return;let h=pick(m.src.h),a=pick(m.src.a);m.h=h;m.a=a;m.hl=h?f.teams[h].n:srcLabel(f,m.src.h);m.al=a?f.teams[a].n:srcLabel(f,m.src.a)});
+ f.matches.forEach(m=>{if(!m.src){m.hl=m.h&&f.teams[m.h]?f.teams[m.h].n:(m.hl||'A definir');m.al=m.a&&f.teams[m.a]?f.teams[m.a].n:(m.al||'A definir')}})}
+function ordenar(f){f.matches.sort((a,b)=>((a.d||'9')+(a.t||'99')+(a.f||'')).localeCompare((b.d||'9')+(b.t||'99')+(b.f||'')));f.matches.forEach((m,k)=>m.n=k+1)}
+function campeones(){let c={};Object.entries(FX).forEach(([cat,f])=>{let m=f.matches.find(x=>/^Final Copa de Oro|^Final$/.test(x.ph||''));let w=m&&winner(m);if(w)c[cat]=f.teams[w].n});return c}
+
+// ── Guardar ──
+function marcar(){DIRTY=true;$('#save')?.classList.add('on')}
+async function guardar(){let b=$('#saveBtn');if(b){b.disabled=true;b.textContent='Guardando…'}
+ try{let nc=marcarCambios();for(const [cat,f] of Object.entries(FX)){if(!(tor().categorias||[]).includes(cat))continue;resolver(f);await rpc('panel_guardar_fixture',{tid:TID,cat,datos:f})}
+  let t=tor();t.campeones=campeones();await rpc('panel_guardar_torneo',{t});DIRTY=false;fotoHorarios();$('#save')?.classList.remove('on');toast(nc?'Guardado. '+nc+' cambio'+(nc>1?'s':'')+' de horario avisado'+(nc>1?'s':'')+' en la web':'Guardado: ya se ve en la web')}
+ catch(e){console.error(e);toast('No se pudo guardar: '+(e.message||'revisá la conexión'),1)}finally{if(b){b.disabled=false;b.textContent='Guardar cambios'}draw()}}
+
+// ── Pantalla: menú a la izquierda (como el sistema) y la sección elegida a la derecha ──
+const ICO={tv:'<svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',arbitros:'<svg viewBox="0 0 24 24"><circle cx="9" cy="14" r="5"/><path d="M13 11l8-5M14 14h7"/><circle cx="9" cy="14" r="1.2"/></svg>',placas:'<svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M9.5 8h5M9.5 12h5M9.5 16h3"/></svg>',galeria:'<svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8.5"/></svg>',sedes:'<svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',inscripciones:'<svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="18" rx="2"/><path d="M9 3.5h6v3H9zM8.5 12l2.2 2.2 4.8-4.7M8.5 17.5h7"/></svg>',encuesta:'<svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>',datos:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
+ resultados:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7l3 2-1 4h-4l-1-4z"/></svg>',partidos:'<svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M16 3v4M8 3v4M3.5 10h17"/></svg>',
+ equipos:'<svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>',llaves:'<svg viewBox="0 0 24 24"><path d="M8 21h8M12 16v5M7 4h10v5a5 5 0 0 1-10 0z"/></svg>',
+ importar:'<svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 21h14"/></svg>',exportar:'<svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>',resumen:'<svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>',listas:'<svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="18" r="1.2"/></svg>',planillas:'<svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-2"/><path d="M6 14h12v7H6z"/></svg>',planilleros:'<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 11l2 2 4-4"/></svg>',informe:'<svg viewBox="0 0 24 24"><path d="M8 21h8M12 16v5M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 6h3v1.5A3.5 3.5 0 0 1 16.6 11M7 6H4v1.5A3.5 3.5 0 0 0 7.4 11"/></svg>'};
+function draw(){let t=tor(),cats=t?.categorias||[];
+ let h=`<div class="top"><div class="brand"><img src="/logo.webp" alt=""><div>Mundialito<small>Panel de fixture</small></div></div><select onchange="cambiarTorneo(this.value)">${TS.map(x=>`<option value="${esc(x.id)}" ${x.id===TID?'selected':''}>${esc(x.nombre)}${x.publicado?'':' (oculto)'}</option>`).join('')}${TS.length?'':'<option>Sin torneos</option>'}</select><span class="sp"></span><button class="btn l s" onclick="nuevoTorneo()">+ Nuevo torneo</button>${t?`<a class="btn l s" href="/${esc(t.id)}" target="_blank" rel="noopener">Ver en la web</a>`:''}<button class="btn l s" onclick="if(!DIRTY||confirm('Hay cambios sin guardar. ¿Salir igual?')){DIRTY=false;salir()}">Salir</button></div>`;
+ if(!t){$('#app').innerHTML=h+`<div class="wrap"><div class="card"><div class="empty">Todavía no hay torneos. Creá el primero con «Nuevo torneo».</div></div></div>`;return}
+ const it=(v,l,extra='')=>`<button class="nav-i ${VIEW===v?'on':''}" onclick="VIEW='${v}';draw()">${ICO[v]}<span>${l}</span>${extra}</button>`;
+ let side=`<aside class="side"><div class="side-t"><small>Torneo</small><b>${esc(t.nombre)}</b><span class="${t.publicado?'pub':'ocu'}">${t.publicado?'Publicado en la web':'Oculto en la web'}</span></div>${it('resumen','Resumen')}${it('datos','Datos del torneo')}<div class="side-h">Categoría</div><div class="cats">${cats.map(c=>`<button class="cat ${c===CAT?'on':''}" onclick="CAT='${esc(c)}';DAY='';LEQ=null;if(TVIEWS.includes(VIEW))VIEW='resultados';draw()">${esc(c)}<small>${(FX[c]?.matches||[]).length} partidos</small></button>`).join('')||'<p class="side-n">Agregá categorías en «Datos del torneo».</p>'}</div>${cats.length?`<div class="side-h">${esc(CAT||'')}</div>${it('resultados','Resultados')}${it('partidos','Partidos')}${it('equipos','Equipos y zonas')}${it('llaves','Llaves y copas')}${it('listas','Listas de buena fe')}${it('planillas','Planillas para imprimir')}`:''}<div class="side-h">Día del torneo</div>${it('tv','Pantalla TV')}${it('planilleros','Planilleros por cancha')}${it('arbitros','Árbitros')}${it('placas','Placas para historias')}<div class="side-h">Web y difusión</div>${it('galeria','Galería de fotos')}${it('sedes','Canchas y sedes')}${it('inscripciones','Inscripciones')}${it('encuesta','Encuesta')}<div class="side-h">Cierre</div>${it('informe','Informe final')}</aside>`;
+ const TV=TVIEWS,TORV={tv:vTV,arbitros:vArbitros,placas:vPlacas,galeria:vGaleria,sedes:vSedes,inscripciones:vInscripciones,encuesta:vEncuesta};let f=fx(),main=TORV[VIEW]?TORV[VIEW](t):VIEW==='resumen'?vResumen(t):VIEW==='planilleros'?vPlanilleros(t):VIEW==='informe'?vInforme(t):VIEW==='datos'||!cats.length?vTorneo(t):!f?'':VIEW==='partidos'?vPartidos(f):VIEW==='equipos'?vEquipos(f):VIEW==='llaves'?vLlaves(f):VIEW==='listas'?vListas(f):VIEW==='planillas'?vPlanillas(f):vResultados(f);
+ h+=`<div class="lay">${side}<main class="main">${!TV.includes(VIEW)&&cats.length?`<div class="crumb">${esc(t.nombre)} <i>›</i> <b>${esc(CAT)}</b> <i>›</i> ${({resultados:'Resultados',partidos:'Partidos',equipos:'Equipos y zonas',llaves:'Llaves y copas',listas:'Listas de buena fe',planillas:'Planillas para imprimir'})[VIEW]}</div>`:''}${main}</main></div><div class="save ${DIRTY?'on':''}" id="save"><span>Hay cambios sin guardar</span><button class="btn g" id="saveBtn" onclick="guardar()">Guardar cambios</button></div>`;
+ $('#app').innerHTML=h}
+async function cambiarTorneo(id){if(DIRTY&&!confirm('Hay cambios sin guardar. ¿Cambiar de torneo igual?'))return draw();TID=id;CAT=null;DAY='';IMP=null;await cargarFx();draw()}
+
+// Datos del torneo
+function vTorneo(t){return `<div class="card"><h2>Datos del torneo <small>${esc(t.id)}</small></h2><div class="grid">
+ <label class="f">Nombre<input class="i" value="${esc(t.nombre)}" onchange="tor().nombre=this.value;marcar()"></label>
+ <label class="f">Tipo<select class="i" onchange="tor().tipo=this.value;marcar()">${['Mundialito Alianza','Premundialito','Torneo Juvenil de Clubes','Torneo especial','Encuentro'].map(x=>`<option ${x===t.tipo?'selected':''}>${x}</option>`).join('')}</select></label>
+ <label class="f">Inicio<input class="i" type="date" value="${esc(t.inicio||'')}" onchange="tor().inicio=this.value;marcar()"></label>
+ <label class="f">Fin<input class="i" type="date" value="${esc(t.fin||'')}" onchange="tor().fin=this.value;marcar()"></label>
+ <label class="f">Sede<input class="i" value="${esc(t.sede||'')}" placeholder="Club · Ciudad, Provincia" onchange="tor().sede=this.value;marcar()"></label>
+ <div class="f">Reglamento (PDF)<div class="up">${t.reglamento?`<a class="btn l s" href="${esc(t.reglamento)}" target="_blank" rel="noopener">Ver el reglamento</a>`:'<span class="up-n">Sin reglamento cargado</span>'}<label class="btn s">${t.reglamento?'Reemplazar':'Subir PDF'}<input type="file" accept="application/pdf" hidden onchange="subirReglamento(this)"></label>${t.reglamento?'<button class="btn x s" onclick="tor().reglamento=\'\';marcar();draw()">Quitar</button>':''}</div></div></div>
+ <div class="row" style="margin-top:16px"><label class="switch"><input type="checkbox" ${t.publicado?'checked':''} onchange="tor().publicado=this.checked;marcar()">Publicado en la web</label></div></div>
+ <div class="card"><h2>Categorías <small>${(t.categorias||[]).length}</small></h2><div class="chips">${(t.categorias||[]).map(c=>`<span class="chip">${esc(c)}<button title="Quitar" onclick="quitarCat('${esc(c)}')">×</button></span>`).join('')}<span class="row"><input class="i" id="ncat" placeholder="Ej.: Sub 15 Femenino" style="width:190px" onkeydown="if(event.key==='Enter')agregarCat()"><button class="btn s" onclick="agregarCat()">Agregar</button></span></div><p class="note">Cada categoría tiene su propio fixture. Elegila en el menú de la izquierda para cargar equipos, partidos y resultados.</p></div>
+ <div class="card"><h2>Duplicar torneo</h2><p class="note" style="margin-top:0">Crea una copia oculta con las mismas categorías, equipos y zonas, ideal para la próxima edición. Podés copiar también los partidos (sin resultados).</p><button class="btn l s" style="margin-top:10px" onclick="duplicarTorneo()">Duplicar este torneo</button></div><div class="card"><h2>Zona de riesgo</h2><p class="note" style="margin-top:0">Borrar el torneo lo quita de la web junto con todo su fixture. No se puede deshacer.</p><button class="btn l s" style="margin-top:10px" onclick="borrarTorneo()">Borrar torneo</button></div>`}
+function agregarCat(){let v=$('#ncat').value.trim();if(!v)return;let t=tor();t.categorias=t.categorias||[];if(t.categorias.includes(v))return toast('Esa categoría ya existe',1);t.categorias.push(v);FX[v]=nuevoFx();CAT=v;marcar();draw();toast('Categoría agregada: elegila en el menú para cargarla')}
+function quitarCat(c){if(!confirm('¿Quitar la categoría '+c+'? Se borra su fixture de la web al guardar.'))return;let t=tor();t.categorias=t.categorias.filter(x=>x!==c);delete FX[c];rpc('panel_borrar_fixture',{tid:TID,cat:c}).catch(()=>{});if(CAT===c)CAT=t.categorias[0]||null;marcar();draw()}
+async function nuevoTorneo(){if(DIRTY&&!confirm('Hay cambios sin guardar. ¿Seguir igual?'))return;let n=prompt('Nombre del torneo nuevo:');if(!n)return;let y=new Date().getFullYear(),id=slug(n).replace(/-/g,'').slice(0,18)+String(y).slice(2);if(TS.some(t=>t.id===id))id+='-'+Math.random().toString(36).slice(2,5);
+ let t={id,nombre:n,inicio:'',fin:'',sede:'',tipo:'Torneo especial',categorias:[],publicado:false,campeones:{},reglamento:'',galeria:[],config:{},_nuevo:true};try{await rpc('panel_guardar_torneo',{t});TS.push(t);TID=id;CAT=null;FX={};DIRTY=false;draw();toast('Torneo creado (oculto en la web hasta que lo publiques)')}catch(e){toast('No se pudo crear: '+e.message,1)}}
+async function borrarTorneo(){let t=tor();if(prompt('Esto borra el torneo y todo su fixture de la web. Escribí BORRAR para confirmar.')!=='BORRAR')return;try{await rpc('panel_borrar_torneo',{tid:t.id});TID=null;CAT=null;DIRTY=false;await cargar();toast('Torneo borrado')}catch(e){toast('No se pudo borrar',1)}}
+
+// Resultados
+const tn=(f,id,l)=>id&&f.teams[id]?f.teams[id].n:(l||'A definir');
+function vResultados(f){resolver(f);if(!f.matches.length)return `<div class="card"><div class="empty">Esta categoría todavía no tiene partidos. Cargá los equipos en «Equipos y zonas» y después generá o agregá los partidos.</div></div>`;
+ let days=[...new Set(f.matches.map(m=>m.d||''))].sort();if(DAY&&!days.includes(DAY))DAY='';
+ let h=`<div class="card"><div class="row" style="justify-content:space-between;margin-bottom:6px"><h2 style="margin:0">Resultados <small>${f.matches.filter(played).length}/${f.matches.length} cargados</small></h2><select class="i" style="width:auto" onchange="DAY=this.value;draw()"><option value="">Todos los días</option>${days.map(d=>`<option value="${d}" ${d===DAY?'selected':''}>${fmtDay(d)}</option>`).join('')}</select></div><p class="note">Escribí los goles y tocá «Guardar cambios». Si una llave termina empatada, cargá los penales. Las semifinales y finales se completan solas.</p>`;
+ days.filter(d=>!DAY||d===DAY).forEach(d=>{h+=`<div class="day">${fmtDay(d)}</div><div class="mlist">`;f.matches.filter(m=>(m.d||'')===d).forEach(m=>{let i=f.matches.indexOf(m),ko=!!m.src||!/^(Zona|Interzonal)$/.test(m.ph||'Zona'),tie=played(m)&&+m.hs===+m.as&&ko;
+  h+=`<div class="m ${played(m)?'done':''}" id="m${i}">${ko?`<div class="ph">${esc(m.ph||'')}</div>`:''}<div class="meta"><b>${esc(m.t||'--:--')}</b>${esc(m.f||'')} · P${m.n}<select class="est est-${m.est||'n'}" onchange="setEst(${i},this.value)" title="Estado del partido">${[['','Programado'],['vivo','En juego'],['susp','Suspendido'],['post','Postergado']].map(([v,l])=>`<option value="${v}" ${(m.est||'')===v?'selected':''}>${l}</option>`).join('')}</select></div><div class="tm h">${esc(tn(f,m.h,m.hl))}${m.ph==='Zona'?`<small>${esc((f.zones.find(z=>z.id===m.z)||{}).name||'')}</small>`:''}</div><div class="sc"><input inputmode="numeric" value="${m.hs??''}" ${m.h&&m.a?'':'disabled'} oninput="gol(${i},'hs',this.value)"><b>-</b><input inputmode="numeric" value="${m.as??''}" ${m.h&&m.a?'':'disabled'} oninput="gol(${i},'as',this.value)"></div><div class="tm">${esc(tn(f,m.a,m.al))}</div>${tie||(ko&&(m.hp!=null&&m.hp!==''))?`<div class="pen">Penales <input inputmode="numeric" value="${m.hp??''}" oninput="gol(${i},'hp',this.value)"> - <input inputmode="numeric" value="${m.ap??''}" oninput="gol(${i},'ap',this.value)"></div>`:''}</div>`});h+='</div>'});
+ return h+'</div>'}
+function gol(i,k,v){let m=fx().matches[i];v=v.replace(/\D/g,'').slice(0,2);m[k]=v===''?null:+v;document.getElementById('m'+i)?.classList.add('dirty');marcar();if(k==='hs'||k==='as'){let ko=!!m.src||!/^(Zona|Interzonal)$/.test(m.ph||'Zona'),need=played(m)&&+m.hs===+m.as&&ko,has=!!document.querySelector('#m'+i+' .pen');if(need!==has){if(!need){m.hp=null;m.ap=null}let y=scrollY;draw();scrollTo(0,y);document.querySelector('#m'+i+' .sc input:nth-of-type('+(k==='hs'?1:2)+')')?.focus()}}}
+
+// Partidos (edición completa)
+function vPartidos(f){let opts=(sel)=>`<option value="">— Elegir —</option>`+Object.entries(f.teams).sort((a,b)=>a[1].n.localeCompare(b[1].n)).map(([id,x])=>`<option value="${id}" ${id===sel?'selected':''}>${esc(x.n)}</option>`).join('');
+ let h=`<div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Partidos <small>${f.matches.length}</small></h2><div class="row"><button class="btn l s" onclick="agregarPartido()">+ Agregar partido</button><button class="btn l s" onclick="ordenar(fx());marcar();draw()">Ordenar por día y hora</button><button class="btn s" onclick="HOR=HOR?null:horDefault();draw()">Asignar horarios automáticamente</button></div></div>${HOR?vHorarios(f):''}<p class="note">Si cambiás el día, la hora o la cancha de un partido ya publicado, al guardar la web lo marca como <b>«Cambio de horario»</b> y muestra cómo estaba antes. Los partidos de llaves se editan en «Llaves y copas».</p><div class="scroll"><table class="e"><thead><tr><th>#</th><th>Fecha</th><th>Hora</th><th>Cancha</th><th>Fase</th><th>Zona</th><th>Local</th><th>Visitante</th><th></th></tr></thead><tbody>`;
+ f.matches.forEach((m,i)=>{h+=`<tr><td><b>${m.n}</b></td><td><input class="i" type="date" value="${esc(m.d||'')}" onchange="setM(${i},'d',this.value)"></td><td><input class="i" type="time" value="${esc(m.t||'')}" onchange="setM(${i},'t',this.value)" style="width:110px"></td><td><input class="i" value="${esc(m.f||'')}" onchange="setM(${i},'f',this.value)" style="width:110px"></td><td><input class="i" value="${esc(m.ph||'')}" onchange="setM(${i},'ph',this.value)" style="width:150px" list="fases"></td><td><select class="i" onchange="setM(${i},'z',this.value||null)"><option value="">—</option>${f.zones.map(z=>`<option value="${z.id}" ${z.id===m.z?'selected':''}>${esc(z.name)}</option>`).join('')}</select></td>${m.src?`<td colspan="2" style="color:var(--muted);font-weight:700">${esc(m.hl)} vs ${esc(m.al)}</td>`:`<td><select class="i" onchange="setM(${i},'h',this.value||null)">${opts(m.h)}</select></td><td><select class="i" onchange="setM(${i},'a',this.value||null)">${opts(m.a)}</select></td>`}<td>${m.cam?`<button class="btn x s" title="Quitar el aviso de cambio de horario" onclick="delete fx().matches[${i}].cam;ORIG[fx().matches[${i}].id]={d:fx().matches[${i}].d||'',t:fx().matches[${i}].t||'',f:fx().matches[${i}].f||''};marcar();draw()">Quitar aviso</button>`:''}<button class="btn x s" title="Borrar partido" onclick="borrarPartido(${i})">✕</button></td></tr>${m.cam?`<tr class="camr"><td></td><td colspan="8">Cambio de horario avisado en la web · antes: ${esc([m.cam.d,m.cam.t,m.cam.f].filter(Boolean).join(' · '))}</td></tr>`:''}`});
+ return h+`</tbody></table></div><datalist id="fases"><option>Zona</option><option>Interzonal</option><option>Semifinal Copa de Oro</option><option>Final Copa de Oro</option><option>Tercer puesto Copa de Oro</option><option>Semifinal Copa de Plata</option><option>Final Copa de Plata</option><option>Semifinal Copa de Bronce</option><option>Final Copa de Bronce</option></datalist>${f.matches.length?'':'<div class="empty" style="margin-top:10px">Sin partidos todavía.</div>'}</div>`}
+function setM(i,k,v){let m=fx().matches[i];m[k]=v;if(k==='h'||k==='a'){let f=fx();m.hl=tn(f,m.h);m.al=tn(f,m.a)}if(k==='ph'&&v==='Interzonal')m.z=null;marcar()}
+function agregarPartido(){let f=fx(),last=f.matches[f.matches.length-1]||{};f.matches.push({id:uid('m'),n:f.matches.length+1,h:null,a:null,hl:'A definir',al:'A definir',hs:null,as:null,hp:null,ap:null,d:last.d||tor().inicio||'',t:'',f:last.f||'',v:'',ph:'Zona',z:(f.zones[0]||{}).id||null,g:[],bye:false});marcar();draw()}
+function borrarPartido(i){let f=fx(),m=f.matches[i];if(f.matches.some(x=>x.src&&[x.src.h,x.src.a].some(s=>s&&(s.winner===m.k||s.loser===m.k)&&m.k)))return toast('Otro partido depende de este (ganador/perdedor). Cambialo primero en «Llaves».',1);if(!confirm('¿Borrar el partido '+m.n+'?'))return;f.matches.splice(i,1);f.matches.forEach((x,k)=>x.n=k+1);marcar();draw()}
+
+// Equipos y zonas
+function vEquipos(f){let h=`<div class="card"><h2>Zonas <small>${f.zones.length}</small></h2><div class="chips" style="margin-bottom:10px">${f.zones.map((z,k)=>`<span class="chip"><input class="i" style="width:110px;padding:4px 8px" value="${esc(z.name)}" onchange="fx().zones[${k}].name=this.value;marcar()"><button title="Quitar zona" onclick="quitarZona(${k})">×</button></span>`).join('')}<button class="btn l s" onclick="agregarZona()">+ Zona</button></div>
+ <div class="row"><label class="f" style="flex-direction:row;align-items:center">Clasifican por zona <input class="i" style="width:70px" type="number" min="0" value="${f.perZone||0}" onchange="fx().perZone=+this.value||0;marcar()"></label><button class="btn s" onclick="generarZonas()">Generar todos contra todos</button></div><p class="note">«Generar» agrega los cruces de cada zona que todavía no existan (sin borrar los cargados). Después les ponés fecha, hora y cancha en «Partidos».</p></div>`;
+ let ids=Object.keys(f.teams).sort((a,b)=>f.teams[a].n.localeCompare(f.teams[b].n));
+ h+=`<div class="card"><h2>Equipos <small>${ids.length}</small></h2><div class="scroll"><table class="e"><thead><tr><th>Logo</th><th>Nombre</th><th>Ciudad</th><th>Zona</th><th></th></tr></thead><tbody>${ids.map(id=>{let x=f.teams[id],z=f.zones.find(z=>z.teams.includes(id));return `<tr><td><label class="lg-up" title="${x.l?'Cambiar logo':'Subir logo'}">${x.l?`<img class="logo" src="${esc(x.l)}" alt="" onerror="this.outerHTML='<span class=ini>?</span>'">`:`<span class="ini">${esc(x.n.split(/\s+/).map(w=>w[0]).join('').slice(0,3).toUpperCase())}</span>`}<span>${x.l?'Cambiar':'Subir logo'}</span><input type="file" accept="image/png,image/jpeg,image/webp" hidden onchange="subirLogo('${id}',this)"></label></td><td><input class="i" value="${esc(x.n)}" onchange="renombrar('${id}',this.value)"></td><td><input class="i" value="${esc(x.c||'')}" onchange="fx().teams['${id}'].c=this.value;marcar()"></td><td><select class="i" onchange="asignarZona('${id}',this.value)"><option value="">Sin zona</option>${f.zones.map(zz=>`<option value="${zz.id}" ${z&&z.id===zz.id?'selected':''}>${esc(zz.name)}</option>`).join('')}</select></td><td><button class="btn x s" title="Quitar equipo" onclick="quitarEquipo('${id}')">✕</button></td></tr>`}).join('')}</tbody></table></div>
+ <div class="row" style="margin-top:12px"><input class="i" id="neq" placeholder="Nombre del equipo" style="flex:1;min-width:200px" onkeydown="if(event.key==='Enter')agregarEquipo()"><button class="btn s" onclick="agregarEquipo()">+ Agregar equipo</button></div><p class="note">Tocá el logo para subir una imagen (PNG, JPG o WEBP). Se achica sola para que cargue rápido. Si un equipo no tiene logo, se muestran sus iniciales.</p></div>`;
+ return h}
+function agregarZona(){let f=fx();f.zones.push({id:uid('z'),name:'Zona '+String.fromCharCode(65+f.zones.length),teams:[]});marcar();draw()}
+function quitarZona(k){let f=fx(),z=f.zones[k];if(f.matches.some(m=>m.z===z.id)&&!confirm('Esta zona tiene partidos. ¿Quitarla igual? Los partidos quedan sin zona.'))return;f.matches.forEach(m=>{if(m.z===z.id)m.z=null});f.zones.splice(k,1);marcar();draw()}
+function agregarEquipo(){let n=$('#neq').value.trim();if(!n)return;let f=fx(),id=uid('T');f.teams[id]={n,c:'',k:[],l:''};let s=slug(n);f.teams[id].l='';marcar();draw();setTimeout(()=>$('#neq')?.focus(),0)}
+function renombrar(id,v){let f=fx();f.teams[id].n=v;f.matches.forEach(m=>{if(m.h===id)m.hl=v;if(m.a===id)m.al=v});marcar()}
+function asignarZona(id,zid){let f=fx();f.zones.forEach(z=>z.teams=z.teams.filter(x=>x!==id));let z=f.zones.find(z=>z.id===zid);if(z)z.teams.push(id);marcar();draw()}
+function quitarEquipo(id){let f=fx();if(f.matches.some(m=>m.h===id||m.a===id)&&!confirm('Este equipo tiene partidos cargados. ¿Quitarlo igual? Esos partidos quedan «A definir».'))return;delete f.teams[id];f.zones.forEach(z=>z.teams=z.teams.filter(x=>x!==id));f.matches.forEach(m=>{if(m.h===id){m.h=null;m.hl='A definir'}if(m.a===id){m.a=null;m.al='A definir'}});marcar();draw()}
+function generarZonas(){let f=fx(),n=0;f.zones.forEach(z=>{let T=z.teams;for(let i=0;i<T.length;i++)for(let j=i+1;j<T.length;j++){let a=T[i],b=T[j];if(f.matches.some(m=>(m.h===a&&m.a===b)||(m.h===b&&m.a===a)))continue;f.matches.push({id:uid('m'),n:0,h:a,a:b,hl:f.teams[a].n,al:f.teams[b].n,hs:null,as:null,hp:null,ap:null,d:'',t:'',f:'',v:'',ph:'Zona',z:z.id,g:[],bye:false});n++}});f.matches.forEach((m,k)=>m.n=k+1);if(n){marcar();toast(n+' partidos agregados: ponéles fecha, hora y cancha en «Partidos»')}else toast('No había cruces nuevos para agregar');draw()}
+
+// Llaves y copas
+function vLlaves(f){resolver(f);let ko=f.matches.map((m,i)=>[m,i]).filter(([m])=>m.src);
+ let h=`<div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Llaves y copas <small>${ko.length} partidos</small></h2><button class="btn l s" onclick="agregarLlave()">+ Agregar partido de llave</button></div><p class="note">Elegí de dónde sale cada equipo: un puesto de una zona, el mejor de un puesto entre zonas, o el ganador/perdedor de otro partido. El equipo se completa solo cuando ese resultado está cargado.</p>`;
+ if(!ko.length)h+=`<div class="empty">Todavía no hay llaves armadas.</div>`;else h+=cuadro(f)+'<h3 class="sub3">Editar llaves</h3>';
+ ko.forEach(([m,i])=>{h+=`<div class="m" style="grid-template-columns:1fr"><div class="row" style="justify-content:space-between"><b>P${m.n} · <input class="i" style="width:240px;display:inline-block" value="${esc(m.ph||'')}" list="fases" onchange="setM(${i},'ph',this.value)"></b><span class="row"><input class="i" type="date" style="width:150px" value="${esc(m.d||'')}" onchange="setM(${i},'d',this.value)"><input class="i" type="time" style="width:110px" value="${esc(m.t||'')}" onchange="setM(${i},'t',this.value)"><input class="i" style="width:110px" value="${esc(m.f||'')}" placeholder="Cancha" onchange="setM(${i},'f',this.value)"><button class="btn x s" onclick="borrarPartido(${i})">✕</button></span></div><div class="grid" style="margin-top:8px">${['h','a'].map(side=>`<label class="f">${side==='h'?'Local':'Visitante'} <span style="text-transform:none;color:var(--ink)">→ ${esc(side==='h'?m.hl:m.al)}</span>${srcSel(f,i,side)}</label>`).join('')}</div></div>`});
+ return h+`<datalist id="fases"><option>Semifinal Copa de Oro</option><option>Final Copa de Oro</option><option>Tercer puesto Copa de Oro</option><option>Semifinal Copa de Plata</option><option>Final Copa de Plata</option><option>Semifinal Copa de Bronce</option><option>Final Copa de Bronce</option><option>Cuartos de final</option><option>Semifinal</option><option>Final</option></datalist></div>`}
+function srcOptions(f,i){let o=[['','— Elegir —']];f.zones.forEach((z,zi)=>{for(let p=1;p<=Math.max(z.teams.length,1);p++)o.push([JSON.stringify({zone:zi,pos:p}),p+'° '+z.name])});let maxp=Math.max(0,...f.zones.map(z=>z.teams.length));if(f.zones.length>1)for(let p=1;p<=maxp;p++)for(let r=1;r<=f.zones.length;r++)o.push([JSON.stringify({pos:p,rank:r}),(r===1?'Mejor ':r+'° mejor ')+p+'° entre zonas']);f.matches.forEach((m,k)=>{if(k===i)return;if(!m.k)return;o.push([JSON.stringify({winner:m.k}),'Ganador P'+m.n+' ('+(m.ph||'')+')']);o.push([JSON.stringify({loser:m.k}),'Perdedor P'+m.n+' ('+(m.ph||'')+')'])});Object.entries(f.teams).forEach(([id,x])=>o.push([JSON.stringify({team:id}),'Equipo fijo: '+x.n]));return o}
+const canon=o=>o&&typeof o==='object'?JSON.stringify(Object.keys(o).sort().reduce((r,k)=>(r[k]=o[k],r),{})):'';
+function srcSel(f,i,side){let m=f.matches[i],cur=canon((m.src||{})[side]);return `<select class="i" onchange="setSrc(${i},'${side}',this.value)">${srcOptions(f,i).map(([v,l])=>`<option value='${esc(v)}' ${(v?canon(JSON.parse(v)):'')===cur?'selected':''}>${esc(l)}</option>`).join('')}</select>`}
+function setSrc(i,side,v){let f=fx(),m=f.matches[i];m.src=m.src||{h:null,a:null};m.src[side]=v?JSON.parse(v):null;resolver(f);marcar();draw()}
+function agregarLlave(){let f=fx(),last=f.matches[f.matches.length-1]||{};f.matches.push({id:uid('m'),n:f.matches.length+1,k:uid('K'),src:{h:null,a:null},h:null,a:null,hl:'A definir',al:'A definir',hs:null,as:null,hp:null,ap:null,d:last.d||'',t:'',f:last.f||'',v:'',ph:'Semifinal Copa de Oro',z:null,g:[],bye:false});f.matches.forEach(m=>{if(!m.k&&!/^(Zona|Interzonal)$/.test(m.ph||'Zona'))m.k=uid('K')});marcar();draw()}
+
+// ── Importar fixture desde Excel o CSV ──
+// Columnas: Fecha · Hora · Cancha · Categoría · Fase · Zona · Local · Visitante (la Fase y la Zona son opcionales).
+async function xlsxLib(){if(window.XLSX)return;await new Promise((ok,ko)=>{let sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';sc.onload=ok;sc.onerror=ko;document.head.append(sc)})}
+async function bajarPlantilla(){try{await xlsxLib()}catch(e){return toast('No se pudo cargar el lector de Excel. Revisá la conexión.',1)}let t=tor()||{},c=(t.categorias||['Sub 17'])[0]||'Sub 17',d=t.inicio||'2027-01-08',dd=d.split('-').reverse().join('/');
+ let rows=[['Fecha','Hora','Cancha','Categoría','Fase','Zona','Local','Visitante'],[dd,'09:00','Cancha 1',c,'Zona','Zona A','Club Atlético Alianza','Club Atlético Selva'],[dd,'10:00','Cancha 1',c,'Zona','Zona A','Club Atlético Belgrano','Club Atlético Alumni'],[dd,'18:00','Cancha 1',c,'Semifinal Copa de Oro','','1° Zona A','2° Zona B'],[dd,'19:00','Cancha 1',c,'Semifinal Copa de Oro','','1° Zona B','2° Zona A'],[dd,'20:00','Cancha 1',c,'Final Copa de Oro','','Ganador P3','Ganador P4']];
+ let ws=XLSX.utils.aoa_to_sheet(rows);ws['!cols']=[{wch:12},{wch:7},{wch:10},{wch:16},{wch:24},{wch:9},{wch:28},{wch:28}];let ayuda=XLSX.utils.aoa_to_sheet([['Cómo completar la planilla'],[''],['Una fila por partido. No cambies los títulos de la primera fila.'],['Fecha: 21/11/2026 · Hora: 14:00 · Cancha: Cancha 1'],['Categoría: igual que en el torneo (por ejemplo Sub 17).'],['Fase: Zona, Interzonal, Semifinal Copa de Oro, Final Copa de Plata, etc. Si está vacía y hay Zona, se toma como Zona.'],['Zona: Zona A, Zona B… (solo para partidos de zona).'],['Local y Visitante: el nombre del equipo.'],['En las llaves podés poner de dónde sale el equipo: «1° Zona A», «Mejor 2°», «2° mejor 3°», «Ganador P12» o «Perdedor P12».'],['P12 es el partido número 12 de esa categoría, contando en el orden de la planilla.']]);ayuda['!cols']=[{wch:110}];
+ let wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Fixture');XLSX.utils.book_append_sheet(wb,ayuda,'Ayuda');XLSX.writeFile(wb,'plantilla-fixture-mundialito.xlsx')}
+const nrm=x=>String(x??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+function xFecha(v){if(v==null||v==='')return '';if(typeof v==='number'){let d=new Date(Math.round((v-25569)*864e5));return d.toISOString().slice(0,10)}let s=String(v).trim(),m;if(m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))return m[1]+'-'+m[2].padStart(2,'0')+'-'+m[3].padStart(2,'0');if(m=s.match(/^(\d{1,2})[\/\-.](\d{1,2})(?:[\/\-.](\d{2,4}))?/)){let y=m[3]?(m[3].length===2?'20'+m[3]:m[3]):((tor()?.inicio||'').slice(0,4)||String(new Date().getFullYear()));return y+'-'+m[2].padStart(2,'0')+'-'+m[1].padStart(2,'0')}return ''}
+function xHora(v){if(v==null||v==='')return '';if(typeof v==='number'){let mins=Math.round((v%1)*1440);if(v>=1&&v<24&&v%1===0)mins=v*60;return String(Math.floor(mins/60)).padStart(2,'0')+':'+String(mins%60).padStart(2,'0')}let m=String(v).match(/(\d{1,2})(?:[:.hH]\s*(\d{2}))?/);return m?m[1].padStart(2,'0')+':'+(m[2]||'00'):''}
+async function leerArchivo(inp){let file=inp.files[0];if(!file)return;try{await xlsxLib()}catch(e){return toast('No se pudo cargar el lector de Excel. Revisá la conexión.',1)}
+ let wb=XLSX.read(await file.arrayBuffer(),{type:'array'}),ws=wb.Sheets[wb.SheetNames[0]],raw=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,defval:''});
+ let hi=raw.findIndex(r=>r.some(c=>/local/.test(nrm(c)))&&r.some(c=>/visit/.test(nrm(c))));if(hi<0){IMP={err:'No encontré la fila de títulos. La planilla tiene que tener las columnas Local y Visitante (podés bajar la plantilla).'};return draw()}
+ let H=raw[hi].map(nrm),col=k=>H.findIndex(x=>x.startsWith(k)),C={fe:col('fecha'),ho:col('hora'),ca:col('cancha'),cat:col('categ'),fa:col('fase'),zo:col('zona'),lo:col('local'),vi:col('visit')};
+ let rows=[],cat0=CAT||(tor()?.categorias||[])[0]||'';raw.slice(hi+1).forEach((r,k)=>{let g=i=>i>=0?r[i]:'';let lo=String(g(C.lo)).trim(),vi=String(g(C.vi)).trim();if(!lo&&!vi)return;rows.push({fila:hi+k+2,d:xFecha(g(C.fe)),t:xHora(g(C.ho)),f:String(g(C.ca)).trim(),cat:String(g(C.cat)).trim()||cat0,fase:String(g(C.fa)).trim(),zona:String(g(C.zo)).trim(),lo,vi})});
+ if(!rows.length){IMP={err:'La planilla no tiene partidos debajo de los títulos.'};return draw()}IMP={archivo:file.name,rows,modo:'reemplazar'};draw()}
+// Interpreta «1° Zona A», «Mejor 2°», «2° mejor 3°», «Ganador P12», «Perdedor P12»
+function xFuente(txt,zonas){let s=nrm(txt),m;if(m=s.match(/^(\d+)\s*(?:°|º|o|ro|do|to|er)?\s*(?:de\s*)?(?:la\s*)?(zona\s*\w+|grupo\s*\w+)$/)){let zn=m[2].replace('grupo','zona').replace(/\s+/g,' ');let zi=zonas.findIndex(z=>nrm(z)===zn);return zi>=0?{zone:zi,pos:+m[1]}:{_zona:m[2],pos:+m[1]}}
+ if(m=s.match(/^mejor\s*(\d+)\s*(?:°|º)?$/))return {pos:+m[1],rank:1};if(m=s.match(/^(\d+)\s*(?:°|º)?\s*mejor\s*(\d+)\s*(?:°|º)?$/))return {pos:+m[2],rank:+m[1]};if(m=s.match(/^(ganador|perdedor)\s*(?:del?\s*)?(?:p|partido)?\s*(\d+)$/))return {[m[1]==='ganador'?'winner':'loser']:'#'+m[2]};return null}
+function resumenImp(){let porCat={};IMP.rows.forEach(r=>{(porCat[r.cat]=porCat[r.cat]||{rows:[],teams:new Set(),zonas:new Set(),llaves:0}).rows.push(r);let c=porCat[r.cat];if(r.zona)c.zonas.add(r.zona);[r.lo,r.vi].forEach(x=>{if(!xFuente(x,[...c.zonas]))c.teams.add(x)});if(xFuente(r.lo,[...c.zonas])||xFuente(r.vi,[...c.zonas]))c.llaves++});return porCat}
+function vImportar(){let t=tor();let h=`<div class="card"><h2>Importar fixture desde Excel</h2><p class="note" style="margin-top:0">Armás el fixture en Excel como siempre, lo subís acá y el panel lo carga solo. Antes de importar ves una vista previa para revisar que esté todo bien.</p>
+ <div class="steps"><div class="step"><b>1</b><div><h3>Bajá la plantilla</h3><p>Tiene las columnas que lee el panel y una hoja de ayuda.</p><button class="btn l s" onclick="bajarPlantilla()">Descargar plantilla (.xlsx)</button></div></div>
+ <div class="step"><b>2</b><div><h3>Completala</h3><p>Una fila por partido: Fecha, Hora, Cancha, Categoría, Fase, Zona, Local y Visitante.</p></div></div>
+ <div class="step"><b>3</b><div><h3>Subila</h3><p>Acepta Excel (.xlsx, .xls) o .csv.</p><label class="btn s" style="cursor:pointer">Elegir archivo<input type="file" accept=".xlsx,.xls,.csv" hidden onchange="leerArchivo(this)"></label></div></div></div></div>`;
+ if(IMP&&IMP.err)h+=`<div class="card"><div class="empty" style="color:var(--red2)">${esc(IMP.err)}</div></div>`;
+ if(IMP&&IMP.rows){let pc=resumenImp(),cats=Object.keys(pc),nuevas=cats.filter(c=>!(t.categorias||[]).includes(c)),sinF=IMP.rows.filter(r=>!r.d||!r.t).length;
+  h+=`<div class="card"><h2>Vista previa <small>${esc(IMP.archivo)} · ${IMP.rows.length} partidos</small></h2><div class="sumi">${cats.map(c=>`<div><b>${esc(c)}</b><span>${pc[c].rows.length} partidos · ${pc[c].teams.size} equipos · ${pc[c].zonas.size} zonas${pc[c].llaves?' · '+pc[c].llaves+' de llaves':''}</span>${nuevas.includes(c)?'<em>Categoría nueva: se agrega al torneo</em>':''}</div>`).join('')}</div>
+  ${sinF?`<p class="warn">${sinF} partido${sinF>1?'s':''} sin fecha u hora: se importan igual y los completás después en «Partidos».</p>`:''}
+  <div class="row" style="margin:12px 0"><label class="switch"><input type="radio" name="modo" ${IMP.modo==='reemplazar'?'checked':''} onchange="IMP.modo='reemplazar'">Reemplazar el fixture de estas categorías</label><label class="switch"><input type="radio" name="modo" ${IMP.modo==='agregar'?'checked':''} onchange="IMP.modo='agregar'">Agregar a lo que ya hay</label></div>
+  <div class="scroll" style="max-height:420px;overflow:auto"><table class="e"><thead><tr><th>Fila</th><th>Fecha</th><th>Hora</th><th>Cancha</th><th>Categoría</th><th>Fase</th><th>Zona</th><th>Local</th><th>Visitante</th></tr></thead><tbody>${IMP.rows.map(r=>`<tr><td>${r.fila}</td><td>${r.d?esc(r.d.split('-').reverse().join('/')):'<span class="bad">falta</span>'}</td><td>${r.t?esc(r.t):'<span class="bad">falta</span>'}</td><td>${esc(r.f)}</td><td>${esc(r.cat)}</td><td>${esc(r.fase||(r.zona?'Zona':''))}</td><td>${esc(r.zona)}</td><td>${esc(r.lo)}</td><td>${esc(r.vi)}</td></tr>`).join('')}</tbody></table></div>
+  <div class="row" style="margin-top:14px;justify-content:flex-end"><button class="btn l s" onclick="IMP=null;draw()">Cancelar</button><button class="btn g" onclick="importar()">Importar ${IMP.rows.length} partidos</button></div></div>`}
+ return h}
+function importar(){let t=tor(),pc=resumenImp(),total=0;if(IMP.modo==='reemplazar'&&Object.keys(pc).some(c=>(FX[c]?.matches||[]).some(played))&&!confirm('Algunas de estas categorías ya tienen resultados cargados. Si reemplazás el fixture se pierden. ¿Seguir?'))return;
+ Object.entries(pc).forEach(([cat,info])=>{t.categorias=t.categorias||[];if(!t.categorias.includes(cat))t.categorias.push(cat);let f=FX[cat]&&IMP.modo==='agregar'?FX[cat]:(FX[cat]=nuevoFx(),FX[cat]);if(IMP.modo==='reemplazar'){f.matches=[];f.zones.forEach(z=>z.teams=[])}
+  const team=n=>{let id=Object.keys(f.teams).find(k=>nrm(f.teams[k].n)===nrm(n));if(id)return id;id=uid('T');let sl=slug(n);f.teams[id]={n,c:'',k:[],l:''};return id};
+  const zona=n=>{if(!n)return null;let z=f.zones.find(z=>nrm(z.name)===nrm(n));if(!z){z={id:uid('z'),name:n,teams:[]};f.zones.push(z)}return z};
+  info.rows.forEach(r=>zona(r.zona));let base=f.matches.length,nums={};
+  info.rows.forEach((r,k)=>{let z=zona(r.zona),zn=f.zones.map(x=>x.name),sh=xFuente(r.lo,zn),sa=xFuente(r.vi,zn),fase=r.fase||(r.zona?'Zona':'Partido'),key=uid('K');
+   let m={id:uid('m'),n:0,k:key,h:null,a:null,hl:'A definir',al:'A definir',hs:null,as:null,hp:null,ap:null,d:r.d,t:r.t,f:r.f,v:'',ph:/^zona$/i.test(fase)?'Zona':/^interzonal$/i.test(fase)?'Interzonal':fase,z:null,g:[],bye:false};
+   if(sh||sa){m.src={h:sh||{team:team(r.lo)},a:sa||{team:team(r.vi)}}}else{m.h=team(r.lo);m.a=team(r.vi);if(m.ph==='Zona'&&z){m.z=z.id;[m.h,m.a].forEach(id=>{if(!z.teams.includes(id))z.teams.push(id)})}}
+   nums[k+1]=key;f.matches.push(m)});
+  // «Ganador P12» se refiere al número de partido dentro de la planilla de esa categoría
+  f.matches.slice(base).forEach(m=>{if(!m.src)return;['h','a'].forEach(sd=>{let s=m.src[sd];if(!s)return;['winner','loser'].forEach(w=>{if(s[w]&&String(s[w]).startsWith('#'))s[w]=nums[+s[w].slice(1)]||null})})});
+  f.matches.forEach((m,k)=>m.n=k+1);resolver(f);total+=info.rows.length});
+ let cats=Object.keys(pc);CAT=cats[0];IMP=null;VIEW='partidos';marcar();draw();toast(total+' partidos importados. Revisalos y tocá «Guardar cambios» para publicarlos.')}
+
+// ── Subir archivos (logos y reglamento) ──
+function aBase64(blob){return new Promise((ok,ko)=>{let r=new FileReader();r.onload=()=>ok(String(r.result).split(',')[1]);r.onerror=ko;r.readAsDataURL(blob)})}
+async function achicar(file,max=256){let img=await createImageBitmap(file),k=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*k);c.height=Math.round(img.height*k);c.getContext('2d').drawImage(img,0,0,c.width,c.height);return await new Promise(r=>c.toBlob(r,'image/png'))}
+async function subir(file,carpeta,tipo){let {data,error}=await sb.functions.invoke('panel-subir',{body:{clave:CLAVE,carpeta,nombre:file.name||'archivo',tipo,datos:await aBase64(file)}});if(error||!data||data.error)throw new Error((data&&data.error)||error?.message||'error');return data.url}
+async function subirLogo(id,inp){let file=inp.files[0];if(!file)return;toast('Subiendo logo…');try{let png=await achicar(file);png.name=file.name;let url=await subir(png,'logos','image/png');fx().teams[id].l=url;marcar();draw();toast('Logo cargado. Tocá «Guardar cambios» para publicarlo.')}catch(e){toast('No se pudo subir el logo: '+e.message,1)}}
+async function subirReglamento(inp){let file=inp.files[0];if(!file)return;if(file.type!=='application/pdf')return toast('El reglamento tiene que ser un PDF',1);if(file.size>8*1024*1024)return toast('El PDF pesa más de 8 MB',1);toast('Subiendo reglamento…');try{let url=await subir(file,'reglamentos','application/pdf');tor().reglamento=url;marcar();draw();toast('Reglamento cargado. Tocá «Guardar cambios» para publicarlo.')}catch(e){toast('No se pudo subir el PDF: '+e.message,1)}}
+
+// ── Estado del partido (se ve en la web) ──
+function setEst(i,v){let m=fx().matches[i];if(v)m.est=v;else delete m.est;document.getElementById('m'+i)?.classList.add('dirty');marcar();draw()}
+
+// ── Resumen del torneo ──
+function vResumen(t){let hoy=new Date().toISOString().slice(0,10),cats=t.categorias||[],all=[];cats.forEach(c=>{let f=FX[c];if(!f)return;resolver(f);f.matches.forEach((m,i)=>all.push({c,m,i,f}))});
+ let tot=all.length,jug=all.filter(x=>played(x.m)).length,pend=all.filter(x=>x.m.d&&x.m.d<hoy&&!played(x.m)&&x.m.h&&x.m.a),hoyL=all.filter(x=>x.m.d===hoy).sort((a,b)=>(a.m.t||'').localeCompare(b.m.t||'')),cam=all.filter(x=>x.m.cam),vivo=all.filter(x=>x.m.est==='vivo'),sinH=all.filter(x=>!x.m.d||!x.m.t),eq=new Set();cats.forEach(c=>Object.values(FX[c]?.teams||{}).forEach(x=>eq.add(x.n)));
+ const go=(x,v)=>`onclick="CAT='${esc(x.c)}';VIEW='${v||'resultados'}';DAY='${x.m.d||''}';draw()"`;
+ const li=(x,v)=>`<button class="rl" ${go(x,v)}><b>${esc(x.m.t||'--:--')}</b><span>${esc(x.c)} · ${esc(x.m.f||'')}</span><em>${esc(tn(x.f,x.m.h,x.m.hl))} ${played(x.m)?esc(x.m.hs)+' - '+esc(x.m.as):'vs'} ${esc(tn(x.f,x.m.a,x.m.al))}</em></button>`;
+ return `<div class="kpis"><div class="kpi"><small>Partidos</small><b>${tot}</b><span>${cats.length} categoría${cats.length===1?'':'s'}</span></div><div class="kpi"><small>Jugados</small><b>${jug}</b><div class="bar"><i style="width:${tot?jug/tot*100:0}%"></i></div></div><div class="kpi"><small>Equipos</small><b>${eq.size}</b><span>entre todas las categorías</span></div><div class="kpi ${pend.length?'warn':''}"><small>Resultados pendientes</small><b>${pend.length}</b><span>de días anteriores</span></div></div>
+ <div class="two"><div class="card"><h2>Hoy <small>${fmtDay(hoy)}</small></h2>${hoyL.length?hoyL.map(x=>li(x)).join(''):'<div class="empty">No hay partidos programados para hoy.</div>'}</div>
+ <div class="card"><h2>Para revisar</h2>${vivo.length?`<div class="chk"><b class="ok">${vivo.length}</b> partido${vivo.length>1?'s':''} en juego ahora</div>`:''}${pend.length?`<div class="chk"><b class="bad">${pend.length}</b> sin resultado de días anteriores</div>${pend.slice(0,6).map(x=>li(x)).join('')}`:''}${sinH.length?`<div class="chk"><b class="bad">${sinH.length}</b> sin día u hora asignados <button class="btn l s" ${go(sinH[0],'partidos')}>Asignar</button></div>`:''}${cam.length?`<div class="chk"><b>${cam.length}</b> con aviso de cambio de horario</div>`:''}${!vivo.length&&!pend.length&&!sinH.length&&!cam.length?'<div class="empty">Todo en orden.</div>':''}</div></div>
+ <div class="card"><h2>Avance por categoría</h2><div class="prog">${cats.map(c=>{let f=FX[c]||{matches:[]},n=f.matches.length,p=f.matches.filter(played).length;return `<button class="pg" onclick="CAT='${esc(c)}';VIEW='resultados';DAY='';draw()"><b>${esc(c)}</b><span>${p} de ${n} jugados</span><div class="bar"><i style="width:${n?p/n*100:0}%"></i></div></button>`}).join('')||'<div class="empty">Agregá categorías en «Datos del torneo».</div>'}</div></div>`}
+
+// ── Horarios automáticos ──
+function horDefault(){let t=tor(),days=[];if(t.inicio){for(let d=new Date(t.inicio+'T00:00');d<=new Date((t.fin||t.inicio)+'T00:00');d.setDate(d.getDate()+1))days.push(d.toISOString().slice(0,10))}let canchas=[...new Set(Object.values(FX).flatMap(f=>f.matches.map(m=>m.f).filter(Boolean)))];return {days,sel:days.slice(),desde:'09:00',hasta:'20:00',dur:60,canchas:(canchas.length?canchas:['Cancha 1','Cancha 2']).join(', '),desc:1,solo:true}}
+function vHorarios(f){let H=HOR;return `<div class="hor"><h3>Asignar horarios automáticamente</h3><p class="note" style="margin-top:0">Reparte los partidos de esta categoría en los días, horarios y canchas que elijas, sin superponer canchas y dejando descanso entre partidos del mismo equipo. Las otras categorías ocupan sus canchas: se respetan.</p>
+ <div class="grid"><div class="f">Días<div class="chips">${H.days.map(d=>`<label class="chip ck"><input type="checkbox" ${H.sel.includes(d)?'checked':''} onchange="HOR.sel=this.checked?[...HOR.sel,'${d}']:HOR.sel.filter(x=>x!=='${d}')">${fmtDay(d)}</label>`).join('')||'<span class="up-n">Cargá el inicio y el fin del torneo en «Datos del torneo».</span>'}</div></div>
+ <label class="f">Desde<input class="i" type="time" value="${H.desde}" onchange="HOR.desde=this.value"></label><label class="f">Hasta (último turno)<input class="i" type="time" value="${H.hasta}" onchange="HOR.hasta=this.value"></label><label class="f">Duración del turno (minutos)<input class="i" type="number" min="20" step="5" value="${H.dur}" onchange="HOR.dur=+this.value||60"></label><label class="f">Canchas (separadas por coma)<input class="i" value="${esc(H.canchas)}" onchange="HOR.canchas=this.value"></label><label class="f">Turnos libres entre partidos de un equipo<input class="i" type="number" min="0" max="5" value="${H.desc}" onchange="HOR.desc=+this.value||0"></label></div>
+ <div class="row" style="margin-top:12px;justify-content:space-between"><label class="switch"><input type="checkbox" ${H.solo?'checked':''} onchange="HOR.solo=this.checked">Solo los partidos que todavía no tienen día u hora</label><span class="row"><button class="btn l s" onclick="HOR=null;draw()">Cancelar</button><button class="btn g s" onclick="asignarHorarios()">Asignar horarios</button></span></div></div>`}
+function asignarHorarios(){let H=HOR,f=fx(),toM=x=>{let [h,m]=x.split(':').map(Number);return h*60+m},hm=n=>String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');
+ let canchas=H.canchas.split(',').map(x=>x.trim()).filter(Boolean),days=H.days.filter(d=>H.sel.includes(d));if(!days.length||!canchas.length)return toast('Elegí al menos un día y una cancha',1);
+ let lista=f.matches.filter(m=>!H.solo||!m.d||!m.t);if(!lista.length)return toast('No hay partidos para asignar');
+ // ocupación: canchas tomadas por todas las categorías y partidos de cada equipo
+ let busy={},tb={};Object.values(FX).forEach(ff=>ff.matches.forEach(m=>{if(lista.includes(m)||!m.d||!m.t)return;busy[m.d+'|'+m.t+'|'+m.f]=1;[m.h,m.a].forEach(x=>{if(x)(tb[m.d+x]=tb[m.d+x]||[]).push(toM(m.t))})}));
+ // orden: primero zona por fecha (todos contra todos intercalado), después las llaves
+ const ronda=m=>{let z=f.zones.find(z=>z.id===m.z);if(!z)return 99;let T=z.teams,i=T.indexOf(m.h),j=T.indexOf(m.a);return (i+j)%Math.max(1,T.length-1)};
+ lista.sort((a,b)=>(a.src?1:0)-(b.src?1:0)||ronda(a)-ronda(b)||(a.n-b.n));
+ let ok=0,fuera=0,gap=H.dur*(H.desc+1);lista.forEach(m=>{m.d='';m.t='';let teams=[m.h,m.a].filter(Boolean),done=false;
+  for(const d of days){for(let tm=toM(H.desde);tm<=toM(H.hasta)&&!done;tm+=H.dur){if(teams.some(x=>(tb[d+x]||[]).some(z=>Math.abs(z-tm)<gap)))continue;let c=canchas.find(c=>!busy[d+'|'+hm(tm)+'|'+c]);if(!c)continue;busy[d+'|'+hm(tm)+'|'+c]=1;teams.forEach(x=>(tb[d+x]=tb[d+x]||[]).push(tm));m.d=d;m.t=hm(tm);m.f=c;done=true;ok++}if(done)break}if(!done)fuera++});
+ ordenar(f);HOR=null;marcar();draw();toast(ok+' partidos con horario'+(fuera?' · '+fuera+' no entraron: sumá días, canchas o turnos':'')+'. Revisalos y guardá.',fuera>0)}
+
+// ── Exportar a Excel ──
+async function exportarExcel(){try{await xlsxLib()}catch(e){return toast('No se pudo cargar el generador de Excel. Revisá la conexión.',1)}let t=tor(),wb=XLSX.utils.book_new();
+ (t.categorias||[]).forEach(c=>{let f=FX[c];if(!f)return;resolver(f);let rows=[['N.º','Fecha','Hora','Cancha','Categoría','Fase','Zona','Local','Goles local','Goles visitante','Visitante','Penales','Estado']];f.matches.forEach(m=>rows.push([m.n,(m.d||'').split('-').reverse().join('/'),m.t||'',m.f||'',c,m.ph||'',(f.zones.find(z=>z.id===m.z)||{}).name||'',tn(f,m.h,m.hl),m.hs??'',m.as??'',tn(f,m.a,m.al),m.hp!=null&&m.hp!==''?m.hp+' - '+m.ap:'',({vivo:'En juego',susp:'Suspendido',post:'Postergado'})[m.est]||(played(m)?'Final':'Programado')]));
+  let ws=XLSX.utils.aoa_to_sheet(rows);ws['!cols']=[{wch:5},{wch:11},{wch:7},{wch:10},{wch:14},{wch:24},{wch:9},{wch:28},{wch:6},{wch:6},{wch:28},{wch:9},{wch:12}];XLSX.utils.book_append_sheet(wb,ws,c.slice(0,31).replace(/[\\\/?*\[\]:]/g,''))});
+ if(!wb.SheetNames.length)return toast('Este torneo todavía no tiene partidos',1);XLSX.writeFile(wb,'fixture-'+t.id+'.xlsx');toast('Fixture exportado a Excel')}
+
+// ── Cuadro de llaves (formato copa) ──
+function copaDe(ph){let m=String(ph||'').match(/Copa de (\w+)/i);return m?'Copa de '+m[1]:'Llaves'}
+function rondaDe(ph){ph=String(ph||'').toLowerCase();if(/tercer|3/.test(ph)&&/puesto/.test(ph))return 9;if(/octavos/.test(ph))return 1;if(/cuartos/.test(ph))return 2;if(/semi/.test(ph))return 3;if(/final/.test(ph))return 4;return 5}
+const RNOM={1:'Octavos',2:'Cuartos',3:'Semifinales',4:'Final',5:'Otros',9:'Tercer puesto'};
+function cuadro(f){resolver(f);let ko=f.matches.filter(m=>m.src||!/^(Zona|Interzonal)$/.test(m.ph||'Zona'));if(!ko.length)return '';let copas=[...new Set(ko.map(m=>copaDe(m.ph)))];
+ const box=m=>{let w=winner(m),pl=played(m);return `<div class="bx ${pl?'pl':''}"><small>P${m.n} · ${esc(m.d?m.d.slice(8)+'/'+m.d.slice(5,7):'')} ${esc(m.t||'')}</small>${[['h','hs','hp','hl'],['a','as','ap','al']].map(([t,sc,pp,l])=>`<div class="bt ${w&&w===m[t]?'w':''}"><span>${esc(tn(f,m[t],m[l]))}</span><b>${pl?esc(m[sc])+(m[pp]!=null&&m[pp]!==''?' ('+esc(m[pp])+')':''):''}</b></div>`).join('')}</div>`};
+ return copas.map(c=>{let ms=ko.filter(m=>copaDe(m.ph)===c),rs=[...new Set(ms.map(m=>rondaDe(m.ph)))].filter(r=>r!==9).sort((a,b)=>a-b),ter=ms.filter(m=>rondaDe(m.ph)===9);
+  return `<div class="cuadro ${esc(slug(c))}"><h3>${esc(c)}</h3><div class="cq">${rs.map(r=>`<div class="cr r${r}"><small>${RNOM[r]}</small><div class="cm">${ms.filter(m=>rondaDe(m.ph)===r).map(box).join('')}</div></div>`).join('')}${ter.length?`<div class="cr ter"><small>Tercer puesto</small><div class="cm">${ter.map(box).join('')}</div></div>`:''}</div></div>`}).join('')}
+
+// ── Listas de buena fe (privadas: no se publican en la web) ──
+const lista=(cat,id)=>((LST[cat]=LST[cat]||{})[id]=LST[cat][id]||{jugadores:[],cuerpo:[]});
+const anioDe=x=>{let m=String(x||'').match(/(19|20)\d{2}/);return m?+m[0]:null};
+function avisosLista(f,id){let L=lista(CAT,id),R=f.reglas||{},a=[];let n=L.jugadores.length;if(R.max&&n>R.max)a.push('Tiene '+n+' jugadores y el máximo es '+R.max);if(R.anio){let fuera=L.jugadores.filter(j=>anioDe(j.nac)&&anioDe(j.nac)<R.anio).length;if(fuera>(R.excep||0))a.push(fuera+' jugadores nacidos antes de '+R.anio+' (se permiten '+(R.excep||0)+')')}
+ let dnis={};Object.entries(LST[CAT]||{}).forEach(([eid,l])=>l.jugadores.forEach(j=>{let d=String(j.dni||'').replace(/\D/g,'');if(d)(dnis[d]=dnis[d]||new Set()).add(eid)}));let rep=L.jugadores.filter(j=>{let d=String(j.dni||'').replace(/\D/g,'');return d&&dnis[d]&&dnis[d].size>1}).length;if(rep)a.push(rep+' DNI repetidos en otro equipo de la categoría');
+ let sinDni=L.jugadores.filter(j=>!String(j.dni||'').trim()).length;if(sinDni)a.push(sinDni+' sin DNI');return a}
+function vListas(f){let ids=Object.keys(f.teams).sort((a,b)=>f.teams[a].n.localeCompare(f.teams[b].n)),R=f.reglas||{};if(!ids.length)return `<div class="card"><div class="empty">Primero cargá los equipos en «Equipos y zonas».</div></div>`;if(!LEQ||!f.teams[LEQ])LEQ=ids[0];
+ let L=lista(CAT,LEQ),av=avisosLista(f,LEQ);
+ let h=`<div class="card"><h2>Reglas de la categoría</h2><div class="grid"><label class="f">Nacidos desde el año<input class="i" type="number" value="${R.anio||''}" placeholder="Ej.: 2011" onchange="(fx().reglas=fx().reglas||{}).anio=+this.value||null;marcar();draw()"></label><label class="f">Excepciones permitidas (más grandes)<input class="i" type="number" min="0" value="${R.excep||0}" onchange="(fx().reglas=fx().reglas||{}).excep=+this.value||0;marcar();draw()"></label><label class="f">Máximo de jugadores por lista<input class="i" type="number" min="0" value="${R.max||''}" placeholder="Ej.: 20" onchange="(fx().reglas=fx().reglas||{}).max=+this.value||null;marcar();draw()"></label></div><p class="note">Las listas son privadas: solo se ven acá y en las planillas impresas. No se publican en la web.</p></div>
+ <div class="lw"><div class="card lt"><h2>Equipos</h2>${ids.map(id=>{let n=lista(CAT,id).jugadores.length,a=avisosLista(f,id).length;return `<button class="lt-i ${id===LEQ?'on':''}" onclick="LEQ='${id}';draw()"><span>${esc(f.teams[id].n)}</span><b class="${a?'bad':n?'ok':''}">${n}</b></button>`}).join('')}</div>
+ <div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">${esc(f.teams[LEQ].n)} <small>${L.jugadores.length} jugadores</small></h2><div class="row"><button class="btn l s" onclick="imprimirLista('${LEQ}')">Imprimir lista</button><button class="btn g s" onclick="guardarLista('${LEQ}')">Guardar lista</button></div></div>
+ ${av.length?`<div class="warn">${av.map(esc).join(' · ')}</div>`:''}
+ <div class="scroll"><table class="e"><thead><tr><th>N.º</th><th>Apellido y nombre</th><th>DNI</th><th>Nacimiento</th><th></th></tr></thead><tbody>${L.jugadores.map((j,k)=>`<tr class="${anioDe(j.nac)&&R.anio&&anioDe(j.nac)<R.anio?'old':''}"><td><input class="i" style="width:62px" value="${esc(j.num||'')}" onchange="lista(CAT,LEQ).jugadores[${k}].num=this.value"></td><td><input class="i" value="${esc(j.nom||'')}" onchange="lista(CAT,LEQ).jugadores[${k}].nom=this.value"></td><td><input class="i" style="width:130px" value="${esc(j.dni||'')}" onchange="lista(CAT,LEQ).jugadores[${k}].dni=this.value;draw()"></td><td><input class="i" type="date" style="width:150px" value="${esc(j.nac||'')}" onchange="lista(CAT,LEQ).jugadores[${k}].nac=this.value;draw()"></td><td><button class="btn x s" onclick="lista(CAT,LEQ).jugadores.splice(${k},1);draw()">✕</button></td></tr>`).join('')}</tbody></table></div>
+ <div class="row" style="margin-top:10px"><button class="btn l s" onclick="lista(CAT,LEQ).jugadores.push({num:'',nom:'',dni:'',nac:''});draw()">+ Agregar jugador</button></div>
+ <details class="paste"><summary>Pegar la lista desde una planilla o un mensaje</summary><p class="note">Una línea por jugador: <b>Apellido y nombre; DNI; fecha de nacimiento</b> (también sirve copiar las columnas de una planilla).</p><textarea id="pegado" class="i" rows="6" placeholder="Pérez Juan; 50123456; 12/03/2011"></textarea><button class="btn s" style="margin-top:8px" onclick="pegarLista()">Agregar a la lista</button></details>
+ <h3 class="sub3">Cuerpo técnico</h3>${L.cuerpo.map((c,k)=>`<div class="row" style="margin-bottom:6px"><select class="i" style="width:160px" onchange="lista(CAT,LEQ).cuerpo[${k}].rol=this.value">${['Entrenador','Ayudante','Preparador físico','Delegado','Utilero'].map(r=>`<option ${r===c.rol?'selected':''}>${r}</option>`).join('')}</select><input class="i" style="flex:1" value="${esc(c.nom||'')}" placeholder="Apellido y nombre" onchange="lista(CAT,LEQ).cuerpo[${k}].nom=this.value"><input class="i" style="width:130px" value="${esc(c.dni||'')}" placeholder="DNI" onchange="lista(CAT,LEQ).cuerpo[${k}].dni=this.value"><button class="btn x s" onclick="lista(CAT,LEQ).cuerpo.splice(${k},1);draw()">✕</button></div>`).join('')}<button class="btn l s" onclick="lista(CAT,LEQ).cuerpo.push({rol:'Entrenador',nom:'',dni:''});draw()">+ Agregar</button></div></div>`;
+ return h}
+function pegarLista(){let t=$('#pegado').value;let L=lista(CAT,LEQ);t.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).forEach(l=>{let p=l.split(/\t|;|\|/).map(x=>x.trim());if(p.length<2)p=l.split(/,(?=\s*\d)/).map(x=>x.trim());let nac=p[2]||'',m=nac.match(/(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2,4})/);if(m){let y=m[3].length===2?'20'+m[3]:m[3];nac=y+'-'+m[2].padStart(2,'0')+'-'+m[1].padStart(2,'0')}L.jugadores.push({num:'',nom:p[0]||'',dni:(p[1]||'').replace(/[^\d]/g,''),nac})});draw();toast('Jugadores agregados. Revisalos y tocá «Guardar lista».')}
+async function guardarLista(id){let L=lista(CAT,id);L.jugadores=L.jugadores.filter(j=>(j.nom||'').trim()||(j.dni||'').trim());try{await rpc('panel_listas_set',{tid:TID,cat:CAT,equipo:id,jugadores:L.jugadores,cuerpo:L.cuerpo});toast('Lista guardada')}catch(e){toast('No se pudo guardar la lista: '+e.message,1)}if(DIRTY)marcar();draw()}
+
+// ── Impresión (listas, planillas e informe) ──
+function imprimir(titulo,cuerpo){let w=window.open('','_blank');if(!w)return toast('Permití las ventanas emergentes para imprimir',1);w.document.write(`<!doctype html><html lang="es"><head><meta charset="utf-8"><title>${esc(titulo)}</title><style>
+ *{box-sizing:border-box}body{font-family:Inter,Arial,sans-serif;color:#111;margin:0;font-size:12px}@page{size:A4;margin:12mm}
+ .hoja{page-break-after:always}.hoja:last-child{page-break-after:auto}
+ .hd{display:flex;align-items:center;gap:12px;border-bottom:3px solid #d7192b;padding-bottom:8px;margin-bottom:10px}.hd img{width:34px;height:40px;object-fit:contain}.hd b{display:block;font-size:16px}.hd small{color:#555;font-size:11px}
+ .info{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12px;margin-bottom:10px}.info span b{font-weight:800}
+ .eqs{display:grid;grid-template-columns:1fr 1fr;gap:10px}table{width:100%;border-collapse:collapse}th,td{border:1px solid #999;padding:3px 5px;text-align:left;font-size:11px;height:19px}th{background:#f3f3f3;font-size:10px;text-transform:uppercase}
+ td.c,th.c{text-align:center;width:34px}.eq h3{margin:0 0 4px;font-size:13px;background:#d7192b;color:#fff;padding:5px 8px}
+ .res{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin:12px 0;font-size:14px;font-weight:800;text-align:center}.res .bx{border:2px solid #111;height:42px;width:70px;margin:0 auto}
+ .firmas{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}.firmas div{border-top:1px solid #111;padding-top:4px;text-align:center;font-size:11px}
+ .obs{border:1px solid #999;height:60px;margin-top:10px;padding:4px;font-size:11px;color:#555}
+ .kp{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}.kp div{border:1px solid #ddd;border-radius:8px;padding:8px}.kp b{display:block;font-size:20px;color:#d7192b}
+ h2{font-size:14px;margin:16px 0 6px;color:#9e0e1d}</style></head><body>${cuerpo}<script>onload=()=>{setTimeout(()=>print(),300)}<\/script></body></html>`);w.document.close()}
+const cab=(t,sub)=>`<div class="hd"><img src="${location.origin}/logo.webp" alt=""><div><b>${esc(t.nombre)}</b><small>${esc(sub)}</small></div></div>`;
+function imprimirLista(id){let t=tor(),f=fx(),L=lista(CAT,id),filas=Math.max(L.jugadores.length,20);imprimir('Lista de buena fe',`<div class="hoja">${cab(t,'Lista de buena fe · '+CAT)}<div class="info"><span><b>Equipo:</b> ${esc(f.teams[id].n)}</span><span><b>Categoría:</b> ${esc(CAT)}</span></div><table><thead><tr><th class="c">N.º</th><th>Apellido y nombre</th><th>DNI</th><th>Nacimiento</th><th>Firma</th></tr></thead><tbody>${Array.from({length:filas},(_,k)=>{let j=L.jugadores[k]||{};return `<tr><td class="c">${esc(j.num||'')}</td><td>${esc(j.nom||'')}</td><td>${esc(j.dni||'')}</td><td>${esc(j.nac?j.nac.split('-').reverse().join('/'):'')}</td><td></td></tr>`}).join('')}</tbody></table><h2>Cuerpo técnico</h2><table><tbody>${(L.cuerpo.length?L.cuerpo:[{rol:'Entrenador'},{rol:'Delegado'}]).map(c=>`<tr><td style="width:140px">${esc(c.rol||'')}</td><td>${esc(c.nom||'')}</td><td style="width:120px">${esc(c.dni||'')}</td><td style="width:140px"></td></tr>`).join('')}</tbody></table><div class="firmas"><div>Firma del delegado</div><div>Aclaración</div><div>Control de la organización</div></div></div>`)}
+function hojaPartido(t,f,m){const eq=(id,lab)=>{let L=id?lista(CAT,id):{jugadores:[],cuerpo:[]},filas=Math.max(L.jugadores.length,16);return `<div class="eq"><h3>${esc(tn(f,id,lab))}</h3><table><thead><tr><th class="c">N.º</th><th>Jugador</th><th class="c">Goles</th><th class="c">A</th><th class="c">R</th></tr></thead><tbody>${Array.from({length:filas},(_,k)=>{let j=L.jugadores[k]||{};return `<tr><td class="c">${esc(j.num||'')}</td><td>${esc(j.nom||'')}</td><td></td><td></td><td></td></tr>`}).join('')}</tbody></table><table style="margin-top:4px"><tbody><tr><td style="width:90px">Entrenador</td><td>${esc((L.cuerpo.find(c=>c.rol==='Entrenador')||{}).nom||'')}</td></tr><tr><td>Delegado</td><td>${esc((L.cuerpo.find(c=>c.rol==='Delegado')||{}).nom||'')}</td></tr></tbody></table></div>`};
+ return `<div class="hoja">${cab(t,'Planilla de partido · '+CAT)}<div class="info"><span><b>Partido:</b> P${m.n}</span><span><b>Fase:</b> ${esc(m.ph||'')}${m.z?' · '+esc((f.zones.find(z=>z.id===m.z)||{}).name||''):''}</span><span><b>Fecha:</b> ${esc(m.d?m.d.split('-').reverse().join('/'):'')}</span><span><b>Hora:</b> ${esc(m.t||'')}</span><span><b>Cancha:</b> ${esc(m.f||'')}</span></div>
+ <div class="res"><div>${esc(tn(f,m.h,m.hl))}<div class="bx"></div></div><div>VS<br><small style="font-weight:600;font-size:10px">Penales: ___ - ___</small></div><div>${esc(tn(f,m.a,m.al))}<div class="bx"></div></div></div>
+ <div class="eqs">${eq(m.h,m.hl)}${eq(m.a,m.al)}</div><div class="obs">Observaciones del árbitro:</div><div class="firmas"><div>Árbitro${arbDe(m.id)?': '+esc(arbDe(m.id).nom):''}</div><div>Delegado ${esc(tn(f,m.h,m.hl))}</div><div>Delegado ${esc(tn(f,m.a,m.al))}</div></div></div>`}
+function vPlanillas(f){resolver(f);let days=[...new Set(f.matches.map(m=>m.d||''))].sort(),canchas=[...new Set(f.matches.map(m=>m.f).filter(Boolean))].sort();let ms=f.matches.filter(m=>(!PDIA||m.d===PDIA)&&(!PCAN||m.f===PCAN)).sort((a,b)=>((a.d||'')+(a.t||'')+(a.f||'')).localeCompare((b.d||'')+(b.t||'')+(b.f||'')));
+ return `<div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Planillas para imprimir <small>${ms.length} partidos</small></h2><div class="row"><select class="i" style="width:auto" onchange="PDIA=this.value;draw()"><option value="">Todos los días</option>${days.map(d=>`<option value="${d}" ${d===PDIA?'selected':''}>${fmtDay(d)}</option>`).join('')}</select><select class="i" style="width:auto" onchange="PCAN=this.value;draw()"><option value="">Todas las canchas</option>${canchas.map(c=>`<option ${c===PCAN?'selected':''}>${esc(c)}</option>`).join('')}</select><button class="btn s" onclick="imprimirPlanillas()" ${ms.length?'':'disabled'}>Imprimir las ${ms.length}</button></div></div><p class="note">Cada planilla trae los datos del partido, la lista de buena fe de los dos equipos (si está cargada) con columnas para goles y tarjetas, y lugar para firmas. Una hoja A4 por partido.</p>
+ ${ms.map(m=>`<div class="pl-r"><b>${esc(m.t||'--:--')}</b><span>${esc(fmtDay(m.d))} · ${esc(m.f||'')} · P${m.n}</span><em>${esc(tn(f,m.h,m.hl))} vs ${esc(tn(f,m.a,m.al))}</em><button class="btn l s" onclick="imprimir('Planilla P${m.n}',hojaPartido(tor(),fx(),fx().matches.find(x=>x.id==='${m.id}')))">Imprimir</button></div>`).join('')||'<div class="empty">No hay partidos con esos filtros.</div>'}</div>`}
+function imprimirPlanillas(){let f=fx(),ms=f.matches.filter(m=>(!PDIA||m.d===PDIA)&&(!PCAN||m.f===PCAN)).sort((a,b)=>((a.d||'')+(a.t||'')+(a.f||'')).localeCompare((b.d||'')+(b.t||'')+(b.f||'')));imprimir('Planillas '+CAT,ms.map(m=>hojaPartido(tor(),f,m)).join(''))}
+
+// ── Duplicar torneo ──
+async function duplicarTorneo(){if(DIRTY&&!confirm('Hay cambios sin guardar. ¿Duplicar igual (se duplica lo último guardado y lo que ves)?'))return;let t=tor(),n=prompt('Nombre del torneo nuevo:',t.nombre.replace(/\d{4}/,y=>+y+1));if(!n)return;let conP=confirm('¿Copiar también los partidos (sin resultados)? Aceptar = sí · Cancelar = solo categorías, equipos y zonas');
+ let id=slug(n).replace(/-/g,'').slice(0,18)+String(new Date().getFullYear()).slice(2);while(TS.some(x=>x.id===id))id+=Math.random().toString(36).slice(2,4);
+ let nt={...t,id,nombre:n,publicado:false,campeones:{},galeria:[],config:{...(t.config||{}),inscripciones:false,encuesta:false}};delete nt.actualizado;try{await rpc('panel_guardar_torneo',{t:nt});for(const c of t.categorias||[]){let f=JSON.parse(JSON.stringify(FX[c]||nuevoFx()));if(conP)f.matches.forEach(m=>{m.hs=null;m.as=null;m.hp=null;m.ap=null;delete m.cam;delete m.est;if(m.src){m.h=null;m.a=null}});else f.matches=[];resolver(f);await rpc('panel_guardar_fixture',{tid:id,cat:c,datos:f})}
+  await cargar(id);VIEW='datos';draw();toast('Torneo duplicado (oculto en la web). Cambiá las fechas en «Datos del torneo».')}catch(e){toast('No se pudo duplicar: '+e.message,1)}}
+
+// ── Planilleros por cancha ──
+let PLNT=null;async function cargarPlanilleros(){PLNT=TID;try{PLN=await rpc('panel_planilleros_list',{tid:TID})}catch(e){PLN=[]}draw()}
+function vPlanilleros(t){if(PLNT!==TID){PLN=[];PLNC=null;PLNT=TID;setTimeout(cargarPlanilleros,0)}let canchas=[...new Set(Object.values(FX).flatMap(f=>f.matches.map(m=>m.f).filter(Boolean)))].sort();let link=location.origin+'/cancha/';
+ return `<div class="card"><h2>Planilleros por cancha</h2><p class="note" style="margin-top:0">Cada planillero entra desde el celular a <b>${esc(link)}</b> con su código y ve solo los partidos de su cancha (de todas las categorías), con el horario. Carga los resultados y toca «Guardar». No puede cambiar nada más.</p>
+ <div class="row" style="margin-top:12px"><input class="i" id="pnom" placeholder="Nombre (ej.: Juan, cancha 1)" style="flex:1;min-width:200px"><select class="i" id="pcan" style="width:auto"><option>Todas</option>${canchas.map(c=>`<option>${esc(c)}</option>`).join('')}</select><button class="btn s" onclick="crearPlanillero()">+ Crear acceso</button></div>
+ ${PLNC?`<div class="codigo"><div><small>Código de ${esc(PLNC.nombre)} · ${esc(PLNC.cancha)}</small><b>${esc(PLNC.cod)}</b><span>Anotalo: por seguridad no se vuelve a mostrar.</span></div><button class="btn s" onclick="compartirPlanillero()">Copiar mensaje para WhatsApp</button></div>`:''}</div>
+ <div class="card"><h2>Accesos creados <small>${PLN.length}</small></h2>${PLN.map(p=>`<div class="pl-r"><b>${esc(p.cancha)}</b><span>Creado ${new Date(p.creado).toLocaleDateString('es-AR')}</span><em>${esc(p.nombre)}</em><button class="btn x s" onclick="borrarPlanillero('${p.id}')">Quitar acceso</button></div>`).join('')||'<div class="empty">Todavía no hay planilleros.</div>'}</div>`}
+async function crearPlanillero(){let nom=$('#pnom').value.trim()||'Planillero',can=$('#pcan').value;try{let cod=await rpc('panel_planillero_crear',{tid:TID,nombre:nom,cancha:can});PLNC={cod,nombre:nom,cancha:can};await cargarPlanilleros()}catch(e){toast('No se pudo crear: '+e.message,1)}}
+function compartirPlanillero(){let t=tor(),txt=`Hola ${PLNC.nombre}! Para cargar los resultados de ${PLNC.cancha==='Todas'?'todas las canchas':PLNC.cancha} en el ${t.nombre}:\n1. Entrá a ${location.origin}/cancha/\n2. Poné el código: ${PLNC.cod}\nCargás el resultado de cada partido y tocás Guardar.`;navigator.clipboard?.writeText(txt).then(()=>toast('Mensaje copiado'),()=>toast(txt))}
+async function borrarPlanillero(id){if(!confirm('¿Quitar este acceso? El planillero ya no va a poder entrar.'))return;try{await rpc('panel_planillero_borrar',{pid:id});await cargarPlanilleros();toast('Acceso quitado')}catch(e){toast('No se pudo quitar',1)}}
+
+// ── Informe final del torneo ──
+function statsCat(f){resolver(f);let pm=f.matches.filter(m=>played(m)&&m.h&&m.a),g=0,T={},max=null,pen=0;pm.forEach(m=>{let hs=+m.hs,as=+m.as;g+=hs+as;if(m.hp!=null&&m.hp!=='')pen++;[[m.h,hs,as],[m.a,as,hs]].forEach(([id,a,b])=>{let x=T[id]=T[id]||{id,pj:0,gf:0,gc:0,pg:0};x.pj++;x.gf+=a;x.gc+=b;if(a>b)x.pg++});let d=Math.abs(hs-as);if(!max||d>max.d||(d===max.d&&hs+as>max.t))max={m,d,t:hs+as}});
+ let L=Object.values(T),gol=[...L].sort((a,b)=>b.gf-a.gf)[0],valla=[...L].filter(x=>x.pj).sort((a,b)=>a.gc/a.pj-b.gc/b.pj||b.pj-a.pj)[0];
+ let finales=f.matches.filter(m=>/^final/i.test(m.ph||'')&&winner(m)).map(m=>({copa:copaDe(m.ph),w:tn(f,winner(m)),s:tn(f,winner(m)===m.h?m.a:m.h),r:m.hs+' - '+m.as+(m.hp!=null&&m.hp!==''?' ('+m.hp+'-'+m.ap+' pen.)':'')}));
+ return {pj:pm.length,tot:f.matches.length,g,eq:Object.keys(f.teams).length,gol,valla,max,pen,finales}}
+function vInforme(t){let cats=t.categorias||[],S=cats.map(c=>[c,statsCat(FX[c]||nuevoFx())]),pj=S.reduce((a,[,x])=>a+x.pj,0),tot=S.reduce((a,[,x])=>a+x.tot,0),g=S.reduce((a,[,x])=>a+x.g,0),eq=S.reduce((a,[,x])=>a+x.eq,0);
+ const blk=([c,x])=>{let f=FX[c];return `<div class="card"><h2>${esc(c)} <small>${x.pj} de ${x.tot} partidos jugados</small></h2>${x.finales.length?`<div class="camp">${x.finales.map(z=>`<div><small>${esc(z.copa)}</small><b>${esc(z.w)}</b><span>Final: ${esc(z.w)} ${esc(z.r)} ${esc(z.s)}</span></div>`).join('')}</div>`:'<p class="note">Los campeones aparecen cuando se cargan los resultados de las finales.</p>'}
+  <div class="kpis sm"><div class="kpi"><small>Goles</small><b>${x.g}</b><span>${x.pj?(x.g/x.pj).toFixed(1).replace('.',','):'0'} por partido</span></div><div class="kpi"><small>Equipos</small><b>${x.eq}</b></div><div class="kpi"><small>Más goleador</small><b style="font-size:17px">${x.gol?esc(tn(f,x.gol.id)):'—'}</b><span>${x.gol?x.gol.gf+' goles':''}</span></div><div class="kpi"><small>Valla menos vencida</small><b style="font-size:17px">${x.valla?esc(tn(f,x.valla.id)):'—'}</b><span>${x.valla?x.valla.gc+' goles en contra':''}</span></div><div class="kpi"><small>Mayor goleada</small><b style="font-size:17px">${x.max?esc(tn(f,x.max.m.h))+' '+x.max.m.hs+' - '+x.max.m.as+' '+esc(tn(f,x.max.m.a)):'—'}</b></div><div class="kpi"><small>Definidos por penales</small><b>${x.pen}</b></div></div></div>`};
+ return `<div class="row" style="justify-content:space-between;margin-bottom:12px"><p class="note" style="margin:0">El informe se arma solo con los resultados cargados. Al terminar el torneo, imprimilo o guardalo en PDF.</p><button class="btn s" onclick="imprimirInforme()">Imprimir / guardar PDF</button></div>
+ <div class="kpis"><div class="kpi"><small>Partidos jugados</small><b>${pj}</b><span>de ${tot} programados</span></div><div class="kpi"><small>Goles</small><b>${g}</b><span>${pj?(g/pj).toFixed(2).replace('.',','):'0'} por partido</span></div><div class="kpi"><small>Equipos</small><b>${eq}</b><span>en ${cats.length} categoría${cats.length===1?'':'s'}</span></div><div class="kpi"><small>Días</small><b>${new Set(Object.values(FX).flatMap(f=>f.matches.map(m=>m.d).filter(Boolean))).size}</b><span>${esc(t.sede||'')}</span></div></div>${S.map(blk).join('')}`}
+function imprimirInforme(){let t=tor(),cats=t.categorias||[],S=cats.map(c=>[c,statsCat(FX[c]||nuevoFx())]),pj=S.reduce((a,[,x])=>a+x.pj,0),g=S.reduce((a,[,x])=>a+x.g,0),eq=S.reduce((a,[,x])=>a+x.eq,0);
+ imprimir('Informe final',`<div>${cab(t,'Informe final del torneo')}<div class="kp"><div><small>Partidos jugados</small><b>${pj}</b></div><div><small>Goles</small><b>${g}</b></div><div><small>Promedio</small><b>${pj?(g/pj).toFixed(2).replace('.',','):'0'}</b></div><div><small>Equipos</small><b>${eq}</b></div></div>${S.map(([c,x])=>{let f=FX[c];return `<h2>${esc(c)}</h2>${x.finales.map(z=>`<p><b>Campeón ${esc(z.copa)}:</b> ${esc(z.w)} (final ${esc(z.w)} ${esc(z.r)} ${esc(z.s)})</p>`).join('')||'<p>Sin finales jugadas.</p>'}<table><tbody><tr><td>Partidos jugados</td><td>${x.pj} de ${x.tot}</td></tr><tr><td>Goles</td><td>${x.g} (${x.pj?(x.g/x.pj).toFixed(1).replace('.',','):'0'} por partido)</td></tr><tr><td>Más goleador</td><td>${x.gol?esc(tn(f,x.gol.id))+' ('+x.gol.gf+')':'—'}</td></tr><tr><td>Valla menos vencida</td><td>${x.valla?esc(tn(f,x.valla.id))+' ('+x.valla.gc+' en contra)':'—'}</td></tr><tr><td>Mayor goleada</td><td>${x.max?esc(tn(f,x.max.m.h))+' '+x.max.m.hs+' - '+x.max.m.as+' '+esc(tn(f,x.max.m.a)):'—'}</td></tr><tr><td>Definidos por penales</td><td>${x.pen}</td></tr></tbody></table>`}).join('')}</div>`)}
+
+// ═════════ v5: pantalla TV, árbitros, placas para historias, galería, sedes, inscripciones y encuesta ═════════
+const TVIEWS=['datos','resumen','planilleros','informe','tv','arbitros','placas','galeria','sedes','inscripciones','encuesta'];
+const conf=()=>{let t=tor();t.config=t.config&&typeof t.config==='object'?t.config:{};return t.config};
+const hoyL=()=>{let d=new Date();return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+const todosP=()=>{let o=[];(tor()?.categorias||[]).forEach(c=>{let f=FX[c];if(!f)return;resolver(f);f.matches.forEach(m=>o.push({c,f,m}))});return o};
+function copiar(txt,ok){navigator.clipboard?.writeText(txt).then(()=>toast(ok||'Copiado'),()=>prompt('Copiá el texto:',txt))}
+async function guardarSoloTorneo(msg){try{await rpc('panel_guardar_torneo',{t:tor()});toast(msg||'Guardado')}catch(e){toast('No se pudo guardar: '+e.message,1)}}
+const linkBox=(url,extra='')=>`<div class="lnk"><code>${esc(url)}</code><button class="btn l s" onclick="copiar('${esc(url)}','Link copiado')">Copiar link</button><a class="btn l s" href="${esc(url)}" target="_blank" rel="noopener">Abrir</a>${extra}</div>`;
+
+// ── Pantalla TV ──
+const TVDEF={cats:[],slides:{envivo:true,proximos:true,resultados:true,tablas:true,llaves:true,mensaje:true,sponsors:true},seg:14,mensaje:'',fijo:'',ticker:true};
+const TVSL=[['envivo','En juego ahora'],['proximos','Próximos partidos'],['resultados','Resultados'],['tablas','Posiciones'],['llaves','Llaves y copas'],['mensaje','Mensaje'],['sponsors','Patrocinadores']];
+let TVC=null,TVT=null;
+async function cargarTV(){TVT=TID;let {data}=await sb.from('pantalla_tv').select('config').eq('torneo_id',TID).maybeSingle();let c=(data&&data.config)||{};TVC={...TVDEF,...c,slides:{...TVDEF.slides,...(c.slides||{})}};delete TVC.ir;draw()}
+function vTV(t){if(TVT!==TID){TVC=null;TVT=TID;setTimeout(cargarTV,0)}let url=location.origin+'/tv/?t='+encodeURIComponent(t.id);if(!TVC)return `<div class="card"><div class="empty">Cargando…</div></div>`;let C=TVC,cats=t.categorias||[];
+ return `<div class="card"><h2>Pantalla para la TV</h2><p class="note" style="margin-top:0">Abrí este link en la TV del predio (Smart TV, una compu o un Chromecast con navegador). Pasa sola por los partidos en juego, los próximos, los resultados, las posiciones y las llaves. Cada resultado que se carga aparece al instante, con un cartel. Tocá la pantalla de la TV (o apretá F) para verla completa.</p>${linkBox(url)}${t.publicado?'':'<p class="warn">El torneo está oculto en la web: la pantalla no muestra el fixture hasta que lo publiques.</p>'}</div>
+ <div class="tvw"><div class="card"><h2>Así se ve ahora</h2><div class="tvp"><iframe src="${esc(url)}" title="Vista previa de la pantalla" loading="lazy"></iframe></div>
+ <h3 class="sub3">Mostrar ahora en la TV</h3><div class="chips">${TVSL.map(([k,l])=>`<button class="btn l s" onclick="tvIr('${k}')">${l}</button>`).join('')}</div><p class="note">Salta a esa pantalla en el momento. Después sigue pasando sola.</p></div>
+ <div class="card"><h2>Qué pasa por la pantalla</h2>
+ <div class="f" style="margin-bottom:12px">Pantallas<div class="chips">${TVSL.map(([k,l])=>`<label class="chip ck"><input type="checkbox" ${C.slides[k]?'checked':''} onchange="TVC.slides['${k}']=this.checked">${l}</label>`).join('')}</div></div>
+ <div class="f" style="margin-bottom:12px">Categorías<div class="chips"><label class="chip ck"><input type="checkbox" ${!C.cats.length?'checked':''} onchange="TVC.cats=[];draw()">Todas</label>${cats.map(c=>`<label class="chip ck"><input type="checkbox" ${C.cats.includes(c)?'checked':''} onchange="TVC.cats=this.checked?[...TVC.cats,'${esc(c)}']:TVC.cats.filter(x=>x!=='${esc(c)}');draw()">${esc(c)}</label>`).join('')}</div></div>
+ <div class="grid"><label class="f">Segundos por pantalla<input class="i" type="number" min="6" max="90" value="${C.seg}" onchange="TVC.seg=+this.value||14"></label><label class="f">Dejar fija<select class="i" onchange="TVC.fijo=this.value"><option value="">No, que vaya pasando</option>${TVSL.map(([k,l])=>`<option value="${k}" ${C.fijo===k?'selected':''}>${l}</option>`).join('')}</select></label></div>
+ <label class="f" style="margin-top:12px">Mensaje para el público<textarea class="i" rows="3" placeholder="Ej.: La final de Sub 17 se juega a las 18 en la Cancha 1" oninput="TVC.mensaje=this.value">${esc(C.mensaje||'')}</textarea></label>
+ <label class="switch" style="margin-top:12px"><input type="checkbox" ${C.ticker!==false?'checked':''} onchange="TVC.ticker=this.checked">Barra de resultados abajo</label>
+ <div class="row" style="margin-top:14px;justify-content:flex-end"><button class="btn g" onclick="tvGuardar()">Guardar y mandar a la TV</button></div></div></div>`}
+async function tvGuardar(extra){try{await rpc('panel_tv_set',{tid:TID,config:{...TVC,...(extra||{})}});toast(extra?'Listo: la TV ya lo está mostrando':'Guardado: la TV se actualiza sola')}catch(e){toast('No se pudo guardar: '+e.message,1)}}
+function tvIr(k){if(k==='mensaje'&&!String(TVC.mensaje||'').trim())return toast('Escribí primero el mensaje',1);tvGuardar({ir:{k,at:Date.now()}})}
+
+// ── Árbitros ──
+let ARB={arbitros:[],asignaciones:{}},ARBT=null,ARBD='',ARBDIRTY=false;
+async function cargarArb(){ARBT=TID;try{let r=await rpc('panel_arbitros_get',{tid:TID});ARB=r&&r[0]?{arbitros:r[0].arbitros||[],asignaciones:r[0].asignaciones||{}}:{arbitros:[],asignaciones:{}}}catch(e){ARB={arbitros:[],asignaciones:{}}}ARBDIRTY=false;if(['arbitros'].includes(VIEW))draw()}
+const arbDe=mid=>ARB.arbitros.find(a=>a.id===ARB.asignaciones[mid]);
+const plata=n=>'$ '+Math.round(+n||0).toLocaleString('es-AR');
+const telWa=t=>{let d=String(t||'').replace(/\D/g,'');if(!d)return '';if(d.startsWith('54'))return d;d=d.replace(/^0/,'');return '549'+d.replace(/^(\d{2,4})15/,'$1')};
+function vArbitros(t){if(ARBT!==TID){ARBT=TID;setTimeout(cargarArb,0);return `<div class="card"><div class="empty">Cargando…</div></div>`}
+ let all=todosP().filter(x=>x.m.d),days=[...new Set(all.map(x=>x.m.d))].sort();if(!ARBD||!days.includes(ARBD))ARBD=days.find(d=>d>=hoyL())||days[0]||'';
+ let cnt={};Object.values(ARB.asignaciones).forEach(a=>cnt[a]=(cnt[a]||0)+1);let total=ARB.arbitros.reduce((s,a)=>s+(cnt[a.id]||0)*(+a.tarifa||0),0);
+ let delDia=all.filter(x=>x.m.d===ARBD).sort((a,b)=>(a.m.t||'').localeCompare(b.m.t||'')||(a.m.f||'').localeCompare(b.m.f||''));
+ let choque={};all.forEach(x=>{let a=ARB.asignaciones[x.m.id];if(!a)return;let k=a+'|'+x.m.d+'|'+x.m.t;choque[k]=(choque[k]||0)+1});
+ return `<div class="kpis sm"><div class="kpi"><small>Árbitros</small><b>${ARB.arbitros.length}</b></div><div class="kpi"><small>Partidos asignados</small><b>${Object.keys(ARB.asignaciones).filter(k=>all.some(x=>x.m.id===k)).length}</b><span>de ${all.length}</span></div><div class="kpi"><small>Total a pagar</small><b style="font-size:24px">${plata(total)}</b></div></div>
+ <div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Árbitros <small>privado: no se publica</small></h2><button class="btn g s" onclick="arbGuardar()" ${ARBDIRTY?'':'disabled'}>Guardar árbitros</button></div>
+ <div class="scroll"><table class="e"><thead><tr><th>Nombre</th><th>Teléfono</th><th>Pago por partido</th><th>Partidos</th><th>Total</th><th></th></tr></thead><tbody>${ARB.arbitros.map((a,k)=>`<tr><td><input class="i" value="${esc(a.nom)}" onchange="ARB.arbitros[${k}].nom=this.value;arbM()"></td><td><input class="i" style="width:150px" value="${esc(a.tel||'')}" placeholder="3467 44-4444" onchange="ARB.arbitros[${k}].tel=this.value;arbM()"></td><td><input class="i" style="width:120px" type="number" min="0" value="${esc(a.tarifa||'')}" onchange="ARB.arbitros[${k}].tarifa=+this.value||0;arbM();draw()"></td><td><b>${cnt[a.id]||0}</b></td><td>${plata((cnt[a.id]||0)*(+a.tarifa||0))}</td><td style="white-space:nowrap">${a.tel&&cnt[a.id]?`<a class="btn l s" href="https://wa.me/${telWa(a.tel)}?text=${encodeURIComponent(arbMensaje(a))}" target="_blank" rel="noopener">Mandar sus partidos</a>`:''}<button class="btn x s" onclick="arbQuitar(${k})">✕</button></td></tr>`).join('')}</tbody></table></div>
+ <div class="row" style="margin-top:10px"><input class="i" id="anom" placeholder="Nombre del árbitro" style="flex:1;min-width:180px" onkeydown="if(event.key==='Enter')arbAgregar()"><input class="i" id="atel" placeholder="Teléfono" style="width:160px"><input class="i" id="atar" type="number" placeholder="Pago por partido" style="width:160px"><button class="btn s" onclick="arbAgregar()">+ Agregar</button></div></div>
+ <div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Asignar a los partidos</h2><div class="row"><select class="i" style="width:auto" onchange="ARBD=this.value;draw()">${days.map(d=>`<option value="${d}" ${d===ARBD?'selected':''}>${fmtDay(d)}</option>`).join('')}</select><button class="btn l s" onclick="arbRepartir()" ${ARB.arbitros.length?'':'disabled'}>Repartir los libres</button><button class="btn l s" onclick="arbImprimir()">Imprimir el día</button></div></div><p class="note">«Repartir los libres» asigna los partidos sin árbitro de este día, parejo entre todos y sin que nadie tenga dos partidos a la misma hora. El nombre del árbitro sale en la planilla impresa.</p>
+ ${delDia.map(x=>{let a=ARB.asignaciones[x.m.id],bad=a&&choque[a+'|'+x.m.d+'|'+x.m.t]>1;return `<div class="pl-r ar ${bad?'bad':''}"><b>${esc(x.m.t||'--:--')}</b><span>${esc(x.c)} · ${esc(x.m.f||'')} · P${x.m.n}${bad?' · <i>Este árbitro tiene otro partido a la misma hora</i>':''}</span><em>${esc(tn(x.f,x.m.h,x.m.hl))} vs ${esc(tn(x.f,x.m.a,x.m.al))}</em><select class="i" onchange="arbAsignar('${x.m.id}',this.value)"><option value="">Sin árbitro</option>${ARB.arbitros.map(r=>`<option value="${r.id}" ${r.id===a?'selected':''}>${esc(r.nom)}</option>`).join('')}</select></div>`}).join('')||'<div class="empty">No hay partidos con fecha.</div>'}</div>`}
+function arbM(){ARBDIRTY=true;let b=document.querySelector('[onclick="arbGuardar()"]');if(b)b.disabled=false}
+function arbAgregar(){let n=$('#anom').value.trim();if(!n)return;ARB.arbitros.push({id:uid('A'),nom:n,tel:$('#atel').value.trim(),tarifa:+$('#atar').value||0});arbM();draw();setTimeout(()=>$('#anom')?.focus(),0)}
+function arbQuitar(k){let a=ARB.arbitros[k];if(Object.values(ARB.asignaciones).includes(a.id)&&!confirm(a.nom+' tiene partidos asignados. ¿Quitarlo igual?'))return;Object.keys(ARB.asignaciones).forEach(m=>{if(ARB.asignaciones[m]===a.id)delete ARB.asignaciones[m]});ARB.arbitros.splice(k,1);arbM();draw()}
+function arbAsignar(mid,aid){if(aid)ARB.asignaciones[mid]=aid;else delete ARB.asignaciones[mid];arbM();draw()}
+function arbRepartir(){let ms=todosP().filter(x=>x.m.d===ARBD&&!ARB.asignaciones[x.m.id]).sort((a,b)=>(a.m.t||'').localeCompare(b.m.t||''));let cnt={};ARB.arbitros.forEach(a=>cnt[a.id]=0);todosP().forEach(x=>{let a=ARB.asignaciones[x.m.id];if(a&&x.m.d===ARBD)cnt[a]=(cnt[a]||0)+1});let n=0;
+ ms.forEach(x=>{let ocup=new Set(todosP().filter(y=>y.m.d===x.m.d&&y.m.t===x.m.t).map(y=>ARB.asignaciones[y.m.id]).filter(Boolean));let libres=ARB.arbitros.filter(a=>!ocup.has(a.id)).sort((a,b)=>cnt[a.id]-cnt[b.id]);if(!libres.length)return;ARB.asignaciones[x.m.id]=libres[0].id;cnt[libres[0].id]++;n++});arbM();draw();toast(n?n+' partidos asignados. Revisalos y tocá «Guardar árbitros».':'No quedaban partidos libres para asignar',!n)}
+async function arbGuardar(){try{await rpc('panel_arbitros_set',{tid:TID,arbitros:ARB.arbitros,asignaciones:ARB.asignaciones});ARBDIRTY=false;toast('Árbitros guardados');draw()}catch(e){toast('No se pudo guardar: '+e.message,1)}}
+function arbMensaje(a){let ms=todosP().filter(x=>ARB.asignaciones[x.m.id]===a.id).sort((x,y)=>((x.m.d||'')+(x.m.t||'')).localeCompare((y.m.d||'')+(y.m.t||'')));let t=tor(),txt=`Hola ${a.nom}! Estos son tus partidos en el ${t.nombre}:\n`,ld='';ms.forEach(x=>{if(x.m.d!==ld){txt+=`\n${fmtDay(x.m.d)}\n`;ld=x.m.d}txt+=`${x.m.t||'--:--'} · ${x.m.f||''} · ${x.c}: ${tn(x.f,x.m.h,x.m.hl)} vs ${tn(x.f,x.m.a,x.m.al)}\n`});if(+a.tarifa)txt+=`\nTotal: ${ms.length} partidos · ${plata(ms.length*a.tarifa)}`;return txt}
+function arbImprimir(){let t=tor(),ms=todosP().filter(x=>x.m.d===ARBD).sort((a,b)=>(a.m.t||'').localeCompare(b.m.t||'')||(a.m.f||'').localeCompare(b.m.f||''));imprimir('Árbitros '+ARBD,`<div>${cab(t,'Árbitros · '+fmtDay(ARBD))}<table><thead><tr><th>Hora</th><th>Cancha</th><th>Categoría</th><th>Partido</th><th>Árbitro</th><th>Firma</th></tr></thead><tbody>${ms.map(x=>`<tr><td>${esc(x.m.t||'')}</td><td>${esc(x.m.f||'')}</td><td>${esc(x.c)}</td><td>${esc(tn(x.f,x.m.h,x.m.hl))} vs ${esc(tn(x.f,x.m.a,x.m.al))}</td><td>${esc(arbDe(x.m.id)?.nom||'')}</td><td style="width:120px"></td></tr>`).join('')}</tbody></table></div>`)}
+
+// ── Placas para historias (9:16) ──
+let PLQ={dia:'',turno:'manana',cat:'',tipo:'res'};
+// Incrusta Inter (solo letras latinas) para que la imagen salga con la misma tipografía
+async function fontCSS(){if(window._fcss)return _fcss;let css=await (await fetch('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap')).text(),out='';for(const b of css.split('@font-face').slice(1).filter(b=>/U\+0000-00FF/.test(b))){let u=b.match(/url\((.*?)\)/)[1],blob=await (await fetch(u)).blob(),d=await new Promise(r=>{let f=new FileReader();f.onload=()=>r(f.result);f.readAsDataURL(blob)});out+='@font-face'+b.replace(u,d)}return window._fcss=out}
+async function h2i(){if(window.htmlToImage)return;await new Promise((ok,ko)=>{let s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js';s.onload=ok;s.onerror=ko;document.head.append(s)})}
+const LEADP=/^(club|atl[eé]tico|asociaci[oó]n|deportiv[oa]|recreativo|social|y|centro|cultural|sociedad|biblioteca)$/i;
+const corto=n=>{let w=String(n||'').split(/\s+/).filter(Boolean),i=0;while(i<w.length-1&&LEADP.test(w[i]))i++;return w.slice(i).join(' ')||n};
+const iniP=n=>{let w=String(n||'').split(/\s+/).filter(x=>x&&!/^(club|atl[eé]tico|de|del|la|el|y|social|deportivo)$/i.test(x));return ((w[0]||'?')[0]+((w[1]||'')[0]||'')).toUpperCase()};
+const escP=(f,id)=>{let x=id&&f.teams[id];if(!x)return '<span class="pq-cr q">?</span>';return x.l?`<span class="pq-cr"><img src="${esc(x.l)}" alt="" crossorigin="anonymous"></span>`:`<span class="pq-cr in">${esc(iniP(x.n))}</span>`};
+function placasDatos(){let all=todosP().filter(x=>x.m.d===PLQ.dia&&(!PLQ.cat||x.c===PLQ.cat)&&(PLQ.turno==='todo'||(PLQ.turno==='manana'?(x.m.t||'')<'14:00':(x.m.t||'')>='14:00')));if(PLQ.tipo==='res')all=all.filter(x=>played(x.m)&&x.m.est!=='vivo');
+ all.sort((a,b)=>(a.c===b.c?0:(tor().categorias||[]).indexOf(a.c)-(tor().categorias||[]).indexOf(b.c))||(a.m.t||'').localeCompare(b.m.t||''));
+ // Paginar: hasta 9 filas por placa contando los títulos de categoría
+ let pags=[],cur=[],peso=0,lastC=null;all.forEach(x=>{let p=1+(x.c!==lastC?.6:0);if(peso+p>9.4&&cur.length){pags.push(cur);cur=[];peso=0;lastC=null;p=1.6}cur.push(x);peso+=p;lastC=x.c});if(cur.length)pags.push(cur);return pags}
+function placaHTML(L,k,n){let t=tor(),tur={manana:'Turno mañana',tarde:'Turno tarde',todo:'Todo el día'}[PLQ.turno],tit=PLQ.tipo==='res'?'Resultados':'Partidos';let lc=null,rows='';
+ L.forEach(x=>{if(x.c!==lc){rows+=`<div class="pq-cat">${esc(x.c)}</div>`;lc=x.c}let w=winner(x.m),pl=played(x.m),pen=x.m.hp!=null&&x.m.hp!=='';
+  rows+=`<div class="pq-m"><div class="pq-t ${w&&w===x.m.h?'w':''}">${escP(x.f,x.m.h)}<span>${esc(corto(tn(x.f,x.m.h,x.m.hl)))}</span></div><div class="pq-s">${pl?`<b>${esc(x.m.hs)}<i>-</i>${esc(x.m.as)}</b>${pen?`<small>Penales ${esc(x.m.hp)}-${esc(x.m.ap)}</small>`:''}`:`<b class="hr">${esc(x.m.t||'')}</b><small>${esc(x.m.f||'')}</small>`}</div><div class="pq-t a ${w&&w===x.m.a?'w':''}">${escP(x.f,x.m.a)}<span>${esc(corto(tn(x.f,x.m.a,x.m.al)))}</span></div></div>`});
+ return `<div class="placa" id="placa${k}"><div class="pq-h"><img src="/logo.webp" alt=""><small>${esc(t.nombre)}</small><h1>${tit}</h1><div class="pq-c"><span>${esc(tur)}</span><span>${esc(fmtDay(PLQ.dia))}</span></div></div><div class="pq-b">${rows}</div><div class="pq-f"><span>@${esc(CFG.instagram||'mundialitoalianza')}</span><span>${n>1?(k+1)+'/'+n:''}</span><span>${esc(location.host)}</span></div></div>`}
+function vPlacas(t){let all=todosP().filter(x=>x.m.d),days=[...new Set(all.map(x=>x.m.d))].sort();if(!PLQ.dia||!days.includes(PLQ.dia)){let h=hoyL();PLQ.dia=days.includes(h)?h:([...days].reverse().find(d=>all.some(x=>x.m.d===d&&played(x.m)))||days[0]||'')}
+ let pags=placasDatos();
+ return `<div class="card"><h2>Placas para historias <small>formato 9:16 · 1080 × 1920</small></h2><p class="note" style="margin-top:0">Al terminar cada turno, elegí el día y el turno y descargá la placa con todos los resultados para subirla a las historias. Si son muchos partidos se arma en varias placas.</p>
+ <div class="grid" style="margin-top:12px"><label class="f">Día<select class="i" onchange="PLQ.dia=this.value;draw()">${days.map(d=>`<option value="${d}" ${d===PLQ.dia?'selected':''}>${fmtDay(d)}</option>`).join('')}</select></label><label class="f">Turno<select class="i" onchange="PLQ.turno=this.value;draw()">${[['manana','Mañana (hasta las 14)'],['tarde','Tarde (desde las 14)'],['todo','Todo el día']].map(([v,l])=>`<option value="${v}" ${PLQ.turno===v?'selected':''}>${l}</option>`).join('')}</select></label><label class="f">Categoría<select class="i" onchange="PLQ.cat=this.value;draw()"><option value="">Todas</option>${(t.categorias||[]).map(c=>`<option ${c===PLQ.cat?'selected':''}>${esc(c)}</option>`).join('')}</select></label><label class="f">Qué muestra<select class="i" onchange="PLQ.tipo=this.value;draw()"><option value="res" ${PLQ.tipo==='res'?'selected':''}>Resultados</option><option value="prog" ${PLQ.tipo==='prog'?'selected':''}>Partidos del turno (horarios)</option></select></label></div>
+ ${pags.length?`<div class="row" style="margin-top:14px;justify-content:flex-end"><button class="btn s" onclick="bajarPlacas()">Descargar ${pags.length>1?'las '+pags.length+' placas':'la placa'}</button></div>`:''}</div>
+ ${pags.length?`<div class="pqs">${pags.map((L,k)=>`<div class="pq-w"><div class="pq-sc">${placaHTML(L,k,pags.length)}</div><button class="btn l s" onclick="bajarPlaca(${k})">Descargar</button></div>`).join('')}</div>`:`<div class="card"><div class="empty">${PLQ.tipo==='res'?'Todavía no hay resultados cargados en ese turno.':'No hay partidos en ese turno.'}</div></div>`}`}
+async function bajarPlaca(k){try{await h2i()}catch(e){return toast('No se pudo cargar el generador de imágenes. Revisá la conexión.',1)}let el=document.getElementById('placa'+k);toast('Armando la imagen…');try{let fe='';try{fe=await fontCSS()}catch(x){}let url=await htmlToImage.toPng(el,{width:1080,height:1920,pixelRatio:1,cacheBust:true,fontEmbedCSS:fe||undefined,style:{transform:'none',margin:'0'}});let a=document.createElement('a');a.href=url;a.download=`resultados-${PLQ.dia}-${PLQ.turno}${PLQ.cat?'-'+slug(PLQ.cat):''}${document.querySelectorAll('.placa').length>1?'-'+(k+1):''}.png`;a.click();toast('Placa descargada')}catch(e){console.error(e);toast('No se pudo armar la imagen',1)}}
+async function bajarPlacas(){let n=document.querySelectorAll('.placa').length;for(let k=0;k<n;k++){await bajarPlaca(k);await new Promise(r=>setTimeout(r,400))}}
+
+// ── Galería de fotos del torneo ──
+async function achicarJpg(file,max=1600){let img=await createImageBitmap(file),k=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*k);c.height=Math.round(img.height*k);c.getContext('2d').drawImage(img,0,0,c.width,c.height);return await new Promise(r=>c.toBlob(r,'image/jpeg',.85))}
+function vGaleria(t){let G=t.galeria=Array.isArray(t.galeria)?t.galeria:[];
+ return `<div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Galería de fotos <small>${G.length} fotos</small></h2><label class="btn s" style="cursor:pointer">Subir fotos<input type="file" accept="image/jpeg,image/png,image/webp" multiple hidden onchange="subirFotos(this)"></label></div><p class="note">Se ven en la página del torneo, en la pestaña «Fotos». Podés elegir varias a la vez: se achican solas para que carguen rápido. Escribí un epígrafe corto si querés (lugar, partido o categoría). Tocá «Guardar cambios» para publicarlas.</p>
+ ${G.length?`<div class="gal">${G.map((g,k)=>`<div class="gal-i"><img src="${esc(g.u)}" alt="" loading="lazy"><input class="i" value="${esc(g.c||'')}" placeholder="Epígrafe (opcional)" onchange="tor().galeria[${k}].c=this.value;marcar()"><div class="row" style="justify-content:space-between"><span><button class="btn x s" title="Mover antes" onclick="movFoto(${k},-1)" ${k?'':'disabled'}>‹</button><button class="btn x s" title="Mover después" onclick="movFoto(${k},1)" ${k<G.length-1?'':'disabled'}>›</button></span><button class="btn x s" onclick="if(confirm('¿Quitar esta foto de la galería?')){tor().galeria.splice(${k},1);marcar();draw()}">Quitar</button></div></div>`).join('')}</div>`:'<div class="empty" style="margin-top:12px">Todavía no hay fotos.</div>'}</div>`}
+function movFoto(k,d){let G=tor().galeria,x=G.splice(k,1)[0];G.splice(k+d,0,x);marcar();draw()}
+async function subirFotos(inp){let fs=[...inp.files];if(!fs.length)return;let t=tor(),ok=0;t.galeria=Array.isArray(t.galeria)?t.galeria:[];for(let i=0;i<fs.length;i++){toast(`Subiendo ${i+1} de ${fs.length}…`);try{let b=await achicarJpg(fs[i]);b.name=fs[i].name;let url=await subir(b,'fotos','image/jpeg');t.galeria.push({u:url,c:''});ok++;marcar();draw()}catch(e){toast('No se pudo subir '+fs[i].name+': '+e.message,1);await new Promise(r=>setTimeout(r,1500))}}toast(ok+' foto'+(ok===1?'':'s')+' cargada'+(ok===1?'':'s')+'. Tocá «Guardar cambios» para publicarlas.')}
+
+// ── Canchas y sedes ──
+const mapaQ=s=>[s.nom,s.dir,s.ciudad].filter(Boolean).join(', ');
+function vSedes(t){let S=conf().sedes=Array.isArray(conf().sedes)?conf().sedes:[];let enFx=[...new Set(Object.values(FX).flatMap(f=>f.matches.map(m=>m.f).filter(Boolean)))].sort(),asig=new Set(S.flatMap(s=>String(s.canchas||'').split(',').map(x=>x.trim()).filter(Boolean))),sin=enFx.filter(c=>!asig.has(c));
+ return `<div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Canchas y sedes <small>${S.length}</small></h2><button class="btn s" onclick="conf().sedes.push({id:uid('S'),nom:'',dir:'',ciudad:'',canchas:'',nota:''});marcar();draw()">+ Agregar sede</button></div><p class="note">Se publican en la página del torneo como «Cómo llegar», con el mapa de cada sede y qué canchas tiene. Escribí la dirección como la buscarías en Google Maps.</p>${sin.length?`<p class="warn">Canchas del fixture que todavía no están en ninguna sede: ${sin.map(esc).join(', ')}</p>`:''}</div>
+ ${S.map((s,k)=>`<div class="card sede"><div class="grid"><label class="f">Nombre de la sede<input class="i" value="${esc(s.nom)}" placeholder="Club Atlético Alianza" onchange="conf().sedes[${k}].nom=this.value;marcar();draw()"></label><label class="f">Dirección<input class="i" value="${esc(s.dir)}" placeholder="Calle y número" onchange="conf().sedes[${k}].dir=this.value;marcar();draw()"></label><label class="f">Ciudad<input class="i" value="${esc(s.ciudad)}" placeholder="Arteaga, Santa Fe" onchange="conf().sedes[${k}].ciudad=this.value;marcar();draw()"></label><label class="f">Canchas (separadas por coma)<input class="i" value="${esc(s.canchas)}" placeholder="Cancha 1, Cancha 2" onchange="conf().sedes[${k}].canchas=this.value;marcar();draw()"></label></div>
+  <label class="f" style="margin-top:10px">Indicaciones (opcional)<input class="i" value="${esc(s.nota||'')}" placeholder="Ej.: entrada por calle San Martín, estacionamiento al costado" onchange="conf().sedes[${k}].nota=this.value;marcar()"></label>
+  ${mapaQ(s)?`<iframe class="mapa" src="https://www.google.com/maps?q=${encodeURIComponent(mapaQ(s))}&output=embed" loading="lazy" title="Mapa"></iframe>`:''}<div class="row" style="justify-content:flex-end;margin-top:10px"><button class="btn x s" onclick="if(confirm('¿Quitar esta sede?')){conf().sedes.splice(${k},1);marcar();draw()}">Quitar sede</button></div></div>`).join('')||'<div class="card"><div class="empty">Todavía no hay sedes cargadas.</div></div>'}`}
+
+// ── Inscripciones online ──
+let INS=[],INST=null,INSF='pendiente';
+async function cargarIns(){INST=TID;try{INS=await rpc('panel_inscripciones',{tid:TID})}catch(e){INS=[]}draw()}
+function vInscripciones(t){if(INST!==TID){INST=TID;INS=[];setTimeout(cargarIns,0)}let C=conf(),url=location.origin+'/inscripcion/?t='+encodeURIComponent(t.id),cats=t.categorias||[];C.inscCats=Array.isArray(C.inscCats)?C.inscCats:[];
+ let n={pendiente:0,aprobada:0,rechazada:0};INS.forEach(i=>n[i.estado]=(n[i.estado]||0)+1);let L=INS.filter(i=>!INSF||i.estado===INSF);
+ return `<div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Inscripciones online</h2><label class="switch"><input type="checkbox" ${C.inscripciones?'checked':''} onchange="conf().inscripciones=this.checked;guardarSoloTorneo(this.checked?'Inscripciones abiertas: el formulario ya funciona':'Inscripciones cerradas');draw()">${C.inscripciones?'Abiertas':'Cerradas'}</label></div>
+ <p class="note">Con las inscripciones abiertas, la página del torneo muestra el botón «Inscribí a tu club» y cualquiera puede mandar el formulario. Los datos (teléfonos y correos) solo se ven acá. Al aprobar una inscripción, el club se agrega a las categorías que eligió.</p>${linkBox(url,`<button class="btn l s" onclick="copiar('Inscribí a tu club en el ${esc(t.nombre).replace(/'/g,'')}: ${esc(url)}','Mensaje copiado')">Copiar mensaje</button>`)}
+ <div class="grid" style="margin-top:12px"><div class="f">Categorías que se ofrecen<div class="chips"><label class="chip ck"><input type="checkbox" ${!C.inscCats.length?'checked':''} onchange="conf().inscCats=[];marcar();draw()">Todas las del torneo</label>${cats.map(c=>`<label class="chip ck"><input type="checkbox" ${C.inscCats.includes(c)?'checked':''} onchange="conf().inscCats=this.checked?[...conf().inscCats,'${esc(c)}']:conf().inscCats.filter(x=>x!=='${esc(c)}');marcar();draw()">${esc(c)}</label>`).join('')}</div></div><label class="f">Cierre de inscripción (opcional)<input class="i" type="date" value="${esc(C.inscCierre||'')}" onchange="conf().inscCierre=this.value;marcar()"></label><label class="f">Cupos por categoría (opcional)<input class="i" type="number" min="0" value="${esc(C.inscCupo||'')}" onchange="conf().inscCupo=+this.value||null;marcar()"></label></div></div>
+ <div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Recibidas <small>${INS.length}</small></h2><div class="tabs sub" style="margin:0">${[['pendiente','Pendientes'],['aprobada','Aprobadas'],['rechazada','Rechazadas'],['','Todas']].map(([v,l])=>`<button class="${INSF===v?'on':''}" onclick="INSF='${v}';draw()">${l} ${v?n[v]:INS.length}</button>`).join('')}</div></div>
+ ${L.map(i=>{let d=i.datos||{};return `<div class="ins ${i.estado}"><div class="ins-h"><div><b>${esc(d.club||'')}</b><span>${esc([d.ciudad,d.provincia].filter(Boolean).join(', '))}</span></div><em class="est-${i.estado}">${({pendiente:'Pendiente',aprobada:'Aprobada',rechazada:'Rechazada'})[i.estado]}</em></div>
+  <div class="chips" style="margin:8px 0">${(d.categorias||[]).map(c=>`<span class="chip" style="padding:5px 12px">${esc(c)}</span>`).join('')}</div>
+  <div class="ins-d"><span><small>Delegado</small>${esc(d.delegado||'')}</span><span><small>Teléfono</small>${d.telefono?`<a href="https://wa.me/${telWa(d.telefono)}" target="_blank" rel="noopener">${esc(d.telefono)}</a>`:''}</span><span><small>Correo</small>${esc(d.email||'')}</span><span><small>Jugadores aprox.</small>${esc(d.jugadores||'')}</span><span><small>Recibida</small>${new Date(i.creado).toLocaleString('es-AR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</span></div>
+  ${d.comentario?`<p class="note" style="color:var(--ink2)">«${esc(d.comentario)}»</p>`:''}<div class="row" style="justify-content:flex-end;margin-top:8px">${i.estado!=='aprobada'?`<button class="btn g s" onclick="insEstado('${i.id}','aprobada')">Aprobar y sumar el club</button>`:''}${i.estado!=='rechazada'?`<button class="btn l s" onclick="insEstado('${i.id}','rechazada')">Rechazar</button>`:''}${i.estado!=='pendiente'?`<button class="btn x s" onclick="insEstado('${i.id}','pendiente')">Volver a pendiente</button>`:''}</div></div>`}).join('')||'<div class="empty">No hay inscripciones en esta lista.</div>'}</div>`}
+async function insEstado(id,e){let i=INS.find(x=>x.id===id);try{await rpc('panel_inscripcion_estado',{iid:id,estado:e});i.estado=e;if(e==='aprobada'){let d=i.datos||{},sum=[];(d.categorias||[]).forEach(c=>{if(!FX[c])return;let f=FX[c];if(Object.values(f.teams).some(x=>nrm(x.n)===nrm(d.club)))return;f.teams[uid('T')]={n:d.club,c:[d.ciudad,d.provincia].filter(Boolean).join(', '),k:[],l:''};sum.push(c)});if(sum.length){marcar();toast(d.club+' se sumó a '+sum.join(', ')+'. Asignale zona y tocá «Guardar cambios».')}else toast('Inscripción aprobada')}else toast(e==='rechazada'?'Inscripción rechazada':'Volvió a pendientes');draw()}catch(x){toast('No se pudo cambiar: '+x.message,1)}}
+
+// ── Encuesta a las delegaciones ──
+const PREG=[['org','Organización general'],['fix','Fixture y horarios'],['can','Estado de las canchas'],['arb','Arbitraje'],['alo','Alojamiento'],['com','Comidas'],['ate','Atención de la organización']];
+let ENC=[],ENCT=null;
+async function cargarEnc(){ENCT=TID;try{ENC=await rpc('panel_encuesta',{tid:TID})}catch(e){ENC=[]}draw()}
+function vEncuesta(t){if(ENCT!==TID){ENCT=TID;ENC=[];setTimeout(cargarEnc,0)}let C=conf(),url=location.origin+'/encuesta/?t='+encodeURIComponent(t.id);
+ let prom=PREG.map(([k,l])=>{let v=ENC.map(r=>+((r.respuestas||{})[k])).filter(x=>x>=1&&x<=5);return {k,l,n:v.length,p:v.length?v.reduce((a,b)=>a+b,0)/v.length:0}}),vol={si:0,talvez:0,no:0};ENC.forEach(r=>{let v=(r.respuestas||{}).volver;if(vol[v]!==undefined)vol[v]++});let gen=prom.filter(x=>x.n),pg=gen.length?gen.reduce((a,x)=>a+x.p,0)/gen.length:0;
+ let msg=`¡Gracias por venir al ${t.nombre}! Nos ayudás mucho si nos contás cómo te fue (son 2 minutos): ${url}`;
+ return `<div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Encuesta a las delegaciones</h2><label class="switch"><input type="checkbox" ${C.encuesta?'checked':''} onchange="conf().encuesta=this.checked;guardarSoloTorneo(this.checked?'Encuesta abierta: ya se puede responder':'Encuesta cerrada');draw()">${C.encuesta?'Abierta':'Cerrada'}</label></div><p class="note">Al terminar el torneo, abrí la encuesta y mandá el link al grupo de delegados. Cada uno puntúa del 1 al 5 la organización, las canchas, el arbitraje, el alojamiento y las comidas, y deja sus comentarios. Las respuestas solo se ven acá.</p>${linkBox(url,`<button class="btn l s" onclick="copiar(${esc(JSON.stringify(msg))},'Mensaje copiado')">Copiar mensaje para WhatsApp</button>`)}</div>
+ <div class="kpis"><div class="kpi"><small>Respuestas</small><b>${ENC.length}</b><span>${(n=>n+(n===1?' club':' clubes'))(new Set(ENC.map(r=>nrm(r.club)).filter(Boolean)).size)}</span></div><div class="kpi"><small>Promedio general</small><b>${pg?pg.toFixed(1).replace('.',','):'—'}</b><span>sobre 5</span></div><div class="kpi"><small>Volverían</small><b>${ENC.length?Math.round(vol.si/ENC.length*100)+'%':'—'}</b><span>${vol.talvez} tal vez · ${vol.no} no</span></div></div>
+ <div class="two"><div class="card"><h2>Puntaje por tema</h2>${prom.map(x=>`<div class="enc-r"><span>${esc(x.l)}</span><div class="bar"><i style="width:${x.p/5*100}%"></i></div><b>${x.n?x.p.toFixed(1).replace('.',','):'—'}</b></div>`).join('')}</div>
+ <div class="card"><h2>Comentarios <small>${ENC.filter(r=>r.comentario).length}</small></h2>${ENC.filter(r=>r.comentario).map(r=>`<div class="enc-c"><p>«${esc(r.comentario)}»</p><small>${esc(r.club||'Sin club')}${r.rol?' · '+esc(r.rol):''} · ${new Date(r.creado).toLocaleDateString('es-AR')}</small></div>`).join('')||'<div class="empty">Todavía no hay comentarios.</div>'}</div></div>`}
+
+// Arranque: si ya ingresó en esta pestaña, entra directo
+(function(){let c='';try{c=sessionStorage.getItem('panel-clave')||''}catch(x){}if(c){$('#clave').value=c;entrar()}})();
+</script>
+</body>
+</html>
