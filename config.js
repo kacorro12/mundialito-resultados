@@ -152,12 +152,12 @@ window.MUNDIALITO_CFG = {
       cierre: 'Así, cada club, escuela o selectivo puede venir al Mundialito con un gasto mínimo.',
       foto: 'm11'
     },
-    // Logo de AFA: cuando esté, poner la ruta en "logo" (por ejemplo '/img/afa.png'); mientras, se muestra el texto AFA
+    // Logo de AFA en /img/afa.png (si "logo" queda vacío, se muestra el texto AFA)
     scouts: { t: 'Una vidriera para el futuro', d: 'Para muchos chicos, el Mundialito es la primera vidriera de su carrera. En el torneo de enero y en las distintas fechas del circuito hay ojeadores de la Asociación del Fútbol Argentino que siguen de cerca cada partido, y clubes de AFA que compiten con sus divisiones formativas.',
       puntos: ['Ojeadores de la AFA en el Mundialito de enero y en el circuito', 'Clubes de AFA compiten con sus categorías formativas', 'Chicos de todo el país, a la vista de los formadores'],
       // Fotos de chicos con camisetas de clubes de AFA (Rosario Central y Newell's, Funes 2026)
       fotos: ['e19','e22','e21','e23'],
-      org: 'Ojeadores de la AFA', logo: '' },
+      org: 'Ojeadores de la AFA', logo: '/img/afa.png' },
     lema: 'La magia está por volver',
     historia: {
       titulo: 'Una pasión que empezó en Arteaga',
