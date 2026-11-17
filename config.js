@@ -111,7 +111,7 @@ window.MUNDIALITO_CFG = {
         'Detrás de cada torneo hay dirigentes, profesores, árbitros, voluntarios, familias, comunidades anfitrionas y empresas. El Mundialito nunca fue solamente el esfuerzo de una institución.'
       ],
       items: ['Nuestra esencia permanece', 'Más que una competencia', 'Un esfuerzo compartido'],
-      fotoVentana: 'm12',
+      fotoVentana: 'm06',
       foto: 'd01',
       porvenir: 'Miramos hacia el futuro con el mismo entusiasmo que impulsó aquella primera edición. Las canchas cambian, los equipos se renuevan y cada generación escribe sus propias historias. Pero las emociones permanecen.',
       cierre: 'Mundialito. Una historia que nos une. Una pasión que nos encuentra.',
@@ -119,13 +119,26 @@ window.MUNDIALITO_CFG = {
       proxima: { img: '/img/41-edicion.png', txt: '8 al 17 de enero de 2027 · Arteaga, Santa Fe' }
     },
     porque: [
-      { ic: 'map', t: 'Federal desde siempre', d: 'Hace 40 años que el Mundialito es federal: llegan clubes de todas las provincias y de otros países, no solo los más conocidos.' },
-      { ic: 'calendar', t: '10 días de fútbol', d: 'Es el segundo torneo de fútbol infantil del país con más días de competencia: diez días a puro fútbol.' },
-      { ic: 'pin', t: '16 sedes', d: 'La sede principal en Arteaga y 15 subsedes en ciudades y pueblos de la región. Todo un territorio jugando al mismo tiempo.' },
-      { ic: 'heart', t: 'Amistad y unión', d: 'El Mundialito es encuentro: chicos, familias y clubes que vuelven cada año y se hacen amigos para siempre.' },
-      { ic: 'history', t: '40 ediciones seguidas', d: 'Desde 1987 no se suspendió nunca. Arteaga es Capital Provincial del Fútbol Infantil y cada enero todo el pueblo se prepara para recibir a las delegaciones.' },
-      { ic: 'shield', t: 'Organización de primera', d: 'Fixture y resultados en vivo, sedes preparadas y un equipo que acompaña a cada delegación durante todo el torneo.' }
+      { ic: 'history', t: 'Cuatro décadas de historia', d: 'Desde 1987, generaciones de futbolistas han sido protagonistas del Mundialito Alianza. Una trayectoria de 40 ediciones que nos convirtió en una tradición del fútbol infantil, construida con pasión, compromiso y valores.' },
+      { ic: 'map', t: 'Fútbol sin fronteras', d: 'Clubes de diferentes provincias argentinas y del exterior se encuentran para compartir una misma pasión. Nuevos rivales, distintas culturas y la oportunidad de competir más allá de las fronteras de cada región.' },
+      { ic: 'calendar', t: 'Diez días inolvidables', d: 'El Mundialito Alianza transforma cada enero en una verdadera fiesta del fútbol infantil. Diez días de competencia, múltiples sedes y cientos de historias que se escriben dentro y fuera de la cancha.' },
+      { ic: 'pin', t: 'Un circuito, infinitas oportunidades', d: 'El fútbol no se detiene en enero. Con nuestros Premundialitos, Torneos Especiales y Juveniles de Clubes, llevamos la experiencia Mundialito a nuevas ciudades, categorías y momentos del año.' },
+      { ic: 'heart', t: 'Mucho más que fútbol', d: 'Un viaje, una amistad, un gol, una experiencia compartida. El Mundialito es ese lugar donde chicos, familias y entrenadores construyen recuerdos que perduran mucho después del último partido.' },
+      { ic: 'shield', t: 'Una experiencia pensada para vos', d: 'Detrás de cada torneo hay un equipo comprometido con la organización, la planificación deportiva y el acompañamiento a las delegaciones. Trabajamos para que cada club pueda concentrarse en lo más importante: vivir y disfrutar el fútbol.' }
     ],
+    // Futbolistas profesionales que jugaron el Mundialito (placas en img/j)
+    futbolistas: {
+      titulo: 'Pasaron por el Mundialito',
+      txt: 'Antes de llegar a la Selección y a las grandes ligas, jugaron en Arteaga.',
+      lista: [
+        { n: 'Javier Mascherano', d: 'Defensores de Barrio Vila · Categoría 84', f: '/img/j/j05.jpg' },
+        { n: 'Lucas Biglia', d: 'Argentinos Juniors · Categoría 86', f: '/img/j/j03.jpg' },
+        { n: 'Javier Saviola', d: '', f: '/img/j/j02.jpg' },
+        { n: 'Martín Demichelis', d: '', f: '/img/j/j04.jpg' },
+        { n: 'Nicolás Pareja', d: 'Argentinos Juniors · Categoría 84', f: '/img/j/j06.jpg' },
+        { n: 'Fatura Broun', d: 'Rosario Central · Categoría 86', f: '/img/j/j01.jpg' }
+      ]
+    },
     // Bonos: cómo funcionan (sección propia en Torneos)
     bonos: {
       titulo: 'Bonos para viajar',
