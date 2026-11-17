@@ -245,6 +245,7 @@ tr.camr td{font-size:12px;font-weight:800;color:#c2410c;background:#fff7ed;borde
 .pq-cr{flex:0 0 auto;width:72px;height:72px;border-radius:18px;background:#fff;display:grid;place-items:center;box-shadow:0 4px 12px rgba(60,10,20,.12);overflow:hidden}.pq-cr img{width:86%;height:86%;object-fit:contain}.pq-cr.in{background:#fdf2f3;color:#9e0e1d;font-weight:900;font-size:26px}.pq-cr.q{box-shadow:none;border:3px dashed #d9c9cb;color:#b9a8aa;font-weight:900}
 .pq-s{text-align:center}.pq-s b{display:block;font-size:66px;font-weight:900;letter-spacing:-.02em;line-height:1}.pq-s b i{font-style:normal;color:#c9b9bb;margin:0 10px}.pq-s b.hr{font-size:52px;color:#d7192b}.pq-s small{display:block;font-size:22px;font-weight:800;color:#857a7c;margin-top:6px}
 .pq-f{display:flex;justify-content:space-between;align-items:center;padding:34px 70px;background:#fff;border-top:6px solid #d7192b;font-size:30px;font-weight:900;color:#5e3a3d}
+p,li,figcaption,blockquote,small,dd{text-wrap:pretty}h1,h2,h3,h4{text-wrap:balance}
 </style>
 </head>
 <body>
@@ -252,7 +253,7 @@ tr.camr td{font-size:12px;font-weight:800;color:#c2410c;background:#fff7ed;borde
 <div id="app" class="hidden"></div>
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js?v=20261117a"></script>
+<script src="/config.js?v=20261117e"></script>
 <script>
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
 let CLAVE='',TS=[],TID=null,FX={},CAT=null,VIEW='resumen',DIRTY=false,DAY='',ORIG={},IMP=null,HOR=null,LST={},LEQ=null,PLN=[],PLNC=null,PDIA='',PCAN='';
