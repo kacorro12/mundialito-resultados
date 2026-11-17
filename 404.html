@@ -112,7 +112,7 @@ main{padding:14px 14px 10px}
 .thead{position:relative;margin:-14px -14px 0;padding:14px 16px 18px;color:#fff;background:linear-gradient(135deg,var(--red2),var(--red3));overflow:hidden}
 .thead:before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;opacity:.28;background-image:var(--img)}
 .thead>*{position:relative}
-.thead .bk{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;opacity:.9;margin-bottom:10px}
+.thead .tbk{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;opacity:.9;margin-bottom:10px}
 .thead h1{margin:0;font-size:22px;font-weight:900;line-height:1.15}
 .thead p{margin:6px 0 0;font-size:13px;opacity:.9}
 .cats{display:flex;gap:7px;overflow-x:auto;padding:12px 14px 2px;margin:0 -14px;scrollbar-width:none}
@@ -369,7 +369,7 @@ a.cal-i:hover{background:#faf8fb}
 .cats-p span{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-right:4px}
 .cats-p i{font-style:normal;font-size:12px;font-weight:700;border:1px solid #e3e0e8;border-radius:6px;padding:2px 7px}
 .thead .pill{display:inline-block;margin-bottom:8px;background:rgba(255,255,255,.95)!important;color:var(--red2)!important}
-.thead .bk{display:flex}
+.thead .tbk{display:flex}
 .tmeta{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:13px;font-weight:600}
 .tmeta span,.tmeta a{display:inline-flex;align-items:center;opacity:.95}
 .tmeta a{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:3px 9px}
@@ -1938,7 +1938,7 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  setTimeout(startHubFx,0);
  return html+`<div class="mascots"><img src="/img/pateando.webp" alt=""><img src="/img/cabeceando.webp" alt=""><img src="/img/pisando.webp" alt=""></div>`}
 // ── Torneo ──
-function tournament(t,flash){let cats=(t.categorias||[]).filter(c=>FX[t.id]?.[c]),head=`<section class="thead" style="--img:url(${photo(t)})"><a class="bk" href="/" data-l>${SV.l.replace('<svg','<svg width="14" height="14" style="fill:none;stroke:#fff;stroke-width:3"')} Todos los torneos</a><span class="pill ${tType(t)}">${tTypeName(t)}</span><h1>${esc(t.nombre)}</h1><div class="tmeta"><span>${IC.cal}${fmtD(t.inicio)} al ${fmtD(t.fin)}</span><span>${IC.pin}${esc(t.sede||'')}</span>${sedesDe(t).length?`<a href="/${esc(t.id)}/como-llegar" data-l>${IC.route} Cómo llegar</a>`:`<a href="${mapsFor(t)}" target="_blank" rel="noopener">${IC.route} Cómo llegar</a>`}</div>${tActs(t)}</section>`;
+function tournament(t,flash){let cats=(t.categorias||[]).filter(c=>FX[t.id]?.[c]),head=`<section class="thead" style="--img:url(${photo(t)})"><a class="tbk" href="/" data-l>${SV.l.replace('<svg','<svg width="14" height="14" style="fill:none;stroke:#fff;stroke-width:3"')} Todos los torneos</a><span class="pill ${tType(t)}">${tTypeName(t)}</span><h1>${esc(t.nombre)}</h1><div class="tmeta"><span>${IC.cal}${fmtD(t.inicio)} al ${fmtD(t.fin)}</span><span>${IC.pin}${esc(t.sede||'')}</span>${sedesDe(t).length?`<a href="/${esc(t.id)}/como-llegar" data-l>${IC.route} Cómo llegar</a>`:`<a href="${mapsFor(t)}" target="_blank" rel="noopener">${IC.route} Cómo llegar</a>`}</div>${tActs(t)}</section>`;
  if(TVIEW.includes(st.view))return head+`<a class="tv-back" href="/${esc(t.id)}" data-l>${SV.l.replace('<svg','<svg width="14" height="14" style="fill:none;stroke:currentColor;stroke-width:3"')} Volver al fixture</a>`+(st.view==='fotos'?vFotos(t):vLlegar(t));
  if(!t.publicado||!cats.length)return head+`<div class="empty" style="margin-top:20px"><img src="/img/pateando.webp" alt="">El fixture de este torneo todavía no está publicado.<br>Volvé a entrar más cerca de la fecha.</div>`;
  let byslug=Object.fromEntries(cats.map(c=>[slug(c),c]));if(!st.cat||!byslug[st.cat]){let c=ls.get('cat-'+t.id);st.cat=byslug[c]?c:slug(cats[0]);history.replaceState(null,'',U(st.view,st.x))}ls.set('cat-'+t.id,st.cat);let cat=byslug[st.cat],f=FX[t.id][cat];
