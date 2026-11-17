@@ -1715,6 +1715,8 @@ button.ct-c>svg{width:18px;height:18px;fill:none;stroke:#b4adbb;stroke-width:2.4
 .mis a small{font-size:10.5px;opacity:.7}.mis a.on{background:#d7192b;color:#fff}
 
 .bk-q0{width:22px;height:22px;border-radius:50%;border:1.5px dashed #d9c9cc;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:900;color:#b4a3a6;flex-shrink:0}
+/* Presente y futuro sobre fondo rojo: tarjetas blancas para que se lea */
+.band .fu2-i{background:#fff!important}.band .fu2-i h3{color:#1d1d1f!important}.band .fu2-i p{color:#4a3f45!important}
 /* v30: fotos, cómo llegar e inscripciones */
 .tact{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;position:relative;z-index:1}
 .tact a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;font-weight:800;font-size:14px;background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.4);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);text-decoration:none}
@@ -1874,12 +1876,15 @@ function legalHTML(pg){let C=S.contacto||{},m=C.inscripcion||'mundialitoalianza@
 // Páginas de la web: cada pestaña muestra algunas secciones del inicio completo
 // Alojamientos queda guardada (/alojamientos) pero fuera del menú hasta corregir la información
 const PNAV=[['','Inicio'],['torneos','Torneos'],['historia','Historia'],['calendario','Calendario'],['novedades','Novedades'],['contacto','Contacto']];
-const PSEL={'':['.hx2','#circuito','#hteaser','#porque','#scouts','#futbolistas','#numeros','#noticias','.nl'],torneos:['#circuito','#scouts','#futbolistas','#porque','#bonos','#jugados','#mq','.nl'],historia:['#historia','#experiencia','.llama','#futuro','#mision','.nl'],calendario:['#calendario','.nl'],alojamientos:['#alojamiento','.nl'],novedades:['#noticias','.nl'],contacto:['#contacto','.nl'],'aviso-legal':['.nl'],privacidad:['.nl'],cookies:['.nl']};
+const PSEL={'':['.hx2','#circuito','#hteaser','#porque','#scouts','#numeros','#futbolistas','#noticias','.nl'],torneos:['#circuito','#scouts','#futbolistas','#porque','#bonos','#jugados','#mq','.nl'],historia:['#historia','.llama','#experiencia','#futuro','#mision','.nl'],calendario:['#calendario','.nl'],alojamientos:['#alojamiento','.nl'],novedades:['#noticias','.nl'],contacto:['#contacto','.nl'],'aviso-legal':['.nl'],privacidad:['.nl'],cookies:['.nl']};
 const PHEAD={torneos:['Torneos','Nuestros torneos','m12','Las propuestas del Circuito Mundialito: del gran torneo de enero a los encuentros para los más chiquitos.'],historia:['Historia','Una historia que nos une','h1988-28','Cuatro décadas de fútbol infantil en Arteaga.'],calendario:['Calendario','Circuito Mundialito','d05','Todas las fechas del circuito, con sede, cupos y fixture.'],alojamientos:['Alojamientos','Dónde hospedarse','d01','Opciones de alojamiento para el Mundialito Alianza de enero, en Arteaga.'],novedades:['Novedades','Lo último del Mundialito','m06','Noticias, anuncios y resultados de todo el circuito.'],contacto:['Contacto','Hablemos','h2001-08','Inscripciones, consultas y propuestas: estamos para ayudarte.'],'aviso-legal':['Legal','Aviso legal','m12','Quién está detrás de este sitio y en qué condiciones se puede usar.'],privacidad:['Legal','Política de privacidad','m12','Cómo tratamos tus datos personales, según la Ley 25.326.'],cookies:['Legal','Política de cookies','m12','Qué guardamos en tu navegador y para qué.']};
 function pageView(pg){let tp=document.createElement('template');tp.innerHTML=hub();let out=document.createElement('div'),h=PHEAD[pg];
  if(h)out.insertAdjacentHTML('beforeend',`<section class="pg-h" style="background-image:url(${ph(h[2])})"><div class="pg-in"><nav class="pg-bc"><a href="/" data-l>Inicio</a><i>/</i><span>${esc(h[0])}</span></nav><h1>${esc(h[1])}</h1>${h[3]?`<p>${esc(h[3])}</p>`:''}</div></section>`);
  let n0=out.children.length;if(LEGAL[pg])out.insertAdjacentHTML('beforeend',legalHTML(pg));(PSEL[pg]||PSEL['']).forEach(q=>tp.content.querySelectorAll(q).forEach(n=>out.append(n)));
  if(!out.querySelector('#calendario,#alojamiento,#noticias,#contacto,#historia,#torneos,#circuito,#legal')&&pg)out.firstElementChild.insertAdjacentHTML('afterend','<p class="hs-empty pg-empty">Pronto vamos a publicar esta sección.</p>');
+ // Fondos alternados (blanco, rojo, blanco…) según el orden en que quedan las secciones de cada página
+ // Se cuenta desde abajo: la última queda blanca porque abajo viene la franja roja del newsletter. La Llama es roja siempre y cuenta como roja.
+ {let L=[...out.querySelectorAll(':scope>section.hs,:scope>.llama')].reverse();L.forEach((s,k)=>{if(s.matches('section.hs'))s.classList.toggle('band',k%2===1)})}
  return out.innerHTML}
 function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter(t=>tState(t)==='prox'),fin=T.filter(t=>tState(t)==='fin'&&daysTo(t.fin)>-400).reverse(),next=[...live,...up],nt=up[0],ma=T.find(t=>tType(t)==='ma'&&t.inicio>=n),ed=ma?dISO(ma.inicio).getFullYear()-1986:41;
  const ig=CFG.instagram?'https://instagram.com/'+CFG.instagram:'#',tk=CFG.tiktok?'https://www.tiktok.com/@'+CFG.tiktok:'#',wa=CFG.whatsapp?'https://wa.me/'+CFG.whatsapp:'#',C=S.contacto||{};
