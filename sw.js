@@ -7,8 +7,11 @@ self.addEventListener('push', e => {
   try { d = e.data ? e.data.json() : {}; } catch (x) { d = { body: e.data ? e.data.text() : '' }; }
   e.waitUntil(self.registration.showNotification(d.title || 'Mundialito Alianza', {
     body: d.body || '',
-    icon: '/logo.webp',
-    badge: '/logo.webp',
+    icon: '/icons/icon-192.png',      // ícono de la app (fondo rojo, copa blanca)
+    badge: '/icons/badge-96.png',     // copa blanca para la barra de estado de Android
+    lang: 'es-AR',
+    vibrate: [120, 60, 120],
+    timestamp: Date.now(),
     tag: d.tag || undefined,
     renotify: !!d.tag,
     data: { url: d.url || '/' }
