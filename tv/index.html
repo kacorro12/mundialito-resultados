@@ -197,7 +197,7 @@ function armar(suave){if(!T)return;let L=todos(),h=hoyISO(),now=ahoraHM(),out=[]
  let vivos=L.filter(x=>x.m.est==='vivo').sort((a,b)=>(a.m.t||'').localeCompare(b.m.t||''));
  if(on.envivo&&vivos.length)chunk(vivos,vivos.length<=4?4:8).forEach((p,i,a)=>add('envivo','En juego ahora',`<div class="ms ${p.length<=4?'big one':''}">${p.map(x=>mcard(x)).join('')}</div>`,{pg:a.length>1?(i+1)+'/'+a.length:''}));
  // Próximos: lo que falta de hoy, o el próximo día con partidos
- let pend=L.filter(x=>!played(x.m)&&x.m.est!=='vivo'&&x.m.d&&(x.m.d>h||(x.m.d===h))).sort((a,b)=>((a.m.d||'')+(a.m.t||'')).localeCompare((b.m.d||'')+(b.m.t||'')));
+ let pend=L.filter(x=>!played(x.m)&&x.m.est!=='vivo'&&x.m.est!=='fin'&&x.m.d&&(x.m.d>h||(x.m.d===h))).sort((a,b)=>((a.m.d||'')+(a.m.t||'')).localeCompare((b.m.d||'')+(b.m.t||'')));
  let dPend=pend.length?pend[0].m.d:null,prox=pend.filter(x=>x.m.d===dPend&&(dPend!==h||!x.m.t||x.m.t>=addMin(now,-30)));if(!prox.length&&dPend===h){let nx=pend.find(x=>x.m.d>h);dPend=nx&&nx.m.d;prox=pend.filter(x=>x.m.d===dPend)}
  if(on.proximos&&prox.length)chunk(prox.slice(0,20),10).forEach((p,i,a)=>add('proximos',dPend===h?'Próximos partidos':'Próxima fecha',`<div class="ms">${p.map(x=>mcard(x)).join('')}</div>`,{sub:dPend===h?'Hoy':fmtDay(dPend),pg:a.length>1?(i+1)+'/'+a.length:''}));
  // Resultados: los de hoy, o los del último día jugado
