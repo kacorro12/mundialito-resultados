@@ -61,7 +61,7 @@ window.MUNDIALITO_CFG = {
     linea: [
       { y: '1986', t: 'El nacimiento de una ilusión', d: 'Delfor Bartomucci, junto a dirigentes, colaboradores y allegados del Club Atlético Alianza, impulsa un proyecto tan ambicioso como apasionante: un gran torneo de fútbol infantil que reúna a clubes de distintas localidades y provincias. Había que contactar instituciones, organizar alojamientos, preparar las canchas y movilizar a todo un pueblo. El entusiasmo pudo más que las dificultades.', fotos: ['h1989-14','h1989-16','h1989-11'] },
       { y: '1987', t: 'La primera edición', d: 'En enero se juega el primer Mundialito Alianza, con doce delegaciones. Y pasa algo extraordinario: un pueblo de poco más de 3.000 habitantes recibe a más de 5.000 personas en la jornada inaugural. Lo que parecía difícil de concretar se transforma en una fiesta del fútbol infantil. Y era solamente el principio.', fotos: ['h1988-25','h1988-05','h1988-17'] },
-      { y: '1993', t: 'Capital Provincial del Fútbol Infantil', d: 'Cada verano llegan nuevas delegaciones; algunas recorren miles de kilómetros y otras vuelven año tras año. Mediante el Decreto Provincial N.º 3565, el Gobierno de Santa Fe declara a Arteaga Capital Provincial del Fútbol Infantil, reconociendo lo que el Mundialito había construido.', fotos: ['h1993-01','h1993-17','h1993-18'] },
+      { y: '1993', t: 'Capital Provincial del Fútbol Infantil', d: 'Cada verano llegan nuevas delegaciones; algunas recorren miles de kilómetros y otras vuelven año tras año. Mediante el Decreto provincial N.º 3565, el Gobierno de Santa Fe declara a Arteaga Capital Provincial del Fútbol Infantil, reconociendo lo que el Mundialito había construido.', fotos: ['h1993-01','h1993-17','h1993-18'] },
       { y: '2026', t: 'Cuarenta ediciones haciendo historia', d: 'Del 9 al 18 de enero, la 40.ª edición celebra cuatro décadas de trayectoria, con una identidad renovada. Una oportunidad para reconocer a quienes hicieron posible el proyecto y renovar el compromiso con los futuros protagonistas.', fotos: ['m03','m12','m01'] },
       { y: '2027', t: 'El Circuito Mundialito', d: 'El Mundialito se trabaja como circuito: torneos casi todos los meses, en distintas sedes, que cierran con la 41.ª edición del 8 al 17 de enero en Arteaga. Una misma pasión, nuevas experiencias y más oportunidades para jugar.', fotos: ['e03','e15','e13'] }
     ],
@@ -122,7 +122,7 @@ window.MUNDIALITO_CFG = {
       { ic: 'history', t: 'Cuatro décadas de historia', d: 'Desde 1987, generaciones de futbolistas han sido protagonistas del Mundialito Alianza. Una trayectoria de 40 ediciones que nos convirtió en una tradición del fútbol infantil, construida con pasión, compromiso y valores.' },
       { ic: 'map', t: 'Fútbol sin fronteras', d: 'Clubes de diferentes provincias argentinas y del exterior se encuentran para compartir una misma pasión. Nuevos rivales, distintas culturas y la oportunidad de competir más allá de las fronteras de cada región.' },
       { ic: 'calendar', t: 'Diez días inolvidables', d: 'El Mundialito Alianza transforma cada enero en una verdadera fiesta del fútbol infantil. Diez días de competencia, múltiples sedes y cientos de historias que se escriben dentro y fuera de la cancha.' },
-      { ic: 'pin', t: 'Un circuito, infinitas oportunidades', d: 'El fútbol no se detiene en enero. Con nuestros Premundialitos, Torneos Especiales y Juveniles de Clubes, llevamos la experiencia Mundialito a nuevas ciudades, categorías y momentos del año.' },
+      { ic: 'pin', t: 'Un circuito, infinitas oportunidades', d: 'El fútbol no se detiene en enero. Con los Premundialitos, los Encuentros y el Torneo Juvenil de Clubes, llevamos la experiencia Mundialito a nuevas ciudades, categorías y momentos del año.' },
       { ic: 'heart', t: 'Mucho más que fútbol', d: 'Un viaje, una amistad, un gol, una experiencia compartida. El Mundialito es ese lugar donde chicos, familias y entrenadores construyen recuerdos que perduran mucho después del último partido.' },
       { ic: 'shield', t: 'Una experiencia pensada para vos', d: 'Detrás de cada torneo hay un equipo comprometido con la organización, la planificación deportiva y el acompañamiento a las delegaciones. Trabajamos para que cada club pueda concentrarse en lo más importante: vivir y disfrutar el fútbol.' }
     ],
@@ -215,7 +215,7 @@ window.MUNDIALITO_CFG = {
           copas: [
             { n: 'Oro', c: 'oro', t: 'Los 3 primeros y el mejor 2°. Semis: mejor 1° vs mejor 2° y 2° mejor 1° vs 3° mejor 1°. Los perdedores juegan por el 3.er y 4.º puesto.' },
             { n: 'Plata', c: 'plata', t: 'Los 2 segundos restantes y los 2 mejores 3°. Semis: mejor 2° vs 2° mejor 3° y 2° mejor 2° vs mejor 3°.' },
-            { n: 'Bronce', c: 'bronce', t: 'El 3° restante y los 3 cuartos. Semis: 3° restante vs 3er mejor 4° y mejor 4° vs 2° mejor 4°.' } ] },
+            { n: 'Bronce', c: 'bronce', t: 'El 3° restante y los 3 cuartos. Semis: 3° restante vs 3.er mejor 4° y mejor 4° vs 2° mejor 4°.' } ] },
         { cat: 'Sub 15', equipos: '8 equipos', formato: '2 zonas de 4 equipos, todos contra todos dentro de cada zona.',
           copas: [
             { n: 'Oro', c: 'oro', t: 'Semis: 1° Zona A vs 2° Zona B y 1° Zona B vs 2° Zona A. Los perdedores juegan por el 3.er y 4.º puesto.' },
