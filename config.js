@@ -104,6 +104,22 @@ window.MUNDIALITO_CFG = {
           txt: 'La competencia que dio origen a todo. Diez días de fútbol en Arteaga y sus subsedes, con clubes, escuelas y delegaciones de todo el país y del exterior. El gran cierre del circuito.' }
       ]
     },
+    // Página Sumate: búsquedas de trabajo y colaboración. "abierta: false" la muestra como cerrada.
+    convocatorias: {
+      intro: 'El Mundialito se hace entre muchos. Si querés ser parte, estas son las búsquedas abiertas: completá el formulario y te contactamos.',
+      lista: [
+        { id: 'show', abierta: true, tag: 'Artistas y colaboradores', titulo: 'Show inaugural del Mundialito 2027', foto: '/img/historia-portada.jpg',
+          txt: '¿Cantás, bailás, actuás, hacés malabares o tenés alguna otra habilidad artística? Sumate al show de apertura del torneo de fútbol infantil más federal del país.',
+          puntos: ['Cantantes, bailarines, actores y malabaristas', 'Cualquier otra habilidad artística', 'Inauguración del 41.º Mundialito, en enero de 2027'],
+          form: 'https://docs.google.com/forms/d/e/1FAIpQLSd66Zb2W8z-N5g3rv9A5BwcvV23ooaPUiHdb-ETsJ9LcGZBYw/viewform',
+          ig: 'https://www.instagram.com/p/DcOXGDWub4K/' },
+        { id: 'feria', abierta: true, tag: 'Emprendedores', titulo: 'Feria de emprendedores en el Mundialito', foto: 'm08',
+          txt: 'En el marco del 41.º Mundialito Alianza abrimos la convocatoria para emprendedores que quieran ofrecer sus productos durante los primeros tres días del torneo. Los cupos son limitados.',
+          puntos: ['8, 9 y 10 de enero de 2027', 'Club Atlético Alianza, Arteaga, Santa Fe', 'Preinscripciones abiertas'],
+          form: 'https://docs.google.com/forms/d/e/1FAIpQLSdOs_kruj-ZcGL-QbgRYU3UDOPJHvw-DbvD6Bmd3zrqGItn3Q/viewform',
+          ig: 'https://www.instagram.com/p/De2boFqS3-R/', consultas: true }
+      ]
+    },
     // Página Torneos: "Conocé cada torneo" (pestañas, una por propuesta). ficha = [ícono, título, texto]
     guiaTorneos: {
       intro: 'Durante todo el año hay una propuesta para cada club, escuela y categoría. Todas terminan en el gran torneo de enero en Arteaga. Elegí una para conocerla.',
