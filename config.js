@@ -86,6 +86,8 @@ window.MUNDIALITO_CFG = {
         ['p04','Compañeras','Premundialito Victoria'], ['r03','Concentración','Premundialito Regatas'], ['e09','La pelota','Funes'], ['s08','Amigas','Premundialito San Basilio'], ['h2000-14','Las noches de Arteaga'], ['m04','Cada partido','Arteaga · enero 2026'], ['e07','Los amigos','Funes'], ['h1992-17','Las tradiciones'] ],
       franja: ['h1988-08','s01','p02','r01','m07','h2012-05','e02','s03','r05','h1990-09','m10','e06','s04','h1991-15','p05','r06','e12','h1993-07','s10','m11','r09','h1994-08','e17','s11','p03','h2000-02','r11','e18','s12','h2004-02','d02','r13','m12','h2016-05','p08','s14','r15','h2018-20','e08','s16','p06','h2020-36','r10','e11','s05','h2020-44','r12','s09','h1989-12','r16','h1992-14','h1988-12','h2013-02']
     },
+    // Logos de los clubes que ya jugaron (archivos en /img/clubes/<nombre>.webp, sin repetidos). La franja "Clubes participantes" los muestra en dos filas.
+    logosClubes: ['12-de-octubre','25-de-mayo','a-c-d-y-s-san-benito','academia-elite-sports','acefic','adelia-maria','adiur','alice','almirante-agrario','alumni','alvear-futbol-club','amigos-f.-c.','argenper','azcuenaga-sur','bancario','banda-norte','belgrano-coronel-moldes','bermudez-fc','bolivia-2022','bronson-f-c','c-r-union-y-cultura','c.-f.-a.-r.','centro-el-potrero','charruas-femenino','club-alianza','club-alumni','club-america','club-atletico-alba-argentina','club-atletico-alianza','club-atletico-belgrano','club-atletico-selva','club-atletico-union-casildense','club-atletico-villa-mitre','club-sportivo-almafuerte','defensores-de-centro','defensores','deportivo-argentino','deportivo-ibarlucea','deportivo-municipal','diego-griffa','el-fachinal','escuela-de-fútbol-nahuel-carballo','escuela-el-potrero','escuela-esperanza-juvenil','escuela-lion-s','escuela-surbar','escuelita-el-reju','escuelita-pereyra-f.-c.','esperanza','estrella-de-rosario','estrella','estudiantes-de-levalle','everton','ferro-carril-oeste','flamengo-arroyo-seco','form.-independiente','fortaleza','furia-fc','gimnasia-y-esgrima','guardianes-de-la-corona','huracan-casilda-club','independiente-de-ranqueles','jockey-club','la-16-a','la-16','la-consolata','la-mano-de-dios','la-scaloneta','las-higueras','leones-dorado','leones','libertad','los-amigos-de-guille','los-andes-villa-ramallo','los-diablitos-de-chabas','los-halcones','los-pibes-del-barrio','los-pibes','los-toros','nacho-corbalan','napoli-soccer','newells-victoria','newells','nueva-union','pipo-spinetta','psm','real-vgg','rejunte','river','rojinegro-88','rompe-redes','rosario-central','rosario-sur','sampacho','san-lorenzo','san-martin','san-nicolas','santa-catalina','selectivo-aya','selectivo-las-garzas','selectivo-sifa','semillero','semillitas','sport-club-canadense','sportivo-victoria','sportsman-roldan','talleres','teo-fc','tiki-tiki','tirando-paredes','toritos','trinche-fc','union-cruz-alta','union-futbolera','velez','zona-norte'],
     // 4. El Circuito Mundialito: las propuestas (la de "ancho: true" ocupa todo el ancho)
     circuito: {
       titulo: 'Una misma pasión, nuevas experiencias',
@@ -96,10 +98,36 @@ window.MUNDIALITO_CFG = {
           txt: 'Torneos durante todo el año en distintas ciudades del país, con el mismo espíritu del Mundialito. Llevamos nuestro sello a nuevas sedes, volvemos a las que nos recibieron con los brazos abiertos y damos la chance de clasificar gratis al torneo de enero.' },
         { id: 'en', nombre: 'Encuentros', sub: 'Para los más chiquitos', cuando: 'Durante el año', logo: '/img/nenito.webp', fondo: '#fff', foto: 'e16',
           txt: 'Un fin de semana en familia para las categorías más chicas, las que todavía no juegan en enero. Porque en el Mundialito pensamos en todos: cada categoría tiene su lugar durante el año.' },
-        { id: 'ju', nombre: 'Torneo Juvenil de Clubes', sub: 'Para seguir siendo parte', cuando: 'Noviembre', logo: '/img/logo-juvenil.webp', fondo: '#fff', foto: 'm01',
+        { id: 'ju', nombre: 'Torneo Juvenil de Clubes', sub: 'Para seguir siendo parte', cuando: 'Noviembre', logo: '/img/logo-juvenil.webp', fondo: '#fff', foto: '/img/juvenil-portada.jpg',
           txt: 'Un torneo internacional pensado para clubes, en Sub 17 y Sub 15, masculino y femenino. Reúne a instituciones de casi todas las provincias y a delegaciones de Bolivia y Estados Unidos.' },
         { id: 'ma', nombre: 'Mundialito Alianza', sub: 'El torneo principal', cuando: 'Principio de enero', logo: '/logo.webp', fondo: '#fff', foto: 'd05',
           txt: 'La competencia que dio origen a todo. Diez días de fútbol en Arteaga y sus subsedes, con clubes, escuelas y delegaciones de todo el país y del exterior. El gran cierre del circuito.' }
+      ]
+    },
+    // Página Torneos: "Conocé cada torneo" (pestañas, una por propuesta). ficha = [ícono, título, texto]
+    guiaTorneos: {
+      intro: 'Durante todo el año hay una propuesta para cada club, escuela y categoría. Todas terminan en el gran torneo de enero en Arteaga. Elegí una para conocerla.',
+      lista: [
+        { id: 'ma', nombre: 'Mundialito Alianza', sub: 'El torneo principal · desde 1987', logo: '/logo.webp', foto: 'd05',
+          txt: 'La competencia que dio origen a todo. Durante unos diez días de enero, Arteaga y sus subsedes reciben a clubes, escuelas y selectivos de todo el país y del exterior. Es el gran cierre del Circuito Mundialito.',
+          ficha: [['quien', 'Quiénes juegan', 'Clubes, escuelas de fútbol y selectivos'], ['cat', 'Categorías', '2012 a 2018 · masculino'], ['cal', 'Cuándo', 'Del 8 al 17 de enero de 2027 (41.ª edición)'], ['pin', 'Dónde', 'Arteaga y subsedes de la región (16 sedes en 2026)'], ['reloj', 'Duración', 'Unos 10 días']],
+          unico: 'La inauguración con el desfile de las delegaciones y el encendido de la Llama Votiva. En la última edición jugaron más de 4.500 chicos de más de 250 instituciones.' },
+        { id: 'pm', nombre: 'Premundialitos', sub: 'El camino hacia enero', logo: '/logo.webp', foto: 's01',
+          txt: 'Torneos en distintas ciudades del país, con el mismo espíritu del Mundialito. Cada Premundialito es una experiencia propia y, además, una puerta de entrada al torneo de enero.',
+          ficha: [['quien', 'Quiénes juegan', 'Clubes, escuelas de fútbol y selectivos'], ['cat', 'Categorías', 'Las mismas que el Mundialito de enero'], ['cal', 'Cuándo', 'Durante todo el año'], ['pin', 'Dónde', 'Victoria y Federal (Entre Ríos), San Basilio y Leones (Córdoba) y San Nicolás (Buenos Aires)']],
+          unico: 'Según cada edición y categoría, dan la posibilidad de clasificar con inscripción gratuita al Mundialito Alianza de enero.' },
+        { id: 'es', nombre: 'Torneos Especiales', sub: 'Nuevas sedes, nuevas experiencias', logo: '/logo.webp', foto: '/img/especiales-damfield.jpg',
+          txt: 'Competencias con identidad propia que organizamos junto a otra institución. El Mundialito pone la marca y la estructura deportiva; la institución anfitriona, el predio y la infraestructura.',
+          ficha: [['quien', 'Quiénes juegan', 'Clubes, escuelas de fútbol y selectivos'], ['cat', 'Categorías', 'Las mismas que el Mundialito de enero'], ['cal', 'Cuándo', 'En fechas especiales del año'], ['pin', 'Dónde', 'Mundialito Alianza Funes, en Estancia Damfield']],
+          unico: 'En 2026 se jugaron dos ediciones en Funes. La de octubre reunió 66 equipos y tuvo a Maxi Rodríguez en la inauguración.' },
+        { id: 'ju', nombre: 'Torneo Juvenil de Clubes', sub: 'Para seguir siendo parte', logo: '/img/logo-juvenil.webp', foto: '/img/juvenil-portada.jpg',
+          txt: 'Un torneo internacional pensado para clubes, en las categorías más grandes. Mantiene la esencia del Mundialito y suma los desafíos de una etapa deportiva diferente.',
+          ficha: [['quien', 'Quiénes juegan', 'Solo clubes'], ['cat', 'Categorías', 'Sub 17 y Sub 15 masculino, y Sub 15 femenino'], ['cal', 'Cuándo', 'Noviembre'], ['pin', 'Dónde', 'Club Atlético Alianza, Arteaga'], ['reloj', 'Duración', '3 días']],
+          unico: 'Reúne a clubes de distintas provincias y a delegaciones de Bolivia y Estados Unidos.' },
+        { id: 'en', nombre: 'Encuentros', sub: 'Para los más chiquitos', logo: '/img/nenito.webp', foto: 'e16', aparte: true,
+          txt: 'Un fin de semana en familia para las categorías más chicas, las que todavía no juegan en enero. Porque en el Mundialito cada categoría tiene su lugar durante el año.',
+          ficha: [['quien', 'Quiénes juegan', 'Clubes y escuelas de fútbol'], ['cat', 'Categorías', 'Las más chiquitas, que todavía no juegan en enero'], ['cal', 'Cuándo', 'Durante el año'], ['pin', 'Dónde', 'Club Atlético Alianza, Arteaga']],
+          unico: 'Para muchos chicos y chicas es la primera vez que viven el Mundialito.' }
       ]
     },
     // 5. Presente y futuro
