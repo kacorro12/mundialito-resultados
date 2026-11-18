@@ -675,9 +675,39 @@ div.tz-c .tz-f{color:var(--mut);font-weight:600}
 .mq-track{display:flex;gap:14px;width:max-content;animation:mq 45s linear infinite;padding:6px 0}
 .mq:hover .mq-track{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
-.mq-i{display:flex;flex-direction:column;align-items:center;gap:8px;width:120px;padding:14px 8px;background:#fff;border:1px solid #e9e6ee;border-radius:16px;text-align:center}
-.mq-i img{width:56px;height:56px;object-fit:contain}
-.mq-i span{font-size:12px;font-weight:700;line-height:1.2}
+.mq-i{flex:none;display:grid;place-items:center;width:78px;height:78px;background:#fff;border:1px solid #ece8ef;border-radius:18px}
+.mq-i img{width:54px;height:54px;object-fit:contain}
+.mq-track{gap:12px}.mq+.mq{margin-top:4px}.mq2 .mq-track{animation-direction:reverse}
+.mq-n{text-align:center;margin:-6px auto 18px;color:#5e4a4d;font-size:14.5px}
+.pg-h+section.hs{margin-top:0!important}
+/* Conocé cada torneo */
+.gt-in{max-width:640px;margin:-4px auto 20px;text-align:center;color:#4a4350;font-size:15.5px;line-height:1.55}
+.gt-tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;margin:0 -2px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.gt-tabs::-webkit-scrollbar{display:none}
+.gt-tabs button{flex:1 0 auto;display:flex;align-items:center;gap:9px;border:1.5px solid #ece4e6;background:#fff;border-radius:14px;padding:9px 14px 9px 9px;font:inherit;font-size:14px;font-weight:800;color:#3b2a2d;cursor:pointer;white-space:nowrap;transition:.15s}
+.gt-tabs button img{width:30px;height:30px;object-fit:contain;flex:none}
+.gt-tabs button:hover{border-color:#f0c3c8}.gt-tabs button.on{background:#d7192b;border-color:#d7192b;color:#fff;box-shadow:0 8px 20px rgba(215,25,43,.25)}
+.gt-tabs button.on img{background:#fff;border-radius:50%;padding:2px}
+.band .gt-tabs button{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28);color:#fff}.band .gt-tabs button img{background:#fff;border-radius:50%;padding:2px}
+.band .gt-p .gt-b>p{color:#4a4350!important}.band .gt-p .gt-u p{color:#3b2a2d!important}.band .gt-p h3{color:#1d1d1f!important}.band .gt-p .gt-b small{color:#d7192b!important}
+.gt-p .gt-cta .btn{background:#d7192b!important;color:#fff!important;border:0!important}.gt-p .gt-cta .btn.line{background:#fff!important;color:#b3101f!important;box-shadow:inset 0 0 0 1.5px #f0c3c8!important}
+.band .gt-tabs button.on{background:#fff;border-color:#fff;color:#b3101f;box-shadow:0 10px 24px rgba(60,0,10,.25)}.band .gt-in{color:rgba(255,255,255,.9)}
+.gt-p{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid #efe7e9;border-radius:22px;overflow:hidden;box-shadow:0 14px 40px rgba(60,10,20,.07);animation:gtIn .25s ease}
+@keyframes gtIn{from{opacity:0;transform:translateY(6px)}}
+.gt-ph{position:relative;margin:0;min-height:220px;background:#eee center/cover}
+.gt-badge{position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.94);border-radius:99px;padding:5px 12px 5px 5px;font-size:12px;font-weight:800;color:#9e0e1d;letter-spacing:.02em}
+.gt-badge img{width:26px;height:26px;object-fit:contain}
+.gt-b{padding:22px 20px 22px}.gt-b small{display:block;color:#d7192b;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.gt-b h3{margin:6px 0 8px;font-size:26px;font-weight:900;letter-spacing:-.01em;color:#1d1d1f}.gt-b>p{margin:0;color:#4a4350;font-size:15px;line-height:1.6}
+.gt-f{display:grid;grid-template-columns:1fr;gap:10px;margin:18px 0 0}
+.gt-f>div{display:grid;grid-template-columns:38px 1fr;grid-template-rows:auto auto;column-gap:12px;row-gap:0;align-content:center;align-items:start;background:#faf6f7;border-radius:14px;padding:10px 12px}
+.gt-f span{grid-row:span 2;display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.gt-f svg,.gt-u svg{width:20px;height:20px;fill:none;stroke:#d7192b;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.gt-f dt{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8a7a7b}.gt-f dd{margin:1px 0 0;font-size:14.5px;font-weight:700;color:#1d1d1f;line-height:1.35}
+.gt-u{display:flex;gap:12px;margin-top:14px;padding:14px;border-radius:14px;background:linear-gradient(135deg,#fff4f5,#fff);border:1px solid #f6d3d7}
+.gt-u>span{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:#d7192b}.gt-u>span svg{stroke:#fff;fill:#fff}
+.gt-u b{display:block;font-size:13px;font-weight:900;color:#9e0e1d}.gt-u p{margin:3px 0 0;font-size:14.5px;line-height:1.5;color:#3b2a2d}
+.gt-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+@media (min-width:860px){.gt-p{grid-template-columns:minmax(0,.95fr) minmax(0,1.15fr)}.gt-ph{min-height:100%}.gt-b{padding:30px 32px}.gt-f{grid-template-columns:1fr 1fr}.gt-b h3{font-size:30px}}
 .al-sub{margin:-6px 0 14px;color:#4a4350;font-size:14.5px;line-height:1.5}
 .al-seg{max-width:360px}
 .al{display:grid;gap:12px}
@@ -754,8 +784,8 @@ a.tlc-c:hover{border-color:#e7b5bc}
  .sct h2{font-size:48px}
  .sct p{font-size:18px}
  .mq{margin:0 calc(50% - 50vw)}
- .mq-i{width:150px}
- .mq-i img{width:70px;height:70px}
+ .mq-i{width:96px;height:96px}
+ .mq-i img{width:66px;height:66px}
  .al{grid-template-columns:repeat(5,1fr)}
  .nw{grid-template-columns:repeat(3,1fr)}
  .nl{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:70px}
@@ -1789,7 +1819,7 @@ p,li,figcaption,blockquote,small,dd{text-wrap:pretty}h1,h2,h3,h4,.tn{text-wrap:b
 
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js?v=20261117f"></script>
+<script src="/config.js?v=20261118a"></script>
 <script>
 // ── Web pública del Mundialito: solo lectura, se actualiza en vivo desde el SGI ──
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
@@ -1854,7 +1884,14 @@ const S=CFG.sitio||{};
 const PI={history:'<svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>',eye:'<svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',live:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4M7.8 16.2a6 6 0 0 1 0-8.4M19.1 4.9a10 10 0 0 1 0 14.2M4.9 19.1a10 10 0 0 1 0-14.2"/></svg>',bed:'<svg viewBox="0 0 24 24"><path d="M3 18V6M3 13h18v5M21 13a4 4 0 0 0-4-4h-6v4"/><circle cx="7" cy="10" r="2"/></svg>',ticket:'<svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 1 0-4V5H3z"/><path d="M14 5v14" stroke-dasharray="2 2"/></svg>',shield:'<svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>',map:'<svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg>',calendar:'<svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M16 3v4M8 3v4M3.5 10h17"/><path d="M9 15l2 2 4-4"/></svg>',pin:'<svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',heart:'<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.6-9 9-9 9z"/></svg>',chart:'<svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>',mail:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',check:'<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>'};
 let hubTeams=null,hubTeamsLoading=false;
 async function loadHubTeams(){if(hubTeams||hubTeamsLoading)return;hubTeamsLoading=true;try{let ids=T.filter(t=>t.publicado&&tState(t)!=='fin').map(t=>t.id);if(!ids.length){hubTeams=[];return}let {data}=await sb.from('fixture_publico').select('datos').in('torneo_id',ids);let m={};(data||[]).forEach(r=>Object.values(r.datos.teams||{}).forEach(x=>{if(!x.n||/^(a confirmar|a definir)$/i.test(x.n.trim()))return;let k=cutName(x.n).toLowerCase();if(!m[k]||(!m[k].l&&x.l))m[k]=x}));hubTeams=Object.values(m).sort((a,b)=>a.n.localeCompare(b.n));let el=document.getElementById('mq');if(el)el.outerHTML=marquee()}catch(e){hubTeams=[]}finally{hubTeamsLoading=false}}
-function marquee(){if(!hubTeams||!hubTeams.length)return '<div id="mq"></div>';let items=hubTeams.map(x=>`<div class="mq-i">${x.l?`<img src="${esc(x.l)}" alt="" decoding="async">`:`<span class="cr" style="--c1:#d7192b;--c2:#fff">${esc(initials(x.n))}</span>`}<span>${esc(cutName(x.n))}</span></div>`).join('');return `<section class="hs mq-s" id="mq"><div class="hs-h center"><span>Clubes participantes</span><h2>Los que ya son parte</h2></div><div class="mq"><div class="mq-track">${items}${items}</div></div></section>`}
+// Conocé cada torneo: panel de la pestaña elegida
+const GTI={quien:'<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18 20c0-2.6-1.3-4.6-3-5.6"/></svg>',cat:'<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>',cal:'<svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>',pin:'<svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>',reloj:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',star:'<svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>'};
+function gtPanel(i){let x=(S.guiaTorneos.lista||[])[i];if(!x)return '';return `<article class="gt-p"><figure class="gt-ph" style="background-image:url(${ph(x.foto)})"><span class="gt-badge"><img src="${esc(x.logo)}" alt="">${x.aparte?'Además del circuito':'Circuito Mundialito'}</span></figure><div class="gt-b"><small>${esc(x.sub)}</small><h3>${esc(x.nombre)}</h3><p>${esc(x.txt)}</p><dl class="gt-f">${(x.ficha||[]).map(([ic,t,d])=>`<div><span>${GTI[ic]||GTI.star}</span><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join('')}</dl>${x.unico?`<div class="gt-u"><span>${GTI.star}</span><div><b>Lo que lo hace único</b><p>${esc(x.unico)}</p></div></div>`:''}<div class="gt-cta"><a class="btn" href="/calendario" data-l>Ver fechas ${IC.arrow}</a><a class="btn line" href="/contacto" data-l>Inscribir a mi club</a></div></div></article>`}
+function gtGo(k){st.gt=k;let p=document.getElementById('gtp');if(p){p.innerHTML=gtPanel(k);try{sinViudas(p)}catch(e){}}document.querySelectorAll('.gt-tabs button').forEach((b,j)=>{b.classList.toggle('on',j===k);b.setAttribute('aria-selected',j===k)})}
+// Clubes participantes: solo logos, sin repetir, en dos filas que giran en sentidos opuestos
+function marquee(){let fijos=(S.logosClubes||[]).map(n=>'/img/clubes/'+n+'.webp'),extra=(hubTeams||[]).map(x=>x.l).filter(l=>l&&!/^\/logos\//.test(l)),L=[...new Set([...fijos,...extra])];if(!L.length)return '<div id="mq"></div>';
+ let mitad=Math.ceil(L.length/2),fila=(xs,k)=>{let it=xs.map(u=>`<div class="mq-i"><img src="${esc(u)}" alt="" decoding="async"></div>`).join('');return `<div class="mq mq${k}"><div class="mq-track" style="animation-duration:${Math.max(18,xs.length*0.55).toFixed(1)}s">${it}${it}</div></div>`};
+ return `<section class="hs mq-s" id="mq"><div class="hs-h center"><span>Clubes participantes</span><h2>Los que ya son parte</h2></div><p class="mq-n">Más de ${Math.floor(L.length/10)*10} clubes, escuelas y selectivos ya jugaron el Mundialito.</p>${fila(L.slice(0,mitad),1)}${fila(L.slice(mitad),2)}</section>`}
 // Cuenta regresiva y contador animado
 let cdTimer=null;
 let slTimer=null;
@@ -1920,12 +1957,12 @@ function legalHTML(pg){let C=S.contacto||{},m=C.inscripcion||'mundialitoalianza@
 // Páginas de la web: cada pestaña muestra algunas secciones del inicio completo
 // Alojamientos queda guardada (/alojamientos) pero fuera del menú hasta corregir la información
 const PNAV=[['','Inicio'],['torneos','Torneos'],['historia','Historia'],['calendario','Calendario'],['novedades','Novedades'],['contacto','Contacto']];
-const PSEL={'':['.hx2','#circuito','#hteaser','#porque','#scouts','#numeros','#futbolistas','#noticias','.nl'],torneos:['#circuito','#scouts','#futbolistas','#porque','#bonos','#jugados','#mq','.nl'],historia:['#historia','.llama','#experiencia','#futuro','#mision','.nl'],calendario:['#calendario','.nl'],alojamientos:['#alojamiento','.nl'],novedades:['#noticias','.nl'],contacto:['#contacto','.nl'],'aviso-legal':['.nl'],privacidad:['.nl'],cookies:['.nl']};
-const PHEAD={torneos:['Torneos','Nuestros torneos','m12','Las propuestas del Circuito Mundialito: del gran torneo de enero a los encuentros para los más chiquitos.'],historia:['Historia','Una historia que nos une','h1988-28','Cuatro décadas de fútbol infantil en Arteaga.'],calendario:['Calendario','Circuito Mundialito','d05','Todas las fechas del circuito, con sede, cupos y fixture.'],alojamientos:['Alojamientos','Dónde hospedarse','d01','Opciones de alojamiento para el Mundialito Alianza de enero, en Arteaga.'],novedades:['Novedades','Lo último del Mundialito','m06','Noticias, anuncios y resultados de todo el circuito.'],contacto:['Contacto','Hablemos','h2001-08','Inscripciones, consultas y propuestas: estamos para ayudarte.'],'aviso-legal':['Legal','Aviso legal','m12','Quién está detrás de este sitio y en qué condiciones se puede usar.'],privacidad:['Legal','Política de privacidad','m12','Cómo tratamos tus datos personales, según la Ley 25.326.'],cookies:['Legal','Política de cookies','m12','Qué guardamos en tu navegador y para qué.']};
+const PSEL={'':['.hx2','#circuito','#hteaser','#porque','#scouts','#numeros','#futbolistas','#noticias','.nl'],torneos:['#guia','#scouts','#futbolistas','#porque','#bonos','#jugados','#mq','.nl'],historia:['#historia','.llama','#experiencia','#futuro','#mision','.nl'],calendario:['#calendario','.nl'],alojamientos:['#alojamiento','.nl'],novedades:['#noticias','.nl'],contacto:['#contacto','.nl'],'aviso-legal':['.nl'],privacidad:['.nl'],cookies:['.nl']};
+const PHEAD={torneos:['Torneos','Nuestros torneos','/img/torneos-portada.jpg','Las propuestas del Circuito Mundialito: del gran torneo de enero a los encuentros para los más chiquitos.'],historia:['Historia','Una historia que nos une','/img/historia-portada.jpg','Cuatro décadas de fútbol infantil en Arteaga.'],calendario:['Calendario','Circuito Mundialito','d05','Todas las fechas del circuito, con sede, cupos y fixture.'],alojamientos:['Alojamientos','Dónde hospedarse','d01','Opciones de alojamiento para el Mundialito Alianza de enero, en Arteaga.'],novedades:['Novedades','Lo último del Mundialito','m06','Noticias, anuncios y resultados de todo el circuito.'],contacto:['Contacto','Hablemos','h2001-08','Inscripciones, consultas y propuestas: estamos para ayudarte.'],'aviso-legal':['Legal','Aviso legal','m12','Quién está detrás de este sitio y en qué condiciones se puede usar.'],privacidad:['Legal','Política de privacidad','m12','Cómo tratamos tus datos personales, según la Ley 25.326.'],cookies:['Legal','Política de cookies','m12','Qué guardamos en tu navegador y para qué.']};
 function pageView(pg){let tp=document.createElement('template');tp.innerHTML=hub();let out=document.createElement('div'),h=PHEAD[pg];
  if(h)out.insertAdjacentHTML('beforeend',`<section class="pg-h" style="background-image:url(${ph(h[2])})"><div class="pg-in"><nav class="pg-bc"><a href="/" data-l>Inicio</a><i>/</i><span>${esc(h[0])}</span></nav><h1>${esc(h[1])}</h1>${h[3]?`<p>${esc(h[3])}</p>`:''}</div></section>`);
  let n0=out.children.length;if(LEGAL[pg])out.insertAdjacentHTML('beforeend',legalHTML(pg));(PSEL[pg]||PSEL['']).forEach(q=>tp.content.querySelectorAll(q).forEach(n=>out.append(n)));
- if(!out.querySelector('#calendario,#alojamiento,#noticias,#contacto,#historia,#torneos,#circuito,#legal')&&pg)out.firstElementChild.insertAdjacentHTML('afterend','<p class="hs-empty pg-empty">Pronto vamos a publicar esta sección.</p>');
+ if(!out.querySelector('#calendario,#alojamiento,#noticias,#contacto,#historia,#torneos,#circuito,#guia,#legal')&&pg)out.firstElementChild.insertAdjacentHTML('afterend','<p class="hs-empty pg-empty">Pronto vamos a publicar esta sección.</p>');
  // Fondos alternados (blanco, rojo, blanco…) según el orden en que quedan las secciones de cada página
  // Se cuenta desde abajo: la última queda blanca porque abajo viene la franja roja del newsletter. La Llama es roja siempre y cuenta como roja.
  {let L=[...out.querySelectorAll(':scope>section.hs,:scope>.llama')].reverse();L.forEach((s,k)=>{if(s.matches('section.hs'))s.classList.toggle('band',k%2===1)})}
@@ -1948,6 +1985,8 @@ function hub(){let n=todayISO(),live=T.filter(t=>tState(t)==='live'),up=T.filter
  let L=S.llama;if(L)html+=`<section class="llama llama2"><div class="llama-in"><div class="llama-tx"><span class="llama-k">Nuestra identidad y nuestras tradiciones</span><h2>${esc(L.titulo)}</h2><p>${esc(L.texto)}</p>${L.encendidos?`<div class="llama-e"><small class="llama-et">La encendieron</small>${L.encendidos.map(([y,nm])=>`<div><small>${esc(y)}</small><b>${esc(nm)}</b></div>`).join('')}</div>`:''}</div>${L.fotos?`<div class="llama-ph">${rotHTML(L.fotos,k=>{let y=phY(k),w=(L.encendidos||[]).find(e=>e[0]===y);return `<b>Llama Votiva ${esc(y)}</b>${w?`<span>La encendió ${esc(w[1])}</span>`:''}`})}</div>`:''}</div></section>`;
  // 4. El Circuito Mundialito
  let CI=S.circuito;if(CI)html+=`<section class="hs" id="circuito"><div class="hs-h center"><span>El Circuito Mundialito</span></div><p class="ci-tx">${esc(CI.txt)}</p><div class="ci">${CI.propuestas.map(x=>`<article class="ci-c${x.ancho?' ancho':''}"><div class="ci-ph${x.foto?'':' nofoto'}"${x.foto?` style="background-image:url(${ph(x.foto)})"`:''}>${x.cuando?`<span class="ci-when">${IC.cal}${esc(x.cuando)}</span>`:''}</div><div class="ci-logo${x.logoRojo?' rojo':''}" style="background:${x.fondo}"><img src="${esc(x.logo)}" alt="${esc(x.nombre)}"></div><div class="ci-b"><small>${esc(x.sub)}</small><h3>${esc(x.nombre)}</h3><p>${esc(x.txt)}</p></div></article>`).join('')}</div><div class="sec-more"><a class="btn line" href="/torneos" data-l>Conocé todos los torneos ${IC.arrow}</a></div></section>`;
+ // Página Torneos: "Conocé cada torneo" (pestañas)
+ {let G=S.guiaTorneos;if(G&&G.lista&&G.lista.length){let i=Math.min(st.gt||0,G.lista.length-1);html+=`<section class="hs gt" id="guia"><div class="hs-h center"><span>Conocé cada torneo</span><h2>Una propuesta para cada club</h2></div>${G.intro?`<p class="gt-in">${esc(G.intro)}</p>`:''}<div class="gt-tabs" role="tablist">${G.lista.map((x,k)=>`<button role="tab" aria-selected="${k===i}" class="${k===i?'on':''}" onclick="gtGo(${k})"><img src="${esc(x.logo)}" alt=""><span>${esc(x.nombre)}</span></button>`).join('')}</div><div id="gtp">${gtPanel(i)}</div></section>`}}
  // 5. Presente y futuro
  let F=S.futuro;if(F)html+=`<section class="hs" id="futuro"><div class="hs-h center"><span>Nuestro presente y futuro</span></div><div class="fu2">${F.fotoVentana?`<figure class="fu2-ph"><img src="${ph(F.fotoVentana)}" alt="" loading="lazy"><figcaption>${esc(phPlace(F.fotoVentana))}</figcaption></figure>`:''}<div class="fu2-c">${(F.parrafos||[]).map((p,j)=>`<article class="fu2-i"><span class="fu2-ic">${[PI.history,PI.heart,PI.shield][j%3]}</span><div><h3>${esc((F.items||[])[j]||'')}</h3><p>${esc(p)}</p></div></article>`).join('')}</div></div></section>`;
  // 3. Contador animado
