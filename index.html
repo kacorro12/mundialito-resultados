@@ -1724,7 +1724,7 @@ button.ct-c>svg{width:18px;height:18px;fill:none;stroke:#b4adbb;stroke-width:2.4
 .mt-meta .tvb i{width:7px;height:7px;border-radius:50%;background:#ff2d2d;box-shadow:0 0 0 3px rgba(255,45,45,.3)}
 .tv-bar{display:flex;align-items:center;gap:14px;margin:12px 0;padding:12px 14px;border-radius:16px;background:#141414;color:#fff;box-shadow:0 10px 26px rgba(0,0,0,.18)}
 .tv-bar img{width:54px;height:54px;object-fit:contain;flex-shrink:0}
-.tv-bar div{flex:1;min-width:0}
+.tv-bar .tv-tx{flex:1;min-width:0}
 .tv-bar small{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#ff6b6b}
 .tv-bar small i{width:8px;height:8px;border-radius:50%;background:#ff2d2d;animation:estp 1.2s infinite}
 .tv-bar b{display:block;margin-top:2px;font-size:15px;font-weight:900;line-height:1.25}
@@ -1732,7 +1732,7 @@ button.ct-c>svg{width:18px;height:18px;fill:none;stroke:#b4adbb;stroke-width:2.4
 .tv-act{display:flex;gap:8px;flex-shrink:0}
 .tv-act a,.tv-act button{border:0;border-radius:10px;padding:10px 13px;background:#e11d2e;color:#fff;font:inherit;font-weight:900;font-size:12.5px;cursor:pointer;white-space:nowrap;text-decoration:none}
 .tv-act button{background:rgba(255,255,255,.12)}
-@media (max-width:640px){.tv-bar{flex-wrap:wrap}.tv-act{width:100%}.tv-act a,.tv-act button{flex:1;text-align:center}}
+@media (max-width:640px){.tv-bar{flex-wrap:wrap;gap:10px 12px;padding:12px}.tv-bar img{width:46px;height:46px}.tv-bar b{font-size:14px}.tv-bar span{font-size:12px}.tv-act{flex:1 1 100%}.tv-act a,.tv-act button{flex:1;text-align:center;padding:11px 10px}}
 .tv-det{display:flex;align-items:center;gap:12px;margin-top:14px;padding:12px;border-radius:14px;background:#141414;color:#fff}
 .tv-det img{width:44px;height:44px;object-fit:contain}
 .tv-det div{flex:1;min-width:0}.tv-det b{display:block;font-size:14px;font-weight:900}.tv-det small{display:block;font-size:12px;color:rgba(255,255,255,.75)}
@@ -2104,7 +2104,7 @@ const tvCfg=t=>{let c=t&&(t.config||{}).tv;return c&&c.on?c:null};
 const tvLink=c=>{let u=String(c.link||'https://www.gopass.tv').trim();return /^https?:\/\//i.test(u)?u:'https://'+u};
 function esTV(m,t){t=t||T.find(x=>x.id===st.t);let c=tvCfg(t);if(!c||m.tv===false||m.bye)return false;return m.tv===true||((!!m.src||!/^(Zona|Interzonal)$/.test(m.ph||'Zona'))&&(c.canchas||[]).includes(m.f))}
 function tvBar(t,f){let c=tvCfg(t);if(!c||!f)return '';let n=f.matches.filter(m=>esTV(m,t)).length;if(!n)return '';
- return `<div class="tv-bar"><img src="${esc(c.logo||'/img/chabasya.webp')}" alt="${esc(c.nombre||'')}"><div><small><i></i>Transmisión oficial</small><b>Mirá las semifinales y finales en vivo por ${esc(c.nombre||'streaming')}</b><span>${n?n+' partido'+(n>1?'s':'')+' de esta categoría se transmite'+(n>1?'n':'')+'. ':''}Con un ticket ves todos los partidos del día.</span></div><div class="tv-act"><a href="${esc(tvLink(c))}" target="_blank" rel="noopener">Comprar ticket</a><button onclick="tvAyuda()">Cómo comprar</button></div></div>`}
+ return `<div class="tv-bar"><img src="${esc(c.logo||'/img/chabasya.webp')}" alt="${esc(c.nombre||'')}"><div class="tv-tx"><small><i></i>Transmisión oficial</small><b>Mirá las semifinales y finales en vivo por ${esc(c.nombre||'streaming')}</b><span>${n?n+' partido'+(n>1?'s':'')+' de esta categoría se transmite'+(n>1?'n':'')+'. ':''}Con un ticket ves todos los partidos del día.</span></div><div class="tv-act"><a href="${esc(tvLink(c))}" target="_blank" rel="noopener">Comprar ticket</a><button onclick="tvAyuda()">Cómo comprar</button></div></div>`}
 function tvAyuda(){let t=T.find(x=>x.id===st.t),c=tvCfg(t);if(!c)return;let wa=String(c.wa||'').replace(/\D/g,''),ig=String(c.ig||'').trim();if(ig&&!/^https?:/i.test(ig))ig='https://instagram.com/'+ig.replace(/^@/,'');
  let redes=[[ig,'Instagram'],[c.fb,'Facebook'],[c.yt,'YouTube']].filter(x=>x[0]);
  abrirHoja(`<div class="sh-h"><div><b>Cómo ver la transmisión</b><small>${esc(c.nombre||'')} · transmisión oficial</small></div><button class="sh-x" onclick="cerrarHoja()" aria-label="Cerrar">×</button></div><div class="sh-b"><ol class="tv-pasos"><li><span>Entrá a <b>${esc(tvLink(c).replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,''))}</b> con el botón de abajo.</span></li><li><span>Comprá el evento del día. Los eventos aparecen cuando se definen los cruces de semifinales y finales.</span></li><li><span>Miralo en el celular, la tele, la tablet o la compu. Con un ticket ves los partidos de las dos canchas.</span></li></ol><div class="tv-nota">Cada ticket se usa en un solo dispositivo y el link no se puede compartir.</div>${wa||redes.length?`<div class="tv-redes">${wa?`<a href="https://wa.me/${wa}" target="_blank" rel="noopener">¿Dudas para comprar? WhatsApp</a>`:''}${redes.map(([u,n])=>`<a href="${esc(/^https?:/i.test(u)?u:'https://'+u)}" target="_blank" rel="noopener">${n}</a>`).join('')}</div>`:''}</div><div class="sh-f"><a class="sh-ok" style="display:block;flex:1;width:100%;text-align:center;text-decoration:none" href="${esc(tvLink(c))}" target="_blank" rel="noopener">Comprar ticket</a></div>`)}
