@@ -1873,7 +1873,7 @@ p,li,figcaption,blockquote,small,dd{text-wrap:pretty}h1,h2,h3,h4,.tn{text-wrap:b
 
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="/config.js?v=20261122r"></script>
+<script src="/config.js?v=20261122s"></script>
 <script>
 // ── Web pública del Mundialito: solo lectura, se actualiza en vivo desde el SGI ──
 const CFG=window.MUNDIALITO_CFG,sb=supabase.createClient(CFG.url,CFG.key);
@@ -1911,7 +1911,8 @@ function projC(f,s,d){if(!s||d>6)return [];if(s.team)return [s.team];
   if(!(f.zones||[]).some(z=>zm(z).length))return [];let l=f.zones.map(z=>standings(f,z)[s.pos-1]).filter(Boolean).sort((a,b)=>b.pts-a.pts||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf||a.gc-b.gc),r=l[s.rank-1];return r?[r.id]:[]}
  let k=s.winner||s.loser,mk=k&&f.matches.find(x=>x.k===k);if(!mk)return [];let w=winner(mk);if(w)return [s.winner?w:(w===mk.h?mk.a:mk.h)].filter(Boolean);
  let side=l=>mk[l]?[mk[l]]:projC(f,mk.src&&mk.src[l],d+1);return [...new Set([...side('h'),...side('a')])]}
-function proy(f,m,l){if(m[l]||m.bye||!m.src)return null;let ids=projC(f,m.src[l],0).filter(x=>f.teams?.[x]);if(!ids.length||ids.length>2)return null;let lb=m[l+'l']||'',s=m.src[l],mk=(s.winner||s.loser)&&f.matches.find(x=>x.k===(s.winner||s.loser));if(mk)lb=(s.winner?'Ganador ':'Perdedor ')+(/semi/i.test(mk.ph||'')?'semi '+(f.matches.filter(x=>x.ph===mk.ph).sort((a,b)=>a.n-b.n).indexOf(mk)+1):'P'+mk.n);return {ids,n:ids.map(x=>dName(f,x)).join(' o '),sub:(s.zone!==undefined||s.rank)?(lb?lb+' ':'')+'según la tabla de hoy':lb,tag:`<em class="posb">${ids.length>1?'Posibles rivales':'Posible clasificado'}</em>`}}
+const rkLabel=(f,s)=>s.rank===1?'Mejor '+s.pos+'°':s.rank===(f.zones||[]).length?'Peor '+s.pos+'°':s.rank+'° mejor '+s.pos+'°';
+function proy(f,m,l){if(m[l]||m.bye||!m.src)return null;let ids=projC(f,m.src[l],0).filter(x=>f.teams?.[x]);if(!ids.length||ids.length>2)return null;let lb=m[l+'l']||'',s=m.src[l];if(s.rank)lb=rkLabel(f,s);letmk=(s.winner||s.loser)&&f.matches.find(x=>x.k===(s.winner||s.loser));if(mk)lb=(s.winner?'Ganador ':'Perdedor ')+(/semi/i.test(mk.ph||'')?'semi '+(f.matches.filter(x=>x.ph===mk.ph).sort((a,b)=>a.n-b.n).indexOf(mk)+1):'P'+mk.n);return {ids,n:ids.map(x=>dName(f,x)).join(' o '),sub:(s.zone!==undefined||s.rank)?(lb?lb+' ':'')+'según la tabla de hoy':lb,tag:`<em class="posb">${ids.length>1?'Posibles rivales':'Posible clasificado'}</em>`}}
 const proyCrest=(f,p,big)=>p.ids.length>1?`<span class="cr2">${p.ids.map(x=>crest(f,x,big)).join('')}</span>`:crest(f,p.ids[0],big);
 function initials(n){let w=String(n||'').replace(/[^\p{L}\p{N}\s]/gu,' ').split(/\s+/).filter(Boolean),k=w.filter(x=>!STOP.test(x));if(!k.length)k=w;return (k.length>1?k[0][0]+k[1][0]:(k[0]||'?').slice(0,2)).toUpperCase()}
 const hue=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))>>>0;return h%360};
