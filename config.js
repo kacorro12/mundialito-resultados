@@ -255,11 +255,11 @@ window.MUNDIALITO_CFG = {
     juvenil26: {
       pdf: '/docs/reglamento-4to-juvenil-de-clubes-2026.pdf',
       sistema: [
-        { cat: 'Sub 17', equipos: '12 equipos', formato: '3 zonas de 4 equipos, todos contra todos dentro de cada zona. Después se reparten en tres copas.',
+        { cat: 'Sub 17', equipos: '14 equipos', formato: '2 zonas de 4 equipos y 2 zonas de 3 equipos que disputan un interzonal. Todos contra todos dentro de cada zona: 3 partidos por equipo. Después se reparten en tres copas.',
           copas: [
-            { n: 'Oro', c: 'oro', t: 'Los 3 primeros y el mejor 2°. Semis: mejor 1° vs mejor 2° y 2° mejor 1° vs 3° mejor 1°. Los perdedores juegan por el 3.er y 4.º puesto.' },
-            { n: 'Plata', c: 'plata', t: 'Los 2 segundos restantes y los 2 mejores 3°. Semis: mejor 2° vs 2° mejor 3° y 2° mejor 2° vs mejor 3°.' },
-            { n: 'Bronce', c: 'bronce', t: 'El 3° restante y los 3 cuartos. Semis: 3° restante vs 3.er mejor 4° y mejor 4° vs 2° mejor 4°.' } ] },
+            { n: 'Oro', c: 'oro', t: 'Los 4 primeros. Semis: mejor 1° vs 4° mejor 1° y 2° mejor 1° vs 3° mejor 1°. Los perdedores juegan por el 3.er y 4.º puesto.' },
+            { n: 'Plata', c: 'plata', t: 'Los 4 segundos. Semis: mejor 2° vs 4° mejor 2° y 2° mejor 2° vs 3° mejor 2°. Los perdedores quedan eliminados.' },
+            { n: 'Bronce', c: 'bronce', t: 'Los 4 terceros. Semis: mejor 3° vs 4° mejor 3° y 2° mejor 3° vs 3° mejor 3°. Los perdedores quedan eliminados.' } ] },
         { cat: 'Sub 15', equipos: '8 equipos', formato: '2 zonas de 4 equipos, todos contra todos dentro de cada zona.',
           copas: [
             { n: 'Oro', c: 'oro', t: 'Semis: 1° Zona A vs 2° Zona B y 1° Zona B vs 2° Zona A. Los perdedores juegan por el 3.er y 4.º puesto.' },
